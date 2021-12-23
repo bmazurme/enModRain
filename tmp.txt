@@ -1,0 +1,302 @@
+<script>
+            window.addEventListener("load", function () {
+              let el1 = document.getElementById("formula1");
+              katex.render("Q_r", el1);
+            });
+            window.addEventListener("load", function () {
+              let el2 = document.getElementById("formula2");
+              katex.render(String.raw`Q_{r} = \dfrac{Z_{mid} \cdot A^{1.2} \cdot F}{t_{r}^{1.2 \cdot n - 0.1}}`, el2, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el3 = document.getElementById("formula3");
+              katex.render(String.raw`Z_{mid}`, el3, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el4 = document.getElementById("formula4");
+              katex.render(String.raw`A, n`, el4, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el5 = document.getElementById("formula5");
+              katex.render(String.raw`A = q_{20} \cdot 20^{n} \cdot (1 + \dfrac {lgP}{lgm_{r}})`, el5, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el6 = document.getElementById("formula6");
+              katex.render(String.raw`F`, el6, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el7 = document.getElementById("formula7");
+              katex.render(String.raw`t_{r}`, el7, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el8 = document.getElementById("formula8");
+              katex.render(String.raw`t_{r} = t_{con} + t_{can} + t_{p}`, el8, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el9 = document.getElementById("formula9");
+              katex.render(String.raw`t_{con}`, el9, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el10 = document.getElementById("formula10");
+              katex.render(String.raw`t_{con} =`, el10, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el11 = document.getElementById("formula11");
+              katex.render(String.raw`[XXX]`, el11, {throwOnError: false});
+            });
+
+
+            window.addEventListener("load", function () {
+              let el12 = document.getElementById("formula12");
+              katex.render(String.raw`t_{can}`, el12, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el13 = document.getElementById("formula13");
+              katex.render(String.raw`t_{can} = 0,021 \cdot \sum \dfrac {l_{can}}{v_{can}}`, el13, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el14 = document.getElementById("formula14");
+              katex.render(String.raw`t_{can} = `, el14, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el15 = document.getElementById("formula15");
+              katex.render(String.raw`[XXX]`, el15, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el16 = document.getElementById("formula16");
+              katex.render(String.raw`t_{p}`, el16, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el17 = document.getElementById("formula17");
+              katex.render(String.raw`t_{p} = 0,017 \cdot \sum \dfrac {l_{p}}{v_{p}}`, el17, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el18 = document.getElementById("formula18");
+              katex.render(String.raw`t_{p} = `, el18, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el19 = document.getElementById("formula19");
+              katex.render(String.raw`[XXX]`, el19, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el20 = document.getElementById("formula20");
+              katex.render(String.raw`q_{20}`, el20, {throwOnError: false});
+            });
+
+            window.addEventListener("load", function () {
+              let el21 = document.getElementById("formula21");
+              katex.render(String.raw`q_{20} = `, el21, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el22 = document.getElementById("formula22");
+              katex.render(String.raw`[XXX]`, el22, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el23 = document.getElementById("formula23");
+              katex.render(String.raw`m_{r}`, el23, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el24 = document.getElementById("formula24");
+              katex.render(String.raw`m_{r} = `, el24, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el25 = document.getElementById("formula25");
+              katex.render(String.raw`[XXX]`, el25, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el26 = document.getElementById("formula26");
+              katex.render(String.raw`P`, el26, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el27 = document.getElementById("formula27");
+              katex.render(String.raw`P = `, el27, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el28 = document.getElementById("formula28");
+              katex.render(String.raw`[XXX]`, el28, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el29 = document.getElementById("formula29");
+              katex.render(String.raw`t_{r} = `, el29, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el30 = document.getElementById("formula30");
+              katex.render(String.raw`[XXX]`, el30, {throwOnError: false});
+            });
+
+            window.addEventListener("load", function () {
+              let el31 = document.getElementById("formula31");
+              katex.render(String.raw` + `, el31, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el35 = document.getElementById("formula35");
+              katex.render(String.raw`A = q_{20} \cdot 20^{n} \cdot (1 + \dfrac {lgP}{lgm_{r}})^{y} = `, el35, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el36 = document.getElementById("formula36");
+              katex.render(String.raw`[XXX]`, el36, {throwOnError: false});
+            });
+
+
+            window.addEventListener("load", function () {
+              let el37 = document.getElementById("formula37");
+              katex.render(String.raw`Q_{r} = \dfrac {Z_{mid} \cdot A^{1.2} \cdot F}{t_{r}^{1.2 \cdot n - 0.1}} =s`, el37, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el38 = document.getElementById("formula38");
+              katex.render(String.raw`[XXX]`, el38, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el39 = document.getElementById("formula39");
+              katex.render(String.raw`Q_{calc} = Q_{r} \cdot \beta =`, el39, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el40 = document.getElementById("formula40");
+              katex.render(String.raw`[XXX]`, el40, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el41 = document.getElementById("formula41");
+              katex.render(String.raw`\cdot`, el41, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el42 = document.getElementById("formula42");
+              katex.render(String.raw`[XXX]`, el42, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el43 = document.getElementById("formula43");
+              katex.render(String.raw` = `, el43, {throwOnError: false});
+            });
+            window.addEventListener("load", function () {
+              let el44 = document.getElementById("formula44");
+              katex.render(String.raw`[XXX]`, el44, {throwOnError: false});
+            });
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+          </script>
+
+          <p>Расчет расходов дождевых вод в коллекторах дождевой канализации:</p>
+          <p>
+            Расчетный расход дождевых вод <span id="formula1"></span>, л/с,
+            определяется по методу предельных интенсивностей по формуле:
+        </p>
+        <p><span id="formula2"></span></p>
+        <p>
+            где <span id="formula3"></span> - среднее значение коэффициента, характеризуещего поверхностного
+            стока, определяемое согласно п.7.4.1, СП 32.13330
+        </p>
+        <p>
+          <span id="formula4"></span> - параметры, определяемые согласно таблице 9, СП 32.13330
+        </p>
+            <p><span id="formula5"></span>
+        </p>
+        <p><span id="formula6"></span>
+            - расчетная площадь стока, га        </p>
+        <p>
+          <span id="formula7"></span>
+            - время дотекания дождевого стока по поверхности и трубам до расчетного
+            участка (створа)
+        </p>
+    
+        <p>
+          <span id="formula8"></span>
+        </p>
+        <p>
+            где <span id="formula9"></span> - продолжительность протекания дождевых вод до уличного лотка или
+            при наличии дождеприемников в пределах квартала до уличного коллектора (время поверхностной концентрации), мин,
+            определяемая согласно 7.4.6;
+        </p>
+        <p>
+          <span id="formula10"></span>
+          <span id="formula11"></span> мин
+        </p>
+        <p>
+          <span id="formula12"></span>
+            - вто же, по уличным лоткам до дождеприемника (при отсутствии их в
+            пределах квартала), определяемая по формуле (15)
+        </p>
+        <p>
+          <span id="formula13"></span>
+        </p>
+        <p>
+          <span id="formula14"></span>
+          <span id="formula15"></span> мин
+        </p>
+        <p>
+          <span id="formula16"></span> - то же, по трубам до рассчитываемого створа, определяемая по формуле (16)
+        </p>
+        <p>
+          <span id="formula17"></span>
+        </p>
+        <p>
+          <span id="formula18"></span>
+            <span id="formula19"></span> мин
+        </p>
+        <p>
+
+            где <span id="formula20"></span> - интенсивность дождя для данной местности продолжительностью 20 мин
+        </p>
+        <p>
+          <span id="formula21"></span>
+          <span id="formula22"></span>
+        </p>
+        <p>
+          <span id="formula23"></span> - среднее количество дождей за год, принимаемое по таблице 9
+        </p>
+        <p>
+          <span id="formula24"></span>
+          <span id="formula25"></span>
+
+        </p>
+        <p>
+          <span id="formula26"></span>
+            - период однократного превышения расчетной интенсивности дождя, годы
+        </p>
+        <p>
+          <span id="formula27"></span>
+          <span id="formula28"></span>
+
+        </p>
+        <p>
+          <span id="formula29"></span>
+          <span id="formula30"></span>
+          <span id="formula31"></span>
+
+          <span id="formula32"></span>
+          <span id="formula31"></span>
+          <span id="formula33"></span>
+          <span id="formula31"></span>
+          <span id="formula34"></span> мин
+        </p>
+        <p>
+          <span id="formula35"></span>
+          <span id="formula36"></span>
+
+
+        </p>
+        <p>
+          <span id="formula37"></span>
+          <span id="formula38"></span>
+
+            л/с
+        </p>
+        <p>
+          <span id="formula39"></span>
+          <span id="formula40"></span>
+          <span id="formula41"></span>
+          <span id="formula42"></span>
+
+            л/с
+        </p>
