@@ -14,6 +14,7 @@
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_inactive/form__save_inactive.css);
+@import url(../blocks/element/element.css);
 /* @import url(../blocks/header/header.css);
 @import url(../blocks/logo/logo.css);
 @import url(../blocks/profile/profile.css);
@@ -24,7 +25,7 @@
 @import url(../blocks/profile/__edit/profile__edit.css);
 @import url(../blocks/profile/__add/profile__add.css);
 @import url(../blocks/elements/elements.css);
-@import url(../blocks/element/element.css);
+
 @import url(../blocks/element/__remove/element__remove.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__name/element__name.css);

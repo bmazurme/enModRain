@@ -24,45 +24,14 @@
         </section>
 
         <section class="elements">
-          <p>Расход дождевого стока определяется по формуле:</p>
-          <p>
-              Расчетный расход дождевых вод <span id="formula1"></span>,
-              л/с, с водосборной площади следует вычислять по формулам:
-          </p>
-          <p>
-              - для кровель с уклоном до 1,5% включительно
-          </p>
-          <p><span id="formula2"></span></p>
-          <p> - для кровель с уклоном свыше 1,5%</p>
-          <p><span id="formula3"></span></p>
-          <p>
-              где <span id="formula4"></span> 
-              - интенсивность дождя, л/с с га (для данной местности),
-              продолжительностью 20 мин при периоде однократного превешения
-               расчетной интенсивности, равной одному году
-          </p>
-          <p><span id="formula5"></span> 
-              - интенсивность дождя, л/с с га (для данной местности),
-              продолжительностью 5 мин при периоде однократного превешения 
-              расчетной интенсивности, равной одному году,
-              вычисляется по формуле
-          </p>
-
-          <p> <span id="formula6"></span></p>
-          <div class="block__area">
-            <p>Площадь горизонтальной поверхности</p>
-            <p><span id="formula7"></span></p>
-          </div>
-
-          <div class="block__result">
-            <p> <span id="formula27"></span></p>
-          </div>
+          
+          <!-- cards -->
 
         </section>
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 EntHub</p>
+        <p class="footer__copyright"> &copy; 2021</p>
       </footer>
     </div>
 
@@ -120,28 +89,108 @@
       </div>
     </div>
 
+
+
+
+
+
     <template id="card-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button"></button>
-        <!-- <img class="element__image" alt="image"> -->
+        <button aria-label="Remove" class="element__remove" type="button">Delete</button>
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__result"></p>
-          <button aria-label="Like" class="element__like" name="button-like"></button>
+          <p>Расход дождевого стока определяется по формуле:</p>
+          <p>
+              Расчетный расход дождевых вод <span class="formula1"></span>,
+              л/с, с водосборной площади следует вычислять по формулам:
+          </p>
+          <p>
+              - для кровель с уклоном до 1,5% включительно
+          </p>
+          <p><span class="formula2"></span></p>
+          <p> - для кровель с уклоном свыше 1,5%</p>
+          <p><span class="formula3"></span></p>
+          <p>
+              где <span class="formula4"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 20 мин при периоде однократного превешения
+               расчетной интенсивности, равной одному году
+          </p>
+          <p><span class="formula5"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 5 мин при периоде однократного превешения 
+              расчетной интенсивности, равной одному году,
+              вычисляется по формуле
+          </p>
+
+          <p> <span class="formula6"></span></p>
+          <div class="block__area">
+            <p>Площадь горизонтальной поверхности</p>
+            <p><span class="formula7"></span></p>
+          </div>
+
+          <div class="block__result">
+            <p> <span class="formula27"></span></p>
+          </div>
+          <!-- <button aria-label="Like" class="element__like" name="button-like"></button> -->
         </div>
       </div>
     </template>
 
-    <template id="area-template">
-      <p>Площадь вертикальной поверхности</p>
-      <p><span id="formula10"></span></p>
-      <p>Суммарная площадь горизонтальной поверхности и 30% вертикальной поверхности</p>
-      <p><span id="formula13"></span></p>
-      <p><span id="formula14"></span></p>
-    </template>
+    <template id="card1-template">
+      <div class="element">
+        <button aria-label="Remove" class="element__remove" type="button">Delete</button>
+        <div class="element__group">
+          <h2 class="element__name"></h2>
+          <p class="element__result"></p>
+          <p>Расход дождевого стока определяется по формуле:</p>
+          <p>
+              Расчетный расход дождевых вод <span class="formula1"></span>,
+              л/с, с водосборной площади следует вычислять по формулам:
+          </p>
+          <p>
+              - для кровель с уклоном до 1,5% включительно
+          </p>
+          <p><span class="formula2"></span></p>
+          <p> - для кровель с уклоном свыше 1,5%</p>
+          <p><span class="formula3"></span></p>
+          <p>
+              где <span class="formula4"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 20 мин при периоде однократного превешения
+               расчетной интенсивности, равной одному году
+          </p>
+          <p><span class="formula5"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 5 мин при периоде однократного превешения 
+              расчетной интенсивности, равной одному году,
+              вычисляется по формуле
+          </p>
 
-    <template id="result-template">
-      <p> <span id="formula21"></span> ^ <span id="formula22"></span> </p>
+          <p> <span class="formula6"></span></p>
+          <div class="block__area">
+            <p>Площадь горизонтальной поверхности</p>
+
+            <p>Площадь вертикальной поверхности</p>
+            <p><span class="formula10"></span></p>
+            <p>Суммарная площадь горизонтальной поверхности и 30% вертикальной поверхности</p>
+            <p><span class="formula13"></span></p>
+            <p><span class="formula14"></span></p>
+
+            <p><span class="formula7"></span></p>
+          </div>
+
+          <div class="block__result">
+            <p> <span class="formula21"></span>
+               <!-- ^ <span class="formula22"></span>  -->
+              </p>
+
+            <p> <span class="formula27"></span></p>
+          </div>
+          <!-- <button aria-label="Like" class="element__like" name="button-like"></button> -->
+        </div>
+      </div>
     </template>
 
     <script type="module" src="./js/index.js"></script>
