@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Расчет дождевого стока с кровли здания">
+    <meta name="keywords" content="СП 30">
+    <meta name="author" content="Bogdan Mazur">
+    <link rel="stylesheet" href="./pages/rain.css">
+    <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
+    <title>Расчет дождевого стока с кровли здания</title>
+  </head>
+
+  <body class="root">
+    <div class="page">
+      
+      <header class="header">
+        <nav class="menu">
+          <a class="menu__link" href="/">Index</a>
+          <a class="menu__link" href="/thermo.html">Thermo</a>
+          <a class="menu__link" href="/rain.html">Rain</a>
+        </nav>
+
+        <h1 class="header__title">Расчет дождевого стока с кровли</h1>
+      </header>      
+      
+      <main class="main">
+        <section class="profile">
+          <button aria-label="Add" class="profile__add" type="button">Добавить расчет</button>
+        </section>
+        <section class="elements">          
+          <!-- cards -->
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright"> &copy; 2021</p>
+      </footer>
+    </div>
+
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_add" name="add-form" novalidate>
+          <h2 class="form__title">Новый расчет</h2>
+          <div class="form__box">
+            <input placeholder="Наименование кровли" class="form__input form__input_type_name"
+              required minlength="2" maxlength="30" name="name" id="nameCard-input">
+            <span class="nameCard-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Уклон кровли, %" class="form__input 
+              form__input_type_slope" id="slope-input" required >
+            <span class="slope-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Площадь участка кровли, м&sup2;" class="form__input 
+              form__input_type_roof" id="roof-input" required >
+            <span class="roof-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Площадь участка прилигающего фасада, м&sup2;" class="form__input 
+              form__input_type_facade" id="facade-input" required >
+            <span class="facade-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Интенсивность дождя q20" class="form__input 
+              form__input_type_q20" id="q20-input" required >
+            <span class="q20-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Параметр n, принимаемый согласно СП32.13330" class="form__input 
+              form__input_type_n" id="n-input" required >
+            <span class="n-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Расход с участка кровли, л/с" class="form__input 
+              form__input_type_qplus" id="qplus-input" required >
+            <span class="qplus-input-error form__input-error"></span>
+          </div>
+          <button aria-label="Save" class="form__save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <div class="element">
+        <button aria-label="Remove" class="element__remove" type="button">Delete</button>
+        <div class="element__group">
+          <h2 class="element__name"></h2>
+          <p class="element__result"></p>
+          <p class="element__paragraph">Расход дождевого стока определяется по формуле:</p>
+          <p class="element__paragraph">
+              Расчетный расход дождевых вод <span class="formula1"></span>
+              , с водосборной площади следует вычислять по формулам:
+          </p>
+          <p class="element__paragraph">
+              - для кровель с уклоном до 1,5% включительно
+          </p>
+          <p class="element__paragraph"><span class="element__formula formula2"></span></p>
+          <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
+          <p class="element__paragraph"><span class="element__formula formula3"></span></p>
+          <p class="element__paragraph">
+              где <span class="formula4"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 20 мин при периоде однократного превышения
+               расчетной интенсивности, равной одному году
+          </p>
+          <p class="element__paragraph"><span class="formula5"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 5 мин при периоде однократного превышения 
+              расчетной интенсивности, равной одному году,
+              вычисляется по формуле
+          </p>
+          <p class="element__paragraph"> <span class="formula6"></span></p>
+          <div class="block__area">
+            <p class="element__paragraph">Площадь горизонтальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula7"></span></p>
+          </div>
+          <div class="block__result">
+            <p class="element__paragraph"> <span class="element__formula formula27"></span></p>
+          </div>
+          <p class="element__paragraph"><span class="element__formula formula8"></span></p>
+          <p class="element__paragraph"><span class="element__formula formula9"></span></p>
+        </div>
+      </div>
+    </template>
+
+    <template id="card1-template">
+      <div class="element">
+        <button aria-label="Remove" class="element__remove" type="button">Delete</button>
+        <div class="element__group">
+          <h2 class="element__name"></h2>
+          <p class="element__result"></p>
+          <p class="element__paragraph">Расход дождевого стока определяется по формуле:</p>
+          <p class="element__paragraph">
+              Расчетный расход дождевых вод <span class="formula1"></span> ,
+               с водосборной площади следует вычислять по формулам:
+          </p>
+          <p class="element__paragraph">
+              - для кровель с уклоном до 1,5% включительно
+          </p>
+          <p class="element__paragraph"><span class="element__formula formula2"></span></p>
+          <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
+          <p class="element__paragraph"><span class="element__formula formula3"></span></p>
+          <p class="element__paragraph">
+              где <span class="formula4"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 20 мин при периоде однократного превышения
+               расчетной интенсивности, равной одному году
+          </p>
+          <p class="element__paragraph"><span class="formula5"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 5 мин при периоде однократного превышения 
+              расчетной интенсивности, равной одному году,
+              вычисляется по формуле
+          </p>
+          <p class="element__paragraph"> <span class="element__formula formula6"></span></p>
+          <div class="block__area">
+            <p class="element__paragraph">Площадь горизонтальной поверхности</p>
+            <p class="element__paragraph">Площадь вертикальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula10"></span></p>
+            <p class="element__paragraph">Суммарная площадь горизонтальной поверхности и 30% вертикальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula13"></span></p>
+            <p ><span class="element__formula formula14"></span></p>
+            <p  class="element__paragraph"><span class="element__formula formula7"></span></p>
+          </div>
+          <div class="block__result">
+            <p> <span class="element__formula formula21"></span></p>
+            <p> <span class="element__formula formula27"></span></p>
+          </div>
+          <p><span class="element__formula formula8"></span></p>
+          <p><span class="element__formula formula9"></span></p>
+        </div>
+      </div>
+    </template>
+
+    <script type="module" src="./js/rain.js"></script>
+    <script type="module" src="./js/validate.js"></script>
+    <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
+  </body>
+</html>
