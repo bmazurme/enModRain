@@ -8,3 +8,5 @@
 * JS
 * БЭМ
 * KaTeX
+
+https://katex.org/docs/supported.html
