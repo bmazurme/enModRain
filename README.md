@@ -9,4 +9,4 @@
 * БЭМ
 * KaTeX
 
-[KaTeX doc](https://katex.org/docs/supported.html)
+[KaTeX Supported Functions](https://katex.org/docs/supported.html)
