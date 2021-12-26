@@ -20,6 +20,7 @@
           <a class="menu__link" href="/thermo.html">Thermo</a>
           <a class="menu__link" href="/rain.html">Rain</a>
           <a class="menu__link" href="/throttle.html">Throttle</a>
+          <a class="menu__link" href="/dwmeter.html">Dwmeter</a>
         </nav>
 
         <h1 class="header__title">Расчет дождевого стока с кровли</h1>
@@ -50,32 +51,39 @@
             <span class="nameCard-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Уклон кровли, %" class="form__input 
+            <input placeholder="Уклон кровли, %" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+            class="form__input 
               form__input_type_slope" id="slope-input" required >
             <span class="slope-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Площадь участка кровли, м&sup2;" class="form__input 
+            <input placeholder="Площадь участка кровли, м&sup2;"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_roof" id="roof-input" required >
             <span class="roof-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Площадь участка прилигающего фасада, м&sup2;" class="form__input 
+            <input placeholder="Площадь участка прилигающего фасада, м&sup2;"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_facade" id="facade-input" required >
             <span class="facade-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Интенсивность дождя q20" class="form__input 
+            <input placeholder="Интенсивность дождя q20"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_q20" id="q20-input" required >
             <span class="q20-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Параметр n, принимаемый согласно СП32.13330" class="form__input 
+            <input placeholder="Параметр n, принимаемый согласно СП32.13330"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_n" id="n-input" required >
             <span class="n-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Расход с участка кровли, л/с" class="form__input 
+            <input placeholder="Расход с участка кровли, л/с"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_qplus" id="qplus-input" required >
             <span class="qplus-input-error form__input-error"></span>
           </div>
@@ -96,9 +104,7 @@
               Расчетный расход дождевых вод <span class="formula1"></span>
               , с водосборной площади следует вычислять по формулам:
           </p>
-          <p class="element__paragraph">
-              - для кровель с уклоном до 1,5% включительно
-          </p>
+          <p class="element__paragraph"> - для кровель с уклоном до 1,5% включительно </p>
           <p class="element__paragraph"><span class="element__formula formula2"></span></p>
           <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
           <p class="element__paragraph"><span class="element__formula formula3"></span></p>
@@ -162,7 +168,8 @@
             <p class="element__paragraph">Площадь горизонтальной поверхности</p>
             <p class="element__paragraph">Площадь вертикальной поверхности</p>
             <p class="element__paragraph"><span class="element__formula formula10"></span></p>
-            <p class="element__paragraph">Суммарная площадь горизонтальной поверхности и 30% вертикальной поверхности</p>
+            <p class="element__paragraph">Суммарная площадь горизонтальной поверхности 
+              и 30% вертикальной поверхности</p>
             <p class="element__paragraph"><span class="element__formula formula13"></span></p>
             <p ><span class="element__formula formula14"></span></p>
             <p  class="element__paragraph"><span class="element__formula formula7"></span></p>

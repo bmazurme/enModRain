@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Расход тепла для нагрева горячей воды">
+    <meta name="description" content="Потери напора в счетчике">
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
     <link rel="stylesheet" href="./pages/thermo.css">
     <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
-    <title>Расход тепла для нагрева горячей воды</title>
+    <title>Потери напора в счетчике</title>
   </head>
 
   <body class="root">
@@ -22,7 +22,7 @@
           <a class="menu__link" href="/throttle.html">Throttle</a>
           <a class="menu__link" href="/dwmeter.html">Dwmeter</a>
         </nav>
-        <h1 class="header__title">Диаметр отверстия шайбы или втулок для водяных сетей</h1>
+        <h1 class="header__title">Потери напора в счетчике</h1>
       </header>
 
       <main class="main">
@@ -47,22 +47,28 @@
           <h2 class="form__title">Новый расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование шайбы" class="form__input form__input_type_name"
+            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_q" id="qht-input" required >
-            <span class="qht-input-error form__input-error"></span>
+            <input placeholder="Гидравлическое сопротивление счетчика" 
+            class="form__input form__input_type_s" id="s-input" required >
+            <span class="s-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Избыточный напор, МПа" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_hdr" id="qht-input" required >
-            <span class="qht-input-error form__input-error"></span>
+            <input placeholder="Расчетный расход, л/с" 
+            class="form__input form__input_type_q" id="q-input" required >
+            <span class="q-input-error form__input-error"></span>
           </div>
+
+          <!-- <div class="form__box">
+            <input placeholder="Потери напора в счетчике, м" 
+            class="form__input form__input_type_h" id="h-input" required >
+            <span class="h-input-error form__input-error"></span>
+          </div> -->
 
           <button aria-label="Save" class="form__save form__submit" 
             type="submit">Сохранить</button>
@@ -75,44 +81,29 @@
         <button aria-label="Remove" class="element__remove" type="button">Delete</button>
         <div class="element__group">
           <h2 class="element__name"></h2>
-
-
           <p class="element__paragraph">
-            Диаметр отверстия шайбы или втулок для водяных сетей
-            <span class="formula1"></span> определяем по формуле:
+            Расчет потерь давления в счетчике по гидравлическому сопротивлению определяем по формуле:
           </p>
           <p class="element__paragraph">
-            <span class="formula2"></span>
-          </p>
-          <p class="element__paragraph">где <span class="formula3"></span>
-            – избыточный напор, который следует погасить диафрагмой, МПа;
+            <span class="element__formula formula1"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="formula4"></span> - расчетный расход, л/с;
+            где <span class="formula2"></span> – расчетный расход воды, <span class="formula3"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="formula5"></span>
-
+            <span class="formula4"></span> – гидравлическое сопротивление счетчика,
+            <span class="formula5"></span> 
           </p>
-          
-
+          <p class="element__paragraph">
+            <span class="element__formula formula6"></span> 
+          </p>
         </div>
+
       </div> 
     </template>
 
-    <script type="module" src="./js/throttle.js"></script>
+    <script type="module" src="./js/dwmeter.js"></script>
     <script type="module" src="./js/validate.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

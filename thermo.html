@@ -19,6 +19,7 @@
           <a class="menu__link" href="/thermo.html">Thermo</a>
           <a class="menu__link" href="/rain.html">Rain</a>
           <a class="menu__link" href="/throttle.html">Throttle</a>
+          <a class="menu__link" href="/dwmeter.html">Dwmeter</a>
         </nav>
         <h1 class="header__title">Расход тепла для нагрева горячей воды</h1>
       </header>
@@ -50,7 +51,8 @@
             <span class="nameCard-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Средне часовой расход, м³/ч" class="form__input 
+            <input placeholder="Средне часовой расход, м³/ч"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_qht" id="qht-input" required >
             <span class="qht-input-error form__input-error"></span>
           </div>
@@ -60,17 +62,20 @@
             <span class="qhhr-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Температура горячей воды в местах водоразбора, °C" class="form__input 
+            <input placeholder="Температура горячей воды в местах водоразбора, °C"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_th" id="th-input" required >
             <span class="th-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Температура холодной воды на входе в водонагреватель, °C" class="form__input 
+            <input placeholder="Температура холодной воды на входе в водонагреватель, °C"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_tc" id="tc-input" required >
             <span class="tc-input-error form__input-error"></span>
           </div>
           <div class="form__box">
-            <input placeholder="Потери теплоты в системе,  кВт" class="form__input 
+            <input placeholder="Потери теплоты в системе,  кВт" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_qht2" id="qht2-input" required >
             <span class="qht2-input-error form__input-error"></span>
           </div>
