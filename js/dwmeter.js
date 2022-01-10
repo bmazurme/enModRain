@@ -1,6 +1,6 @@
 import { calcDwmeter } from "./calc/calcDwmeter.js";
 
-const addButton = document.querySelector('.profile__add');
+const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
@@ -77,7 +77,7 @@ function createCard(item) {
   katex.render(String.raw`л/с`, el3, {throwOnError: false});
   katex.render(String.raw`S`, el4, {throwOnError: false});
   katex.render(String.raw`м/(м^3/ч)^2`, el5, {throwOnError: false});
-  katex.render(String.raw`h_{сч} = ${item.s} \cdot (3.6 \cdot ${item.q} )^2 = ${result} \space м`, el6, {throwOnError: false});
+  katex.render(String.raw`h_{сч} = ${item.s} \cdot (3.6 \cdot ${item.q} )^2 = ${result.toFixed(2)} \space м`, el6, {throwOnError: false});
 
   return cardElement;
 }

@@ -1,0 +1,25 @@
+/* .slides {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+} */
+
+
+.slides {
+  height: 500px;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'viewer container';
+
+  border: solid 1px gray;
+}
+
+

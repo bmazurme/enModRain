@@ -15,18 +15,18 @@
     <div class="page">
       <header class="header">
         <nav class="menu">
-          <a class="menu__link" href="/">Index</a>
-          <a class="menu__link" href="/thermo.html">Thermo</a>
-          <a class="menu__link" href="/rain.html">Rain</a>
-          <a class="menu__link" href="/throttle.html">Throttle</a>
-          <a class="menu__link" href="/dwmeter.html">Dwmeter</a>
+          <a class="menu__link" href="index.html">Index</a>
+          <a class="menu__link menu__link_active" href="thermo.html">Thermo</a>
+          <a class="menu__link" href="rain.html">Rain</a>
+          <a class="menu__link" href="throttle.html">Throttle</a>
+          <a class="menu__link" href="dwmeter.html">Dwmeter</a>
         </nav>
         <h1 class="header__title">Расход тепла для нагрева горячей воды</h1>
       </header>
 
       <main class="main">
-        <section class="profile">
-          <button aria-label="Add" class="profile__add" type="button">Добавить расчет</button>
+        <section class="calculate">
+          <button aria-label="Add" class="calculate__add" type="button"></button>
         </section>
         <section class="elements">   
           <!-- cards -->
@@ -35,7 +35,9 @@
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021</p>
+        <p class="footer__copyright"> &copy; 2021 { bmazur } 
+          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+        </p>
       </footer>
     </div>
 
@@ -88,7 +90,7 @@
 
     <template id="card-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button">Delete</button>
+        <button aria-label="Remove" class="element__remove" type="button"></button>
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__paragraph">

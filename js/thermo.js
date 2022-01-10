@@ -1,6 +1,6 @@
 import { calcThermo } from "./calc/calcThermo.js";
 
-const addButton = document.querySelector('.profile__add');
+const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
