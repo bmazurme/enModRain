@@ -19,6 +19,10 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__paragraph/element__paragraph.css);
 @import url(../blocks/element/__formula/element__formula.css);
+
+@import url(../blocks/menu/menu.css);
+@import url(../blocks/menu/__link/menu__link.css);
+
 /* @import url(../blocks/header/header.css);
 @import url(../blocks/logo/logo.css);
 @import url(../blocks/profile/profile.css);
