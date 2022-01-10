@@ -12,5 +12,5 @@
 * БЭМ
 * KaTeX
 
-[Ссылка на проект] (https://bmazurme.github.io/enModRain/index.html)
-[KaTeX Supported Functions](https://katex.org/docs/supported.html)
+* [Ссылка на проект] (https://bmazurme.github.io/enModRain/index.html)
+* [KaTeX Supported Functions](https://katex.org/docs/supported.html)
