@@ -140,7 +140,7 @@ function createCard(item) {
   katex.render(String.raw`K_{hr}^{ht,sp} = \dfrac{${item.qsp}}{${item.qmid}} = ${result.k_hr_ht_sp.toFixed(2)}`, el8, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht}`, el9, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht} = \dfrac{Q_{hr}^{h}}{Q_T^{h}}`, el10, {throwOnError: false});
-  katex.render(String.raw`K_{hr}^{ht} = \dfrac{${item.qmax}}{${item.qmid}} = ${result.k_hr_ht}`, el11, {throwOnError: false});
+  katex.render(String.raw`K_{hr}^{ht} = \dfrac{${item.qmax}}{${item.qmid}} = ${result.k_hr_ht.toFixed(2)}`, el11, {throwOnError: false});
   katex.render(String.raw`V = W \cdot B`, el12, {throwOnError: false});
   katex.render(String.raw`V_1 = ${result.w.toFixed(2)} \cdot ${item.b} = ${result.v1.toFixed(2)} м^3`, el13, {throwOnError: false});
   katex.render(String.raw`B`, el14, {throwOnError: false});
@@ -157,10 +157,10 @@ function createCard(item) {
   katex.render(String.raw`\varphi_2 = 1 - ${result.k_hr_ht_sp.toFixed(2)} + (${result.k_hr_ht.toFixed(2)} - 1) \cdot \Big(\dfrac{${result.k_hr_ht_sp.toFixed(2)}}{${result.k_hr_ht.toFixed(2)}}\Big)^ \frac{${result.k_hr_ht.toFixed(2)}}{${result.k_hr_ht.toFixed(2)} - 1} + \Big( \dfrac{${result.k_hr_ht_sp.toFixed(2)} - 1}{${result.k_hr_ht_sp.toFixed(2)}} \Big)^{${result.k_hr_ht.toFixed(2)}} = ${result.fi2.toFixed(2)}`, el25, {throwOnError: false});  
   katex.render(String.raw`K_{hr}^{ht,sp}`, el26, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht,sp} = \dfrac{Q^{sp}}{Q_T^{h}}`, el27, {throwOnError: false});
-  katex.render(String.raw`K_{hr}^{ht,sp} = \dfrac{${item.qsp}}{${item.qmid}} = ${result.k_hr_ht_sp}`, el28, {throwOnError: false});
+  katex.render(String.raw`K_{hr}^{ht,sp} = \dfrac{${item.qsp}}{${item.qmid}} = ${result.k_hr_ht_sp.toFixed(2)}`, el28, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht}`, el29, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht} = \dfrac{Q_{hr}^{h}}{Q_T^{h}}`, el30, {throwOnError: false});
-  katex.render(String.raw`K_{hr}^{ht} = \dfrac{${item.qmax}}{${item.qmid}} = ${result.k_hr_ht}`, el31, {throwOnError: false});
+  katex.render(String.raw`K_{hr}^{ht} = \dfrac{${item.qmax}}{${item.qmid}} = ${result.k_hr_ht.toFixed(2)}`, el31, {throwOnError: false});
   katex.render(String.raw`V = W \cdot B`, el32, {throwOnError: false});
   katex.render(String.raw`V_2 = ${result.w2.toFixed(2)} \cdot ${item.b} = ${result.v2.toFixed(2)} м^3`, el33, {throwOnError: false});
   katex.render(String.raw`B`, el34, {throwOnError: false});
