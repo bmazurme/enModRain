@@ -22,6 +22,7 @@
           <a class="menu__link" href="throttle.html">Throttle</a>
           <a class="menu__link" href="dwmeter.html">Dwmeter</a>
           <a class="menu__link menu__link_active" href="tank.html">Tank</a>
+          <a class="menu__link" href="circflow.html">Circflow</a>
         </nav>
         <h1 class="header__title">Регулирующий объем бака-аккумулятора</h1>
       </header>
@@ -93,11 +94,14 @@
           </div>
 
           <div class="form__box">
-            <input placeholder="Коэффициент запаса вместимости бака" 
-            class="form__input form__input_type_b" id="b-input" required >
-            <span class="b-input-error form__input-error"></span>
+            <select name="select" class="form__select form__select_type_b" required>
+              <option value="1.0" selected>Коэффициент запаса вместимости бака 1.0</option>
+              <option value="1.1">1.1</option>
+              <option value="1.2">1.2</option>
+              <option value="1.3">1.3</option>
+            </select>
           </div>
-
+          
           <button aria-label="Save" class="form__save form__submit" 
             type="submit">Сохранить</button>
         </form>

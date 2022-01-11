@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Потери напора в счетчике">
+    <meta name="description" content="Циркуляционный расход горячей воды">
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
-    <link rel="stylesheet" href="./pages/dwmeter.css">
+    <link rel="stylesheet" href="./pages/circflow.css">
     <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
-    <title>Потери напора в счетчике</title>
+    <title>Циркуляционный расход горячей воды</title>
   </head>
 
   <body class="root">
@@ -20,11 +20,11 @@
           <a class="menu__link" href="thermo.html">Thermo</a>
           <a class="menu__link" href="rain.html">Rain</a>
           <a class="menu__link" href="throttle.html">Throttle</a>
-          <a class="menu__link menu__link_active" href="dwmeter.html">Dwmeter</a>
+          <a class="menu__link" href="dwmeter.html">Dwmeter</a>
           <a class="menu__link" href="tank.html">Tank</a>
-          <a class="menu__link" href="circflow.html">Circflow</a>
+          <a class="menu__link menu__link_active" href="circflow.html">Circflow</a>
         </nav>
-        <h1 class="header__title">Потери напора в счетчике</h1>
+        <h1 class="header__title">Циркуляционный расход горячей воды</h1>
       </header>
 
       <main class="main">
@@ -51,28 +51,46 @@
           <h2 class="form__title">Новый расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
+            <input placeholder="Наименование системы" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Гидравлическое сопротивление счетчика" 
-            class="form__input form__input_type_s" id="s-input" required >
-            <span class="s-input-error form__input-error"></span>
+            <input placeholder="Тепловые потери, Вт" 
+            class="form__input form__input_type_qht" id="qht-input" required >
+            <span class="qht-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" 
-            class="form__input form__input_type_q" id="q-input" required >
-            <span class="q-input-error form__input-error"></span>
+            <input placeholder="Плотность воды, кг/м³" 
+            class="form__input form__input_type_p" id="p-input" required >
+            <span class="p-input-error form__input-error"></span>
           </div>
 
-          <!-- <div class="form__box">
-            <input placeholder="Потери напора в счетчике, м" 
-            class="form__input form__input_type_h" id="h-input" required >
-            <span class="h-input-error form__input-error"></span>
-          </div> -->
+          <div class="form__box">
+            <input placeholder="Удельная теплоемкость воды, кДж/(кг°С)" 
+            class="form__input form__input_type_c" id="c-input" required >
+            <span class="c-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="t1 - температура воды на входе в участок трубопровода или системы, °C" 
+            class="form__input form__input_type_t1" id="t1-input" required >
+            <span class="t1-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="t2 - температура воды на выходе из участка трубопровода или системы, °C" 
+            class="form__input form__input_type_t2" id="t2-input" required >
+            <span class="t2-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Циркуляционный расход, кВт" 
+            class="form__input form__input_type_qc" id="qc-input" required >
+            <span class="qc-input-error form__input-error"></span>
+          </div>
 
           <button aria-label="Save" class="form__save form__submit" 
             type="submit">Сохранить</button>
@@ -106,7 +124,7 @@
       </div> 
     </template>
 
-    <script type="module" src="./js/dwmeter.js"></script>
+    <script type="module" src="./js/circflow.js"></script>
     <script type="module" src="./js/validate.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>

@@ -18,7 +18,6 @@
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_inactive/form__save_inactive.css);
-@import url(../blocks/form/__select/form__select.css);
 
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);

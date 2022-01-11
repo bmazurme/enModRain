@@ -1,4 +1,4 @@
-import { calcDwmeter } from "./calc/calcDwmeter.js";
+import { calcTank } from "./calc/calcTank.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -14,7 +14,9 @@ const qmid = formAddCard.querySelector('.form__input_type_qmid');
 const qmax = formAddCard.querySelector('.form__input_type_qmax');
 const qsp = formAddCard.querySelector('.form__input_type_qsp');
 const t = formAddCard.querySelector('.form__input_type_t');
-const b = formAddCard.querySelector('.form__input_type_b');
+//const b = formAddCard.querySelector('.form__input_type_b');
+const b = formAddCard.querySelector('.form__select_type_b');
+
 
 function openPopup(popup) {
   document.addEventListener('keydown', (evt) => keydownEsc(popup, evt));
@@ -42,9 +44,9 @@ function saveCardForm(evt) {
     qmax: qmax.value,
     t: t.value,
     qsp: qsp.value,
-    b: b.value    
+    b: b.options[b.selectedIndex].value//.value    
   };
-
+  
   const element = createCard(newCard);
   cardsContainer.prepend(element);
   closePopup(popupTypeAdd);
@@ -66,24 +68,8 @@ function keydownEsc(popup, evt) {
   }
 }
 
-function getResult(item) {
-  let k_hr_ht = item.qmax / item.qmid;
-  let k_hr_ht_sp = item.qsp / item.qmid;
-
-  let fi = 1 - k_hr_ht_sp + (k_hr_ht - 1) * (k_hr_ht_sp / k_hr_ht) ** (k_hr_ht / (k_hr_ht - 1));
-  let fi2 =1 - k_hr_ht_sp + (k_hr_ht - 1) * (k_hr_ht_sp / k_hr_ht) ** (k_hr_ht / (k_hr_ht - 1)) + ((k_hr_ht_sp - 1) / k_hr_ht_sp) ** k_hr_ht;
-
-  let w = fi * item.t * item.qmid / (1.16 * (item.th - item.tc))
-  let w2 = fi2 * item.t * item.qmid / (1.16 * (item.th - item.tc))
-
-  let v1 = w * item.b;
-  let v2 = w2 * item.b;
-
-  return {fi, fi2, v1, v2, w, w2, k_hr_ht, k_hr_ht_sp};
-}
-
 function createCard(item) {
-  let result = getResult(item);
+  let result = calcTank(item);
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   const deleteButton = cardElement.querySelector('.element__remove');
   deleteButton.addEventListener("click", deleteCard);
