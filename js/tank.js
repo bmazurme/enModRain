@@ -57,7 +57,10 @@ function saveCardForm(evt) {
     qmid: qmid.value,
     qmax: qmax.value,
     t: t.value,
-    fi: fi.value
+    fi: fi.value,
+    k_hr_ht_sp: k_hr_ht_sp.value,
+    k_hr_ht: k_hr_ht.value,
+    qsp: qsp.value
   };
 
   const element = createCard(newCard);
@@ -136,13 +139,18 @@ function createCard(item) {
   //katex.render(String.raw`W_1 = calc.fi|floatformat:3 \cdot calc.t \cdot calc.qmid / ( 1.16 \cdot ( ${item.th} - calc.tc ) ) = calc.w|floatformat:2`, el2, {throwOnError: false});
   katex.render(String.raw`\varphi`, el3, {throwOnError: false});
   katex.render(String.raw`\varphi_1 = 1 - K_{hr}^{ht,sp} + (K_{hr}^{ht} - 1) \cdot \Big(\dfrac{K_{hr}^{ht,sp}}{K_{hr}^{ht}}\Big)^ \frac{K_{hr}^{ht}}{K_{hr}^{ht} - 1}`, el4, {throwOnError: false});
-  katex.render(String.raw`\varphi_1 = 1 - calc.k_hr_ht_sp|floatformat:3 + ( calc.k_hr_ht|floatformat:3 - 1 \cdot ( calc.k_hr_ht_sp|floatformat:3 / calc.k_hr_ht|floatformat:3 ) ^ ( calc.k_hr_ht|floatformat:3 / calc.k_hr_ht|floatformat:3  - 1)) = calc.fi|floatformat:3`, el5, {throwOnError: false});
+  katex.render(String.raw`\varphi_1 = 1 - ${item.k_hr_ht_sp} + (${item.k_hr_ht} - 1) \cdot \Big(\dfrac{ ${item.k_hr_ht_sp} }{${item.k_hr_ht}}\Big)^ \frac{${item.k_hr_ht}}{${item.k_hr_ht} - 1}`, el5, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht,sp}`, el6, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht,sp} = \dfrac{Q^{sp}}{Q_T^{h}}`, el7, {throwOnError: false});
-  katex.render(String.raw`K_{hr}^{ht,sp} = calc.qsp|floatformat:3 / calc.qmid|floatformat:3 = calc.k_hr_ht_sp|floatformat:3`, el8, {throwOnError: false});
+  katex.render(String.raw`K_{hr}^{ht,sp} = \dfrac{${item.qsp}}{${item.qmid}}`, el8, {throwOnError: false});
+
+  //katex.render(String.raw`K_{hr}^{ht,sp} = ${item.qsp} / calc.qmid|floatformat:3 = calc.k_hr_ht_sp|floatformat:3`, el8, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht}`, el9, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht} = \dfrac{Q_{hr}^{h}}{Q_T^{h}}`, el10, {throwOnError: false});
   katex.render(String.raw`K_{hr}^{ht} = calc.qmax|floatformat:3  / calc.qmid|floatformat:3 = calc.k_hr_ht|floatformat:3`, el11, {throwOnError: false});
+  
+  
+  
   katex.render(String.raw`V = W \cdot B`, el12, {throwOnError: false});
   katex.render(String.raw`V_1 = calc.w|floatformat:2 \cdot calc.b = calc.v1|floatformat:2 м^3`, el13, {throwOnError: false});
   katex.render(String.raw`B`, el14, {throwOnError: false});
