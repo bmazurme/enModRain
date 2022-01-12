@@ -1,4 +1,4 @@
-// import { calcDwmeter } from "./calc/calcDwmeter.js";
+import { calcCirc } from "./calc/calcCirc.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -58,84 +58,8 @@ function keydownEsc(popup, evt) {
   }
 }
 
-function calcDwmeter(item) {
-  let c = 4.18;
-  let p = 988.50;
-
-  // if (item.t1 === 50) {
-  //   c = 4.18;
-  //   p =988.50;
-  // } else 
-  if (item.t1 === 51) {
-    c = 4.18;
-    p = 988.07;
-  } else if (item.t1 === 52) {
-    c = 4.18;
-    p = 987.63;
-  } else if (item.t1 === 53) {
-    c = 4.18;
-    p = 987.18;
-  } else if (item.t1 === 54) {
-    c = 4.18;
-    p = 986.73;
-  } else if (item.t1 === 55) {
-    c = 4.18;
-    p = 986.28;
-  } else if (item.t1 === 56) {
-    c = 4.18;
-    p = 985.82;
-  } else if (item.t1 === 57) {
-    c = 4.18;
-    p = 985.35;
-  } else if (item.t1 === 58) {
-    c = 4.18;
-    p = 984.88;
-  } else if (item.t1 === 59) {
-    c = 4.18;
-    p = 984.40;
-  } else if (item.t1 === 60) {
-    c = 4.18;
-    p = 983.92;
-  } else if (item.t1 === 61) {
-    c = 4.18;
-    p = 983.43;
-  } else if (item.t1 === 62) {
-    c = 4.18;
-    p = 982.94;
-  } else if (item.t1 === 63) {
-    c = 4.18;
-    p = 982.45;
-  } else if (item.t1 === 64) {
-    c = 4.18;
-    p = 981.95;
-  } else if (item.t1 === 65) {
-    c = 4.19;
-    p = 981.44;
-  } else if (item.t1 === 66) {
-    c = 4.19;
-    p = 980.93;
-  } else if (item.t1 === 67) {
-    c = 4.19;
-    p = 980.42;
-  } else if (item.t1 === 68) {
-    c = 4.19;
-    p = 979.90;
-  } else if (item.t1 === 69) {
-    c = 4.19;
-    p = 979.38;
-  } else if (item.t1 === 70) {
-    c = 4.19;
-    p = 978.86;
-  }
-
-  let qc = item.qht / (p * c * (item.t1 - item.t2));
-  
-  return {c, p, qc};
-}
-
-
 function createCard(item) {
-  let result = calcDwmeter(item);
+  let result = calcCirc(item);
   console.log(result.qc);
   
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
@@ -156,22 +80,29 @@ function createCard(item) {
   const el12 = cardElement.querySelector('.formula12');
   const el13 = cardElement.querySelector('.formula13');
   const el14 = cardElement.querySelector('.formula14');
+  const el15 = cardElement.querySelector('.formula15');
+  const el16 = cardElement.querySelector('.formula16');
+  const el17 = cardElement.querySelector('.formula17');
+  const el18 = cardElement.querySelector('.formula18');
 
   katex.render(String.raw`Q_ц, л/с`, el1, {throwOnError: false});
   katex.render(String.raw`Q_ц = \dfrac{Q^{ht}}{\rho \cdot c \cdot (t^1 - t^2)}`, el2, {throwOnError: false});
   katex.render(String.raw`Q^{ht} - `, el3, {throwOnError: false});
   katex.render(String.raw`Вт`, el4, {throwOnError: false});
-  katex.render(String.raw`Q^{ht} = calc.qht|floatformat:2 Вт`, el5, {throwOnError: false});
-  katex.render(String.raw`\rho -  плотность воды, кг / м^{3}`, el6, {throwOnError: false});
-  katex.render(String.raw`\rho = calc.p|floatformat:2 кг / м^{3}`, el7, {throwOnError: false});
-  katex.render(String.raw`с - удельная теплоемкость воды, кДж / кг \degree C`, el8, {throwOnError: false});
-  katex.render(String.raw`с = calc.c|floatformat:2 кДж / кг \degree C`, el9, {throwOnError: false});
-  katex.render(String.raw`t^1 - температура воды на входе в участок трубопровода или системы, \degree C`, el10, {throwOnError: false});
-  katex.render(String.raw`t^1 = calc.t1|floatformat \degree C`, el11, {throwOnError: false});
-  katex.render(String.raw`t^2 -  температура воды на выходе из участка трубопровода или системы, \degree C`, el12, {throwOnError: false});
-  katex.render(String.raw`t^2 = calc.t2|floatformat \degree C`, el13, {throwOnError: false});
-  katex.render(String.raw`Q_ц = \dfrac{Q^{ht}}{\rho \cdot c \cdot (t^1 - t^2)} = calc.qc|floatformat:2 л/с`, el14, {throwOnError: false});
+  katex.render(String.raw`Q^{ht} = ${item.qht} \space Вт`, el5, {throwOnError: false});
+  katex.render(String.raw`\rho \space -`, el6, {throwOnError: false});
+  katex.render(String.raw`кг / м^{3}`, el15, {throwOnError: false});
+  katex.render(String.raw`кДж / кг \degree C`, el16, {throwOnError: false});
+  katex.render(String.raw`\degree C`, el17, {throwOnError: false});
+  katex.render(String.raw`\degree C`, el18, {throwOnError: false});
+  katex.render(String.raw`\rho = ${result.p.toFixed(2)} \space кг / м^{3}`, el7, {throwOnError: false});
+  katex.render(String.raw`с - `, el8, {throwOnError: false});
+  katex.render(String.raw`с = ${result.c.toFixed(2)} \space кДж / кг \degree C`, el9, {throwOnError: false});
+  katex.render(String.raw`t^1 - `, el10, {throwOnError: false});
+  katex.render(String.raw`t^1 = ${item.t1} \degree C`, el11, {throwOnError: false});
+  katex.render(String.raw`t^2 - `, el12, {throwOnError: false});
+  katex.render(String.raw`t^2 = ${item.t2} \degree C`, el13, {throwOnError: false});
+  katex.render(String.raw`Q_ц = \dfrac{${item.qht}}{${result.p} \cdot ${result.c} \cdot (${item.t1} - ${item.t2})} = ${result.qc.toFixed(2)} \space л/с`, el14, {throwOnError: false});
 
   return cardElement;
 }
-

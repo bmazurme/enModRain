@@ -23,6 +23,7 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__paragraph/element__paragraph.css);
 @import url(../blocks/element/__formula/element__formula.css);
+@import url(../blocks/element/__formula/_type/element__formula_type_short.css);
 
 @import url(../blocks/footer/__link/footer__link.css);
 

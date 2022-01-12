@@ -32,7 +32,6 @@
           <button aria-label="Add" class="calculate__add" type="button"></button>
         </section>
         <section class="elements">   
-
           <!-- cards -->
         </section>
       </main>
@@ -62,6 +61,18 @@
             <span class="qht-input-error form__input-error"></span>
           </div>
 
+          <!-- <div class="form__box">
+            <input placeholder="Плотность воды, кг/м³" 
+            class="form__input form__input_type_p" id="p-input" required >
+            <span class="p-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Удельная теплоемкость воды, кДж/(кг°С)" 
+            class="form__input form__input_type_c" id="c-input" required >
+            <span class="c-input-error form__input-error"></span>
+          </div> -->
+
           <div class="form__box">
             <input placeholder="t1 - температура воды на входе в участок трубопровода или системы, °C" 
             class="form__input form__input_type_t1" id="t1-input" required >
@@ -73,6 +84,12 @@
             class="form__input form__input_type_t2" id="t2-input" required >
             <span class="t2-input-error form__input-error"></span>
           </div>
+
+          <!-- <div class="form__box">
+            <input placeholder="Циркуляционный расход, кВт" 
+            class="form__input form__input_type_qc" id="qc-input" required >
+            <span class="qc-input-error form__input-error"></span>
+          </div> -->
 
           <button aria-label="Save" class="form__save form__submit" 
             type="submit">Сохранить</button>
@@ -87,42 +104,50 @@
           <h2 class="element__name"></h2>
           <p class="element__paragraph">
             Циркуляционный расход горячей воды
-            <span class="element__formula formula1"></span>
+            <span class="element__formula  element__formula_type_short formula1"></span>
             , вычисляют по формуле: 
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula2"></span>
           </p>
           <p class="element__paragraph">
-            где <span class="element__formula formula3"></span>
+            где <span class="element__formula  element__formula_type_short formula3"></span>
             потери тепла трубопроводами системы ГВС,
-          </p>
-          <p class="element__paragraph">
-            <span class="element__formula formula4"></span>
+
+            <span class="element__formula element__formula_type_short formula4"></span>
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula5"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="element__formula formula6"></span> 
+            <span class="element__formula formula6"></span>
+            плотность воды,
+            <span class="element__formula element__formula_type_short formula15"></span>
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula7"></span> 
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula8"></span> 
+            удельная теплоемкость воды,
+            <span class="element__formula element__formula_type_short formula16"></span> 
+
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula9"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="element__formula formula10"></span> 
+            <span class="element__formula formula10"></span>
+            температура воды на входе в участок трубопровода или системы,
+            <span class="element__formula element__formula_type_short formula17"></span>
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula11"></span> 
           </p>
             <p class="element__paragraph">
               <span class="element__formula formula12"></span>
+              температура воды на выходе из участка трубопровода или системы,
+              <span class="element__formula element__formula_type_short formula18"></span>
           </p>
           <p class="element__paragraph">
             <span class="element__formula formula13"></span>
