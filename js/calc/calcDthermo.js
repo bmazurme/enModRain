@@ -292,10 +292,10 @@ export function calcDthermo(item) {
     let re = item.v * item.dtr / ve;
     let nu = 0.021 * (re ** 0.8) * (pr ** 0.43);
     let alpha = nu * ham / item.dtr;
-    let rbh = 1 / math.pi / item.dtr / alpha;
-    let rsl = 1 / 2 / math.pi / item.alphasl * math.log(item.dsl / item.dtr);
-    let rsl2 = 1 / 2 / math.pi / item.alphasl2 * math.log(item.diamsln / item.dsl);
-    let rnp = 1 / math.pi / item.diamsln / item.alphanp2;
+    let rbh = 1 / Math.PI/ item.dtr / alpha;
+    let rsl = 1 / 2 / Math.PI / item.alphasl * Math.log(item.dsl / item.dtr);
+    let rsl2 = 1 / 2 / Math.PI / item.alphasl2 * Math.log(item.diamsln / item.dsl);
+    let rnp = 1 / Math.PI / item.diamsln / item.alphanp2;
     let k = 1 / (rbh + rsl + rsl2 + rnp);
     let qht = k * (item.th - item.tb) * item.l;
     let t2 = (3.6 * item.q * item.t1 - item.qht / 1000 * 0.86) / 3.6 / item.q;
