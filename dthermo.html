@@ -34,6 +34,170 @@
         </section>
         <section class="elements">   
           <!-- cards -->
+          <div class="element">
+            <button aria-label="Remove" class="element__remove" type="button"></button>
+            <div class="element__group">
+              <p class="element__paragraph">
+                Тепловой расчет трубопроводов системы ГВС приведен согласно СП 61.13330.
+              </p>
+              <p class="element__paragraph">
+                Критерий Рейнольдса, безразмерный коэффициент, который характеризует
+                гидродинамический режим потока при вынужденном движении и является мерой
+                соотношения сил инерции и вязкого трения:
+              </p>
+              <p class="element__paragraph">
+                <span class="element__formula formula1"></span> 
+              </p>
+              <p class="element__paragraph">
+                <span class="element__formula formula2"></span> 
+              </p>
+              <p class="element__paragraph">
+                где {% latexify '{\nu}' math_inline=True %} 
+                - кинематическая вязкость жидкости при заданной температуре;
+              </p>        
+              <p class="element__paragraph">
+                Критерий Нуссельта, характеризующий подобие процессов теплопереноса на 
+                границе между стенкой и потоком жидкости:</p>
+              <p class="element__paragraph">
+                {% latexify 'Nu = 0,021 \cdot Re^{0,8} \cdot Pr^{0,43}' math_inline=True %}
+              </p>
+              <p class="element__paragraph">
+                {% latexify 'Nu = 0,021' math_inline=True %}
+                {% latexify '\cdot ' math_inline=True %}
+                {% latexify calc.re|floatformat:2 math_inline=True %}
+                {% latexify '^{0,8}' math_inline=True %}
+                {% latexify '\cdot ' math_inline=True %}
+                {% latexify calc.pr|floatformat:3 math_inline=True %}
+                {% latexify '^{0,43} =' math_inline=True %}
+                {% latexify calc.nu|floatformat:2 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                где {% latexify 'Pr' math_inline=True %} 
+                – критерий Прандтля, который характеризует физико-химические свойства
+                теплоносителя и является мерой подобия температурных и скоростных полей в потоке.
+            </p>
+            <p class="element__paragraph">
+                Коэффициент теплопередачи от жидкости к стенке трубы, Вт/(м²×°С):
+            </p>
+            <p class="element__paragraph">
+                {% latexify '\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}} =' math_inline=True %}
+                {% latexify calc.alpha|floatformat:2 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                где {% latexify '\lambda_t' math_inline=True %} 
+                – коэффициент теплопроводности воды при заданной температуре,
+                Вт/(м²×°С).
+            </p>
+            <p class="element__paragraph">
+                Термическое сопротивление от жидкости к трубе:
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} =' math_inline=True %}
+                {% latexify calc.rbh|floatformat:4 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                Термическое сопротивление трубопровода:
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})' math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = ' math_inline=True %}
+                {% latexify calc.rsl|floatformat:5 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                где {% latexify 'R_{сл}' math_inline=True %} – сумма термических сопротивлений промежуточных слоев,
+                м²×°С/Вт,(термическое сопротивление трубопровода, термическое сопротивление воздушной
+                прослойки между трубой и изоляцией, принимается равным 0,14 м²×°С/Вт по СП50.13330.2012, термическое
+                сопротивление слоя изоляции);
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'D_{сл}' math_inline=True %} – наружный диаметр слоя, м;
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'd_{сл}' math_inline=True %} – внутренний диаметр слоя, м;
+            </p>
+            <p class="element__paragraph">
+                {% latexify '\lambda_{сл}' math_inline=True %} 
+                – коэффициент теплопроводности слоя, Вт/(м²×°C).
+            </p>
+            <p class="element__paragraph">
+                Термическое сопротивление изоляционного слоя, м²×°С/Вт:
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})' math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = ' math_inline=True %}
+                {% latexify calc.rsl2|floatformat:2 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                Термическое сопротивление наружного слоя, м²С/Вт:
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}' math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}} =' math_inline=True %}
+                {% latexify calc.rnp|floatformat:5 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                Линейный коэффициент теплопередачи, Вт/(м²x°С):
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}' math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}} =' math_inline=True %}
+                {% latexify calc.k|floatformat:3 math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                Теплопотери расчетного участка трубопровода, Вт:
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L' math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+              где {% latexify 't^B' math_inline=True %} 
+              - температура воздуха в помещении расположения трубопровода, °C.
+            </p>
+        
+            <p class="element__paragraph">
+                {% latexify 'Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L =' math_inline=True %}
+                {% latexify calc.k|floatformat:3 math_inline=True %}
+                {% latexify '\cdot' math_inline=True %}
+                {% latexify '(' math_inline=True %}
+        
+                {% latexify calc.th|floatformat:1 math_inline=True %}
+                {% latexify ' - ' math_inline=True %}
+                {% latexify calc.tb|floatformat:1 math_inline=True %}
+                {% latexify ') ' math_inline=True %}
+                {% latexify '\cdot' math_inline=True %}
+                {% latexify calc.l|floatformat:1 math_inline=True %}
+        
+                {% latexify ' = ' math_inline=True %}
+                {% latexify calc.qht|floatformat:2 math_inline=True %}
+                Вт
+            </p>
+        
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}' math_inline=True %}
+            </p>
+            <p class="element__paragraph">
+                где {% latexify 'T_1' math_inline=True %} – начальная температура расчетного участка трубопровода, °С;
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'T_2' math_inline=True %} – температура расчетного участка трубопровода на выходе, °С.
+            </p>
+            <p class="element__paragraph">
+                {% latexify 'T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q} =' math_inline=True %}
+                {% latexify calc.t2|floatformat:1 math_inline=True %}
+                °C
+            </p>
+            </div>
+          </div>
+
         </section>
       </main>
 
