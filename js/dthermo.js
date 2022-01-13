@@ -49,7 +49,7 @@ const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.elements');
 
-// const t1 = formAddCard.querySelector('.form__input_type_t1');
+const t1 = formAddCard.querySelector('.form__input_type_t1');
 const l = formAddCard.querySelector('.form__input_type_l');
 const q = formAddCard.querySelector('.form__input_type_q');
 const th = formAddCard.querySelector('.form__input_type_th');
@@ -82,6 +82,7 @@ function saveCardForm(evt) {
 
   const newCard = {
     name: nameFormAddCard.value,
+    t1: t1.value,
     l: l.value,
     q: q.value,
     th: th.value,
@@ -154,33 +155,47 @@ function createCard(item) {
   const el28 = cardElement.querySelector('.formula28');
 
   katex.render(String.raw`Re = \dfrac {Vd_{тр}} {\nu}`, el1, {throwOnError: false});
-  katex.render(String.raw`Re = \dfrac {Vd_{тр}} {\nu} = ${result.re}`, el2, {throwOnError: false});
+  katex.render(String.raw`Re = \dfrac {Vd_{тр}} {\nu} = ${result.re.toFixed(2)}`, el2, {throwOnError: false});
   katex.render(String.raw`{\nu}`, el3, {throwOnError: false});
   katex.render(String.raw`Nu = 0,021 \cdot Re^{0,8} \cdot Pr^{0,43}`, el4, {throwOnError: false});
-  katex.render(String.raw`Nu = 0,021 \cdot ${result.re} ^{0,8} \cdot calc.pr|floatformat:3 ^{0,43} = ${result.nu}:2`, el5, {throwOnError: false});
+  katex.render(String.raw`Nu = 0,021 \cdot ${result.re.toFixed(2)} ^{0,8} \cdot ${result.pr.toFixed(2)} ^{0,43} = ${result.nu.toFixed(2)}`, el5, {throwOnError: false});
   katex.render(String.raw`Pr`, el6, {throwOnError: false});
-  katex.render(String.raw`\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}} = ${result.alpha}`, el7, {throwOnError: false});
+  katex.render(String.raw`\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}} = \dfrac { ${result.nu.toFixed(2)} \cdot ${result.ham.toFixed(2)}} {${item.dtr}} = ${result.alpha.toFixed(2)}`, el7, {throwOnError: false});
   katex.render(String.raw`\lambda_t`, el8, {throwOnError: false});
-  katex.render(String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} = ${result.rbh}`, el9, {throwOnError: false});
+  katex.render(String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} = \dfrac 1 {\pi \cdot ${item.dtr} \cdot ${result.alpha.toFixed(2)}} = ${result.rbh.toFixed(2)}`, el9, {throwOnError: false});
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el10, {throwOnError: false});
-  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = ${result.rsl}`, el11, {throwOnError: false});
+  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = \dfrac 1 {\pi \cdot ${item.alphasl}} \cdot ln(\frac {${item.dsl}} {${item.dtr}}) = ${result.rsl.toFixed(3)}`, el11, {throwOnError: false});
+  //                                                                                                   let rsl = 1 / 2 / Math.PI / item.alphasl * Math.log(item.dsl / item.dtr);
+  
   katex.render(String.raw`R_{сл}`, el12, {throwOnError: false});
   katex.render(String.raw`D_{сл}`, el13, {throwOnError: false});
   katex.render(String.raw`d_{сл}`, el14, {throwOnError: false});
   katex.render(String.raw`\lambda_{сл}`, el15, {throwOnError: false});
+  
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el16, {throwOnError: false});
-  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = ${result.rsl2}`, el17, {throwOnError: false});
+  
+  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = \dfrac 1 {\pi \cdot ${item.alphasl2}} \cdot ln(\frac {${item.diamsln}} {${item.dsl}}) = ${result.rsl2.toFixed(3)}`, el17, {throwOnError: false});
+  //                                                                                          let rsl2 = 1 / 2 / Math.PI / item.alphasl2 * Math.log(item.diamsln / item.dsl);
+  
   katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}`, el18, {throwOnError: false});
-  katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}} = ${result.rnp}`, el19, {throwOnError: false});
+  
+  katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}} = \dfrac {1} {\pi \cdot ${item.diamsln} \cdot ${item.alphanp2}} =  ${result.rnp.toFixed(3)}`, el19, {throwOnError: false});
+  //                                                                                  let rnp = 1 / Math.PI / item.diamsln / item.alphanp2;
+  
   katex.render(String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}`, el20, {throwOnError: false});
-  katex.render(String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}} = ${result.k}`, el21, {throwOnError: false});
+
+  katex.render(String.raw`k = \dfrac {1} {${result.rbh.toFixed(3)} + ${result.rsl.toFixed(3)} + ${result.rsl2.toFixed(3)} + ${result.rnp.toFixed(3)}} = ${result.k.toFixed(3)}`, el21, {throwOnError: false});
+//                    let k = 1 / (rbh + rsl + rsl2 + rnp);
+
   katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L`, el22, {throwOnError: false});
   katex.render(String.raw`t^B`, el23, {throwOnError: false});
-  katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L = ${result.k} \cdot (${item.th} - ${item.tb}) \cdot ${item.l} = ${result.qht} Вт`, el24, {throwOnError: false});
+  katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L = ${result.k.toFixed(3)} \cdot (${item.th} - ${item.tb}) \cdot ${item.l} = ${result.qht.toFixed(3)} Вт`, el24, {throwOnError: false});
   katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}`, el25, {throwOnError: false});
   katex.render(String.raw`T_1`, el26, {throwOnError: false});
   katex.render(String.raw`T_2`, el27, {throwOnError: false});
-  katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q} = ${result.t2}`, el28, {throwOnError: false});
+  
+  katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q} = \dfrac {3,6 \cdot ${item.q} \cdot ${item.t1} - ${result.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${item.q}} = ${result.t2.toFixed(3)}`, el28, {throwOnError: false});
+  //                                                                                           let t2 = (3.6 * item.q * item.t1                      - item.qht / 1000 * 0.86) / 3.6 / item.q;
   // l: l.value,
   // q: q.value,
   // th: th.value,

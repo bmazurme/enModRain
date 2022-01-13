@@ -298,7 +298,7 @@ export function calcDthermo(item) {
     let rnp = 1 / Math.PI / item.diamsln / item.alphanp2;
     let k = 1 / (rbh + rsl + rsl2 + rnp);
     let qht = k * (item.th - item.tb) * item.l;
-    let t2 = (3.6 * item.q * item.t1 - item.qht / 1000 * 0.86) / 3.6 / item.q;
+    let t2 = (3.6 * item.q * item.t1 - qht / 1000 * 0.86) / 3.6 / item.q;
 
-  return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2};
+  return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2, pr, ve, ham};
 }
