@@ -59,19 +59,21 @@
 
           <div class="form__box">
             <input placeholder="Температура горячей воды в местах водоразбора, °C" 
+              pattern="[0-9]{2}"
               class="form__input form__input_type_th" id="th-input" required >
             <span class="th-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="Температура холодной воды на входе в водонагреватель, °C" 
-            class="form__input form__input_type_tc" id="tc-input" required >
+              pattern="[0-9]{2}"
+              class="form__input form__input_type_tc" id="tc-input" required >
             <span class="tc-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="В течение среднего часа, кВт" 
-            class="form__input form__input_type_qmid" id="qmid-input" required >
+              class="form__input form__input_type_qmid" id="qmid-input" required >
             <span class="qmid-input-error form__input-error"></span>
           </div>
 
@@ -89,6 +91,7 @@
 
           <div class="form__box">
             <input placeholder="Время водоразбора, ч" 
+            pattern="[0-9]{1,2}"
             class="form__input form__input_type_t" id="t-input" required >
             <span class="t-input-error form__input-error"></span>
           </div>

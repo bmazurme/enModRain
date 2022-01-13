@@ -32,7 +32,6 @@ function saveCardForm(evt) {
   const newCard = {
     name: nameFormAddCard.value,
     q: q.value,
-    //h: h.value,
     s: s.value
   };
 
