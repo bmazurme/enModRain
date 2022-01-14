@@ -164,7 +164,7 @@ function createCard(item) {
   katex.render(String.raw`\lambda_t`, el8, {throwOnError: false});
   katex.render(String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} = \dfrac 1 {\pi \cdot ${item.dtr} \cdot ${result.alpha.toFixed(2)}} = ${result.rbh.toFixed(2)}`, el9, {throwOnError: false});
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el10, {throwOnError: false});
-  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = \dfrac 1 {\pi \cdot ${item.alphasl}} \cdot ln(\frac {${item.dsl}} {${item.dtr}}) = ${result.rsl.toFixed(3)}`, el11, {throwOnError: false});
+  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${item.alphasl}} \cdot ln(\frac {${item.dsl}} {${item.dtr}}) = ${result.rsl.toFixed(3)}`, el11, {throwOnError: false});
   //                                                                                                   let rsl = 1 / 2 / Math.PI / item.alphasl * Math.log(item.dsl / item.dtr);
   
   katex.render(String.raw`R_{сл}`, el12, {throwOnError: false});
@@ -174,12 +174,12 @@ function createCard(item) {
   
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el16, {throwOnError: false});
   
-  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}}) = \dfrac 1 {\pi \cdot ${item.alphasl2}} \cdot ln(\frac {${item.diamsln}} {${item.dsl}}) = ${result.rsl2.toFixed(3)}`, el17, {throwOnError: false});
+  katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${item.alphasl2}} \cdot ln(\frac {${item.diamsln}} {${item.dsl}}) = ${result.rsl2.toFixed(3)}`, el17, {throwOnError: false});
   //                                                                                          let rsl2 = 1 / 2 / Math.PI / item.alphasl2 * Math.log(item.diamsln / item.dsl);
   
   katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}`, el18, {throwOnError: false});
   
-  katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}} = \dfrac {1} {\pi \cdot ${item.diamsln} \cdot ${item.alphanp2}} =  ${result.rnp.toFixed(3)}`, el19, {throwOnError: false});
+  katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot ${item.diamsln} \cdot ${item.alphanp2}} =  ${result.rnp.toFixed(3)}`, el19, {throwOnError: false});
   //                                                                                  let rnp = 1 / Math.PI / item.diamsln / item.alphanp2;
   
   katex.render(String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}`, el20, {throwOnError: false});
