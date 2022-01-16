@@ -32,7 +32,11 @@
       
       <main class="main">
         <section class="calculate">
-          <button aria-label="Add" class="calculate__add" type="button"></button>
+
+            <button aria-label="Add" class="calculate__add" type="button"></button>
+            <button aria-label="Map" class="calculate__map" type="button"></button>
+
+
         </section>
         <section class="elements">          
           <!-- cards -->
@@ -87,12 +91,12 @@
               form__input_type_n" id="n-input" required >
             <span class="n-input-error form__input-error"></span>
           </div>
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Расход с участка кровли, л/с"
             pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_qplus" id="qplus-input" required >
             <span class="qplus-input-error form__input-error"></span>
-          </div>
+          </div> -->
           <button aria-label="Save" class="form__save form__submit" 
             type="submit">Сохранить</button>
         </form>
@@ -101,7 +105,11 @@
 
     <template id="card-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button"></button>
+        <div class="box">
+          <button aria-label="Print" class="box__print" type="button"></button>
+          <button aria-label="Remove" class="box__remove" type="button"></button>
+        </div>
+
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__result"></p>
@@ -112,8 +120,10 @@
           </p>
           <p class="element__paragraph"> - для кровель с уклоном до 1,5% включительно </p>
           <p class="element__paragraph"><span class="element__formula formula2"></span></p>
-          <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
-          <p class="element__paragraph"><span class="element__formula formula3"></span></p>
+
+          <!-- <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
+          <p class="element__paragraph"><span class="element__formula formula3"></span></p> -->
+
           <p class="element__paragraph">
               где <span class="formula4"></span> 
               - интенсивность дождя, л/с с га (для данной местности),
@@ -129,20 +139,30 @@
           <p class="element__paragraph"> <span class="formula6"></span></p>
           <div class="block__area">
             <p class="element__paragraph">Площадь горизонтальной поверхности</p>
-            <p class="element__paragraph"><span class="element__formula formula7"></span></p>
+            <p  class="element__paragraph"><span class="element__formula formula7"></span></p>
+            <p class="element__paragraph">Площадь вертикальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula10"></span></p>
+            <p class="element__paragraph">Суммарная площадь горизонтальной поверхности 
+              и 30% вертикальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula13"></span></p>
+            <p ><span class="element__formula formula14"></span></p>
+
           </div>
           <div class="block__result">
             <p class="element__paragraph"> <span class="element__formula formula27"></span></p>
           </div>
-          <p class="element__paragraph"><span class="element__formula formula8"></span></p>
-          <p class="element__paragraph"><span class="element__formula formula9"></span></p>
+          <!-- <p class="element__paragraph"><span class="element__formula formula8"></span></p>
+          <p class="element__paragraph"><span class="element__formula formula9"></span></p> -->
         </div>
       </div>
     </template>
 
     <template id="card1-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button"></button>
+        <div class="box">
+          <button aria-label="Print" class="box__print" type="button"></button>
+          <button aria-label="Remove" class="box__remove" type="button"></button>
+        </div>
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__result"></p>
@@ -154,8 +174,8 @@
           <p class="element__paragraph">
               - для кровель с уклоном до 1,5% включительно
           </p>
-          <p class="element__paragraph"><span class="element__formula formula2"></span></p>
-          <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
+          <!-- <p class="element__paragraph"><span class="element__formula formula2"></span></p>
+          <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p> -->
           <p class="element__paragraph"><span class="element__formula formula3"></span></p>
           <p class="element__paragraph">
               где <span class="formula4"></span> 
@@ -172,20 +192,21 @@
           <p class="element__paragraph"> <span class="element__formula formula6"></span></p>
           <div class="block__area">
             <p class="element__paragraph">Площадь горизонтальной поверхности</p>
+            <p  class="element__paragraph"><span class="element__formula formula7"></span></p>
             <p class="element__paragraph">Площадь вертикальной поверхности</p>
             <p class="element__paragraph"><span class="element__formula formula10"></span></p>
             <p class="element__paragraph">Суммарная площадь горизонтальной поверхности 
               и 30% вертикальной поверхности</p>
             <p class="element__paragraph"><span class="element__formula formula13"></span></p>
             <p ><span class="element__formula formula14"></span></p>
-            <p  class="element__paragraph"><span class="element__formula formula7"></span></p>
+
           </div>
           <div class="block__result">
             <p> <span class="element__formula formula21"></span></p>
             <p> <span class="element__formula formula27"></span></p>
           </div>
-          <p><span class="element__formula formula8"></span></p>
-          <p><span class="element__formula formula9"></span></p>
+          <!-- <p><span class="element__formula formula8"></span></p>
+          <p><span class="element__formula formula9"></span></p> -->
         </div>
       </div>
     </template>
