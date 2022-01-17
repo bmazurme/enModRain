@@ -1,6 +1,9 @@
 .slide {
-  border: solid 1px gray;
-  
+  /* border: solid 1px gray; */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 
   background-repeat: no-repeat;
   background-position: center;
@@ -12,10 +15,19 @@
   background-color: gray;
   color: #fff;
   transition: 0.4s ease;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   cursor: pointer;
 }
 
 .slide:nth-child(2n) {
   grid-template-areas: 'container viewer';
+  background-color: rgb(199, 199, 199);
+}
+
+.slide:nth-child(2n):hover {
+  background-color: gray;
+  color: #fff;
+  transition: 0.4s ease;
+  /* border: 1px solid gray; */
+  cursor: pointer;
 }
