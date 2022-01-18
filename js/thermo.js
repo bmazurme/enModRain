@@ -69,7 +69,7 @@ function keydownEsc(popup, evt) {
 function createCard(item) {
   let obj = calcThermo(item.qht, item.qhhr, item.th, item.tc, item.qht2);  
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  const deleteButton = cardElement.querySelector('.element__remove');
+  const deleteButton = cardElement.querySelector('.box__remove');
   deleteButton.addEventListener("click", deleteCard);
   cardElement.querySelector('.element__name').textContent = item.name;
 

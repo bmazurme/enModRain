@@ -3,6 +3,12 @@ import {calcRain} from './calc/calcRain.js';
 import {lockButton} from './validate.js';
 
 const addButton = document.querySelector('.calculate__add');
+
+const mapButton = document.querySelector('.calculate__map');
+const popupTypeSlide = document.querySelector('.popup_type_slide');
+// const popupTypeMap = document.querySelector('.popup_type_map');
+const closeButtonImage = popupTypeSlide.querySelector('.popup__close');
+
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
@@ -35,6 +41,14 @@ function openAddCardPopup() {
   lockButton(saveButton, config.inactiveButtonClass);
 
   openPopup(popupTypeAdd); 
+}
+
+function openMapCardPopup() {
+  //formAddCard.reset();
+
+  //lockButton(saveButton, config.inactiveButtonClass);
+
+  openPopup(popupTypeSlide); 
 }
 
 // Block 
@@ -133,7 +147,12 @@ function saveCardForm(evt) {
 
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
+mapButton.addEventListener('click', openMapCardPopup);
+
+
+
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
+closeButtonImage.addEventListener('click', () => closePopup(popupTypeSlide));
 
 document.addEventListener('mousedown', function (evt) {
   if (evt.target.classList.contains('popup')) {
