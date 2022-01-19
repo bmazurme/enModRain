@@ -1,6 +1,4 @@
-export function templateRain(item) {
-    let obj = calcRain(item.slope, item.roof, item.facade, item.q20, item.n);
-  
+export function templateRain(obj) {  
     if (item.slope < 1.5) {
       const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
       const deleteButton = cardElement.querySelector('.box__remove');
@@ -51,7 +49,6 @@ export function templateRain(item) {
       katex.render(String.raw`F_2 = ${facade.value} \space м^2`, el10, {throwOnError: false});
       katex.render(String.raw`F = F_1 + 0.3 \cdot F_2`, el13, {throwOnError: false});
       katex.render(String.raw`F = ${roof.value} + 0.3 \cdot ${facade.value} = ${obj.sumArea} \space м^2`, el14, {throwOnError: false});
-    
       deleteButton.addEventListener("click", deleteCard);
       card1Element.querySelector('.element__name').textContent = item.name;
       katex.render(String.raw`Q = \dfrac { ${obj.q5} \cdot ${obj.sumArea}}{10000} = ${obj.q.toFixed(2)} \space л/с`, el27, {throwOnError: false});

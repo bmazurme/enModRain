@@ -13,5 +13,5 @@ export function calcRain(slope, roof, facade, q20, n) {
     q5 = 4 ** Number(n) * Number(q20);
     q = sumArea * q5 / 10000;
   }
-  return {q, q5, sumArea};
+  return {q, q5, sumArea, slope, roof, facade, q20, n};
 }
