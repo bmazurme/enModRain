@@ -1,7 +1,7 @@
 import { config } from './config.js';
-//import { calcRain } from './calc/calcRain.js';
+import { calcRain } from './calc/calcRain.js';
 import { lockButton } from './validate.js';
-import { Card } from './Card.js';
+import { CardRain } from './cards/CardRain.js';
 
 const addButton = document.querySelector('.calculate__add');
 const mapButton = document.querySelector('.calculate__map');
@@ -63,13 +63,12 @@ function saveCardForm(evt) {
 }
 
 function generateCard(item) {
-  //let obj = calcRain(item.slope, item.roof, item.facade, item.q20, item.n);
+  let obj = calcRain(item);
   let template = '#card1-template';
   if (item.slope < 1.5) {
     template = '#card-template';
   }
-
-  const card = new Card(item, template, openPopup, closePopup);
+  const card = new CardRain(obj, template, openPopup, closePopup);
   const cardElement = card.createCard();
   return cardElement
 }
