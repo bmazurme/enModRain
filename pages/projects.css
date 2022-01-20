@@ -38,3 +38,13 @@
 @import url(../blocks/box/__edit/edit__print.css);
 @import url(../blocks/box/__print/box__print.css);
 @import url(../blocks/box/__remove/box__remove.css);
+
+@import url(../blocks/project/project.css);
+@import url(../blocks/project/__column/project__column.css);
+@import url(../blocks/project/__name/project__name.css);
+@import url(../blocks/project/__calculations/project__calculations.css);
+@import url(../blocks/project/__address/project__address.css);
+@import url(../blocks/project/__icon/project__icon.css);
+@import url(../blocks/project/__icon/_type/project__icon_type_address.css);
+@import url(../blocks/project/__icon/_type/project__icon_type_name.css);
+@import url(../blocks/project/__icon/_type/project__icon_type_calculations.css);

@@ -1,0 +1,11 @@
+.project__icon {
+  height: 16px;
+  width: 16px;
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  margin-left: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}

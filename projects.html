@@ -16,14 +16,14 @@
       <header class="header">
         <nav class="menu">
           <a class="menu__link" href="index.html">Index</a>
-          <a class="menu__link" href="thermo.html">Thermo</a>
-          <a class="menu__link" href="rain.html">Rain</a>
-          <a class="menu__link" href="throttle.html">Throttle</a>
-          <a class="menu__link menu__link_active" href="dwmeter.html">Dwmeter</a>
-          <a class="menu__link" href="tank.html">Tank</a>
-          <a class="menu__link" href="circflow.html">Circflow</a>
-          <a class="menu__link" href="dthermo.html">Dthermo</a>
+          <a class="menu__link menu__link_active" href="projects.html">Проекты</a>
         </nav>
+
+        <nav class="menu">
+          <a class="menu__link" href="index.html">Index</a>
+          <a class="menu__link menu__link_active" href="projects.html">Проекты</a>
+        </nav>
+
         <h1 class="header__title">Проекты</h1>
       </header>
 
@@ -76,11 +76,27 @@
           <button aria-label="Remove" class="box__remove" type="button"></button>
         </div>
         <div class="element__group">
-          <h2 class="element__name"></h2>
-          <p class="element__paragraph address">
+          
+          <!-- <h2 class="element__name"></h2>  -->
+          <div class="project">
 
-            Адрес
-          </p>
+            <div class="project__column">
+              <div class="project__icon project__icon_type_name"></div>
+              <h2 class="project__name"></h2> 
+            </div>
+            
+            <div class="project__column">
+              <div class="project__icon project__icon_type_address"></div>
+              <p class="project__address address">address</p>
+            </div>
+
+            <div class="project__column">
+              <div class="project__icon project__icon_type_calculations"></div>
+              <a href="calculations.html" class="project__calculations">Calculations</a>
+            </div>
+              
+
+          </div>
         </div>
       </div> 
     </template>
