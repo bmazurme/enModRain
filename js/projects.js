@@ -1,5 +1,4 @@
-import { calcDwmeter } from "./calc/calcDwmeter.js";
-import { CardDwmeter } from "./cards/CardDwmeter.js";
+import { CardProject } from "./cards/CardProject.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -7,8 +6,7 @@ const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardsContainer = document.querySelector('.elements');
-const q = formAddCard.querySelector('.form__input_type_q');
-const s = formAddCard.querySelector('.form__input_type_s');
+const address = formAddCard.querySelector('.form__input_type_address');
 
 const openPopup = (popup) => {
   document.addEventListener('keydown', closeByEscape);
@@ -37,8 +35,7 @@ function saveCardForm(evt) {
 
   const newCard = {
     name: nameFormAddCard.value,
-    q: q.value,
-    s: s.value
+    address: address.value
   };
 
   const element = createCard(newCard);
@@ -51,9 +48,8 @@ addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 
 function createCard(item) {
-  let obj = calcDwmeter(item.q, item.s);
   let template = '#card-template';
-  const card = new CardDwmeter(obj, template, openPopup, closePopup);
+  const card = new CardProject(item, template, openPopup, closePopup);
   const cardElement = card.createCard();
   return cardElement;
 }

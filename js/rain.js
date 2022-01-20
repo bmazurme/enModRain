@@ -87,9 +87,3 @@ popups.forEach((popup) => {
       }
   })
 });
-
-document.addEventListener('mousedown', function (evt) {
-  if (evt.target.classList.contains('popup')) {
-      closePopup(evt.target);
-  }
-});

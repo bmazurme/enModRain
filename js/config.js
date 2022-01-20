@@ -19,5 +19,6 @@ export const settings = {
   element: '.element',
   elementLike: '.element__like',
   elementRemove: '.box__remove',
-  elementImage: '.element__image'
+  elementImage: '.element__image',
+  cardAddress: '.address'
 };
