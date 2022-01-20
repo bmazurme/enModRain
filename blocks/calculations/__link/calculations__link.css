@@ -1,0 +1,13 @@
+.calculations__link {
+  color: black;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  margin-top: 10px;
+  margin-left: 0;
+  margin-right: 30px;
+  margin-bottom: 0;
+}
