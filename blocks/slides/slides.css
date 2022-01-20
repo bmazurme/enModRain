@@ -11,15 +11,15 @@
 
 .slides {
   height: 500px;
-  width: 100%;
+  /* width: 100%; */
   margin: 0;
   display: grid;
   gap: 0;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 'viewer container';
 
-  border: solid 1px gray;
+  border: solid 1px rgb(199, 199, 199);
 }
 
 

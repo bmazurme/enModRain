@@ -20,6 +20,9 @@
           <a class="menu__link" href="rain.html">Rain</a>
           <a class="menu__link" href="throttle.html">Throttle</a>
           <a class="menu__link" href="dwmeter.html">Dwmeter</a>
+          <a class="menu__link" href="tank.html">Tank</a>
+          <a class="menu__link" href="circflow.html">Circflow</a>
+          <a class="menu__link" href="dthermo.html">Dthermo</a>
         </nav>
         <h1 class="header__title">Расход тепла для нагрева горячей воды</h1>
       </header>
@@ -65,13 +68,15 @@
           </div>
           <div class="form__box">
             <input placeholder="Температура горячей воды в местах водоразбора, °C"
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              type="number" min="1" max="60"
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_th" id="th-input" required >
             <span class="th-input-error form__input-error"></span>
           </div>
           <div class="form__box">
             <input placeholder="Температура холодной воды на входе в водонагреватель, °C"
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              type="number" min="1" max="99"
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
               form__input_type_tc" id="tc-input" required >
             <span class="tc-input-error form__input-error"></span>
           </div>
@@ -90,7 +95,10 @@
 
     <template id="card-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button"></button>
+        <div class="box">
+          <button aria-label="Print" class="box__print" type="button"></button>
+          <button aria-label="Remove" class="box__remove" type="button"></button>
+        </div>
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__paragraph">

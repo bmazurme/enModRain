@@ -21,6 +21,9 @@
           <a class="menu__link" href="rain.html">Rain</a>
           <a class="menu__link" href="throttle.html">Throttle</a>
           <a class="menu__link menu__link_active" href="dwmeter.html">Dwmeter</a>
+          <a class="menu__link" href="tank.html">Tank</a>
+          <a class="menu__link" href="circflow.html">Circflow</a>
+          <a class="menu__link" href="dthermo.html">Dthermo</a>
         </nav>
         <h1 class="header__title">Потери напора в счетчике</h1>
       </header>
@@ -80,7 +83,10 @@
 
     <template id="card-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button"></button>
+        <div class="box">
+          <button aria-label="Print" class="box__print" type="button"></button>
+          <button aria-label="Remove" class="box__remove" type="button"></button>
+        </div>
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__paragraph">
