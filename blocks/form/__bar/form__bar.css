@@ -1,0 +1,23 @@
+/* BOTTOM BARS ================================= */
+.form__bar {
+    position: relative;
+    display: block;
+    width: 320px;
+  }
+  .form__bar:before, .form__bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #3f51b5;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .form__bar:before {
+    left: 50%;
+  }
+  .form__bar:after {
+    right: 50%;
+  }

@@ -1,4 +1,6 @@
 import { CardProject } from "./cards/CardProject.js";
+import { FormValidator } from './FormValidator.js';
+import { config } from "./config.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -27,6 +29,7 @@ function closeByEscape(evt) {
 
 function openAddCardPopup() {
   formAddCard.reset();
+  cardFormValidator.resetValidation();
   openPopup(popupTypeAdd); 
 }
 
@@ -53,3 +56,7 @@ function createCard(item) {
   const cardElement = card.createCard();
   return cardElement;
 }
+
+
+const cardFormValidator = new FormValidator(config, formAddCard);
+cardFormValidator.enableValidation();

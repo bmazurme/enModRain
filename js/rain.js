@@ -1,7 +1,8 @@
 import { config } from './config.js';
 import { calcRain } from './calc/calcRain.js';
-import { lockButton } from './validate.js';
 import { CardRain } from './cards/CardRain.js';
+import { FormValidator } from './FormValidator.js';
+
 
 const addButton = document.querySelector('.calculate__add');
 const mapButton = document.querySelector('.calculate__map');
@@ -9,7 +10,7 @@ const popupTypeSlide = document.querySelector('.popup_type_slide');
 const popups = document.querySelectorAll('.popup');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const cardsContainer = document.querySelector('.elements');
-const saveButton= document.querySelector('.form__save');  
+//const saveButton= document.querySelector('.form__save');  
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const n = formAddCard.querySelector('.form__input_type_n');
@@ -37,7 +38,8 @@ function closeByEscape(evt) {
 
 function openAddCardPopup() {
   formAddCard.reset();
-  lockButton(saveButton, config.inactiveButtonClass);
+  //lockButton(saveButton, config.inactiveButtonClass);
+  cardFormValidator.resetValidation();
   openPopup(popupTypeAdd); 
 }
 
@@ -87,3 +89,6 @@ popups.forEach((popup) => {
       }
   })
 });
+
+const cardFormValidator = new FormValidator(config, formAddCard);
+cardFormValidator.enableValidation();
