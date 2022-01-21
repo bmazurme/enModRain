@@ -1,6 +1,7 @@
 import { CardProject } from "./cards/CardProject.js";
 import { FormValidator } from './FormValidator.js';
 import { config } from "./config.js";
+import { projects as data } from "./data/projects.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -60,3 +61,13 @@ function createCard(item) {
 
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
+
+
+
+console.log(data);
+
+data.forEach(item => {
+  console.log(item);
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});
