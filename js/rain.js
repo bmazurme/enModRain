@@ -3,6 +3,12 @@ import { calcRain } from './calc/calcRain.js';
 import { lockButton } from './validate.js';
 import { CardRain } from './cards/CardRain.js';
 
+// import { jsPDF } from './dist/jspdf.debug.js';
+
+
+//    <script type="text/javascript" src="./js/dist/jspdf.debug.js"></script>
+
+
 const addButton = document.querySelector('.calculate__add');
 const mapButton = document.querySelector('.calculate__map');
 const popupTypeSlide = document.querySelector('.popup_type_slide');

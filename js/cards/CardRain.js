@@ -26,6 +26,101 @@ export class CardRain extends Card {
     const el14 = cardElement.querySelector('.formula14');
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
+
+
+    var graphScope = new paper.PaperScope();
+    var canvas_1 = document.getElementById('canvas_1');
+    graphScope.setup(canvas_1);
+    graphScope.activate();
+    const latexToImg = function(formula) {
+      let wrapper = MathJax.tex2svg(formula, {
+        em: 50,
+        ex: 50,
+        display: true
+      })
+      return wrapper.querySelector('svg');
+    }
+    const svgGroup = graphScope.project.importSVG(latexToImg('Q = \\dfrac {F \\cdot q_{20}}{10000}'));
+    var bounds;
+    svgGroup.scale(10);
+    // for automatic scaling, use these lines instead:
+    // bounds = svgGroup.strokeBounds;
+    // svgGroup.scale(40 / bounds.height);
+    bounds = svgGroup.strokeBounds;
+    svgGroup.position.x = -bounds.x +10;
+    svgGroup.position.y = -bounds.y +10;
+
+
+
+    var svg = canvas_1;//document.querySelector('svg');
+    var canvas = document.createElement('canvas');
+    canvas.height = svg.getAttribute('height');
+    canvas.width = svg.getAttribute('width');
+    canvg(canvas, svg.parentNode.innerHTML.trim());
+    var dataURL = canvas.toDataURL('image/png');
+    var data = atob(dataURL.substring('data:image/png;base64,'.length)),
+            asArray = new Uint8Array(data.length);
+    
+    for (var i = 0, len = data.length; i < len; ++i) {
+        asArray[i] = data.charCodeAt(i);
+    }
+    
+    var blob = new Blob([asArray.buffer], {type: 'image/png'});
+    saveAs(blob, 'export_' + Date.now() + '.png');
+
+
+
+    
+
+    // const doc = new jsPDF();
+    // //var imgData = canvas.toDataURL('image/png');
+    // //doc.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+    // var img = svgGroup.toDataURL("image/png");
+    // doc.addImage(img, 'png', 10, 10, 50, 50, 'monkey');
+    // doc.save('Test.pdf');
+
+
+    //console.log(svgGroup);
+
+
+
+
+    // const doc = new jsPDF();
+    // console.log(doc.text(20, 20, katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}", {
+    //        throwOnError: false})));
+    //        console.log('===');
+
+    // function(canvas) {
+    //   var imgData = canvas.toDataURL('image/png');cd vendor
+
+    //   // Generate PDF
+    //   //var doc = new jsPDF('p', 'pt', 'a4');
+    //   //doc.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+    //   //doc.save('test.pdf');
+    // }
+
+    //card-template
+
+
+    //var myCanvas = document.getElementById('card-template');
+    //var ctx = myCanvas.getContext('2d');
+    //var img = new Image;
+    //console.log(ctx);
+    // img.onload = function(){
+    //   ctx.drawImage(img,0,0); // Or at whatever offset you like
+    // };
+    // img.src = strDataURI;
+
+
+    // var canvas = document.getElementById("card-template");
+    // const doc = new jsPDF();
+    // var imgData = canvas.toDataURL('image/png');
+    // doc.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+    // doc.save('Test.pdf');
+
+
+
+
     
     katex.render(String.raw`Q`, el1, {throwOnError: false});
     katex.render(String.raw`q_{20}`, el4, {throwOnError: false});
@@ -41,6 +136,12 @@ export class CardRain extends Card {
       katex.render(String.raw`Q = \dfrac {F \cdot q_{20}}{10000}`, el2, {throwOnError: false});
       katex.render(String.raw`Q = \dfrac {${this._item.q20} \cdot ${this._item.sumArea}}{10000} 
         = ${this._item.q.toFixed(2)} \space л/с`, el27, {throwOnError: false});
+
+
+
+
+
+
       return cardElement;
     }
     else {
