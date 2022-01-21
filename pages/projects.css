@@ -28,7 +28,7 @@
 @import url(../blocks/element/__paragraph-icon/element__paragraph-icon.css);
 @import url(../blocks/element/__paragraph-icon/_name/element__paragraph-icon_name_location.css);
 
-@import url(../blocks/footer/__link/footer__link.css);
+
 
 @import url(../blocks/menu/menu.css);
 @import url(../blocks/menu/__link/menu__link.css);
@@ -48,3 +48,11 @@
 @import url(../blocks/project/__icon/_type/project__icon_type_address.css);
 @import url(../blocks/project/__icon/_type/project__icon_type_name.css);
 @import url(../blocks/project/__icon/_type/project__icon_type_calculations.css);
+
+@import url(../blocks/user-menu/user-menu.css);
+@import url(../blocks/user-menu/__link/user-menu__link.css);
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/footer/__menu/footer__menu.css);
+@import url(../blocks/footer/__link/footer__link.css);
