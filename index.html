@@ -7,7 +7,6 @@
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
     <link rel="stylesheet" href="./pages/index.css">
-    <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
     <title>Сервис инженерных расчетов</title>
   </head>
 
@@ -15,15 +14,15 @@
     <div class="page">
       <header class="header">
 
+        <nav class="user-menu">
+          <a class="user-menu__link" href="registration.html">Регистрация</a>
+          <a class="user-menu__link user-menu__link_active" href="profile.html">Войти</a>
+        </nav>
+
         <nav class="menu">
           <a class="menu__link menu__link_active" href="index.html">Index</a>
-          <a class="menu__link" href="thermo.html">Thermo</a>
-          <a class="menu__link" href="rain.html">Rain</a>
-          <a class="menu__link" href="throttle.html">Throttle</a>
-          <a class="menu__link" href="dwmeter.html">Dwmeter</a>
-          <a class="menu__link" href="tank.html">Tank</a>
-          <a class="menu__link" href="circflow.html">Circflow</a>
-          <a class="menu__link" href="dthermo.html">Dthermo</a>
+          <a class="menu__link" href="projects.html">Проекты</a>
+          <a class="menu__link" href="soft.html">Soft</a>
         </nav>
 
         <h1 class="header__title">Index</h1>
@@ -32,43 +31,33 @@
       <main class="main">
         <section class="slides">
 
-        <div class="slide slide_type_rain">
-        </div>
-        <div class="slide slide_type_thermo">
-        </div>
-        <div class="slide slide_type_meter">
-          
-        </div>
-        <div class="slide slide_type_reduce">
-          
-        </div>
-        <div class="slide slide_type_rev">
-          
-        </div>
-
-        <div class="slide">
-        </div>
-        <div class="slide">
-        </div>
-        <div class="slide">
-        </div>
-        <div class="slide">
-        </div>
-        <div class="slide">
-        </div>
-
-          <!-- cards -->
+        <div class="slide slide_type_rain"></div>
+        <div class="slide slide_type_thermo"></div>
+        <div class="slide slide_type_meter"></div>
+        <div class="slide slide_type_reduce"></div>
+        <div class="slide slide_type_rev"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
         </section>
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 { bmazur } 
-          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a></p>
+        <p class="footer__copyright"> &copy; 2021 { bmazur } </p>
+
+        <div class="footer__menu">
+          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+          <a class="footer__link" href="confidential.html">Конфиденциальность</a>
+          <a class="footer__link" href="politic.html">Пользовательское соглашение</a>
+          <a class="footer__link" href="support.html">Справка и поддержка</a>
+        </div>
+
       </footer>
     </div>
 
     <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/validate.js"></script>
-    <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
 </html>

@@ -33,3 +33,6 @@
 @import url(../blocks/box/box.css);
 @import url(../blocks/box/__print/box__print.css);
 @import url(../blocks/box/__remove/box__remove.css);
+
+@import url(../blocks/user-menu/user-menu.css);
+@import url(../blocks/user-menu/__link/user-menu__link.css);
