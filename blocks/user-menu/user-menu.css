@@ -1,0 +1,4 @@
+.user-menu {
+  display: flex;
+  flex-direction: row-reverse;
+}

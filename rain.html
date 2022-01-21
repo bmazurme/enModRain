@@ -15,9 +15,9 @@
     <div class="page">
       
       <header class="header">
-        <nav class="menu">
-          <a class="menu__link" href="index.html">Index</a>
-          <a class="menu__link" href="projects.html">Проекты</a>
+        <nav class="user-menu">
+          <a class="user-menu__link" href="index.html">Выйти</a>
+          <a class="user-menu__link" href="profile.html">Профиль</a>
         </nav>
 
         <nav class="menu">
@@ -33,20 +33,22 @@
       
       <main class="main">
         <section class="calculate">
-
             <button aria-label="Add" class="calculate__add" type="button"></button>
             <button aria-label="Map" class="calculate__map" type="button"></button>
-
-
         </section>
         <section class="elements">          
-          <!-- cards -->
+
         </section>
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 { bmazur } 
-          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+        <p class="footer__copyright"> &copy; 2021 { bmazur }  </p>
+          <div class="footer__menu">
+            <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+            <a class="footer__link" href="confidential.html">Конфиденциальность</a>
+            <a class="footer__link" href="politic.html">Пользовательское соглашение</a>
+            <a class="footer__link" href="support.html">Справка и поддержка</a>
+          </div>
         </p>
       </footer>
     </div>
@@ -98,8 +100,6 @@
       </div>
     </div>
 
-
-
     <div class="popup popup_type_slide popup_image">
       <div class="popup__container popup__container_image">
         <button aria-label="Close" class="popup__close" type="button"></button>
@@ -109,17 +109,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
     <template id="card-template">
       <div class="element">
@@ -138,9 +127,6 @@
           </p>
           <p class="element__paragraph"> - для кровель с уклоном до 1,5% включительно </p>
           <p class="element__paragraph"><span class="element__formula formula2"></span></p>
-
-          <!-- <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p>
-          <p class="element__paragraph"><span class="element__formula formula3"></span></p> -->
 
           <p class="element__paragraph">
               где <span class="formula4"></span> 
@@ -169,8 +155,6 @@
           <div class="block__result">
             <p class="element__paragraph"> <span class="element__formula formula27"></span></p>
           </div>
-          <!-- <p class="element__paragraph"><span class="element__formula formula8"></span></p>
-          <p class="element__paragraph"><span class="element__formula formula9"></span></p> -->
         </div>
       </div>
     </template>
@@ -192,8 +176,7 @@
           <p class="element__paragraph">
               - для кровель с уклоном до 1,5% включительно
           </p>
-          <!-- <p class="element__paragraph"><span class="element__formula formula2"></span></p>
-          <p class="element__paragraph"> - для кровель с уклоном свыше 1,5%</p> -->
+
           <p class="element__paragraph"><span class="element__formula formula3"></span></p>
           <p class="element__paragraph">
               где <span class="formula4"></span> 
@@ -223,8 +206,6 @@
             <p> <span class="element__formula formula21"></span></p>
             <p> <span class="element__formula formula27"></span></p>
           </div>
-          <!-- <p><span class="element__formula formula8"></span></p>
-          <p><span class="element__formula formula9"></span></p> -->
         </div>
       </div>
     </template>

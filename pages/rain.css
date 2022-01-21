@@ -25,8 +25,6 @@
 @import url(../blocks/element/__paragraph/element__paragraph.css);
 @import url(../blocks/element/__formula/element__formula.css);
 
-
-@import url(../blocks/footer/__link/footer__link.css);
 @import url(../blocks/box/box.css);
 @import url(../blocks/box/__print/box__print.css);
 @import url(../blocks/box/__remove/box__remove.css);
@@ -41,26 +39,10 @@
 
 @import url(../blocks/slide/__name/slide__name.css);
 
-/* @import url(../blocks/header/header.css);
-@import url(../blocks/logo/logo.css);
-@import url(../blocks/profile/profile.css);
-@import url(../blocks/avatar/avatar.css);
-@import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__profession/profile__profession.css);
-@import url(../blocks/profile/__edit/profile__edit.css);
-@import url(../blocks/profile/__add/profile__add.css);
+@import url(../blocks/user-menu/user-menu.css);
+@import url(../blocks/user-menu/__link/user-menu__link.css);
 
-
-@import url(../blocks/element/__remove/element__remove.css);
-@import url(../blocks/element/__image/element__image.css);
-@import url(../blocks/element/__name/element__name.css);
-@import url(../blocks/element/__group/element__group.css);
-@import url(../blocks/element/__like/element__like.css);
-@import url(../blocks/element/__like/_checked/element__like_checked.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
-
-@import url(../blocks/slide/slide.css);
-@import url(../blocks/slide/__image/slide__image.css);
-@import url(../blocks/slide/__name/slide__name.css); */
+@import url(../blocks/footer/__menu/footer__menu.css);
+@import url(../blocks/footer/__link/footer__link.css);
