@@ -6,7 +6,7 @@
     <meta name="description" content="Тепловой расчет трубопроводов системы ГВС">
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
-    <link rel="stylesheet" href="./pages/dthermo.css">
+    <link rel="stylesheet" href="../pages/dthermo.css">
     <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
     <title>Тепловой расчет трубопроводов системы ГВС</title>
   </head>
@@ -17,14 +17,14 @@
       <header class="header">
 
         <nav class="user-menu">
-          <a class="user-menu__link" href="index.html">Выйти</a>
-          <a class="user-menu__link user-menu__link_active" href="profile.html">Профиль</a>
+          <a class="user-menu__link" href="../index.html">Выйти</a>
+          <a class="user-menu__link user-menu__link_active" href="../profile.html">Профиль</a>
         </nav>
 
         <nav class="menu">
-          <a class="menu__link" href="index.html">Index</a>
-          <a class="menu__link" href="projects.html">Проекты</a>
-          <a class="menu__link" href="calculations.html">Расчеты</a>
+          <a class="menu__link" href="../index.html">Index</a>
+          <a class="menu__link" href="../projects.html">Проекты</a>
+          <a class="menu__link" href="../calculations.html">Расчеты</a>
           <a class="menu__link menu__link_active" href="dthermo.html">Тепловой расчет трубопроводов системы ГВС</a>
         </nav>
 
@@ -43,8 +43,13 @@
 
       <footer class="footer">
         <p class="footer__copyright"> &copy; 2021 { bmazur } 
-          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
         </p>
+        <div class="footer__menu">
+          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+          <a class="footer__link" href="confidential.html">Конфиденциальность</a>
+          <a class="footer__link" href="politic.html">Пользовательское соглашение</a>
+          <a class="footer__link" href="support.html">Справка и поддержка</a>
+        </div>
       </footer>
     </div>
 
@@ -59,9 +64,6 @@
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
-
-
-
 
           <div class="form__box">
             <input placeholder="Начальная температура расчетного участка, °C" 
@@ -146,8 +148,6 @@
               class="form__input form__input_type_alphasl2" id="alphasl2-input" required >
             <span class="alphasl2-input-error form__input-error"></span>
           </div>
-
-
 
           <button aria-label="Save" class="form__save form__submit" 
             type="submit">Сохранить</button>
@@ -302,8 +302,8 @@
       </div>
     </template>
 
-    <script type="module" src="./js/dthermo.js"></script>
-    <script type="module" src="./js/validate.js"></script>
+    <script type="module" src="../js/dthermo.js"></script>
+    <script type="module" src="../js/validate.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
 </html>

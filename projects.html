@@ -34,6 +34,37 @@
         </section>
         <section class="elements">   
 
+          <div class="element">
+            <div class="box">
+              <button aria-label="Edit" class="box__edit" type="button"></button>
+              <button aria-label="Remove" class="box__remove" type="button"></button>
+            </div>
+            <div class="element__group">
+              
+              <div class="project">
+    
+                <div class="project__column">
+                  <div class="project__icon project__icon_type_name"></div>
+                  <h2 class="project__name">Завод по производству заводов</h2> 
+                </div>
+                
+                <div class="project__column">
+                  <div class="project__icon project__icon_type_address"></div>
+                  <p class="project__address address">Московская область, подольский район, г. Климовск </p>
+                </div>
+    
+                <div class="project__column">
+                  <div class="project__icon project__icon_type_calculations"></div>
+                  <a href="calculations.html" class="project__calculations">Расчеты</a>
+                </div>
+                  
+              </div>
+            </div>
+          </div> 
+
+
+
+
         </section>
             
       </main>
@@ -59,12 +90,14 @@
           <div class="form__box">
             <input placeholder="Наименование" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
+              <span class="form__bar"></span>
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="Адрес" 
               class="form__input form__input_type_address" id="address-input" required >
+              <span class="form__bar"></span>
             <span class="address-input-error form__input-error"></span>
           </div>
 
@@ -99,7 +132,6 @@
               <a href="calculations.html" class="project__calculations">Расчеты</a>
             </div>
               
-
           </div>
         </div>
       </div> 

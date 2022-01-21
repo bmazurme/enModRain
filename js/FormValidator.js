@@ -70,6 +70,12 @@ export class FormValidator {
       inputElement.classList.add(this._config.inputErrorClass);
       errorElement.textContent = errorMessage;
       errorElement.classList.add(this._config.errorClass);
+
+      // const barElement = formElement
+      // .querySelector(`.${inputElement.id}-bar`);
+      // console.log(`.${inputElement.id}-bar`);
+
+      inputElement.classList.add('form__input_invalid');
     };
     
     _hideInputError (formElement, inputElement) {
@@ -78,6 +84,10 @@ export class FormValidator {
       inputElement.classList.remove(this._config.inputErrorClass);
       errorElement.classList.remove(this._config.errorClass);
       errorElement.textContent = '';
+
+      // const barElement = formElement
+      // .querySelector(`.${inputElement.id}-bar`);
+      inputElement.classList.remove('form__input_invalid');
     };
     
     _checkInputValidity (formElement, inputElement) {
