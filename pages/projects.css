@@ -48,6 +48,7 @@
 @import url(../blocks/project/__icon/_type/project__icon_type_address.css);
 @import url(../blocks/project/__icon/_type/project__icon_type_name.css);
 @import url(../blocks/project/__icon/_type/project__icon_type_calculations.css);
+@import url(../blocks/project/__icon/_type/project__icon_type_scheme.css);
 
 @import url(../blocks/user-menu/user-menu.css);
 @import url(../blocks/user-menu/__link/user-menu__link.css);
@@ -56,3 +57,11 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/footer/__menu/footer__menu.css);
 @import url(../blocks/footer/__link/footer__link.css);
+
+@import url(../blocks/form/__bar/form__bar.css);
+
+@import url(../blocks/form/__toggle/form__toggle.css);
+@import url(../blocks/form/__toggle/_disabled/form__toggle_disabled.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__title/header__title.css);

@@ -34,8 +34,7 @@
         </section>
         <section class="elements">   
 
-        </section>
-            
+        </section>    
       </main>
 
       <footer class="footer">
@@ -59,12 +58,14 @@
           <div class="form__box">
             <input placeholder="Наименование" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
+              <span class="form__bar"></span>
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="Адрес" 
               class="form__input form__input_type_address" id="address-input" required >
+              <span class="form__bar"></span>
             <span class="address-input-error form__input-error"></span>
           </div>
 
@@ -98,14 +99,16 @@
               <div class="project__icon project__icon_type_calculations"></div>
               <a href="calculations.html" class="project__calculations">Расчеты</a>
             </div>
+            <div class="project__column">
+              <div class="project__icon project__icon_type_scheme"></div>
+              <a href="#" class="project__calculations">Схемы</a>
+            </div>
               
-
           </div>
         </div>
       </div> 
     </template>
 
     <script type="module" src="./js/projects.js"></script>
-    <script type="module" src="./js/validate.js"></script>
   </body>
 </html>

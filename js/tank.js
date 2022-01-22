@@ -1,4 +1,6 @@
 import { calcTank } from "./calc/calcTank.js";
+import { FormValidator } from "./FormValidator.js";
+import { config } from "./config.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -6,7 +8,6 @@ const popupTypeAdd = document.querySelector('.popup_type_add');
 const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.elements');
-
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const th = formAddCard.querySelector('.form__input_type_th');
 const tc = formAddCard.querySelector('.form__input_type_tc');
@@ -14,22 +15,32 @@ const qmid = formAddCard.querySelector('.form__input_type_qmid');
 const qmax = formAddCard.querySelector('.form__input_type_qmax');
 const qsp = formAddCard.querySelector('.form__input_type_qsp');
 const t = formAddCard.querySelector('.form__input_type_t');
-//const b = formAddCard.querySelector('.form__input_type_b');
 const b = formAddCard.querySelector('.form__select_type_b');
+const cardFormValidator = new FormValidator(config, formAddCard);
+cardFormValidator.enableValidation();
 
-
-function openPopup(popup) {
-  document.addEventListener('keydown', (evt) => keydownEsc(popup, evt));
+const openPopup = (popup) => {
+  document.addEventListener('keydown', closeByEscape);
   popup.classList.add('popup_active');
 }
-function closePopup(popup) {
-  document.removeEventListener('keydown', (evt) => keydownEsc(popup, evt));
+
+const closePopup = (popup) => {
   popup.classList.remove('popup_active');
+  document.removeEventListener('keydown', closeByEscape);
 }
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_active');
+    closePopup(openedPopup);
+  }
+}
+
 function openAddCardPopup() {
   formAddCard.reset();
   openPopup(popupTypeAdd); 
 }
+
 function deleteCard(evn) {
   evn.target.closest('.element').remove();
 }
@@ -55,18 +66,6 @@ function saveCardForm(evt) {
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
-
-document.addEventListener('mousedown', function (evt) {
-  if (evt.target.classList.contains('popup')) {
-      closePopup(evt.target);
-  }
-});
-
-function keydownEsc(popup, evt) {
-  if (evt.key === 'Escape') {
-      closePopup(popup);
-  }
-}
 
 function createCard(item) {
   let result = calcTank(item);

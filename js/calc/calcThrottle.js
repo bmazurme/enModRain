@@ -1,6 +1,6 @@
-export function calcThrottle(rawQ, rawHdr) {
-  let q = Number(rawQ);
-  let hdr = Number(rawHdr);
+export function calcThrottle(item) {
+  let q = Number(item.q);
+  let hdr = Number(item.hdr);
   let d = 3.16 * ((3.6 * q) ** 2 / hdr) ** 0.25;
-  return d;
+  return {d, q, hdr};
 }

@@ -1,5 +1,7 @@
 import { calcDwmeter } from "./calc/calcDwmeter.js";
 import { CardDwmeter } from "./cards/CardDwmeter.js";
+import { FormValidator } from "./FormValidator.js";
+import { config } from "./config.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -9,6 +11,8 @@ const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardsContainer = document.querySelector('.elements');
 const q = formAddCard.querySelector('.form__input_type_q');
 const s = formAddCard.querySelector('.form__input_type_s');
+const cardFormValidator = new FormValidator(config, formAddCard);
+cardFormValidator.enableValidation();
 
 const openPopup = (popup) => {
   document.addEventListener('keydown', closeByEscape);

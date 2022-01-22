@@ -17,6 +17,7 @@ export class CardRain extends Card {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._elementRemove);
+    
     const el1 = cardElement.querySelector('.formula1');
     const el4 = cardElement.querySelector('.formula4');
     const el7 = cardElement.querySelector('.formula7');
