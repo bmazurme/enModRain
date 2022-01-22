@@ -3,17 +3,39 @@
   width: 36px;
   border-radius: 18px;
   border: 0;
+  /* background-image: url(../../../images/back_arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px; */
+  background-color: white;
+  position: absolute;
+  z-index: 99;
+  left: -18px;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+              0px 1px 1px 0px rgb(0 0 0 / 14%),
+              0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.registration__back::before {
+  z-index: 999;
+  content: "";
+  position: absolute;
   background-image: url(../../../images/back_arrow.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: white;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  opacity: .4;
+  transition: opacity .5s ease-out;
+}
 
+.registration__back:hover::before {
+  opacity: 1;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px,
+              rgb(0 0 0 / 14%) 0px 3px 4px 0px,
+              rgb(0 0 0 / 12%) 0px 1px 8px 0px;
 
-  position: absolute;
-  z-index: 999;
-  left: -18px;
-
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-
+              
 }
