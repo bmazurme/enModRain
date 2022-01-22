@@ -1,16 +1,13 @@
 import { config } from './config.js';
-import { calcRain } from './calc/calcRain.js';
 import { CardVolume } from './cards/CardVolume.js';
 import { FormValidator } from './FormValidator.js';
 
 const addButton = document.querySelector('.calculate__add');
-// const popupTypeSlide = document.querySelector('.popup_type_slide');
 const popups = document.querySelectorAll('.popup');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const cardsContainer = document.querySelector('.elements');
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-
 
 const openPopup = (popup) => {
   document.addEventListener('keydown', closeByEscape);
@@ -48,8 +45,7 @@ function saveCardForm(evt) {
 }
 
 function generateCard(item) {
-  let template = '#card-template';
-
+  const template = '#card-template';
   const card = new CardVolume(item, template, openPopup, closePopup);
   const cardElement = card.createCard();
   return cardElement

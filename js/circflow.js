@@ -1,4 +1,6 @@
 import { calcCirc } from "./calc/calcCirc.js";
+import { FormValidator } from "./FormValidator.js";
+import { config } from "./config.js";
 
 const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
@@ -7,26 +9,36 @@ const popupTypeAdd = document.querySelector('.popup_type_add');
 const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.elements');
-
 const qht = formAddCard.querySelector('.form__input_type_qht');
 const t1 = formAddCard.querySelector('.form__input_type_t1');
 const t2 = formAddCard.querySelector('.form__input_type_t2');
 
-function openPopup(popup) {
-  document.addEventListener('keydown', (evt) => keydownEsc(popup, evt));
+const openPopup = (popup) => {
+  document.addEventListener('keydown', closeByEscape);
   popup.classList.add('popup_active');
 }
-function closePopup(popup) {
-  document.removeEventListener('keydown', (evt) => keydownEsc(popup, evt));
+
+const closePopup = (popup) => {
   popup.classList.remove('popup_active');
+  document.removeEventListener('keydown', closeByEscape);
 }
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_active');
+    closePopup(openedPopup);
+  }
+}
+
 function openAddCardPopup() {
   formAddCard.reset();
   openPopup(popupTypeAdd); 
 }
+
 function deleteCard(evn) {
   evn.target.closest('.element').remove();
 }
+
 function saveCardForm(evt) {
   evt.preventDefault();
 
@@ -46,21 +58,8 @@ formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 
-document.addEventListener('mousedown', function (evt) {
-  if (evt.target.classList.contains('popup')) {
-      closePopup(evt.target);
-  }
-});
-
-function keydownEsc(popup, evt) {
-  if (evt.key === 'Escape') {
-      closePopup(popup);
-  }
-}
-
 function createCard(item) {
   let result = calcCirc(item);
-  console.log(result.qc);
   
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   const deleteButton = cardElement.querySelector('.element__remove');
@@ -106,3 +105,6 @@ function createCard(item) {
 
   return cardElement;
 }
+
+const cardFormValidator = new FormValidator(config, formAddCard);
+cardFormValidator.enableValidation();

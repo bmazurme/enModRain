@@ -58,13 +58,8 @@ function createCard(item) {
   return cardElement;
 }
 
-
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
-
-
-
-console.log(data);
 
 data.forEach(item => {
   console.log(item);

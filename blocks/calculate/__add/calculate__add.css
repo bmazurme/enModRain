@@ -20,9 +20,9 @@
 }
 
 @media screen and (max-width: 479px) {
-    .calculate__add {
-      flex-direction: column;
-      width: 100%;
-  
-    }
+  .calculate__add {
+    flex-direction: column;
+    width: 100%;
+
   }
+}

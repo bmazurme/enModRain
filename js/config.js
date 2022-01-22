@@ -4,7 +4,8 @@ export const config = {
   submitButtonSelector: '.form__submit',
   inactiveButtonClass: 'form__save_inactive',
   inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__input-error_active'
+  errorClass: 'form__input-error_active',
+  errorLine: 'form__input_invalid'
 };
 
 export const settings = {

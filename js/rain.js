@@ -3,7 +3,6 @@ import { calcRain } from './calc/calcRain.js';
 import { CardRain } from './cards/CardRain.js';
 import { FormValidator } from './FormValidator.js';
 
-
 const addButton = document.querySelector('.calculate__add');
 const mapButton = document.querySelector('.calculate__map');
 const popupTypeSlide = document.querySelector('.popup_type_slide');

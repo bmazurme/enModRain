@@ -21,7 +21,6 @@
 @import url(../blocks/element/__formula/element__formula.css);
 @import url(../blocks/element/__remove/element__remove.css);
 
-
 @import url(../blocks/menu/menu.css);
 @import url(../blocks/menu/__link/menu__link.css);
 @import url(../blocks/menu/__link/_active/menu__link_active.css);
@@ -36,3 +35,11 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/footer/__menu/footer__menu.css);
 @import url(../blocks/footer/__link/footer__link.css);
+
+@import url(../blocks/box/box.css);
+@import url(../blocks/box/__edit/edit__print.css);
+@import url(../blocks/box/__print/box__print.css);
+@import url(../blocks/box/__remove/box__remove.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__title/header__title.css);
