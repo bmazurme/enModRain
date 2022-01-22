@@ -92,6 +92,8 @@ const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
 
 initRain.forEach(item => {
+  item.name = 'Roof 1';
+
   console.log(item);
   const element = generateCard(item);
   cardsContainer.prepend(element);

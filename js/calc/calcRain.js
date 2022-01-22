@@ -17,7 +17,5 @@ export function calcRain(item) {
     q = sumArea * q5 / 10000;
   }
 
-  //console.log({q, q5, sumArea, slope, roof, facade, q20, n});
-
-  return {q, q5, sumArea, slope, roof, facade, q20, n};
+  return {q, q5, sumArea, slope, roof, facade, q20, n, name: item.name};
 }
