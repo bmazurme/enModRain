@@ -48,6 +48,7 @@
 @import url(../blocks/project/__icon/_type/project__icon_type_address.css);
 @import url(../blocks/project/__icon/_type/project__icon_type_name.css);
 @import url(../blocks/project/__icon/_type/project__icon_type_calculations.css);
+@import url(../blocks/project/__icon/_type/project__icon_type_scheme.css);
 
 @import url(../blocks/user-menu/user-menu.css);
 @import url(../blocks/user-menu/__link/user-menu__link.css);
