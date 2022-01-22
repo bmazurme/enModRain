@@ -19,31 +19,22 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__paragraph/element__paragraph.css);
 @import url(../blocks/element/__formula/element__formula.css);
+@import url(../blocks/element/__remove/element__remove.css);
 
-
-
-@import url(../blocks/slides/slides.css);
-@import url(../blocks/slide/slide.css);
-
-@import url(../blocks/slide/_type/slide_type_rain.css);
-@import url(../blocks/slide/_type/slide_type_thermo.css);
-@import url(../blocks/slide/_type/slide_type_meter.css);
-@import url(../blocks/slide/_type/slide_type_reduce.css);
-@import url(../blocks/slide/_type/slide_type_rev.css);
+@import url(../blocks/footer/__link/footer__link.css);
 
 @import url(../blocks/menu/menu.css);
 @import url(../blocks/menu/__link/menu__link.css);
 @import url(../blocks/menu/__link/_active/menu__link_active.css);
 
+@import url(../blocks/calculate/__add/calculate__add.css);
+
+
 @import url(../blocks/user-menu/user-menu.css);
 @import url(../blocks/user-menu/__link/user-menu__link.css);
 
-@import url(../blocks/calculations/calculations.css);
-
-@import url(../blocks/calculations/__link/calculations__link.css);
-
-@import url(../blocks/footer/footer.css);
-@import url(../blocks/footer/__copyright/footer__copyright.css);
-@import url(../blocks/footer/__menu/footer__menu.css);
-@import url(../blocks/footer/__link/footer__link.css);
-
+.group__button{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
