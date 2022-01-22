@@ -18,3 +18,11 @@
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
 }
+
+@media screen and (max-width: 479px) {
+    .calculate__add {
+      flex-direction: column;
+      width: 100%;
+  
+    }
+  }
