@@ -2,6 +2,7 @@ import { config } from './config.js';
 import { calcRain } from './calc/calcRain.js';
 import { CardRain } from './cards/CardRain.js';
 import { FormValidator } from './FormValidator.js';
+import { initRain } from './data/initRain.js';
 
 const addButton = document.querySelector('.calculate__add');
 const mapButton = document.querySelector('.calculate__map');
@@ -89,3 +90,9 @@ popups.forEach((popup) => {
 
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
+
+initRain.forEach(item => {
+  console.log(item);
+  const element = generateCard(item);
+  cardsContainer.prepend(element);
+});
