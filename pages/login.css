@@ -53,5 +53,6 @@
 @import url(../blocks/footer/__link/footer__link.css);
 
 @import url(../blocks/registration/registration.css);
+@import url(../blocks/registration/__back/registration__back.css);
 @import url(../blocks/registration/__title/registration__title.css);
 @import url(../blocks/registration/__form/registration__form.css);
