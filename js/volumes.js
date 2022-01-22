@@ -48,7 +48,6 @@ function saveCardForm(evt) {
 }
 
 function generateCard(item) {
-  //let obj = calcRain(item);
   let template = '#card-template';
 
   const card = new CardVolume(item, template, openPopup, closePopup);

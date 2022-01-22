@@ -23,6 +23,5 @@ function toggle() {
 function redirectToProfile(evt) {
   evt.preventDefault(); 
   document.removeEventListener('submit', redirectToProfile);
-  //alert('!');
   window.location.replace('./profile.html');
 }
