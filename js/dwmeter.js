@@ -7,10 +7,13 @@ const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardsContainer = document.querySelector('.elements');
 const q = formAddCard.querySelector('.form__input_type_q');
 const s = formAddCard.querySelector('.form__input_type_s');
+
+const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
+closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
+
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
 
@@ -52,7 +55,6 @@ function saveCardForm(evt) {
 
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 
 function createCard(item) {
   let obj = calcDwmeter(item.q, item.s);

@@ -7,7 +7,6 @@ const addButton = document.querySelector('.calculate__add');
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 const cardsContainer = document.querySelector('.elements');
 const address = formAddCard.querySelector('.form__input_type_address');
 
@@ -17,8 +16,8 @@ const openPopup = (popup) => {
 }
 
 const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
   document.removeEventListener('keydown', closeByEscape);
+  popup.classList.remove('popup_active');
 }
 
 function closeByEscape(evt) {
@@ -49,6 +48,8 @@ function saveCardForm(evt) {
 
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
+
+const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 
 function createCard(item) {
@@ -62,7 +63,6 @@ const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
 
 data.forEach(item => {
-  console.log(item);
   const element = createCard(item);
   cardsContainer.prepend(element);
 });

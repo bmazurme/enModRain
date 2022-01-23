@@ -31,6 +31,7 @@ const closePopup = (popup) => {
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_active');
+    document.removeEventListener('keydown', closeByEscape);
     closePopup(openedPopup);
   }
 }
@@ -94,7 +95,6 @@ cardFormValidator.enableValidation();
 initRain.forEach(item => {
   item.name = 'Roof 1';
 
-  console.log(item);
   const element = generateCard(item);
   cardsContainer.prepend(element);
 });

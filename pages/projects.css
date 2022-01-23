@@ -65,3 +65,10 @@
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__title/header__title.css);
+
+
+
+@import url(../blocks/modal/modal.css);
+@import url(../blocks/modal/__box/modal__box.css);
+@import url(../blocks/modal/__cancel/modal__cancel.css);
+@import url(../blocks/modal/__remove/modal__remove.css);
