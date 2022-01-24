@@ -13,7 +13,7 @@
 
 @media screen and (min-width: 767px) {
   .box {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 110px 110px 110px 1fr 1fr 1fr;
     /* background-color: tomato; */
   }
 }
