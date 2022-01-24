@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Расход тепла для нагрева горячей воды">
+    <meta name="keywords" content="СП 30">
+    <meta name="author" content="Bogdan Mazur">
+    <link rel="stylesheet" href="../pages/thermo.css">
+    <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
+    <title>Расход тепла для нагрева горячей воды</title>
+  </head>
+
+  <body class="root">
+    <div class="page">
+      <header class="header">
+        <nav class="user-menu">
+          <a class="user-menu__link" href="../index.html">Выйти</a>
+          <a class="user-menu__link" href="../profile.html">Профиль</a>
+        </nav>
+
+        <nav class="menu">
+          <a class="menu__link" href="../index.html">Index</a>
+          <a class="menu__link" href="../projects.html">Проекты</a>
+          <a class="menu__link" href="../calculations.html">Расчеты</a>
+          <a class="menu__link menu__link_active" href="thermo.html">Расход тепла для нагрева горячей воды</a>
+        </nav>
+
+        <h1 class="header__title">Расход тепла для нагрева горячей воды</h1>
+      </header>
+
+      <main class="main">
+        <section class="calculate">
+          <button aria-label="Add" class="calculate__add" type="button"></button>
+        </section>
+        <section class="elements">   
+          <!-- cards -->
+        </section>
+            
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright"> &copy; 2021 { bmazur } 
+        </p>
+        <div class="footer__menu">
+          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+          <a class="footer__link" href="confidential.html">Конфиденциальность</a>
+          <a class="footer__link" href="politic.html">Пользовательское соглашение</a>
+          <a class="footer__link" href="support.html">Справка и поддержка</a>
+        </div>
+      </footer>
+    </div>
+
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_add" name="add-form" novalidate>
+          <h2 class="form__title">Новый расчет</h2>
+
+          <div class="form__box">
+            <input placeholder="Наименование системы" class="form__input form__input_type_name"
+              required minlength="2" maxlength="30" name="name" id="nameCard-input">
+            <span class="nameCard-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Средне часовой расход, м³/ч"
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              form__input_type_qht" id="qht-input" required >
+            <span class="qht-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Максимальный часовой расход, м³/ч" class="form__input 
+              form__input_type_qhhr" id="qhhr-input" required >
+            <span class="qhhr-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Температура горячей воды в местах водоразбора, °C"
+              type="number" min="1" max="60"
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              form__input_type_th" id="th-input" required >
+            <span class="th-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Температура холодной воды на входе в водонагреватель, °C"
+              type="number" min="1" max="99"
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              form__input_type_tc" id="tc-input" required >
+            <span class="tc-input-error form__input-error"></span>
+          </div>
+          <div class="form__box">
+            <input placeholder="Потери теплоты в системе,  кВт" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              form__input_type_qht2" id="qht2-input" required >
+            <span class="qht2-input-error form__input-error"></span>
+          </div>
+
+          <button aria-label="Save" class="form__save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <div class="element">
+        <div class="box">
+          <button aria-label="Print" class="box__print" type="button"></button>
+          <button aria-label="Remove" class="box__remove" type="button"></button>
+        </div>
+        <div class="element__group">
+          <h2 class="element__name"></h2>
+          <p class="element__paragraph">
+            Расход тепла для нагрева горячей воды <span class="formula1"></span> 
+            на нужды горячего водоснабжения с учетом теплопотерь подающих и 
+            циркуляционных трубопроводов и оборудования
+          </p>
+     
+            <span class="formula2"></span> следует вычислять по формулам:
+            <p class="element__paragraph"> а) в течение среднего часа: </p>
+            <p class="element__paragraph">
+              <span class="element__formula formula3"></span>
+            </p>
+            <p class="element__paragraph">
+              б) в течение часа максимального потребления горячей воды:
+            </p>
+            <p class="element__paragraph">
+              <span class="element__formula formula4"></span> </p>
+              <p class="element__paragraph">
+                где <span class="formula5"></span> - температура горячей воды в местах водоразбора,
+              
+            <span class="formula6"></span>
+            </p>
+            <span class="element__formula formula7"></span>
+            <p class="element__paragraph">
+            <span class="formula8"></span>
+             - температура холодной воды на входе в водонагреватель,
+              <span class="formula9"></span>
+            </p>
+            <span class="element__formula formula10"></span>
+            <p class="element__paragraph">
+              <span class="formula11"></span> - потери теплоты подающим и циркуляционным
+              трубопроводами и оборудования системы горячего водоснабжения,
+              <span class="formula12"></span>
+            </p>
+            <p class="element__paragraph"> <span class="element__formula formula13"></span> </p>
+            <span class="dblock">
+            <p class="element__paragraph"> <span class="element__formula formula14"></span> или <span class="formula15"></span> </p>
+            <p class="element__paragraph"> <span class="element__formula formula16"></span> или <span class="formula17"></span> </p>
+            </span>
+
+        </div>
+      </div> 
+    </template>
+
+    <script type="module" src="../js/thermo.js"></script>
+    <script src="../vendor/jspdf.debug.js"></script>
+    <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
+  </body>
+</html>

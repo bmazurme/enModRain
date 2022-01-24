@@ -1,0 +1,12 @@
+.project__calculations {
+    color: black;
+    font-weight: 400;
+    /* font-size: 16px; */
+    /* line-height: 1; */
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    margin: 0;
+    padding: 0;
+
+}

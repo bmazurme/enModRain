@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Потери напора в счетчике">
+    <meta name="keywords" content="СП 30">
+    <meta name="author" content="Bogdan Mazur">
+    <link rel="stylesheet" href="../pages/dwmeter.css">
+    <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
+    <title>Потери напора в счетчике</title>
+  </head>
+
+  <body class="root">
+    <div class="page">
+
+      <header class="header">
+
+        <nav class="user-menu">
+          <a class="user-menu__link" href="../index.html">Выйти</a>
+          <a class="user-menu__link user-menu__link_active" href="../profile.html">Профиль</a>
+        </nav>
+
+        <nav class="menu">
+          <a class="menu__link" href="../index.html">Index</a>
+          <a class="menu__link" href="../projects.html">Проекты</a>
+          <a class="menu__link" href="../calculations.html">Расчеты</a>
+          <a class="menu__link menu__link_active" href="dwmeter.html">Потери напора в счетчике</a>
+        </nav>
+
+        <h1 class="header__title">Потери напора в счетчике</h1>
+      </header>
+
+      <main class="main">
+        <section class="calculate">
+          <button aria-label="Add" class="calculate__add" type="button"></button>
+        </section>
+        <section class="elements">   
+          <!-- cards -->
+        </section>
+            
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright"> &copy; 2021 { bmazur } 
+        </p>
+        <div class="footer__menu">
+          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+          <a class="footer__link" href="confidential.html">Конфиденциальность</a>
+          <a class="footer__link" href="politic.html">Пользовательское соглашение</a>
+          <a class="footer__link" href="support.html">Справка и поддержка</a>
+        </div>
+      </footer>
+    </div>
+
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_add" name="add-form" novalidate>
+          <h2 class="form__title">Новый расчет</h2>
+
+          <div class="form__box">
+            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
+              required minlength="2" maxlength="30" name="name" id="nameCard-input">
+            <span class="nameCard-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Гидравлическое сопротивление счетчика" 
+            class="form__input form__input_type_s" id="s-input" required >
+            <span class="s-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Расчетный расход, л/с" 
+            class="form__input form__input_type_q" id="q-input" required >
+            <span class="q-input-error form__input-error"></span>
+          </div>
+
+          <button aria-label="Save" class="form__save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <div class="element">
+        <div class="box">
+          <button aria-label="Edit" class="box__edit" type="button"></button>
+          <button aria-label="Print" class="box__print" type="button"></button>
+          <button aria-label="Remove" class="box__remove" type="button"></button>
+        </div>
+        <div class="element__group">
+          <h2 class="element__name"></h2>
+          <p class="element__paragraph">
+            Расчет потерь давления в счетчике по гидравлическому сопротивлению определяем по формуле:
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula1"></span> 
+          </p>
+          <p class="element__paragraph">
+            где <span class="formula2"></span> – расчетный расход воды, <span class="formula3"></span> 
+          </p>
+          <p class="element__paragraph">
+            <span class="formula4"></span> – гидравлическое сопротивление счетчика,
+            <span class="formula5"></span> 
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula6"></span> 
+          </p>
+        </div>
+
+      </div> 
+    </template>
+
+    <script type="module" src="../js/dwmeter.js"></script>
+    <script src="../vendor/jspdf.debug.js"></script>
+    <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
+  </body>
+</html>
