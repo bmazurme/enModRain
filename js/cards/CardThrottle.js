@@ -1,5 +1,6 @@
 import { settings } from '../config.js';
 import { Card } from './Card.js';
+import { Modal } from './Modal.js';
 
 export class CardThrottle extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
@@ -25,7 +26,8 @@ export class CardThrottle extends Card {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._elementRemove);
-    deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
+    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     const printButton = cardElement.querySelector(this._elementPrint);
     printButton.addEventListener("click", (evt) => this._printCard(evt));
