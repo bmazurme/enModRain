@@ -5,8 +5,8 @@ export class Modal {
     this._element = settings.element;
     this._openedPopup = document.querySelector('.popup_type_modal');
     this._modal = document.querySelector('.modal');
-    this._yes = this._modal.querySelector('.modal__remove');
-    this._no = this._modal.querySelector('.modal__cancel');
+    this._yes = this._modal.querySelector('.button_remove');
+    this._no = this._modal.querySelector('.button_cancel');
     this._current = null;
     
     this._openPopup = (popup) => {

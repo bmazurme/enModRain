@@ -2,8 +2,33 @@
   width: 100%;
   /* border: solid 1px;
   border-radius: 4px; */
-  box-shadow:  0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  box-shadow:  0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
 
   padding: 30px;
   margin: 10px 0;
+  font-size: 14px;
+}
+
+
+
+@media screen and (min-width: 319px) {
+  .element {
+    /* background-color: yellowgreen; */
+    padding: 20px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 479px) {
+  .element {
+    /* background-color: red; */
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .element {
+    /* background-color:skyblue; */
+  }
 }

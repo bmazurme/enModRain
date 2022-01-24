@@ -10,8 +10,12 @@
   background-size: 30px;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
+  background-color: white;
+  border: solid 2px #3f51b5;
+  cursor: pointer;
+  font-weight: 400;
+  color: #3f51b5;
 }
 
 @media screen and (min-width: 320px) and (max-width: 539px) {

@@ -1,9 +1,9 @@
-.button_inactive {
-  border: 1px solid #3f51b5;;
+.button_save_inactive {
+  border: solid 1px #3f51b5;
   box-sizing: border-box;
   border-radius: 4px;
   opacity: 0.2;
   color: white;
-  background: #3f51b5;;
+  background: #3f51b5;
   pointer-events: none;
 }

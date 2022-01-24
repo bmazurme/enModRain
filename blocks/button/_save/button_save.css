@@ -1,0 +1,17 @@
+.button_save {
+  background-color: #3f51b5;
+  border: solid 1px #3f51b5;
+  cursor: pointer;
+}
+
+.button_save:hover {
+  opacity: 0.8;
+  cursor:pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 539px) {
+  .button_save {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

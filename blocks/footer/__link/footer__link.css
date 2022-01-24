@@ -12,6 +12,12 @@
     margin-bottom: 0;      
 }
 
+@media screen and (min-width: 319px) {
+    .footer__link {
+        line-height: 18px;
+    }
+  }
+
 @media screen and (max-width: 767px) {
     .footer__link {
         margin-left: 0;

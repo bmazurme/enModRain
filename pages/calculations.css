@@ -24,6 +24,7 @@
 @import url(../blocks/element/__paragraph/element__paragraph.css);
 @import url(../blocks/element/__formula/element__formula.css);
 
+@import url(../blocks/list/list.css);
 
 
 @import url(../blocks/slides/slides.css);

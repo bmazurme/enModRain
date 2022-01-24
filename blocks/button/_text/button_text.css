@@ -1,0 +1,11 @@
+.button_text {
+  background-color: white;
+  border: solid 2px red;
+  cursor: pointer;
+  font-weight: 400;
+  background-image: none;
+  margin-right: 10px;
+  /* color: #3f51b5; */
+  color: red;
+  height: 44px;
+}

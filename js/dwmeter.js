@@ -36,6 +36,7 @@ function closeByEscape(evt) {
 
 function openAddCardPopup() {
   formAddCard.reset();
+  cardFormValidator.resetValidation();
   openPopup(popupTypeAdd); 
 }
 
