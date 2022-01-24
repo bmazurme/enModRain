@@ -10,7 +10,8 @@ export class CardThermo extends Card {
     this._closePopup = closePopup;
     this._cardName = settings.cardName;
     this._element = settings.element;
-    this._elementRemove = settings.elementRemove;
+    this._removeButton = settings.removeButton;
+    this._printButton = settings.printButton;
   }
 
   _printCard(evn) {
@@ -24,10 +25,10 @@ export class CardThermo extends Card {
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
-    const deleteButton = cardElement.querySelector(this._elementRemove);
+    const deleteButton = cardElement.querySelector(this._removeButton);
     deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
     cardElement.querySelector(this._cardName).textContent = this._item.name;
-    const printButton = cardElement.querySelector(this._elementPrint);
+    const printButton = cardElement.querySelector(this._printButton);
     printButton.addEventListener("click", (evt) => this._printCard(evt));
 
     const el1 = cardElement.querySelector('.formula1');

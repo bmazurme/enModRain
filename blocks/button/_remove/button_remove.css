@@ -1,12 +1,8 @@
-.box__remove {
-    width: 100px;
+.button_remove {
+    width: 100%;
+    /* max-width: 100px; */
     height: 30px;
     border: black solid 2px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-self: center;
     background-image: url(../../../images/delete.svg);
     background-size: 20px;
     background-repeat: no-repeat;
