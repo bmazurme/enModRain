@@ -35,7 +35,7 @@
 @import url(../blocks/menu/__link/_active/menu__link_active.css);
 
 @import url(../blocks/box/box.css);
-@import url(../blocks/box/__edit/edit__print.css);
+@import url(../blocks/box/__edit/box__edit.css);
 @import url(../blocks/box/__print/box__print.css);
 @import url(../blocks/box/__remove/box__remove.css);
 

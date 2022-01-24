@@ -75,6 +75,38 @@
       </div>
     </div>
 
+
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_edit" name="add-form" novalidate>
+          <h2 class="form__title">Редактировать проект</h2>
+
+          <div class="form__box">
+            <input placeholder="Наименование" class="form__input form__input_type_name"
+              required minlength="2" maxlength="30" name="name" id="nameCard-input">
+              <span class="form__bar"></span>
+            <span class="nameCard-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Адрес" 
+              class="form__input form__input_type_address" id="address-input" required >
+              <span class="form__bar"></span>
+            <span class="address-input-error form__input-error"></span>
+          </div>
+
+          <button aria-label="Save" class="form__save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
     <template id="card-template">
       <div class="element">
         <div class="box">

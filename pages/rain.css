@@ -26,6 +26,7 @@
 @import url(../blocks/element/__formula/element__formula.css);
 
 @import url(../blocks/box/box.css);
+@import url(../blocks/box/__edit/box__edit.css);
 @import url(../blocks/box/__print/box__print.css);
 @import url(../blocks/box/__remove/box__remove.css);
 
