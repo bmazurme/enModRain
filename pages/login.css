@@ -9,13 +9,20 @@
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/form/form.css);
 
-@import url(../blocks/form/__registration/form__registration.css);
+/* @import url(../blocks/form/__registration/form__registration.css); */
+@import url(../blocks/button/button.css);
+@import url(../blocks/button/_login/button_login.css);
+@import url(../blocks/button/_inactive/button_inactive.css);
+
 @import url(../blocks/form/__box/form__box.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
-@import url(../blocks/form/__save/form__save.css);
-@import url(../blocks/form/__save/_inactive/form__save_inactive.css);
+/* @import url(../blocks/form/__save/form__save.css); */
+/* @import url(../blocks/form/__save/_inactive/form__save_inactive.css); */
+@import url(../blocks/button/button.css);
+@import url(../blocks/button/_login/button_login.css);
+@import url(../blocks/button/_inactive/button_inactive.css);
 
 
 @import url(../blocks/form/__label/form__label.css);

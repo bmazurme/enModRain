@@ -2,7 +2,7 @@ import { calcTank } from "./calc/calcTank.js";
 import { FormValidator } from "./FormValidator.js";
 import { config } from "./config.js";
 
-const addButton = document.querySelector('.calculate__add');
+const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
@@ -70,7 +70,7 @@ closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 function createCard(item) {
   let result = calcTank(item);
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  const deleteButton = cardElement.querySelector('.element__remove');
+  const deleteButton = cardElement.querySelector('.button_remove');
   deleteButton.addEventListener("click", deleteCard);
   cardElement.querySelector('.element__name').textContent = item.name;
 

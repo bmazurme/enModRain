@@ -10,8 +10,8 @@ export class CardProject extends Card {
     this._cardTemplate = cardTemplate;
     this._cardName = settings.cardName;
     this._element = settings.element;
-    this._elementRemove = settings.elementRemove;
-    this._elementEdit = settings.elementEdit;
+    this._removeButton = settings.removeButton;
+    this._editButton = settings.editButton;
     this._cardAddress = settings.cardAddress;
     this._projectName = settings.projectName;
     this._openedPopupEdit = document.querySelector('.popup_type_edit');
@@ -53,7 +53,7 @@ export class CardProject extends Card {
     this._closePopupEdit = () => {
       document.removeEventListener('keydown', this._closeEditByEscape);
       this._openedPopupEdit.classList.remove('popup_active');
-      
+
       this._button.removeEventListener('click', this._closePopupEdit);
       this._openedPopupEdit.removeEventListener('submit', this._saveForm);
     };
@@ -68,8 +68,8 @@ export class CardProject extends Card {
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
-    const deleteButton = cardElement.querySelector(this._elementRemove);
-    const editButton = cardElement.querySelector(this._elementEdit);
+    const deleteButton = cardElement.querySelector(this._removeButton);
+    const editButton = cardElement.querySelector(this._editButton);
     cardElement.querySelector(this._projectName).textContent = this._item.name;
     cardElement.querySelector(this._cardAddress).textContent = this._item.address;
     deleteButton.addEventListener("click", new Modal().confirm);

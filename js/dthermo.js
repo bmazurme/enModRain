@@ -32,8 +32,9 @@
 // alphasl2 = "Коэффициент теплопередачи, Вт/(м²×°C)"
 
 import { calcDthermo } from "./calc/calcDthermo.js";
+import { config } from "./config.js";
 
-const addButton = document.querySelector('.calculate__add');
+const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');

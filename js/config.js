@@ -2,10 +2,14 @@ export const config = {
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__submit',
-  inactiveButtonClass: 'form__save_inactive',
+  inactiveButtonClass: 'button_inactive',
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active',
-  errorLine: 'form__input_invalid'
+  errorLine: 'form__input_invalid',
+
+  addButton: '.button_add',
+  mapButton: '.button_map',
+  thermoButton: '.button_thermo'
 };
 
 export const settings = {
@@ -21,8 +25,11 @@ export const settings = {
   elementLike: '.element__like',
   elementRemove: '.box__remove',
   elementEdit: '.box__edit',
-  elementPrint: '.box__print',
+  printButton: '.button_print',
   elementImage: '.element__image',
   cardAddress: '.address',
-  projectName: '.project__name'
+  projectName: '.project__name',
+
+  removeButton: '.button_remove',
+  editButton: '.button_edit'
 };

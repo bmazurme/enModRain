@@ -4,8 +4,8 @@ import { CardRain } from './cards/CardRain.js';
 import { FormValidator } from './FormValidator.js';
 import { initRain } from './data/initRain.js';
 
-const addButton = document.querySelector('.calculate__add');
-const mapButton = document.querySelector('.calculate__map');
+const addButton = document.querySelector(config.addButton);
+const mapButton = document.querySelector(config.mapButton);
 const popupTypeSlide = document.querySelector('.popup_type_slide');
 const popups = document.querySelectorAll('.popup');
 const popupTypeAdd = document.querySelector('.popup_type_add');
@@ -76,6 +76,9 @@ function generateCard(item) {
 
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
+
+//console.log(mapButton);
+
 mapButton.addEventListener('click', openMapCardPopup);
 
 popups.forEach((popup) => {

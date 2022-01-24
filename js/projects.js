@@ -3,7 +3,7 @@ import { FormValidator } from './FormValidator.js';
 import { config } from "./config.js";
 import { projects as data } from "./data/projects.js";
 
-const addButton = document.querySelector('.calculate__add');
+const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
