@@ -2,6 +2,8 @@ import { settings } from '../config.js';
 import { Card } from './Card.js';
 import { Modal } from './Modal.js';
 import { calcDwmeter } from '../calc/calcDwmeter.js';
+import { config } from '../config.js';
+import { FormValidator } from '../FormValidator.js';
 
 export class CardDwmeter extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
@@ -17,6 +19,9 @@ export class CardDwmeter extends Card {
     this._editButton = settings.editButton;
     this._openedPopupEdit = document.querySelector('.popup_type_edit');
     this._current = null;
+    // this._cardFormValidator = new FormValidator(config, this._openedPopupEdit);
+    // this._cardFormValidator.enableValidation();
+    
 
     this._refresh = () => {
       katex.render(String.raw`h_{сч} = S \cdot q^2`, this._el1, {throwOnError: false});
@@ -29,6 +34,7 @@ export class CardDwmeter extends Card {
     };
 
     this._edit = (evt) => {
+
       this._current = evt.target.closest('.element');
       this._openedPopupEdit.querySelector('.form__input_type_name').value 
          = this._current.querySelector(this._cardName).textContent;
@@ -39,6 +45,10 @@ export class CardDwmeter extends Card {
       this._button = this._openedPopupEdit.querySelector('.popup__close');
       this._button.addEventListener('click', this._closePopupEdit);
       this._openPopupEdit(this._openedPopupEdit);
+
+      const cardFormValidator = new FormValidator(config, this._openedPopupEdit);
+      cardFormValidator.enableValidation();
+      //cardFormValidator.resetValidation();
     }
 
     this._saveForm = (evt) => {
