@@ -307,12 +307,10 @@ console.log(item);
     let qht = k * (Number(item.th) - Number(item.tb)) *l;
     let t2 = (3.6 * Number(item.q) * Number(item.t1) - qht / 1000 * 0.86) / 3.6 / Number(item.q);
 
-
-//console.log({re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2, pr, ve, ham, name: item.name});
-
   return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, 
     qht, t2, pr, ve, ham, name: item.name, dtr: item.dtr, l, dsl: item.dsl,
     alphasl:item.alphasl, alphasl2: item.alphasl2, 
-    tb: item.tb, th: item.th,  alphanp2: item.alphanp2, q: item.q, t1: item.t1
+    tb: item.tb, th: item.th,  alphanp2: item.alphanp2, q: item.q, t1: item.t1,
+    diamsln: item.diamsln,
 };
 }
