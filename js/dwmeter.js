@@ -59,7 +59,7 @@ formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
 
 function createCard(item) {
-  let obj = calcDwmeter(item);
+  const obj = calcDwmeter(item);
   const template = '#card-template';
   const card = new CardDwmeter(obj, template, openPopup, closePopup);
   const cardElement = card.createCard();

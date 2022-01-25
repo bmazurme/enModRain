@@ -1,5 +1,6 @@
 import { settings } from '../config.js';
 import { Card } from './Card.js';
+import { Modal } from './Modal.js';
 
 export class CardRain extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
@@ -12,8 +13,6 @@ export class CardRain extends Card {
     this._element = settings.element;
     this._removeButton = settings.removeButton;
     this._printButton = settings.printButton;
-
-    console.log(this._item.name);
   }
 
   _printCard(evn) {
@@ -39,7 +38,7 @@ export class CardRain extends Card {
     const el14 = cardElement.querySelector('.formula14');
     cardElement.querySelector(this._cardName).textContent = this._item.name;
 
-    deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
+    deleteButton.addEventListener("click", new Modal().confirm);
     printButton.addEventListener("click", (evt) => this._printCard(evt));
     
     katex.render(String.raw`Q`, el1, {throwOnError: false});

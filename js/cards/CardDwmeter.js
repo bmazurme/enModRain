@@ -28,7 +28,6 @@ export class CardDwmeter extends Card {
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._removeButton);
     cardElement.querySelector(this._cardName).textContent = this._item.name;
-    //deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
     const printButton = cardElement.querySelector(this._printButton);
     printButton.addEventListener("click", (evt) => this._printCard(evt));
       
