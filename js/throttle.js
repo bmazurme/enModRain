@@ -2,6 +2,7 @@ import { calcThrottle } from "./calc/calcThrottle.js";
 import { CardThrottle } from "./cards/CardThrottle.js";
 import { FormValidator } from "./FormValidator.js";
 import { config } from "./config.js";
+import { initThtrottle } from "./data/initThtrotle.js";
 
 const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
@@ -61,3 +62,8 @@ function createCard(item) {
   const cardElement = card.createCard();
   return cardElement;
 }
+
+initThtrottle.forEach(item => {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});

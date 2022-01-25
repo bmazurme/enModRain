@@ -1,6 +1,7 @@
 import { config } from './config.js';
 import { CardVolume } from './cards/CardVolume.js';
 import { FormValidator } from './FormValidator.js';
+import { initThtrottle } from './data/initThtrotle.js';
 
 const addButton = document.querySelector('.calculate__add');
 const popups = document.querySelectorAll('.popup');
@@ -39,12 +40,12 @@ function saveCardForm(evt) {
     name: nameFormAddCard.value
   };
 
-  const element = generateCard(newCard);
+  const element = createCard(newCard);
   cardsContainer.prepend(element);
   closePopup(popupTypeAdd);
 }
 
-function generateCard(item) {
+function createCard(item) {
   const template = '#card-template';
   const card = new CardVolume(item, template, openPopup, closePopup);
   const cardElement = card.createCard();
@@ -67,3 +68,8 @@ popups.forEach((popup) => {
 
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
+
+initThtrottle.forEach(item => {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});

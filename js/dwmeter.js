@@ -2,6 +2,7 @@ import { calcDwmeter } from "./calc/calcDwmeter.js";
 import { CardDwmeter } from "./cards/CardDwmeter.js";
 import { FormValidator } from "./FormValidator.js";
 import { config } from "./config.js";
+import { initDwmeter } from "./data/initDwmeter.js";
 
 const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
@@ -64,3 +65,8 @@ function createCard(item) {
   const cardElement = card.createCard();
   return cardElement;
 }
+
+initDwmeter.forEach(item => {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});

@@ -2,6 +2,7 @@ import { calcThermo } from "./calc/calcThermo.js";
 import { CardThermo } from "./cards/CardThermo.js";
 import { FormValidator } from "./FormValidator.js";
 import { config } from "./config.js";
+import { initThermo } from "./data/initThermo.js";
 
 const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
@@ -67,3 +68,8 @@ function createCard(item) {
   const cardElement = card.createCard();
   return cardElement;
 }
+
+initThermo.forEach(item => {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});
