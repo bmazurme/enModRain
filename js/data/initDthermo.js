@@ -1,0 +1,38 @@
+export const initDthermo = [
+  {
+    alphanp2: .1,
+    alphasl: .1,
+    alphasl2: .1,
+    diamsln: .01,
+    dsl: .2,
+    dtr: 0.1,
+    l: 30,
+    name: "test2",
+    q: 2,
+    t1: 70,
+    tb: 20,
+    th: 70,
+    v: 1
+    // re: 1,
+    // nu: 2,
+    // alpha: 3,
+    // rbh: 4,
+    // rsl: 5,
+    // rsl2: 6,
+    // rnp: 7,
+    // k: 8,
+    // qht: 9,
+    // t2: 10,
+    // pr: 11,
+    // ve: 12,
+    // ham: 13,
+    // name: 'Test 1',
+    // dtr: 0.1,
+    // l: 30,
+    // dsl: 0.01,
+    // alphasl: 1,
+    // alphasl2: 2,
+    // tb: 50,
+    // th: 60
+  }
+];
