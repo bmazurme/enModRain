@@ -2,6 +2,7 @@ import { calcCirc } from "./calc/calcCirc.js";
 import { FormValidator } from "./FormValidator.js";
 import { config } from "./config.js";
 import { CardCircflow } from "./cards/CardCircflow.js";
+import { initCircflow } from "./data/initCircflow.js";
 
 const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
@@ -62,6 +63,11 @@ function createCard(item) {
 
   return cardElement;
 }
+
+initCircflow.forEach(item => {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});
 
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();

@@ -1,4 +1,4 @@
-export const projects =  [
+export const initProjects =  [
   {
     id:0,
     name: 'Завод по производству заводов', 

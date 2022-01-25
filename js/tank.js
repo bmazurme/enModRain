@@ -1,6 +1,7 @@
 import { calcTank } from "./calc/calcTank.js";
 import { FormValidator } from "./FormValidator.js";
 import { config } from "./config.js";
+import { initTank } from "./data/initTank.js";
 
 const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
@@ -66,6 +67,13 @@ function saveCardForm(evt) {
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
+
+
+initTank.forEach(item => {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+});
+
 
 function createCard(item) {
   let result = calcTank(item);
