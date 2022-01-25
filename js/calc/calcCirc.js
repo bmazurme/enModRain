@@ -68,6 +68,6 @@ export function calcCirc(item) {
     p = 978.86;
   }
 
-  let qc = item.qht / (p * c * (item.t1 - item.t2));  
+  const qc = item.qht / (p * c * (item.t1 - item.t2));  
   return {name: item.name, qht: item.qht, t1: item.t1, t2: item.t2, c, p, qc};
 }
