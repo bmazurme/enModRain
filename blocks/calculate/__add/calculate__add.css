@@ -1,4 +1,4 @@
-.calculate__add {
+/* .calculate__add {
     margin-right: 10px;
     margin-left: 0px;
     margin-top: 0;
@@ -6,7 +6,7 @@
     width: 150px;
     height: 50px;
     border: black solid 2px;
-    border-radius: 2px;
+    border-radius: 4px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -18,3 +18,11 @@
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
 }
+
+@media screen and (max-width: 479px) {
+  .calculate__add {
+    flex-direction: column;
+    width: 100%;
+
+  }
+} */

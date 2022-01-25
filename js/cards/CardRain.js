@@ -10,13 +10,26 @@ export class CardRain extends Card {
     this._closePopup = closePopup;
     this._cardName = settings.cardName;
     this._element = settings.element;
-    this._elementRemove = settings.elementRemove;
+    this._removeButton = settings.removeButton;
+    this._printButton = settings.printButton;
+
+    console.log(this._item.name);
+  }
+
+  _printCard(evn) {
+    var doc = new jsPDF();
+    doc.text(20, 20, 'Hello world!');
+    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    doc.save(`CalcRain ${this._item.name}.pdf`);
   }
 
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
-    const deleteButton = cardElement.querySelector(this._elementRemove);
+    const deleteButton = cardElement.querySelector(this._removeButton);
+    const printButton = cardElement.querySelector(this._printButton);
+    printButton.addEventListener("click", (evt) => this._printCard(evt));
+    
     const el1 = cardElement.querySelector('.formula1');
     const el4 = cardElement.querySelector('.formula4');
     const el7 = cardElement.querySelector('.formula7');
@@ -25,7 +38,9 @@ export class CardRain extends Card {
     const el13 = cardElement.querySelector('.formula13');
     const el14 = cardElement.querySelector('.formula14');
     cardElement.querySelector(this._cardName).textContent = this._item.name;
+
     deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
+    printButton.addEventListener("click", (evt) => this._printCard(evt));
     
     katex.render(String.raw`Q`, el1, {throwOnError: false});
     katex.render(String.raw`q_{20}`, el4, {throwOnError: false});

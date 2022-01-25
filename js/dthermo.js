@@ -1,13 +1,10 @@
-  // ve = "Киниматическая вязкость, м"
-  // pr = "Критерий Прандтля"
-  // ham = "Коэффициент теплопроводности слоя, Вт/(м²×°C)", default=0)
+// ve = "Киниматическая вязкость, м"
+// pr = "Критерий Прандтля"
+// ham = "Коэффициент теплопроводности слоя, Вт/(м²×°C)", default=0)
 // sln = "Диаметр наружного слоя, isol", default=0)
 // qmaxg = "В течение часа максимального водопотребления, Гкал", default=0)
 
-
-
-
-//return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2};
+// return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2};
 // re = "Критерий Рейнольдса"
 // nu = "Критерий Нуссельта"
 // alpha = "Коэффициент теплопередачи"
@@ -19,12 +16,9 @@
 // qht = "Теплопотери расчетного участка"
 // t2 = "Температура расчетного участка трубопровода на выходе, °C"
 
-
-
 // alphasl,  alphasl2,  alphanp2,      th, tb,   l, q,    t1, qht     v, dtr, dsl, diamsln,
 
 // t1 = "Начальная температура расчетного участка, °C"
-
 // l = "Длина расчетного участка, м"
 // q = "Расход на участке, л/с"
 // th = "Температура воды в трубе, °C (0-70)"
@@ -37,11 +31,10 @@
 // alphasl = "Коэффициент теплопроводности слоя трубы, Вт/(м²×°C)"
 // alphasl2 = "Коэффициент теплопередачи, Вт/(м²×°C)"
 
-
-
 import { calcDthermo } from "./calc/calcDthermo.js";
+import { config } from "./config.js";
 
-const addButton = document.querySelector('.calculate__add');
+const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const popupTypeAdd = document.querySelector('.popup_type_add');
@@ -62,14 +55,23 @@ const alphanp2 = formAddCard.querySelector('.form__input_type_alphanp2');
 const alphasl = formAddCard.querySelector('.form__input_type_alphasl');
 const alphasl2 = formAddCard.querySelector('.form__input_type_alphasl2');
 
-function openPopup(popup) {
-  document.addEventListener('keydown', (evt) => keydownEsc(popup, evt));
+const openPopup = (popup) => {
+  document.addEventListener('keydown', closeByEscape);
   popup.classList.add('popup_active');
 }
-function closePopup(popup) {
-  document.removeEventListener('keydown', (evt) => keydownEsc(popup, evt));
+
+const closePopup = (popup) => {
   popup.classList.remove('popup_active');
+  document.removeEventListener('keydown', closeByEscape);
 }
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_active');
+    closePopup(openedPopup);
+  }
+}
+
 function openAddCardPopup() {
   formAddCard.reset();
   openPopup(popupTypeAdd); 
@@ -104,18 +106,6 @@ function saveCardForm(evt) {
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
-
-document.addEventListener('mousedown', function (evt) {
-  if (evt.target.classList.contains('popup')) {
-      closePopup(evt.target);
-  }
-});
-
-function keydownEsc(popup, evt) {
-  if (evt.key === 'Escape') {
-      closePopup(popup);
-  }
-}
 
 function createCard(item) {
   let result = calcDthermo(item);
@@ -165,57 +155,23 @@ function createCard(item) {
   katex.render(String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} = \dfrac 1 {\pi \cdot ${item.dtr} \cdot ${result.alpha.toFixed(2)}} = ${result.rbh.toFixed(2)}`, el9, {throwOnError: false});
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el10, {throwOnError: false});
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${item.alphasl}} \cdot ln(\frac {${item.dsl}} {${item.dtr}}) = ${result.rsl.toFixed(3)}`, el11, {throwOnError: false});
-  //                                                                                                   let rsl = 1 / 2 / Math.PI / item.alphasl * Math.log(item.dsl / item.dtr);
-  
   katex.render(String.raw`R_{сл}`, el12, {throwOnError: false});
   katex.render(String.raw`D_{сл}`, el13, {throwOnError: false});
   katex.render(String.raw`d_{сл}`, el14, {throwOnError: false});
   katex.render(String.raw`\lambda_{сл}`, el15, {throwOnError: false});
-  
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el16, {throwOnError: false});
-  
   katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${item.alphasl2}} \cdot ln(\frac {${item.diamsln}} {${item.dsl}}) = ${result.rsl2.toFixed(3)}`, el17, {throwOnError: false});
-  //                                                                                          let rsl2 = 1 / 2 / Math.PI / item.alphasl2 * Math.log(item.diamsln / item.dsl);
-  
   katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}`, el18, {throwOnError: false});
-  
   katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot ${item.diamsln} \cdot ${item.alphanp2}} =  ${result.rnp.toFixed(3)}`, el19, {throwOnError: false});
-  //                                                                                  let rnp = 1 / Math.PI / item.diamsln / item.alphanp2;
-  
   katex.render(String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}`, el20, {throwOnError: false});
-
   katex.render(String.raw`k = \dfrac {1} {${result.rbh.toFixed(3)} + ${result.rsl.toFixed(3)} + ${result.rsl2.toFixed(3)} + ${result.rnp.toFixed(3)}} = ${result.k.toFixed(3)}`, el21, {throwOnError: false});
-//                    let k = 1 / (rbh + rsl + rsl2 + rnp);
-
   katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L`, el22, {throwOnError: false});
   katex.render(String.raw`t^B`, el23, {throwOnError: false});
   katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L = ${result.k.toFixed(3)} \cdot (${item.th} - ${item.tb}) \cdot ${item.l} = ${result.qht.toFixed(3)} Вт`, el24, {throwOnError: false});
   katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}`, el25, {throwOnError: false});
   katex.render(String.raw`T_1`, el26, {throwOnError: false});
   katex.render(String.raw`T_2`, el27, {throwOnError: false});
-  
   katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q} = \dfrac {3,6 \cdot ${item.q} \cdot ${item.t1} - ${result.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${item.q}} = ${result.t2.toFixed(3)}`, el28, {throwOnError: false});
-  //                                                                                           let t2 = (3.6 * item.q * item.t1                      - item.qht / 1000 * 0.86) / 3.6 / item.q;
-  // l: l.value,
-  // q: q.value,
-  // th: th.value,
-  // tb: tb.value,
-  // v: v.value,
-  // dtr: dtr.value,
-  // dsl: dsl.value,
-  // diamsln: diamsln.value,
-  // alphanp2: alphanp2.value,
-  // alphasl: alphasl.value,
-  // alphasl2: alphasl2.value
 
   return cardElement;
 }
-
-
-
-
-
-
-
-
-

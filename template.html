@@ -6,7 +6,7 @@
     <meta name="description" content="Расход тепла для нагрева горячей воды">
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
-    <link rel="stylesheet" href="./pages/thermo.css">
+    <link rel="stylesheet" href="./pages/template.css">
     <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
     <title>Расход тепла для нагрева горячей воды</title>
   </head>
@@ -17,12 +17,6 @@
       <header class="header">
         <nav class="menu">
           <a class="menu__link" href="index.html">Index</a>
-          <a class="menu__link" href="thermo.html">Thermo</a>
-          <a class="menu__link" href="rain.html">Rain</a>
-          <a class="menu__link" href="throttle.html">Throttle</a>
-          <a class="menu__link" href="dwmeter.html">Dwmeter</a>
-          <a class="menu__link" href="tank.html">Tank</a>
-          <a class="menu__link" href="dthermo.html">Dthermo</a>
         </nav>
         <h1 class="header__title">Расход тепла для нагрева горячей воды</h1>
       </header>
@@ -42,42 +36,29 @@
       </footer>
     </div>
 
-    <div class="popup popup_type_add">
-      <div class="popup__container">
+    <div class="popup popup_type_modal popup_active">
+      <div class="popup__container popup__container_yesno">
         <button aria-label="Close" class="popup__close" type="button"></button>
-        <form class="form form_type_add" name="add-form" novalidate>
-          <h2 class="form__title">Новый расчет</h2>
+        <div class="modal">
+          <h2 class="form__title">Подтвердить удаление?</h2>
 
-          <div class="form__box">
-            <input placeholder="Наименование системы" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
-          </div>
-          <div class="form__box">
-            <input placeholder="Средне часовой расход, м³/ч" 
-            class="form__input form__input_type_qht" id="qht-input" required >
-            <span class="qht-input-error form__input-error"></span>
+          <div class="modal__box">
+            <button aria-label="Remove" 
+              class="modal__remove" 
+              type="button">Удалить</button>
+
+            <button aria-label="Cancel" 
+                class="modal__cancel" 
+                type="button">Отменить</button>
           </div>
 
-          <button aria-label="Save" class="form__save form__submit" 
-            type="submit">Сохранить</button>
-        </form>
+        </div>
       </div>
     </div>
 
-    <template id="card-template">
-      <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button">Delete</button>
-        <div class="element__group">
-          <h2 class="element__name"></h2>
-          
+    
 
-        </div>
-      </div> 
-    </template>
-
-    <script type="module" src="./js/thermo.js"></script>
-    <script type="module" src="./js/validate.js"></script>
+    <script type="module" src="./js/templates.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
 </html>
