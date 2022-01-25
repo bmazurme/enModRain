@@ -70,6 +70,8 @@ export class FormValidator {
       inputElement.classList.add(this._config.inputErrorClass);
       errorElement.textContent = errorMessage;
       errorElement.classList.add(this._config.errorClass);
+      
+      inputElement.classList.add(this._config.errorLine);
     };
     
     _hideInputError (formElement, inputElement) {
@@ -78,6 +80,8 @@ export class FormValidator {
       inputElement.classList.remove(this._config.inputErrorClass);
       errorElement.classList.remove(this._config.errorClass);
       errorElement.textContent = '';
+
+      inputElement.classList.remove(this._config.errorLine);
     };
     
     _checkInputValidity (formElement, inputElement) {

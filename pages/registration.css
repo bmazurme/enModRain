@@ -8,17 +8,25 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/form/form.css);
+/* 
+@import url(../blocks/form/__registration/form__registration.css); */
+@import url(../blocks/button/button.css);
+@import url(../blocks/button/_registration/button_registration.css);
+@import url(../blocks/button/_inactive/button_inactive.css);
 
-@import url(../blocks/form/__registration/form__registration.css);
 @import url(../blocks/form/__box/form__box.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
-@import url(../blocks/form/__save/form__save.css);
-@import url(../blocks/form/__save/_inactive/form__save_inactive.css);
+/* @import url(../blocks/form/__save/form__save.css); */
+/* @import url(../blocks/form/__save/_inactive/form__save_inactive.css); */
+
+
+
 
 @import url(../blocks/form/__label/form__label.css);
 @import url(../blocks/form/__bar/form__bar.css);
+
 
 @import url(../blocks/form/__toggle/form__toggle.css);
 @import url(../blocks/form/__toggle/_disabled/form__toggle_disabled.css);
@@ -51,5 +59,11 @@
 @import url(../blocks/footer/__link/footer__link.css);
 
 @import url(../blocks/registration/registration.css);
+
 @import url(../blocks/registration/__title/registration__title.css);
 @import url(../blocks/registration/__form/registration__form.css);
+
+@import url(../blocks/registration/__back/registration__back.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__title/header__title.css);
