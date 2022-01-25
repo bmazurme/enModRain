@@ -16,19 +16,23 @@
 @media screen and (min-width: 319px) {
   .element {
     /* background-color: yellowgreen; */
-    padding: 20px;
-    font-size: 12px;
+    padding: 20px 15px;
+    font-size: 8px;
   }
 }
 
 @media screen and (min-width: 479px) {
   .element {
+    font-size: 13px;
+    padding: 30px;
     /* background-color: red; */
   }
 }
 
 @media screen and (min-width: 767px) {
   .element {
+    font-size: 14px;
+    padding: 30px;
     /* background-color:skyblue; */
   }
 }

@@ -82,11 +82,11 @@ export class CardDthermo extends Card {
     katex.render(String.raw`k = \dfrac {1} {${this._item.rbh.toFixed(3)} + ${this._item.rsl.toFixed(3)} + ${this._item.rsl2.toFixed(3)} + ${this._item.rnp.toFixed(3)}} = ${this._item.k.toFixed(3)}`, el21, {throwOnError: false});
     katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L`, el22, {throwOnError: false});
     katex.render(String.raw`t^B`, el23, {throwOnError: false});
-    katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L = ${this._item.k.toFixed(3)} \cdot (${this._item.th} - ${this._item.tb}) \cdot ${this._item.l} = ${this._item.qht.toFixed(3)} Вт`, el24, {throwOnError: false});
+    katex.render(String.raw`Q_{tr}^{ht} = ${this._item.k.toFixed(3)} \cdot (${this._item.th} - ${this._item.tb}) \cdot ${this._item.l} = ${this._item.qht.toFixed(3)} Вт`, el24, {throwOnError: false});
     katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}`, el25, {throwOnError: false});
     katex.render(String.raw`T_1`, el26, {throwOnError: false});
     katex.render(String.raw`T_2`, el27, {throwOnError: false});
-    katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q} = \dfrac {3,6 \cdot ${this._item.q} \cdot ${this._item.t1} - ${this._item.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${this._item.q}} = ${this._item.t2.toFixed(3)}`, el28, {throwOnError: false});
+    katex.render(String.raw`T_2 = \dfrac {3,6 \cdot ${this._item.q} \cdot ${this._item.t1} - ${this._item.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${this._item.q}} = ${this._item.t2.toFixed(3)}`, el28, {throwOnError: false});
   
     return cardElement;
   }

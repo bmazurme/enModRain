@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Потери напора в счетчике">
+    <meta name="description" content="Циркуляционный расход горячей воды">
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
-    <link rel="stylesheet" href="../pages/dwmeter.css">
+    <link rel="stylesheet" href="../pages/circflow.css">
     <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
-    <title>Потери напора в счетчике</title>
+    <title>Циркуляционный расход горячей воды</title>
   </head>
 
   <body class="root">
@@ -21,13 +21,13 @@
           <a class="user-menu__link user-menu__link_active" href="../profile.html">Профиль</a>
         </nav>
 
-        <h1 class="header__title">Потери напора в счетчике</h1>
+        <h1 class="header__title">Циркуляционный расход горячей воды</h1>
 
         <nav class="menu">
           <a class="menu__link" href="../index.html">Index</a>
           <a class="menu__link" href="../projects.html">Проекты</a>
           <a class="menu__link" href="../calculations-ws.html">Расчеты</a>
-          <a class="menu__link menu__link_active" href="dwmeter.html">Потери напора в счетчике</a>
+          <a class="menu__link menu__link_active" href="circflow.html">Циркуляционный расход горячей воды</a>
         </nav>
 
 
@@ -40,7 +40,6 @@
         <section class="elements">   
           <!-- cards -->
         </section>
-            
       </main>
 
       <footer class="footer">
@@ -62,21 +61,32 @@
           <h2 class="form__title">Новый расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
+            <input placeholder="Наименование системы" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Гидравлическое сопротивление счетчика" 
-            class="form__input form__input_type_s" id="s-input" required >
-            <span class="s-input-error form__input-error"></span>
+            <input placeholder="Тепловые потери, Вт" 
+            pattern="^[ 0-9]+$"
+            class="form__input form__input_type_qht" id="qht-input" required >
+            <span class="qht-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" 
-            class="form__input form__input_type_q" id="q-input" required >
-            <span class="q-input-error form__input-error"></span>
+            <input placeholder="t1 - температура воды на входе в участок трубопровода или системы, °C" 
+            pattern="[0-9]{2}"
+            type="number" min="1" max="99"
+            class="form__input form__input_type_t1" id="t1-input" required >
+            <span class="t1-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="t2 - температура воды на выходе из участка трубопровода или системы, °C" 
+            pattern="[0-9]{2}"
+            type="number" min="1" max="99"
+            class="form__input form__input_type_t2" id="t2-input" required >
+            <span class="t2-input-error form__input-error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -87,6 +97,7 @@
 
     <template id="card-template">
       <div class="element">
+
         <h2 class="element__name"></h2>
         
         <div class="box">
@@ -96,22 +107,58 @@
         </div>
 
         <div class="element__group">
-          
+
           <p class="element__paragraph">
-            Расчет потерь давления в счетчике по гидравлическому сопротивлению определяем по формуле:
+            Циркуляционный расход горячей воды
+            <span class="element__formula  element__formula_type_short formula1"></span>
+            , вычисляют по формуле: 
           </p>
           <p class="element__paragraph">
-            <span class="element__formula formula1"></span> 
+            <span class="element__formula formula2"></span>
           </p>
           <p class="element__paragraph">
-            где <span class="formula2"></span> – расчетный расход воды, <span class="formula3"></span> 
+            где <span class="element__formula  element__formula_type_short formula3"></span>
+            потери тепла трубопроводами системы ГВС,
+            <span class="element__formula element__formula_type_short formula4"></span>
           </p>
           <p class="element__paragraph">
-            <span class="formula4"></span> – гидравлическое сопротивление счетчика,
-            <span class="formula5"></span> 
+            <span class="element__formula formula5"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="element__formula formula6"></span> 
+            <span class="element__formula formula6"></span>
+            плотность воды,
+            <span class="element__formula element__formula_type_short formula15"></span>
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula7"></span> 
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula8"></span> 
+            удельная теплоемкость воды,
+            <span class="element__formula element__formula_type_short formula16"></span> 
+
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula9"></span> 
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula10"></span>
+            температура воды на входе в участок трубопровода или системы,
+            <span class="element__formula element__formula_type_short formula17"></span>
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula11"></span> 
+          </p>
+            <p class="element__paragraph">
+              <span class="element__formula formula12"></span>
+              температура воды на выходе из участка трубопровода или системы,
+              <span class="element__formula element__formula_type_short formula18"></span>
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula13"></span>
+          </p>
+          <p class="element__paragraph">
+            <span class="element__formula formula14"></span>
           </p>
         </div>
 
@@ -138,7 +185,7 @@
       </div>
     </div>
 
-    <script type="module" src="../js/dwmeter.js"></script>
+    <script type="module" src="../js/circflow.js"></script>
     <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>

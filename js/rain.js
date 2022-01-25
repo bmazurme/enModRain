@@ -64,7 +64,7 @@ function saveCardForm(evt) {
 }
 
 function generateCard(item) {
-  let obj = calcRain(item);
+  const obj = calcRain(item);
   let template = '#card1-template';
   if (item.slope < 1.5) {
     template = '#card-template';
@@ -76,9 +76,6 @@ function generateCard(item) {
 
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
-
-//console.log(mapButton);
-
 mapButton.addEventListener('click', openMapCardPopup);
 
 popups.forEach((popup) => {

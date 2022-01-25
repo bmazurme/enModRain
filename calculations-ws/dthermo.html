@@ -131,7 +131,8 @@
           </div>
 
           <div class="form__box">
-            <input placeholder="коэффициент теплопроводности покровного слоя, Вт/(м²×°C), определяется по расчету или по СП 61.13330." 
+            <input placeholder="коэффициент теплопроводности покровного слоя, Вт/(м²×°C), 
+              определяется по расчету или по СП 61.13330." 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_alphanp2" id="alphanp2-input" required >
             <span class="alphanp2-input-error form__input-error"></span>
@@ -160,6 +161,8 @@
     <template id="card-template">
       <div class="element">
 
+        <h2 class="element__name"></h2>
+
         <div class="box">
           <button aria-label="Edit" class="button button_edit" type="button"></button>
           <button aria-label="Print" class="button button_print" type="button"></button>
@@ -167,7 +170,7 @@
         </div>
 
         <div class="element__group">
-          <h2 class="element__name"></h2>
+
           <p class="element__paragraph">
             Тепловой расчет трубопроводов системы ГВС приведен согласно СП 61.13330.
           </p>
@@ -311,6 +314,7 @@
     </template>
 
     <script type="module" src="../js/dthermo.js"></script>
+    <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
 </html>

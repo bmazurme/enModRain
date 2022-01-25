@@ -56,7 +56,7 @@ addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 
 function createCard(item) {
-  let obj = calcCirc(item);
+  const obj = calcCirc(item);
   const template = '#card-template';
   const card = new CardCircflow(obj, template, openPopup, closePopup);
   const cardElement = card.createCard();

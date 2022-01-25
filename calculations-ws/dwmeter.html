@@ -3,30 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Расход тепла для нагрева горячей воды">
+    <meta name="description" content="Потери напора в счетчике">
     <meta name="keywords" content="СП 30">
     <meta name="author" content="Bogdan Mazur">
-    <link rel="stylesheet" href="../pages/throttle.css">
+    <link rel="stylesheet" href="../pages/dwmeter.css">
     <link href="//yastatic.net/katex/0.8.3/katex.min.css" rel="stylesheet">
-    <title>Расход тепла для нагрева горячей воды</title>
+    <title>Потери напора в счетчике</title>
   </head>
 
   <body class="root">
     <div class="page">
 
       <header class="header">
+
         <nav class="user-menu">
           <a class="user-menu__link" href="../index.html">Выйти</a>
-          <a class="user-menu__link" href="../profile.html">Профиль</a>
+          <a class="user-menu__link user-menu__link_active" href="../profile.html">Профиль</a>
         </nav>
 
-        <h1 class="header__title">Диаметр отверстия шайбы или втулок для водяных сетей</h1>
+        <h1 class="header__title">Потери напора в счетчике</h1>
 
         <nav class="menu">
           <a class="menu__link" href="../index.html">Index</a>
           <a class="menu__link" href="../projects.html">Проекты</a>
           <a class="menu__link" href="../calculations-ws.html">Расчеты</a>
-          <a class="menu__link menu__link_active" href="throttle.html">Диаметр отверстия шайбы или втулок для водяных сетей</a>
+          <a class="menu__link menu__link_active" href="dwmeter.html">Потери напора в счетчике</a>
         </nav>
 
 
@@ -43,7 +44,7 @@
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 { bmazur } 
+        <p class="footer__copyright"> &copy; 2021 bmazur
         </p>
         <div class="footer__menu">
           <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
@@ -61,21 +62,21 @@
           <h2 class="form__title">Новый расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование шайбы" class="form__input form__input_type_name"
+            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_q" id="qht-input" required >
-            <span class="qht-input-error form__input-error"></span>
+            <input placeholder="Гидравлическое сопротивление счетчика" 
+            class="form__input form__input_type_s" id="s-input" required >
+            <span class="s-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Избыточный напор, МПа" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_hdr" id="qht-input" required >
-            <span class="qht-input-error form__input-error"></span>
+            <input placeholder="Расчетный расход, л/с" 
+            class="form__input form__input_type_q" id="q-input" required >
+            <span class="q-input-error form__input-error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -84,39 +85,77 @@
       </div>
     </div>
 
+
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_edit" name="add-form" novalidate>
+          <h2 class="form__title">Редактировать расчет</h2>
+
+          <div class="form__box">
+            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
+              required minlength="2" maxlength="30" name="name" id="nameCard-input">
+            <span class="nameCard-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Гидравлическое сопротивление счетчика" 
+            class="form__input form__input_type_s" id="s-input" required >
+            <span class="s-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Расчетный расход, л/с" 
+            class="form__input form__input_type_q" id="q-input" required >
+            <span class="q-input-error form__input-error"></span>
+          </div>
+
+          <button aria-label="Save" class="button button_save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
     <template id="card-template">
       <div class="element">
         <h2 class="element__name"></h2>
+        
         <div class="box">
           <button aria-label="Edit" class="button button_edit" type="button"></button>
           <button aria-label="Print" class="button button_print" type="button"></button>
           <button aria-label="Remove" class="button button_remove" type="button"></button>
         </div>
+
         <div class="element__group">
           
-
-
           <p class="element__paragraph">
-            Диаметр отверстия шайбы или втулок для водяных сетей
-            <span class="formula1"></span> определяем по формуле:
+            Расчет потерь давления в счетчике по гидравлическому сопротивлению определяем по формуле:
           </p>
           <p class="element__paragraph">
-            <span class="formula2"></span>
-          </p>
-          <p class="element__paragraph">где <span class="formula3"></span>
-            – избыточный напор, который следует погасить диафрагмой, МПа;
+            <span class="element__formula formula1"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="formula4"></span> - расчетный расход, л/с;
+            где <span class="formula2"></span> – расчетный расход воды, <span class="formula3"></span> 
           </p>
           <p class="element__paragraph">
-            <span class="formula5"></span>
+            <span class="formula4"></span> – гидравлическое сопротивление счетчика,
+            <span class="formula5"></span> 
           </p>
-          
-
+          <p class="element__paragraph">
+            <span class="element__formula formula6"></span> 
+          </p>
         </div>
+
       </div> 
     </template>
+
+
+
 
     <div class="popup popup_type_modal">
       <div class="popup__container popup__container_yesno">
@@ -138,7 +177,7 @@
       </div>
     </div>
 
-    <script type="module" src="../js/throttle.js"></script>
+    <script type="module" src="../js/dwmeter.js"></script>
     <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
