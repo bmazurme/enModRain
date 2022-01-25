@@ -25,11 +25,12 @@ export const settings = {
   elementLike: '.element__like',
   elementRemove: '.box__remove',
   elementEdit: '.box__edit',
-  printButton: '.button_print',
+
   elementImage: '.element__image',
   cardAddress: '.address',
   projectName: '.project__name',
 
+  printButton: '.button_print',
   removeButton: '.button_remove',
   editButton: '.button_edit'
 };
