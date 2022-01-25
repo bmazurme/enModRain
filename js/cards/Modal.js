@@ -41,10 +41,13 @@ export class Modal {
     };
 
     this.confirm = (e) => {
+      console.log('!');
       this._openPopup(this._openedPopup);
       this._no.addEventListener('click', this._closePopupByNo);
       this._yes.addEventListener('click', this._closePopupByYes);
       this._current = e.target.closest(this._element);
+
+      
     };
   }
 

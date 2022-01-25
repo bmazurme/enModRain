@@ -28,7 +28,6 @@ export class CardThrottle extends Card {
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._removeButton);
     deleteButton.addEventListener("click", new Modal().confirm);
-    //deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     const printButton = cardElement.querySelector(this._printButton);
     printButton.addEventListener("click", (evt) => this._printCard(evt));

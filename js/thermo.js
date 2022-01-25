@@ -62,7 +62,7 @@ addButton.addEventListener('click', openAddCardPopup);
 closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
 
 function createCard(item) {
-  let obj = calcThermo(item);  
+  const obj = calcThermo(item);  
   const template = '#card-template';
   const card = new CardThermo(obj, template, openPopup, closePopup);
   const cardElement = card.createCard();
