@@ -2,15 +2,14 @@ import { config } from './config.js';
 import { calcRain } from './calc/calcRain.js';
 import { CardRain } from './cards/CardRain.js';
 import { FormValidator } from './FormValidator.js';
+import { initRain } from './data/initRain.js';
 
-
-const addButton = document.querySelector('.calculate__add');
-const mapButton = document.querySelector('.calculate__map');
+const addButton = document.querySelector(config.addButton);
+const mapButton = document.querySelector(config.mapButton);
 const popupTypeSlide = document.querySelector('.popup_type_slide');
 const popups = document.querySelectorAll('.popup');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const cardsContainer = document.querySelector('.elements');
-//const saveButton= document.querySelector('.form__save');  
 const formAddCard = document.querySelector('.form_type_add');
 const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const n = formAddCard.querySelector('.form__input_type_n');
@@ -32,13 +31,13 @@ const closePopup = (popup) => {
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_active');
+    document.removeEventListener('keydown', closeByEscape);
     closePopup(openedPopup);
   }
 }
 
 function openAddCardPopup() {
   formAddCard.reset();
-  //lockButton(saveButton, config.inactiveButtonClass);
   cardFormValidator.resetValidation();
   openPopup(popupTypeAdd); 
 }
@@ -77,6 +76,9 @@ function generateCard(item) {
 
 formAddCard.addEventListener('submit', saveCardForm);
 addButton.addEventListener('click', openAddCardPopup);
+
+//console.log(mapButton);
+
 mapButton.addEventListener('click', openMapCardPopup);
 
 popups.forEach((popup) => {
@@ -92,3 +94,8 @@ popups.forEach((popup) => {
 
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
+
+initRain.forEach(item => {
+  const element = generateCard(item);
+  cardsContainer.prepend(element);
+});

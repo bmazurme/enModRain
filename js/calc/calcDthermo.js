@@ -300,5 +300,5 @@ export function calcDthermo(item) {
     let qht = k * (item.th - item.tb) * item.l;
     let t2 = (3.6 * item.q * item.t1 - qht / 1000 * 0.86) / 3.6 / item.q;
 
-  return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2, pr, ve, ham};
+  return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, qht, t2, pr, ve, ham, name: item.name};
 }

@@ -9,7 +9,9 @@ export class Card {
     this._cardName = settings.cardName;
     this._element = settings.element;
     this._elementRemove = settings.elementRemove;
+    this._elementPrint = settings.elementPrint;
   }
+
   _deleteCard(evn) {
     evn.target.closest(this._element).remove();
   }

@@ -1,9 +1,9 @@
-.calculate__map {
+/* .calculate__map {
     
     width: 150px;
     height: 50px;
     border: black solid 2px;
-    border-radius: 2px;
+    border-radius: 4px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -14,4 +14,4 @@
     background-position: center;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-}
+} */
