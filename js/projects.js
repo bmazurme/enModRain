@@ -1,7 +1,7 @@
 import { CardProject } from "./cards/CardProject.js";
 import { FormValidator } from './FormValidator.js';
 import { config } from "./config.js";
-import { projects as data } from "./data/projects.js";
+import { initProjects as data } from "./data/initProjects.js";
 
 const addButton = document.querySelector(config.addButton);
 const formAddCard = document.querySelector('.form_type_add');

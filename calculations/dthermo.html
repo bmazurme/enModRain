@@ -26,7 +26,7 @@
         <nav class="menu">
           <a class="menu__link" href="../index.html">Index</a>
           <a class="menu__link" href="../projects.html">Проекты</a>
-          <a class="menu__link" href="../calculations.html">Расчеты</a>
+          <a class="menu__link" href="../calculations-ws.html">Расчеты</a>
           <a class="menu__link menu__link_active" href="dthermo.html">Тепловой расчет трубопроводов системы ГВС</a>
         </nav>
 
@@ -44,7 +44,7 @@
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 { bmazur } 
+        <p class="footer__copyright"> &copy; 2021 bmazur 
         </p>
         <div class="footer__menu">
           <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
@@ -159,7 +159,13 @@
 
     <template id="card-template">
       <div class="element">
-        <button aria-label="Remove" class="element__remove" type="button"></button>
+
+        <div class="box">
+          <button aria-label="Edit" class="button button_edit" type="button"></button>
+          <button aria-label="Print" class="button button_print" type="button"></button>
+          <button aria-label="Remove" class="button button_remove" type="button"></button>
+        </div>
+
         <div class="element__group">
           <h2 class="element__name"></h2>
           <p class="element__paragraph">

@@ -17,10 +17,14 @@
 @import url(../blocks/form/__input-error/form__input-error.css);
 /* @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_inactive/form__save_inactive.css); */
+
+@import url(../blocks/box/box.css);
+
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_login/button_login.css);
 @import url(../blocks/button/_inactive/button_inactive.css);
 @import url(../blocks/button/_add/button_add.css);
+
 @import url(../blocks/button/_edit/button_edit.css);
 @import url(../blocks/button/_remove/button_remove.css);
 @import url(../blocks/button/_print/button_print.css);

@@ -1,4 +1,4 @@
-export const calculations =  [
+export const initCalculations =  [
   {
     id:0,
   },
