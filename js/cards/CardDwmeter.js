@@ -19,10 +19,7 @@ export class CardDwmeter extends Card {
     this._editButton = settings.editButton;
     this._openedPopupEdit = document.querySelector('.popup_type_edit');
     this._current = null;
-    // this._cardFormValidator = new FormValidator(config, this._openedPopupEdit);
-    // this._cardFormValidator.enableValidation();
     
-
     this._refresh = () => {
       katex.render(String.raw`h_{сч} = S \cdot q^2`, this._el1, {throwOnError: false});
       katex.render(String.raw`q`, this._el2, {throwOnError: false});
@@ -34,7 +31,6 @@ export class CardDwmeter extends Card {
     };
 
     this._edit = (evt) => {
-
       this._current = evt.target.closest('.element');
       this._openedPopupEdit.querySelector('.form__input_type_name').value 
          = this._current.querySelector(this._cardName).textContent;
@@ -48,7 +44,6 @@ export class CardDwmeter extends Card {
 
       const cardFormValidator = new FormValidator(config, this._openedPopupEdit);
       cardFormValidator.enableValidation();
-      //cardFormValidator.resetValidation();
     }
 
     this._saveForm = (evt) => {
@@ -87,10 +82,12 @@ export class CardDwmeter extends Card {
   }
 
   _printCard(evn) {
-    var doc = new jsPDF();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.save(`CalcRain ${this._item.name}.pdf`);
+      const block = evn.target.closest('.element');
+      html2canvas(block).then(canvas => {
+        const doc = new jsPDF();
+        doc.addImage(canvas.toDataURL('image/png'), 'JPEG', 0,0);
+        doc.save(`Appendix_${this._item.name}.pdf`);
+      });
   }
 
   createCard() {

@@ -16,11 +16,13 @@ export class CardTank extends Card {
   }
 
   _printCard(evn) {
-    var doc = new jsPDF();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.save(`CalcRain ${this._item.name}.pdf`);
-  }
+    const block = evn.target.closest('.element');
+    html2canvas(block).then(canvas => {
+      const doc = new jsPDF();
+      doc.addImage(canvas.toDataURL('image/png'), 'JPEG', 0,0);
+      doc.save(`Appendix_${this._item.name}.pdf`);
+    });
+}
 
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
