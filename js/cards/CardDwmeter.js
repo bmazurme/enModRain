@@ -85,7 +85,7 @@ export class CardDwmeter extends Card {
       const block = evn.target.closest('.element');
       html2canvas(block).then(canvas => {
         const doc = new jsPDF();
-        doc.addImage(canvas.toDataURL('image/png'), 'JPEG', 0,0);
+        doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0,0);
         doc.save(`Appendix_${this._item.name}.pdf`);
       });
   }
