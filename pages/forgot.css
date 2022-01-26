@@ -25,7 +25,7 @@
 
 @import url(../blocks/form/__label/form__label.css);
 @import url(../blocks/form/__bar/form__bar.css);
-@import url(../blocks/form/__link/form__link.css);
+@import url(../blocks/form//__link/form__link.css);
 
 
 @import url(../blocks/form/__toggle/form__toggle.css);
