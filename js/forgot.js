@@ -23,5 +23,5 @@ function toggle() {
 function redirectToProfile(evt) {
   evt.preventDefault(); 
   document.removeEventListener('submit', redirectToProfile);
-  window.location.replace('./index.html');
+  window.location.replace('../index.html');
 }

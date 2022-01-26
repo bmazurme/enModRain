@@ -3,6 +3,8 @@ import { CardVolume } from './cards/CardVolume.js';
 import { FormValidator } from './FormValidator.js';
 import { initThtrottle } from './data/initThtrotle.js';
 
+import { initCustomers } from './data/initCustomers.js';
+
 const addButton = document.querySelector('.calculate__add');
 const popups = document.querySelectorAll('.popup');
 const popupTypeAdd = document.querySelector('.popup_type_add');
@@ -69,7 +71,9 @@ popups.forEach((popup) => {
 const cardFormValidator = new FormValidator(config, formAddCard);
 cardFormValidator.enableValidation();
 
-initThtrottle.forEach(item => {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
+initCustomers.forEach(item => {
+
+  console.log(item);
+  // const element = createCard(item);
+  // cardsContainer.prepend(element);
 });
