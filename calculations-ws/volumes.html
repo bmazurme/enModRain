@@ -23,7 +23,7 @@
         <nav class="menu">
           <a class="menu__link" href="../index.html">Index</a>
           <a class="menu__link" href="../projects.html">Проекты</a>
-          <a class="menu__link" href="../calculations.html">Расчеты</a>
+          <a class="menu__link" href="../calculations-ws.html">Расчеты</a>
           <a class="menu__link menu__link_active" href="volumes.html">Расчет</a>
         </nav>
 
@@ -35,15 +35,18 @@
           <button aria-label="Add" class="button button_add" type="button"></button>
 
           <div class="table">
-            <p>#</p>
-            <p>Customer</p>
-            <p>Standard</p>
-            <p>Unit</p>
-            <p>Pcs</p>
-            <p>Hours</p>
+            <p style="grid-area: number;">#</p>
+            <p style="grid-area: customer;">Наименование производственных и административных зданий</p>
+            <p  style="grid-area: unit;">Технологический процесс</p>
+ 
+            <p  style="grid-area: pcs;">Кол-во единиц</p>
+            <p  style="grid-area: hours;">Кол-во  часов работы.</p>
 
-            <p>Qc</p>
-            <p>Qh</p>
+            <p  style="grid-area: standard;">Обоснование</p>
+
+            <p  style="grid-area: head;">Норма водопотребления</p>
+            <p  style="grid-area: sum;">Qsum</p>
+            <p  style="grid-area: hot;">Qhot</p>
 
             <p>Qc1</p>
             <p>Qh1</p>
@@ -56,12 +59,13 @@
             <p>Qc3</p>
             <p>Qh3</p>
             <p>Qh3</p>
+            <p>-</p>
 
 
 
           </div>
         </section>
-        <section class="elements">   
+        <section class="table__rows">   
 
 
 
@@ -116,8 +120,9 @@
         <div class="table__row">
           <p class="element__number">0</p>
           <p class="element__customer"></p>
-          <p class="element__standart"></p>
           <p class="element__unit"></p>
+          <p class="element__standart"></p>
+
           <p class="element__coefficient"></p>
           <p class="element__cold"></p>
           <p class="element__hot"></p>
@@ -128,6 +133,10 @@
           <p class="element__coldSecondSum"></p>
           <p class="element__hotSecondSum"></p>
           <p class="element__type"></p>
+          <p class="element__"></p>
+          <p class="element__"></p>
+          <p class="element__"></p>
+          <button class="button button_remove button_row">-</button>
         </div>
       <!-- </div>  -->
     </template>

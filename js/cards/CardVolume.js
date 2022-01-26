@@ -28,6 +28,7 @@ console.log(item);
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
 
+    cardElement.querySelector(".element__number").textContent = this._item.number;
     cardElement.querySelector(".element__customer").textContent = this._item.customer;
     cardElement.querySelector(".element__standart").textContent = this._item.standard;
     cardElement.querySelector(".element__unit").textContent = this._item.unit;

@@ -6,10 +6,12 @@ import { initCustomers } from './data/initCustomers.js';
 const addButton = document.querySelector('.button_add');
 const popups = document.querySelectorAll('.popup');
 const popupTypeAdd = document.querySelector('.popup_type_add');
-const cardsContainer = document.querySelector('.elements');
+const cardsContainer = document.querySelector('.table__rows');
 const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
+//const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const customers = formAddCard.querySelector('.form__select_type_customers');
+
+let count = 1;
 
 const openPopup = (popup) => {
   document.addEventListener('keydown', closeByEscape);
@@ -40,6 +42,8 @@ function saveCardForm(evt) {
   
 
   const newCard = initCustomers[customers.selectedIndex];
+  newCard['number'] = count;
+  count++;
   // {
   //   name: current.customer,
   //   standart: current.standard,
@@ -57,7 +61,7 @@ function saveCardForm(evt) {
   //console.log(initCustomers[customers.selectedIndex].customer);
 
   const element = createCard(newCard);
-  cardsContainer.prepend(element);
+  cardsContainer.append(element);
   closePopup(popupTypeAdd);
 }
 

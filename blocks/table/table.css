@@ -1,6 +1,6 @@
 .table {
   display: grid;
-  grid-template-columns: 40px 1fr 130px 80px 50px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px;
+  grid-template-columns: 40px 1fr 130px 80px 50px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 40px;
   font-size: 12px;
   font-weight: 100;
   margin: 10px 0 0 0;
@@ -12,4 +12,17 @@
   box-shadow:  0px 2px 1px -1px rgb(0 0 0 / 20%),
   0px 1px 1px 0px rgb(0 0 0 / 14%),
   0px 1px 3px 0px rgb(0 0 0 / 12%);
+
+
+  grid-template-areas:
+            "number customer unit hours standard head head calc calc  calc calc calc  calc calc calc  calc"
+            "number customer unit hours standard head head calc calc  calc calc calc  calc calc calc  calc"          
+            "number customer unit pcs   standard sum  hot  sday shour ssec cday chour csec hday hhour hsec"
+            "number customer unit pcs   standard sum  hot  sday shour ssec cday chour csec hday hhour hsec"
+            ;
 }
+
+/* grid-template-areas: 
+            "a a a"
+            "b c c"
+            "b c c"; */
