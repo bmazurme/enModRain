@@ -32,33 +32,38 @@
 
       <main class="main">
         <section class="calculate">
-          <button aria-label="Add" class="calculate__add" type="button"></button>
+          <button aria-label="Add" class="button button_add" type="button"></button>
+
+          <div class="table">
+            <p>#</p>
+            <p>Customer</p>
+            <p>Standard</p>
+            <p>Unit</p>
+            <p>Pcs</p>
+            <p>Hours</p>
+
+            <p>Qc</p>
+            <p>Qh</p>
+
+            <p>Qc1</p>
+            <p>Qh1</p>
+            <p>Qh1</p>
+
+            <p>Qc2</p>
+            <p>Qh2</p>
+            <p>Qh2</p>
+
+            <p>Qc3</p>
+            <p>Qh3</p>
+            <p>Qh3</p>
+
+
+
+          </div>
         </section>
         <section class="elements">   
 
-          <div class="element">
-            <div class="box">
-              <p>#</p>
-              <p>Наименование потребителя</p>
-              <p>Количество</p>
-              <p>Часы работы</p>
-              <p>Нормативный расход</p>
-    
-            </div>
-    
-            <div class="box">
-              <button aria-label="Edit" class="box__edit" type="button"></button>
-              <button aria-label="Remove" class="box__remove" type="button"></button>
-            </div>
-            <div class="element__group">
-              <h2 class="element__name"></h2>
-    
-    
-    
-              
-    
-            </div>
-          </div> 
+
 
           <!-- cards -->
         </section>
@@ -66,7 +71,7 @@
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 { bmazur } 
+        <p class="footer__copyright"> &copy; 2021 bmazur
         </p>
         <div class="footer__menu">
           <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
@@ -84,9 +89,8 @@
           <h2 class="form__title">Новый расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование потребителя" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
+            <select name="select" class="form__select form__select_type_customers" required>
+            </select>
           </div>
 
           <div class="form__box">
@@ -108,28 +112,24 @@
     </div>
 
     <template id="card-template">
-      <div class="element">
-        <div class="box">
-          <p>#</p>
-          <p>Наименование потребителя</p>
-          <p>Количество</p>
-          <p>Часы работы</p>
-
+      <!-- <div class="element"> -->
+        <div class="table__row">
+          <p class="element__number">0</p>
+          <p class="element__customer"></p>
+          <p class="element__standart"></p>
+          <p class="element__unit"></p>
+          <p class="element__coefficient"></p>
+          <p class="element__cold"></p>
+          <p class="element__hot"></p>
+          <p class="element__coldHourMax"></p>
+          <p class="element__hotHourMax"></p>
+          <p class="element__coldHourSum"></p>
+          <p class="element__hotHourSum"></p>
+          <p class="element__coldSecondSum"></p>
+          <p class="element__hotSecondSum"></p>
+          <p class="element__type"></p>
         </div>
-
-        <div class="box">
-          <button aria-label="Edit" class="box__edit" type="button"></button>
-          <button aria-label="Remove" class="box__remove" type="button"></button>
-        </div>
-        <div class="element__group">
-          <h2 class="element__name"></h2>
-
-
-
-          
-
-        </div>
-      </div> 
+      <!-- </div>  -->
     </template>
 
     <script type="module" src="../js/volumes.js"></script>
