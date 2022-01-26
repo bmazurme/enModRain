@@ -29,8 +29,6 @@
           <a class="menu__link" href="../calculations-ws.html">Расчеты</a>
           <a class="menu__link menu__link_active" href="dwmeter.html">Потери напора в счетчике</a>
         </nav>
-
-
       </header>
 
       <main class="main">
@@ -62,20 +60,25 @@
           <h2 class="form__title">Новый расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
+            <input placeholder="Наименование счетчика" 
+              class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="Гидравлическое сопротивление счетчика" 
-            class="form__input form__input_type_s" id="s-input" required >
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
+              class="form__input form__input_type_s" 
+              id="s-input" required >
             <span class="s-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="Расчетный расход, л/с" 
-            class="form__input form__input_type_q" id="q-input" required >
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
+              class="form__input form__input_type_q" 
+              id="q-input" required >
             <span class="q-input-error form__input-error"></span>
           </div>
 
@@ -93,20 +96,25 @@
           <h2 class="form__title">Редактировать расчет</h2>
 
           <div class="form__box">
-            <input placeholder="Наименование счетчика" class="form__input form__input_type_name"
+            <input placeholder="Наименование счетчика" 
+              class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
             <input placeholder="Гидравлическое сопротивление счетчика" 
-            class="form__input form__input_type_s" id="s-input" required >
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
+              class="form__input form__input_type_s"
+              id="s-input" required >
             <span class="s-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" 
-            class="form__input form__input_type_q" id="q-input" required >
+            <input placeholder="Расчетный расход, л/с"
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
+              class="form__input form__input_type_q" 
+              id="q-input" required >
             <span class="q-input-error form__input-error"></span>
           </div>
 
@@ -115,10 +123,6 @@
         </form>
       </div>
     </div>
-
-
-
-
 
 
     <template id="card-template">
@@ -155,24 +159,15 @@
     </template>
 
 
-
-
     <div class="popup popup_type_modal">
       <div class="popup__container popup__container_yesno">
         <button aria-label="Close" class="popup__close" type="button"></button>
         <div class="modal">
           <h2 class="form__title">Подтвердить удаление?</h2>
-
           <div class="modal__box">
-            <button aria-label="Remove" 
-              class="button button_remove button_text" 
-              type="button">Удалить</button>
-
-            <button aria-label="Cancel" 
-                class="button button_cancel" 
-                type="button">Отменить</button>
+            <button aria-label="Remove" class="button button_remove button_text" type="button">Удалить</button>
+            <button aria-label="Cancel" class="button button_cancel" type="button">Отменить</button>
           </div>
-
         </div>
       </div>
     </div>

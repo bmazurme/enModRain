@@ -1,7 +1,4 @@
 export function calcDthermo(item) {
-
-console.log(item);
-
     let pr = 13.45;
     let ve = 0.0000018;
     let ham = 0.5545000;
@@ -295,17 +292,19 @@ console.log(item);
     }
 
     const l = Number(item.l);
+    const v = Number(item.v);
+    const dtr = Number(item.dtr);
 
-    let re = Number(item.v) * Number(item.dtr) / ve;
-    let nu = 0.021 * (re ** 0.8) * (pr ** 0.43);
-    let alpha = nu * ham / Number(item.dtr);
-    let rbh = 1 / Math.PI/ Number(item.dtr) / alpha;
-    let rsl = 1 / 2 / Math.PI / Number(item.alphasl) * Math.log(Number(item.dsl) / Number(item.dtr));
-    let rsl2 = 1 / 2 / Math.PI / Number(item.alphasl2) * Math.log(Number(item.diamsln) / Number(item.dsl));
-    let rnp = 1 / Math.PI / Number(item.diamsln) / Number(item.alphanp2);
-    let k = 1 / (rbh + rsl + rsl2 + rnp);
-    let qht = k * (Number(item.th) - Number(item.tb)) *l;
-    let t2 = (3.6 * Number(item.q) * Number(item.t1) - qht / 1000 * 0.86) / 3.6 / Number(item.q);
+    const re = v * dtr / ve;
+    const nu = 0.021 * (re ** 0.8) * (pr ** 0.43);
+    const alpha = nu * ham / dtr;
+    const rbh = 1 / Math.PI/ dtr / alpha;
+    const rsl = 1 / 2 / Math.PI / Number(item.alphasl) * Math.log(Number(item.dsl) / Number(item.dtr));
+    const rsl2 = 1 / 2 / Math.PI / Number(item.alphasl2) * Math.log(Number(item.diamsln) / Number(item.dsl));
+    const rnp = 1 / Math.PI / Number(item.diamsln) / Number(item.alphanp2);
+    const k = 1 / (rbh + rsl + rsl2 + rnp);
+    const qht = k * (Number(item.th) - Number(item.tb)) *l;
+    const t2 = (3.6 * Number(item.q) * Number(item.t1) - qht / 1000 * 0.86) / 3.6 / Number(item.q);
 
   return {re, nu, alpha, rbh, rsl, rsl2, rnp, k, 
     qht, t2, pr, ve, ham, name: item.name, dtr: item.dtr, l, dsl: item.dsl,

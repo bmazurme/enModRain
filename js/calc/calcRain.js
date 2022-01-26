@@ -1,19 +1,19 @@
 export function calcRain(item) {
-  let slope = item.slope;
-  let roof = item.roof;
-  let facade = item.facade;
-  let q20 = item.q20;
-  let n = item.n;
+  const slope = Number(item.slope);
+  const roof = Number(item.roof);
+  const facade = Number(item.facade);
+  const q20 = Number(item.q20);
+  const n = Number(item.n);
   let q = 0;
   let sumArea = 0;
   let q5 = 0;
 
-  sumArea = Number(roof) + Number(facade) * 0.3;
+  sumArea = roof + facade * 0.3;
   
-  if (Number(slope) < 1.5) {
-    q = sumArea * Number(q20) / 10000;
+  if (slope < 1.5) {
+    q = sumArea * q20 / 10000;
   } else {
-    q5 = 4 ** Number(n) * Number(q20);
+    q5 = 4 ** n * q20;
     q = sumArea * q5 / 10000;
   }
 
