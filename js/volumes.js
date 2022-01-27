@@ -10,6 +10,8 @@ const cardsContainer = document.querySelector('.table__rows');
 const formAddCard = document.querySelector('.form_type_add');
 //const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
 const customers = formAddCard.querySelector('.form__select_type_customers');
+const hours = formAddCard.querySelector('.form__input_type_hours');
+const pcs = formAddCard.querySelector('.form__input_type_pcs');
 
 let count = 1;
 
@@ -43,6 +45,11 @@ function saveCardForm(evt) {
 
   const newCard = initCustomers[customers.selectedIndex];
   newCard['number'] = count;
+
+  //console.log(hours.value);
+
+  newCard['hours'] = hours.value;
+  newCard['pcs'] = pcs.value;
   count++;
   // {
   //   name: current.customer,

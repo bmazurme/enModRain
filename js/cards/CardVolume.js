@@ -23,7 +23,8 @@ console.log(item);
   }
 
   createCard() {
-    console.log(this._item.name);
+    console.log(this._item.hours);
+    console.log(this._item.pcs);
 
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
@@ -32,6 +33,11 @@ console.log(item);
     cardElement.querySelector(".element__customer").textContent = this._item.customer;
     cardElement.querySelector(".element__standart").textContent = this._item.standard;
     cardElement.querySelector(".element__unit").textContent = this._item.unit;
+
+    cardElement.querySelector(".element__hours").textContent = this._item.hours;
+    cardElement.querySelector(".element__pcs").textContent = this._item.pcs;
+
+
     cardElement.querySelector(".element__coefficient").textContent = this._item.coefficient;
     cardElement.querySelector(".element__cold").textContent = this._item.cold;
     cardElement.querySelector(".element__hot").textContent = this._item.hot;

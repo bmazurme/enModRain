@@ -35,31 +35,36 @@
           <button aria-label="Add" class="button button_add" type="button"></button>
 
           <div class="table">
-            <p style="grid-area: number;">#</p>
-            <p style="grid-area: customer;">Наименование производственных и административных зданий</p>
-            <p  style="grid-area: unit;">Технологический процесс</p>
+            <p class="table__column" style="grid-area: number;">#</p>
+            <p class="table__column" style="grid-area: customer;">Наименование производственных и административных зданий</p>
+            <p class="table__column" style="grid-area: unit;">Технологический процесс</p>
  
-            <p  style="grid-area: pcs;">Кол-во единиц</p>
-            <p  style="grid-area: hours;">Кол-во  часов работы.</p>
+            <p class="table__column" style="grid-area: pcs;">Кол-во единиц</p>
+            <p class="table__column" style="grid-area: hours;">Кол-во  часов работы.</p>
 
-            <p  style="grid-area: standard;">Обоснование</p>
+            <p class="table__column" style="grid-area: standard;">Обоснование</p>
 
-            <p  style="grid-area: head;">Норма водопотребления</p>
-            <p  style="grid-area: sum;">Qsum</p>
-            <p  style="grid-area: hot;">Qhot</p>
+            <p class="table__column" style="grid-area: head;">Норма водопотребления</p>
+            <p class="table__column" style="grid-area: sum;">Qsum</p>
+            <p class="table__column" style="grid-area: hot;">Qhot</p>
 
-            <p>Qc1</p>
-            <p>Qh1</p>
-            <p>Qh1</p>
+            <p class="table__column" style="grid-area: calc;">Расчетные расходы воды</p>
 
-            <p>Qc2</p>
-            <p>Qh2</p>
-            <p>Qh2</p>
+            <p class="table__column" style="grid-area: shar;">Общая</p>
+            <p class="table__column" style="grid-area: sday;">Qh1_1</p>
+            <p class="table__column" style="grid-area: shour;">Qh1_2</p>
+            <p class="table__column" style="grid-area: ssec;">Qh1_3</p>
 
-            <p>Qc3</p>
-            <p>Qh3</p>
-            <p>Qh3</p>
-            <p>-</p>
+            <p class="table__column" style="grid-area: seco;">Холодная</p>
+            <p class="table__column" style="grid-area: cday;">Qc2_1</p>
+            <p class="table__column" style="grid-area: chour;">Qh2_2</p>
+            <p class="table__column" style="grid-area: csec;">Qh2_3</p>
+
+            <p class="table__column" style="grid-area: thir;">Горячая</p>
+            <p class="table__column" style="grid-area: hday;">Qc3_1</p>
+            <p class="table__column" style="grid-area: hhour;">Qh3_2</p>
+            <p class="table__column" style="grid-area: hsec;">Qh3_3</p>
+            <p class="table__column" style="grid-area: space;">-</p>
 
 
 
@@ -118,25 +123,28 @@
     <template id="card-template">
       <!-- <div class="element"> -->
         <div class="table__row">
-          <p class="element__number">0</p>
-          <p class="element__customer"></p>
-          <p class="element__unit"></p>
-          <p class="element__standart"></p>
+          <p class="table__column element__number" style="grid-area: number;">0</p>
+          <p class="table__column element__customer" style="grid-area: customer;"></p>
+          <p class="table__column element__unit" style="grid-area: unit;"></p>
+          <p class="table__column element__standart" style="grid-area: standard;"></p>
 
-          <p class="element__coefficient"></p>
-          <p class="element__cold"></p>
-          <p class="element__hot"></p>
-          <p class="element__coldHourMax"></p>
-          <p class="element__hotHourMax"></p>
-          <p class="element__coldHourSum"></p>
-          <p class="element__hotHourSum"></p>
-          <p class="element__coldSecondSum"></p>
-          <p class="element__hotSecondSum"></p>
-          <p class="element__type"></p>
-          <p class="element__"></p>
-          <p class="element__"></p>
-          <p class="element__"></p>
-          <button class="button button_remove button_row">-</button>
+          <p class="table__column element__hours" style="grid-area: hours;"></p>
+          <p class="table__column element__pcs" style="grid-area: pcs;"></p>
+
+          <p class="table__column element__coefficient"></p>
+          <p class="table__column element__cold" style="grid-area: sum;"></p>
+          <p class="table__column element__hot" style="grid-area: hot;"></p>
+          <p class="table__column element__coldHourMax"></p>
+          <p class="table__column element__hotHourMax"></p>
+          <p class="table__column element__coldHourSum"></p>
+          <p class="table__column element__hotHourSum"></p>
+          <p class="table__column element__coldSecondSum"></p>
+          <p class="table__column element__hotSecondSum"></p>
+          <p class="table__column element__type"></p>
+          <p class="table__column element__"></p>
+          <p class="table__column element__"></p>
+          <p class="table__column element__"></p>
+          <button class="button button_remove button_row" style="grid-area: space;">-</button>
         </div>
       <!-- </div>  -->
     </template>

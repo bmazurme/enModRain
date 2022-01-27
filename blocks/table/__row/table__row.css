@@ -1,6 +1,11 @@
 .table__row {
   display: grid;
-  grid-template-columns: 40px 1fr 130px 80px 50px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 40px;
+  grid-template-columns: 40px 1fr 130px 80px 100px 120px 50px 50px 50px 50px 50px 50px 50px 50px 50px 40px;
+  grid-template-areas:
+  "number customer unit hours standard sum  shar shar  shar seco seco  seco thir thir  thir space"          
+  "number customer unit pcs   standard hot  sday shour ssec cday chour csec hday hhour hsec space"
+  ;
+
   font-size: 11px;
   margin: 0;
   padding: 0;
