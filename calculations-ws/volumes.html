@@ -39,14 +39,14 @@
             <p class="table__column" style="grid-area: customer;">Наименование производственных и административных зданий</p>
             <p class="table__column" style="grid-area: unit;">Технологический процесс</p>
  
-            <p class="table__column" style="grid-area: pcs;">Кол-во единиц</p>
-            <p class="table__column" style="grid-area: hours;">Кол-во  часов работы.</p>
+            <p class="table__column" style="grid-area: pcs;">Кол-во единиц, <span class="formula3"></span></p>
+            <p class="table__column" style="grid-area: hours;">Кол-во часов работы, <span class="formula4"></span></p>
 
             <p class="table__column" style="grid-area: standard;">Обоснование</p>
 
             <p class="table__column" style="grid-area: head;">Норма водопотребления</p>
-            <p class="table__column" style="grid-area: sum;">Qsum</p>
-            <p class="table__column" style="grid-area: hot;">Qhot</p>
+            <p class="table__column" style="grid-area: sum;"><span class="formula1"></span></p>
+            <p class="table__column" style="grid-area: hot;"><span class="formula2"></p>
 
             <p class="table__column" style="grid-area: calc;">Расчетные расходы воды</p>
 
@@ -64,24 +64,18 @@
             <p class="table__column" style="grid-area: hday;">Qc3_1</p>
             <p class="table__column" style="grid-area: hhour;">Qh3_2</p>
             <p class="table__column" style="grid-area: hsec;">Qh3_3</p>
-            <p class="table__column" style="grid-area: space;">-</p>
-
-
+            <p class="table__column" style="grid-area: space;"></p>
 
           </div>
         </section>
         <section class="table__rows">   
 
-
-
           <!-- cards -->
-        </section>
-            
+        </section>            
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 bmazur
-        </p>
+        <p class="footer__copyright"> &copy; 2021 bmazur </p>
         <div class="footer__menu">
           <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
           <a class="footer__link" href="confidential.html">Конфиденциальность</a>
@@ -103,13 +97,17 @@
           </div>
 
           <div class="form__box">
-            <input placeholder="Количество потребителей" class="form__input form__input_type_pcs"
+            <input placeholder="Количество потребителей" 
+              class="form__input form__input_type_pcs"
+              type="number"
               name="pcs" id="pcs-input">
             <span class="pcs-input-error form__input-error"></span>
           </div>
 
           <div class="form__box">
-            <input placeholder="Часы работы" class="form__input form__input_type_hours"
+            <input placeholder="Часы работы" 
+              class="form__input form__input_type_hours"
+              type="number"
               name="hours" id="hours-input">
             <span class="hours-input-error form__input-error"></span>
           </div>
@@ -121,16 +119,13 @@
     </div>
 
     <template id="card-template">
-      <!-- <div class="element"> -->
-        <div class="table__row">
+        <div class="table__row element">
           <p class="table__column element__number" style="grid-area: number;">0</p>
           <p class="table__column element__customer" style="grid-area: customer;"></p>
           <p class="table__column element__unit" style="grid-area: unit;"></p>
           <p class="table__column element__standart" style="grid-area: standard;"></p>
-
           <p class="table__column element__hours" style="grid-area: hours;"></p>
           <p class="table__column element__pcs" style="grid-area: pcs;"></p>
-
           <p class="table__column element__coefficient"></p>
           <p class="table__column element__cold" style="grid-area: sum;"></p>
           <p class="table__column element__hot" style="grid-area: hot;"></p>
@@ -144,10 +139,23 @@
           <p class="table__column element__"></p>
           <p class="table__column element__"></p>
           <p class="table__column element__"></p>
-          <button class="button button_remove button_row" style="grid-area: space;">-</button>
+          <button class="button button_remove button_row" 
+            style="grid-area: space;"></button>
         </div>
-      <!-- </div>  -->
     </template>
+
+    <div class="popup popup_type_modal">
+      <div class="popup__container popup__container_yesno">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <div class="modal">
+          <h2 class="form__title">Подтвердить удаление?</h2>
+          <div class="modal__box">
+            <button aria-label="Remove" class="button button_remove button_text" type="button">Удалить</button>
+            <button aria-label="Cancel" class="button button_cancel" type="button">Отменить</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="../js/volumes.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>

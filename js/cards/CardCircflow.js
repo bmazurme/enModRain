@@ -6,9 +6,6 @@ export class CardCircflow extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
     super();
     this._item = item;
-
-console.log(this._item);
-
     this._cardTemplate = cardTemplate;
     this._openPopup = openPopup;
     this._closePopup = closePopup;

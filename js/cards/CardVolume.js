@@ -1,11 +1,10 @@
 import { settings } from '../config.js';
 import { Card } from './Card.js';
+import { Modal } from './Modal.js';
 
 export class CardVolume extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
     super();
-
-console.log(item);
 
     this._item = item;
     // this._item = item.name;
@@ -13,19 +12,15 @@ console.log(item);
     this._openPopup = openPopup;
     this._closePopup = closePopup
     this._cardName = settings.cardName;
-    this._element = '.table__row';//settings.element;
-    this._elementRemove = settings.elementRemove;
-    // this._cardAddress = settings.cardAddress;
-    // this._projectName = settings.projectName;
+    this._element = '.table__row';
+    this._removeButton = settings.removeButton;
+
   }
   _deleteCard(evn) {
     evn.target.closest(this._element).remove();
   }
 
   createCard() {
-    console.log(this._item.hours);
-    console.log(this._item.pcs);
-
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
 
@@ -49,26 +44,14 @@ console.log(item);
     cardElement.querySelector(".element__hotSecondSum").textContent = this._item.otSecondSum;
     cardElement.querySelector(".element__type").textContent = this._item.type;
 
+    const deleteButton = cardElement.querySelector(this._removeButton);
+    deleteButton.addEventListener("click", new Modal().confirm);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // cardElement.querySelector(this._cardAddress).textContent = this._item.address;
-
-    //deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
-
+    cardElement.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains('table__row') || evt.target.classList.contains('table__column') )
+        alert(this._item.customer)
+    });
+    
     return cardElement;
   }
 }

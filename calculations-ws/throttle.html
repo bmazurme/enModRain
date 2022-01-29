@@ -29,7 +29,6 @@
           <a class="menu__link menu__link_active" href="throttle.html">Диаметр отверстия шайбы или втулок для водяных сетей</a>
         </nav>
 
-
       </header>
 
       <main class="main">
@@ -84,6 +83,50 @@
       </div>
     </div>
 
+
+
+
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_edit" name="add-form" novalidate>
+          <h2 class="form__title">Редактировать расчет</h2>
+
+          <div class="form__box">
+            <input placeholder="Наименование шайбы" class="form__input form__input_type_name"
+              required minlength="2" maxlength="30" name="name" id="nameCard-input">
+            <span class="nameCard-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Расчетный расход, л/с" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+            class="form__input form__input_type_q" id="qht-input" required >
+            <span class="qht-input-error form__input-error"></span>
+          </div>
+
+          <div class="form__box">
+            <input placeholder="Избыточный напор, МПа" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+            class="form__input form__input_type_hdr" id="qht-input" required >
+            <span class="qht-input-error form__input-error"></span>
+          </div>
+
+          <button aria-label="Save" class="button button_save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <template id="card-template">
       <div class="element">
         <h2 class="element__name"></h2>
@@ -94,8 +137,6 @@
         </div>
         <div class="element__group">
           
-
-
           <p class="element__paragraph">
             Диаметр отверстия шайбы или втулок для водяных сетей
             <span class="formula1"></span> определяем по формуле:
@@ -113,7 +154,6 @@
             <span class="formula5"></span>
           </p>
           
-
         </div>
       </div> 
     </template>
@@ -125,20 +165,15 @@
           <h2 class="form__title">Подтвердить удаление?</h2>
 
           <div class="modal__box">
-            <button aria-label="Remove" 
-              class="button button_remove button_text" 
-              type="button">Удалить</button>
-
-            <button aria-label="Cancel" 
-                class="button button_cancel" 
-                type="button">Отменить</button>
+            <button aria-label="Remove" class="button button_remove button_text" type="button">Удалить</button>
+            <button aria-label="Cancel" class="button button_cancel" type="button">Отменить</button>
           </div>
 
         </div>
       </div>
     </div>
 
-    <script type="module" src="../js/throttle.js"></script>
+    <script type="module" src="../js/calculation-ws/throttle.js"></script>
     <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>

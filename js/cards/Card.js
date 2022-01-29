@@ -12,6 +12,15 @@ export class Card {
     this._elementPrint = settings.elementPrint;
   }
 
+  _printCard(evn) {
+    const block = evn.target.closest('.element');
+    html2canvas(block).then(canvas => {
+      const doc = new jsPDF();
+      doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0,0);
+      doc.save(`Appendix_${this._item.name}.pdf`);
+    });
+  }
+
   _deleteCard(evn) {
     evn.target.closest(this._element).remove();
   }
