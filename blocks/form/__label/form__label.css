@@ -1,11 +1,25 @@
-.form__label {
+.label {
     color: #999;
     font-size: 14px;
     position: absolute;
     pointer-events: none;
-    left: 10px;
-    top: 10px;
+    left: 0;
+    top: 5px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
+  }
+
+  input:focus:valid ~ .label {
+  /* , input:valid ~ .label { */
+    top: -15px;
+    font-size: 12px;
+    color: #5264AE;
+  }
+
+
+  .label_error {
+    top: -15px;
+    font-size: 12px;
+    color: red;
   }

@@ -1,5 +1,5 @@
-import { FormValidator } from '../FormValidator.js';
-import { config } from "../config.js";
+import { FormValidator } from '../FormValidatorNew.js';
+import { configNew as config } from "../config.js";
 
 const form = document.querySelector('.registration__form');
 const button = document.querySelector('.form__toggle');

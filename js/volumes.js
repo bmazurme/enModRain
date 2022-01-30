@@ -49,14 +49,9 @@ function openAddCardPopup() {
 
 function saveCardForm(evt) {
   evt.preventDefault();
-
   
-
   const newCard = initCustomers[customers.selectedIndex];
   newCard['number'] = count;
-
-  //console.log(hours.value);
-
   newCard['hours'] = hours.value;
   newCard['pcs'] = pcs.value;
   count++;

@@ -1,0 +1,23 @@
+.inbox__bar_error {
+  position: relative;
+  display: block;
+}
+
+.inbox__bar_error:before, .inbox__bar_error:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background: red;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.inbox__bar_error:before {
+  left: 50%;
+}
+.inbox__bar_error:after {
+  right: 50%;
+}

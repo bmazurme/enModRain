@@ -66,38 +66,32 @@ export class FormValidator {
   
     _showInputError (formElement, inputElement, errorMessage) {
       const errorElement = formElement
-      .querySelector(`.${inputElement.id}-error`);
-
-// 
-
+        .querySelector(`.${inputElement.id}-error`);
       inputElement.classList.add(this._config.inputErrorClass);
       errorElement.textContent = errorMessage;
       errorElement.classList.add(this._config.errorClass);
       inputElement.classList.add(this._config.errorLine);
 
-      this._toggleLabel(formElement, inputElement);
+      this._toggleLabel(formElement, inputElement, errorMessage);
     };
 
-    _toggleLabel(formElement, inputElement) {
-      const labelElement = formElement.querySelector(`.${this._config.label}`);
-      const barElement = formElement.querySelector('.form__bar');
+    _toggleLabel(formElement, inputElement, errorMessage) {
 
+      const label = formElement.querySelector(`.${inputElement.id}-label`);
+      const bar   = formElement.querySelector(`.${inputElement.id}-bar`);
 
-      const label = formElement.querySelector(`.inbox__label`);
-      const bar   = formElement.querySelector('.inbox__bar');
+      if (errorMessage) {
+        bar.classList.add(`${this._config.inboxBar}_error`);
+      }
+ 
 
-
-      if (inputElement.value){
-        labelElement.classList.add(`${this._config.label}_error`);
-        barElement.classList.add(`form__bar-error`);
-
-        label.classList.add('inbox__label-error');
-        bar.classList.add('inbox__bar-error');
+      if (inputElement.value) {
+        label.classList.add(`${this._config.inboxLabel}_error`);
+        label.classList.remove(`${this._config.inboxLabel}_error-empty`);
+ 
       } else {
-        labelElement.classList.remove(`${this._config.label}_error`);
-
-        label.classList.remove('inbox__label-error');
-
+        label.classList.remove(`${this._config.inboxLabel}_error`);
+        label.classList.add(`${this._config.inboxLabel}_error-empty`);
       }
     }
 
@@ -108,11 +102,10 @@ export class FormValidator {
       errorElement.classList.remove(this._config.errorClass);
       errorElement.textContent = '';
       inputElement.classList.remove(this._config.errorLine);
-
       this._toggleLabel(formElement, inputElement);
 
-      const barElement = formElement.querySelector('.form__bar');
-      barElement.classList.remove(`form__bar-error`);
+      const bar   = formElement.querySelector(`.${inputElement.id}-bar`);
+      bar.classList.remove(`${this._config.inboxBar}_error`);
     };
     
     _checkInputValidity (formElement, inputElement) {

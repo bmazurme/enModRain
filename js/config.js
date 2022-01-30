@@ -7,10 +7,43 @@ export const config = {
   errorClass: 'form__input-error_active',
   errorLine: 'form__input_invalid',
 
+  label: 'label',
+
   addButton: '.button_add',
   mapButton: '.button_map',
   thermoButton: '.button_thermo'
 };
+
+
+export const configNew = {
+  formSelector: '.form',
+  inputSelector: '.inbox__input',
+  submitButtonSelector: '.form__submit',
+  inactiveButtonClass: 'button_inactive',
+  inputErrorClass: 'inbox__input_type_error',
+  errorClass: 'inbox__input-error_active',
+  errorLine: 'inbox__input_invalid',
+
+  label: 'label',
+  inboxLabel: 'inbox__label',
+  inboxBar: 'inbox__bar',
+  // `.inbox__label` inboxLabel
+// '.inbox__bar'  inboxBar
+
+  addButton: '.button_add',
+  mapButton: '.button_map',
+  thermoButton: '.button_thermo'
+};
+
+
+
+
+
+
+
+
+
+
 
 export const settings = {
   typeSlide: '.popup_type_slide',

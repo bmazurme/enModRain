@@ -22,48 +22,58 @@
 
           <form class="registration__form">
 
-            <div class="form__box">
+            <!-- <div class="form__box">
               <input placeholder="Имя"
                 class="form__input form__input_name" 
                 aria-invalid="true"
                 id="name-input" required >
               <span class="form__bar" ></span>
               <span class="name-input-error form__input-error"></span>
+            </div> -->
 
+            <div class="inbox" >
+              <input class="inbox__input inbox__input_name" 
+                aria-invalid="true"
+                type="text"
+                autocomplete="off"
+                id="name-input" required >
+              <span class="inbox__bar name-input-bar"></span>
+              <label class="inbox__label name-input-label">Имя</label>
+              <span class="name-input-error inbox__input_error"></span>
             </div>
 
-            <div class="form__box">
-              <input placeholder="Email"
-                class="form__input form__input_email" 
+            <div class="inbox" >
+              <input class="inbox__input inbox__input_email" 
                 aria-invalid="true"
                 type="email"
                 autocomplete="off"
                 id="email-input" required >
-              <span class="form__bar"></span>
-              <span class="email-input-error form__input-error"></span>
+              <span class="inbox__bar email-input-bar"></span>
+              <label class="inbox__label email-input-label" >Email</label>
+              <span class="email-input-error inbox__input_error"></span>
             </div>
 
-            <div class="form__box">
-              <input placeholder="Придумайте пароль"
-                class="form__input form__input_password"
-                value=""
+            <div class="inbox" >
+              <input class="inbox__input inbox__input_password" 
+                aria-invalid="true"
                 type="password"
                 autocomplete="new-password"
                 id="password-input" required >
-                <span class="form__bar"></span>
-                <button class="form__toggle" type="button"></button>
-              <span class="password-input-error form__input-error"></span>
+              <span class="inbox__bar password-input-bar"></span>
+              <label class="inbox__label password-input-label" >Пароль</label>
+              <button class="form__toggle" type="button"></button>
+              <span class="password-input-error inbox__input_error"></span>
             </div>
 
-            <div class="form__box">
-              <input placeholder="Повторите пароль"
-                class="form__input form__input_password_confirm" 
-                value=""
+            <div class="inbox" >
+              <input class="inbox__input inbox__input_password_confirm" 
+                aria-invalid="true"
                 type="password"
                 autocomplete="new-password"
-                id="password_confirm-input" required >
-                <span class="form__bar"></span>
-              <span class="password_confirm-input-error form__input-error"></span>
+                id="password-confirm-input" required >
+              <span class="inbox__bar password-confirm-input-bar"></span>
+              <label class="inbox__label password-confirm-input-label">Повторите пароль</label>
+              <span class="password-confirm-input-error inbox__input_error"></span>
             </div>
             
             <div class="form__box">

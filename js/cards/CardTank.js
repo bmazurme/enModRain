@@ -15,15 +15,6 @@ export class CardTank extends Card {
     this._printButton = settings.printButton;
   }
 
-  _printCard(evn) {
-    const block = evn.target.closest('.element');
-    html2canvas(block).then(canvas => {
-      const doc = new jsPDF();
-      doc.addImage(canvas.toDataURL('image/png'), 'JPEG', 0,0);
-      doc.save(`Appendix_${this._item.name}.pdf`);
-    });
-}
-
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
@@ -31,7 +22,7 @@ export class CardTank extends Card {
     deleteButton.addEventListener("click", new Modal().confirm);
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     const printButton = cardElement.querySelector(this._printButton);
-    printButton.addEventListener("click", (evt) => this._printCard(evt));
+    printButton.addEventListener("click", (evt) => super._printCard(evt));
 
     const el1 = cardElement.querySelector('.formula1');
     const el2 = cardElement.querySelector('.formula2');

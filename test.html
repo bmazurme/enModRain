@@ -3,57 +3,73 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wallet">
-    <meta name="keywords" content="СП 30">
+    <meta name="description" content="Забыли пароль?">
+    <meta name="keywords" content="Забыли пароль?">
     <meta name="author" content="Bogdan Mazur">
     <link rel="stylesheet" href="./pages/test.css">
-
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-
-
-    <title>Wallet</title>
+    <title>Забыли пароль?</title>
   </head>
 
   <body class="root">
     <div class="page">
       <header class="header">
-
-        <nav class="user-menu">
-          <a class="user-menu__link" href="index.html">Выйти</a>
-          <a class="user-menu__link user-menu__link_active" href="profile.html">Профиль</a>
-        </nav>
-
-        <h1 class="header__title">Wallet</h1>
-
-
-
- 
-
-
       </header>   
 
       <main class="main">
-        <section class="calculate">
-          <button aria-label="Add" class="button button_add" type="button"></button>
-        </section>
-        <section class="elements elements_empty">   
+        <section class="registration">
+          <a href="../index.html" class="registration__back"></a>
 
-        </section>    
+          <h1 class="registration__title">Забыли пароль?</h1>
+
+            <form class="registration__form">
+<!-- 
+              <div class="form__box" style="  position: relative;
+                margin-bottom: 30px;">
+                <input class="form__input form__input_email" 
+                  aria-invalid="true"
+                  type="email"
+                  autocomplete="off"
+                  id="email-input" required >
+                <span class="form__bar"></span>
+                <label class="label email-label" >Email</label>
+                <span class="email-input-error form__input-error"></span>
+              </div> -->
+
+
+              <div class="inbox" >
+                <input class="inbox__input inbox__input_email" 
+                  aria-invalid="true"
+                  type="email"
+                  autocomplete="off"
+                  id="email-input" required >
+                <span class="inbox__bar"></span>
+                <label class="inbox__label email-label" >Email</label>
+                <span class="email-input-error inbox__input_error"></span>
+              </div>
+
+
+
+              <div class="form__box">
+                <button aria-label="Save" class="button button_login form__submit" type="submit">Сбросить пароль</button>
+              </div>
+          </form>
+        </section>
       </main>
 
       <footer class="footer">
-        <p class="footer__copyright"> &copy; 2021 { bmazur } </p>
-          <div class="footer__menu">
-            <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
-            <a class="footer__link" href="confidential.html">Конфиденциальность</a>
-            <a class="footer__link" href="politic.html">Пользовательское соглашение</a>
-            <a class="footer__link" href="support.html">Справка и поддержка</a>
-          </div>
+        <p class="footer__copyright"> &copy; 2022 bmazur </p>
+
+        <div class="footer__menu">
+          <a target="_blank" class="footer__link" href="https://github.com/bmazurme/enModRain">GitHub</a>
+          <a class="footer__link" href="../confidential.html">Конфиденциальность</a>
+          <a class="footer__link" href="../politic.html">Пользовательское соглашение</a>
+          <a class="footer__link" href="../support.html">Справка и поддержка</a>
+        </div>
+
       </footer>
+
     </div>
 
-    <script type="module" src="./js/test.js"></script>
-
+    <!-- <script type="module" src="../js/identity/forgotNew.js"></script> -->
   </body>
 </html>

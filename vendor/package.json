@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@material/textfield": "^13.0.0",
-    "html2canvas": "^1.4.1",
-    "material-components-web": "^13.0.0"
+    "html2canvas": "^1.4.1"
   }
 }

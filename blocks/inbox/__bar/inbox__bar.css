@@ -1,0 +1,26 @@
+.inbox__bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.inbox__bar:before, .inbox__bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background: #3f51b5;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.inbox__bar:before {
+  left: 50%;
+}
+
+.inbox__bar:after {
+  right: 50%;
+}
+
