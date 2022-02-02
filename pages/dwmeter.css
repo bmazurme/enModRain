@@ -13,10 +13,10 @@
 @import url(../blocks/popup/__close/popup__close.css);
 
 @import url(../blocks/form/form.css);
-@import url(../blocks/form/__box/form__box.css);
+/* @import url(../blocks/form/__box/form__box.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
-@import url(../blocks/form/__input-error/form__input-error.css);
+@import url(../blocks/form/__input-error/form__input-error.css); */
 
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_save/button_save.css);
@@ -59,3 +59,12 @@
 @import url(../blocks/modal/__box/modal__box.css);
 @import url(../blocks/modal/__cancel/modal__cancel.css);
 @import url(../blocks/modal/__remove/modal__remove.css);
+
+@import url(../blocks/inbox/inbox.css);
+@import url(../blocks/inbox/__bar/inbox__bar.css);
+@import url(../blocks/inbox/__bar/_error/input__bar_error.css);
+@import url(../blocks/inbox/__input/inbox__input.css);
+@import url(../blocks/inbox/__input/_error/inbox__input_error.css);
+@import url(../blocks/inbox/__label/inbox__label.css);
+@import url(../blocks/inbox/__label/_error/inbox__label_error.css);
+@import url(../blocks/inbox/__label/_error-empty/inbox__label_error-empty.css);

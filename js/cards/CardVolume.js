@@ -45,7 +45,7 @@ export class CardVolume extends Card {
     cardElement.querySelector(".element__type").textContent = this._item.type;
 
     const deleteButton = cardElement.querySelector(this._removeButton);
-    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", new Modal().confirm);
 
     cardElement.addEventListener("click", (evt) => {
       if (evt.target.classList.contains('table__row') || evt.target.classList.contains('table__column') )

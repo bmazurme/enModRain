@@ -31,7 +31,7 @@ export class CardRain extends Card {
     const el14 = cardElement.querySelector('.formula14');
     cardElement.querySelector(this._cardName).textContent = this._item.name;
 
-    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", new Modal().confirm);
     printButton.addEventListener("click", (evt) => this._printCard(evt));
     
     katex.render(String.raw`Q`, el1, {throwOnError: false});

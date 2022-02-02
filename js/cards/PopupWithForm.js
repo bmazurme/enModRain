@@ -5,14 +5,20 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._popupSelector = popupSelector;
     this._popup = document.querySelector(this._popupSelector);
-    this._submit = (evt, val) => { submit(evt, this._getInputValues()); this.close() };
+    this._submit = (evt, val, current) => { submit(evt, this._getInputValues(), this._current); this.close(); };
     this._popup = document.querySelector(this._popupSelector);
     this._form = this._popup.querySelector('.form');
+    this._current = null;
+  }
+
+  openEdit(current){
+    this._current = current;
+    super.open();
   }
 
   close() {
     super.close();
-    this._form .reset();
+    this._form.reset();
     this._popup.removeEventListener('submit', this._submit);
   }
 

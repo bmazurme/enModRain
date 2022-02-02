@@ -1,72 +1,52 @@
 import { calcDwmeter } from "../calc/calcDwmeter.js";
 import { CardDwmeter } from "../cards/CardDwmeter.js";
-import { FormValidator } from "../FormValidator.js";
-import { config } from "../config.js";
+//import { FormValidator } from "../FormValidator.js";
+//import { config } from "../config.js";
 import { initDwmeter } from "../data/initDwmeter.js";
+import { Section } from "../cards/Section.js";
+import { PopupWithForm } from "../cards/PopupWithForm.js";
+import { FormValidator } from '../FormValidatorNew.js';
+import { configNew as config } from "../config.js";
 
 const addButton = document.querySelector(config.addButton);
-const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const cardsContainer = document.querySelector('.elements');
-const q = formAddCard.querySelector('.form__input_type_q');
-const s = formAddCard.querySelector('.form__input_type_s');
+const addForm = document.querySelector('.form_type_add');
+const editForm = document.querySelector('.form_type_edit');
 
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
-
-const cardFormValidator = new FormValidator(config, formAddCard);
-cardFormValidator.enableValidation();
-
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, q, s} = val;
+  const result = calcDwmeter({name, q: q.value, s: s.value});
+  const obj = {name: name.value, q: result.q, s: result.s, h: result.h};
+  const card = new CardDwmeter({item: obj, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
 }
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeByEscape);
-}
-
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    closePopup(openedPopup);
-  }
-}
+const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
+addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
 function openAddCardPopup() {
-  formAddCard.reset();
-  cardFormValidator.resetValidation();
-  openPopup(popupTypeAdd); 
+  addCardPopupWithForm.open();
 }
 
-function saveCardForm(evt) {
-  evt.preventDefault();
-
-  const newCard = {
-    name: nameFormAddCard.value,
-    q: q.value,
-    s: s.value
-  };
-
-  const element = createCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
-}
-
-formAddCard.addEventListener('submit', saveCardForm);
+const handleCardClick = null;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: initDwmeter,
+  renderer: (item) => {
+    const result = calcDwmeter({name: item.name, q: item.q, s: item.s});
+    const obj = {name: result.name, q: result.q, s: result.s, h: result.h};
+      const card = new CardDwmeter({item: obj, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
+defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
-
-function createCard(item) {
-  const obj = calcDwmeter(item);
-  const template = '#card-template';
-  const card = new CardDwmeter(obj, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-  return cardElement;
-}
-
-initDwmeter.forEach(item => {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
-});

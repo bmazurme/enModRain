@@ -1,5 +1,6 @@
 import { settings } from '../config.js';
 import { Popup } from './Popup.js';
+import { Modal } from './Modal.js';
 
 export class Card extends Popup {
   constructor(item, cardTemplate, openPopup, closePopup) {
@@ -25,7 +26,7 @@ export class Card extends Popup {
   }
 
   _deleteCard(evn) {
-    evn.target.closest(this._element).remove();
+    new Modal({deleteCard: () => { this._cardElement.remove(); this._cardElement = null;}}).open();
   }
 
   createCard() {

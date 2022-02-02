@@ -19,7 +19,7 @@ export class CardCircflow extends Card {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._removeButton);
-    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", new Modal().confirm);
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     const printButton = cardElement.querySelector(this._printButton);
     printButton.addEventListener("click", (evt) => super._printCard(evt));

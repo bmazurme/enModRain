@@ -78,7 +78,7 @@ export class CardAlpha extends Card {
     const deleteButton = cardElement.querySelector(this._removeButton);
     const editButton = cardElement.querySelector(this._editButton);
     const printButton = cardElement.querySelector(this._printButton);
-    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", new Modal().confirm);
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     printButton.addEventListener("click", (evt) => super._printCard(evt));
     editButton.addEventListener("click", this._edit);
