@@ -13,12 +13,15 @@ export class CardProject extends Card {
     this._fieldName = this._editForm.querySelector('.inbox__input_name');
     this._fieldAddress = this._editForm.querySelector('.inbox__input_address');
     this._editCardClick = handleCardClick;
+    this._validator = handleCardClick._validator;
+    //console.log(handleCardClick._validator);
   }
 
   _editCard(evt) {
+    this._validator.resetValidation();
     this._fieldName.value = this._item.name;
     this._fieldAddress.value = this._item.address;
-    this._editCardClick.openEdit(this._cardElement);
+    this._editCardClick.open(this._cardElement);
   }
 
   setEventListeners() {

@@ -13,20 +13,22 @@ export class FormValidator {
   
     resetValidation() {   
       this._formElement.reset();
-      const errorList = Array.from(this._formElement
-         .querySelectorAll(`.${this._config.errorClass}`));
-      const inputList = Array.from(this._formElement
-        .querySelectorAll(this._config.inputSelector));
-      const buttonElement = this._formElement
-        .querySelector(this._config.submitButtonSelector);
+
+      const errorList = Array.from(this._formElement.querySelectorAll(`.${this._config.errorClass}`));
+      const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
+      const labelList = Array.from(this._formElement.querySelectorAll('.inbox__label_error'));
+      const borderList = Array.from(this._formElement.querySelectorAll('.inbox__input_invalid'));
+
+      const buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
       this._toggleButtonState(inputList, buttonElement);
-      errorList.forEach((inputElement) => {
-        this._hideError(inputElement);
-      });
+      errorList.forEach((inputElement) => { this._hideError(inputElement); });
+      labelList.forEach((labelElement) => { labelElement.classList.remove('inbox__label_error'); });
+      borderList.forEach((labelElement) => { labelElement.classList.remove('inbox__input_invalid'); });
     }
     
     _hideError(inputElement) {
       inputElement.textContent = '';
+      inputElement.classList.remove('inbox__input_invalid');
     }
   
     _setEventListeners(formElement) {
@@ -51,7 +53,7 @@ export class FormValidator {
     _toggleButtonState(inputList, buttonElement) {
       console.log(this._hasInvalidInput(inputList));
 
-      
+
       if (this._hasInvalidInput(inputList)) {
         buttonElement.classList.add(this._config.inactiveButtonClass);
         buttonElement.disabled = true;

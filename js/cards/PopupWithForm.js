@@ -11,11 +11,6 @@ export class PopupWithForm extends Popup {
     this._current = null;
   }
 
-  openEdit(current){
-    this._current = current;
-    super.open();
-  }
-
   close() {
     super.close();
     this._form.reset();

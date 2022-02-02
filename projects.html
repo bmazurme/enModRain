@@ -62,7 +62,7 @@
               type="text"
               autocomplete="off"
               name="name"
-              id="name-input" required maxlength="30" >
+              id="name-input" required minlength="2" maxlength="30" >
             <span class="inbox__bar name-input-bar"></span>
             <label class="inbox__label name-input-label" >Наименование</label>
             <span class="name-input-error inbox__input_error"></span>
@@ -74,7 +74,7 @@
               type="text"
               name="address"
               autocomplete="off"
-              id="address-input" required maxlength="30" >
+              id="address-input" required minlength="2" maxlength="30" >
             <span class="inbox__bar address-input-bar"></span>
             <label class="inbox__label address-input-label" >Адрес</label>
             <span class="address-input-error inbox__input_error"></span>
@@ -94,12 +94,12 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_name" 
-              value=""
+            required minlength="2" maxlength="30"
 
               type="text"
-    
+              value="Наименование"
               name="name"
-              id="name-input" required  maxlength="30" >
+              id="name-input" >
             <span class="inbox__bar name-input-bar"></span>
             <label class="inbox__label name-input-label" >Наименование</label>
             <span class="name-input-error inbox__input_error"></span>
@@ -107,12 +107,12 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_address" 
-            value=""
-  
+            required minlength="2" maxlength="30"
+              value="Адрес"
               type="text"
               name="address"
 
-              id="address-input" required  maxlength="30" >
+              id="address-input" >
             <span class="inbox__bar address-input-bar"></span>
             <label class="inbox__label address-input-label" >Адрес</label>
             <span class="address-input-error inbox__input_error"></span>
