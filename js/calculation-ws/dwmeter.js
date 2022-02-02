@@ -1,7 +1,5 @@
 import { calcDwmeter } from "../calc/calcDwmeter.js";
 import { CardDwmeter } from "../cards/CardDwmeter.js";
-//import { FormValidator } from "../FormValidator.js";
-//import { config } from "../config.js";
 import { initDwmeter } from "../data/initDwmeter.js";
 import { Section } from "../cards/Section.js";
 import { PopupWithForm } from "../cards/PopupWithForm.js";
@@ -23,7 +21,6 @@ const saveCard = (evt, val) => {
   defaultCardList.addItem(item);
 }
 const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
-
 const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
