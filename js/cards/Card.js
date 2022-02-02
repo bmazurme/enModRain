@@ -1,7 +1,10 @@
 import { settings } from '../config.js';
+import { Popup } from './Popup.js';
 
-export class Card {
+export class Card extends Popup {
   constructor(item, cardTemplate, openPopup, closePopup) {
+    super('.popup_type_edit');
+    //this._handleEscClose = super._handleEscClose.bind(this);
     this._item = item;
     this._cardTemplate = cardTemplate;
     this._openPopup = openPopup;
