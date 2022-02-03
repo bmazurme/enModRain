@@ -18,7 +18,6 @@ export class FormValidator {
       const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
       const labelList = Array.from(this._formElement.querySelectorAll('.inbox__label_error'));
       const borderList = Array.from(this._formElement.querySelectorAll('.inbox__input_invalid'));
-
       const buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
       this._toggleButtonState(inputList, buttonElement);
       errorList.forEach((inputElement) => { this._hideError(inputElement); });
@@ -51,9 +50,6 @@ export class FormValidator {
     };
   
     _toggleButtonState(inputList, buttonElement) {
-      console.log(this._hasInvalidInput(inputList));
-
-
       if (this._hasInvalidInput(inputList)) {
         buttonElement.classList.add(this._config.inactiveButtonClass);
         buttonElement.disabled = true;
@@ -81,7 +77,6 @@ export class FormValidator {
     };
 
     _toggleLabel(formElement, inputElement, errorMessage) {
-
       const label = formElement.querySelector(`.${inputElement.id}-label`);
       const bar   = formElement.querySelector(`.${inputElement.id}-bar`);
 
