@@ -3,6 +3,7 @@ import { CardDwmeter } from "../cards/CardDwmeter.js";
 import { initDwmeter } from "../data/initDwmeter.js";
 import { Section } from "../cards/Section.js";
 import { PopupWithForm } from "../cards/PopupWithForm.js";
+import { PopupWithEditForm } from "../cards/PopupWithEditForm.js";
 import { FormValidator } from '../FormValidatorNew.js';
 import { configNew as config } from "../config.js";
 
@@ -20,17 +21,35 @@ const saveCard = (evt, val) => {
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
+const editCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, q, s} = val;
+  const result = calcDwmeter({name, q: q.value, s: s.value});
+  const obj = {name: name.value, q: result.q, s: result.s, h: result.h};
+  const card = new CardDwmeter({item: obj, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
+}
+
 const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
 const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
 
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
+});
+
 function openAddCardPopup() {
+  addCardFormValidator.resetValidation();
   addCardPopupWithForm.open();
 }
 
-const handleCardClick = null;
+const handleCardClick = editCardPopupWithForm;
 const cardListSelector = '.elements';
 const defaultCardList = new Section({
   items: initDwmeter,

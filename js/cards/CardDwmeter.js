@@ -1,7 +1,5 @@
 import { settings } from '../config.js';
 import { Card } from './Card.js';
-import { calcDwmeter } from '../calc/calcDwmeter.js';
-import { PopupWithForm } from './PopupWithForm.js';
 
 export class CardDwmeter extends Card {
   constructor({item, cardTemplate, handleCardClick}) {
@@ -12,6 +10,8 @@ export class CardDwmeter extends Card {
     this._fieldName = this._editForm.querySelector('.inbox__input_name');
     this._fieldQ = this._editForm.querySelector('.inbox__input_q');
     this._fieldS = this._editForm.querySelector('.inbox__input_s');
+    this._editCardClick = handleCardClick;
+    this._validator = handleCardClick._validator;
   }
 
   _refresh() {
@@ -25,21 +25,11 @@ export class CardDwmeter extends Card {
   };
 
   _editCard(evt) {
-    const currentCard = evt.target.closest(this._element);
-    const saveCard = (evt, val) => {
-      evt.preventDefault();
-      const {name, q, s} = val;
-      const result = calcDwmeter({name: name.value, q: q.value, s: s.value});
-      this._item = {name: result.name, q: result.q, s: result.s, h: result.h};
-      currentCard.querySelector('.element__name').textContent = result.name;
-      this._refresh();
-    };
-
-    const editCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_edit'});
+    this._validator.resetValidation();
     this._fieldName.value = this._item.name;
     this._fieldQ.value = this._item.q;
     this._fieldS.value = this._item.s;
-    editCardPopupWithForm.open();
+    this._editCardClick.open(this._cardElement);
   }
 
   setEventListeners() {
