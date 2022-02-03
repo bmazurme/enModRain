@@ -1,69 +1,69 @@
 import { calcThrottle } from "../calc/calcThrottle.js";
 import { CardThrottle } from "../cards/CardThrottle.js";
-import { FormValidator } from "../FormValidator.js";
-import { config } from "../config.js";
 import { initThtrottle } from "../data/initThtrotle.js";
+import { Section } from "../cards/Section.js";
+import { PopupWithForm } from "../cards/PopupWithForm.js";
+import { PopupWithEditForm } from "../cards/PopupWithEditForm.js";
+import { FormValidator } from '../FormValidatorNew.js';
+import { configNew as config } from "../config.js";
 
 const addButton = document.querySelector(config.addButton);
-const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
-const cardsContainer = document.querySelector('.elements');
-const q = formAddCard.querySelector('.form__input_type_q');
-const hdr = formAddCard.querySelector('.form__input_type_hdr');
-const cardFormValidator = new FormValidator(config, formAddCard);
-cardFormValidator.enableValidation();
+const addForm = document.querySelector('.form_type_add');
+const editForm = document.querySelector('.form_type_edit');
 
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, q, hdr} = val;
+  const result = calcThrottle({name, q: q.value, hdr: hdr.value});
+  const obj = {name: name.value, q: result.q, hdr: result.hdr, d: result.d};
+  const card = new CardThrottle({item: obj, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
+}
+const editCard = (evt, val, current) => {
+  evt.preventDefault();  
+  const {name, q, hdr} = val;
+  const result = calcThrottle({name, q: q.value, hdr: hdr.value});
+  const obj = {name: name.value, q: result.q, hdr: result.hdr, d: result.d};
+  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.q = obj.q;
+  current.item.hdr = obj.hdr;
+  current.item.d = obj.d;
+  current.refresh();
 }
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeByEscape);
-}
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
+addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    closePopup(openedPopup);
-  }
-}
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
+});
 
 function openAddCardPopup() {
-  formAddCard.reset();
-  openPopup(popupTypeAdd); 
+  addCardFormValidator.resetValidation();
+  addCardPopupWithForm.open();
 }
 
-function saveCardForm(evt) {
-  evt.preventDefault();
-
-  const newCard = {
-    name: nameFormAddCard.value,
-    q: q.value,
-    hdr: hdr.value
-  };
-
-  const element = createCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
-}
-
-formAddCard.addEventListener('submit', saveCardForm);
+const handleCardClick = editCardPopupWithForm;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: initThtrottle,
+  renderer: (item) => {
+    const result = calcThrottle({name: item.name, q: item.q, hdr: item.hdr});
+    const obj = {name: result.name, q: result.q, hdr: result.hdr, d: result.d};
+      const card = new CardThrottle({item: obj, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
+defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
-
-function createCard(item) {
-  let obj = calcThrottle(item);
-  const template = '#card-template';
-  const card = new CardThrottle(obj, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-  return cardElement;
-}
-
-initThtrottle.forEach(item => {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
-});

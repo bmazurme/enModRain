@@ -21,15 +21,16 @@ const saveCard = (evt, val) => {
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
-const editCard = (evt, val) => {
+const editCard = (evt, val, current) => {
   evt.preventDefault();  
   const {name, q, s} = val;
   const result = calcDwmeter({name, q: q.value, s: s.value});
   const obj = {name: name.value, q: result.q, s: result.s, h: result.h};
-  const card = new CardDwmeter({item: obj, cardTemplate: '#card-template',
-    handleCardClick: handleCardClick});
-  const item = card.createCard();
-  defaultCardList.addItem(item);
+  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.q = obj.q;
+  current.item.s = obj.s;
+  current.item.h = obj.h;
+  current.refresh();
 }
 
 const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});

@@ -14,7 +14,7 @@ export class CardDwmeter extends Card {
     this._validator = handleCardClick._validator;
   }
 
-  _refresh() {
+  _refresh = () => {
     katex.render(String.raw`h_{сч} = S \cdot q^2`, this._el1, {throwOnError: false});
     katex.render(String.raw`q`, this._el2, {throwOnError: false});
     katex.render(String.raw`л/с`, this._el3, {throwOnError: false});
@@ -29,7 +29,7 @@ export class CardDwmeter extends Card {
     this._fieldName.value = this._item.name;
     this._fieldQ.value = this._item.q;
     this._fieldS.value = this._item.s;
-    this._editCardClick.open(this._cardElement);
+    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
   }
 
   setEventListeners() {
