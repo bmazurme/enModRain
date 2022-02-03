@@ -73,7 +73,7 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_s" 
-  
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
               aria-invalid="true"
               type="text"
               autocomplete="off"
@@ -86,7 +86,7 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_q" 
-
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
               aria-invalid="true"
               type="text"
               autocomplete="off"
@@ -124,6 +124,7 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_s" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
             value="0"
               aria-invalid="true"
               type="text"
@@ -137,6 +138,7 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_q" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
             value="0"
               aria-invalid="true"
               type="text"

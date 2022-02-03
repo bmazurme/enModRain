@@ -1,4 +1,4 @@
-import { FormValidator } from '../FormValidatorNew.js';
+import { FormValidator } from '../components/FormValidator.js';
 import { configNew as config } from "../config.js";
 
 const form = document.querySelector('.registration__form');

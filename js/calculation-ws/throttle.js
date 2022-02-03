@@ -4,7 +4,7 @@ import { initThtrottle } from "../data/initThtrotle.js";
 import { Section } from "../cards/Section.js";
 import { PopupWithForm } from "../cards/PopupWithForm.js";
 import { PopupWithEditForm } from "../cards/PopupWithEditForm.js";
-import { FormValidator } from '../FormValidatorNew.js';
+import { FormValidator } from '../components/FormValidator.js';
 import { configNew as config } from "../config.js";
 
 const addButton = document.querySelector(config.addButton);

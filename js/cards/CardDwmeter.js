@@ -11,8 +11,9 @@ export class CardDwmeter extends Card {
     this._editButton = settings.editButton;
     this._removeButton = settings.removeButton;
     this._printButton = settings.printButton;
-    this._fieldQ = this._editForm.querySelector('.inbox__input_q');
-    this._fieldS = this._editForm.querySelector('.inbox__input_s');
+    this._fieldQ = this._editForm.querySelector(settings.inputQ);
+    this._fieldS = this._editForm.querySelector(settings.inputS);
+    this._elementName = settings.elementName;
     this._editCardClick = handleCardClick;
     this._validator = handleCardClick._validator;
   }
@@ -47,7 +48,7 @@ export class CardDwmeter extends Card {
   createCard() {
     this._template = document.querySelector(this._cardTemplate).content;
     this._cardElement = this._template.querySelector(this._element).cloneNode(true);
-    this._cardElement.querySelector('.element__name').textContent = this._item.name;
+    this._cardElement.querySelector(this._elementName).textContent = this._item.name;
     this._el1 = this._cardElement.querySelector('.formula1');
     this._el2 = this._cardElement.querySelector('.formula2');
     this._el3 = this._cardElement.querySelector('.formula3');

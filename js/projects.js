@@ -3,7 +3,7 @@ import { PopupWithForm } from "./cards/PopupWithForm.js";
 import { PopupWithEditForm } from "./cards/PopupWithEditForm.js";
 import { initProjects as data } from "./data/initProjects.js";
 import { Section } from "./cards/Section.js";
-import { FormValidator } from './FormValidatorNew.js';
+import { FormValidator } from './components/FormValidator.js';
 import { configNew as config } from "./config.js";
 
 const addForm = document.querySelector('.form_type_add');

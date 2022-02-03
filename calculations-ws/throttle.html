@@ -59,11 +59,6 @@
         <form class="form form_type_add" name="add-form" novalidate>
           <h2 class="form__title">Новый расчет</h2>
 
-          <!-- <div class="form__box">
-            <input placeholder="Наименование шайбы" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
-          </div> -->
           <div class="inbox" >
             <input class="inbox__input inbox__input_name" 
               aria-invalid="true"
@@ -75,14 +70,10 @@
             <label class="inbox__label name-input-label" >Наименование шайбы</label>
             <span class="name-input-error inbox__input_error"></span>
           </div>
-<!-- 
-          <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_q" name="q" id="q-input" required >
-            <span class="q-input-error form__input-error"></span>
-          </div> -->
+
           <div class="inbox" >
             <input class="inbox__input inbox__input_q" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
               aria-invalid="true"
               type="text"
               autocomplete="off"
@@ -93,14 +84,9 @@
             <span class="q-input-error q__input_error"></span>
           </div>
 
-          <!-- <div class="form__box">
-            <input placeholder="Избыточный напор, МПа" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_hdr" name="hdr" id="hdr-input" required >
-            <span class="hdr-input-error form__input-error"></span>
-          </div> -->
-
           <div class="inbox" >
             <input class="inbox__input inbox__input_hdr" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
               aria-invalid="true"
               type="text"
               autocomplete="off"
@@ -116,9 +102,6 @@
         </form>
       </div>
     </div>
-
-
-
 
     <div class="popup popup_type_edit">
       <div class="popup__container">
@@ -126,11 +109,6 @@
         <form class="form form_type_edit" name="add-form" novalidate>
           <h2 class="form__title">Редактировать расчет</h2>
 
-         <!-- <div class="form__box">
-            <input placeholder="Наименование шайбы" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
-          </div> -->
           <div class="inbox" >
             <input class="inbox__input inbox__input_name" 
               aria-invalid="true"
@@ -142,14 +120,10 @@
             <label class="inbox__label name-input-label" >Наименование шайбы</label>
             <span class="name-input-error inbox__input_error"></span>
           </div>
-<!-- 
-          <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_q" name="q" id="q-input" required >
-            <span class="q-input-error form__input-error"></span>
-          </div> -->
+
           <div class="inbox" >
             <input class="inbox__input inbox__input_q" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
               aria-invalid="true"
               type="text"
               autocomplete="off"
@@ -160,14 +134,9 @@
             <span class="q-input-error q__input_error"></span>
           </div>
 
-          <!-- <div class="form__box">
-            <input placeholder="Избыточный напор, МПа" pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input form__input_type_hdr" name="hdr" id="hdr-input" required >
-            <span class="hdr-input-error form__input-error"></span>
-          </div> -->
-
           <div class="inbox" >
             <input class="inbox__input inbox__input_hdr" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
               aria-invalid="true"
               type="text"
               autocomplete="off"
@@ -183,17 +152,6 @@
         </form>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
     <template id="card-template">
       <div class="element">
