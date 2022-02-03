@@ -27,7 +27,6 @@
           <a class="menu__link" href="soft.html">Soft</a>
         </nav>
 
-
       </header>
 
       <main class="main">
@@ -57,18 +56,28 @@
         <form class="form form_type_add" name="add-form" novalidate>
           <h2 class="form__title">Новый проект</h2>
 
-          <div class="form__box">
-            <input placeholder="Наименование" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-              <span class="form__bar"></span>
-            <span class="nameCard-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="name"
+              id="name-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование</label>
+            <span class="name-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
-            <input placeholder="Адрес" 
-              class="form__input form__input_type_address" id="address-input" required >
-              <span class="form__bar"></span>
-            <span class="address-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_address" 
+              aria-invalid="true"
+              type="text"
+              name="address"
+              autocomplete="off"
+              id="address-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar address-input-bar"></span>
+            <label class="inbox__label address-input-label" >Адрес</label>
+            <span class="address-input-error inbox__input_error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -76,7 +85,6 @@
         </form>
       </div>
     </div>
-
 
     <div class="popup popup_type_edit">
       <div class="popup__container">
@@ -84,18 +92,30 @@
         <form class="form form_type_edit" name="add-form" novalidate>
           <h2 class="form__title">Редактировать проект</h2>
 
-          <div class="form__box">
-            <input placeholder="Наименование" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-              <span class="form__bar"></span>
-            <span class="nameCard-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+            required minlength="2" maxlength="30"
+
+              type="text"
+              value="Наименование"
+              name="name"
+              id="name-input" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование</label>
+            <span class="name-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
-            <input placeholder="Адрес" 
-              class="form__input form__input_type_address" id="address-input" required >
-              <span class="form__bar"></span>
-            <span class="address-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_address" 
+            required minlength="2" maxlength="30"
+              value="Адрес"
+              type="text"
+              name="address"
+
+              id="address-input" >
+            <span class="inbox__bar address-input-bar"></span>
+            <label class="inbox__label address-input-label" >Адрес</label>
+            <span class="address-input-error inbox__input_error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -103,11 +123,6 @@
         </form>
       </div>
     </div>
-
-
-
-
-
 
     <template id="card-template">
       <div class="element">
@@ -129,7 +144,6 @@
               <p class="project__address address">address</p>
             </div>
 
-
             <div class="project__column">
               <div class="project__icon project__icon_type_calculations"></div>
               <a href="calculations-ws.html" class="project__calculations">Водоснабжение и водоотведение</a>
@@ -149,17 +163,6 @@
               <div class="project__icon project__icon_type_scheme"></div>
               <a href="#" class="project__calculations">Схемы</a>
             </div>
-
-
-            <!-- <div class="project__column">
-              <div class="project__icon project__icon_type_calculations"></div>
-              <a href="calculations.html" class="project__calculations">Расчеты</a>
-            </div>
-
-            <div class="project__column">
-              <div class="project__icon project__icon_type_scheme"></div>
-              <a href="#" class="project__calculations">Схемы</a>
-            </div> -->
               
           </div>
         </div>

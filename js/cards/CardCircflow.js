@@ -6,9 +6,6 @@ export class CardCircflow extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
     super();
     this._item = item;
-
-console.log(this._item);
-
     this._cardTemplate = cardTemplate;
     this._openPopup = openPopup;
     this._closePopup = closePopup;
@@ -18,21 +15,14 @@ console.log(this._item);
     this._printButton = settings.printButton;
   }
 
-  _printCard(evn) {
-    var doc = new jsPDF();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.save(`CalcRain ${this._item.name}.pdf`);
-  }
-
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._removeButton);
-    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", new Modal().confirm);
     cardElement.querySelector(this._cardName).textContent = this._item.name;
     const printButton = cardElement.querySelector(this._printButton);
-    printButton.addEventListener("click", (evt) => this._printCard(evt));
+    printButton.addEventListener("click", (evt) => super._printCard(evt));
 
     const el1 = cardElement.querySelector('.formula1');
     const el2 = cardElement.querySelector('.formula2');

@@ -67,21 +67,52 @@ export class FormValidator {
     _showInputError (formElement, inputElement, errorMessage) {
       const errorElement = formElement
       .querySelector(`.${inputElement.id}-error`);
+
+// 
+
       inputElement.classList.add(this._config.inputErrorClass);
       errorElement.textContent = errorMessage;
       errorElement.classList.add(this._config.errorClass);
-      
       inputElement.classList.add(this._config.errorLine);
+
+      this._toggleLabel(formElement, inputElement);
     };
-    
+
+    _toggleLabel(formElement, inputElement) {
+      const labelElement = formElement.querySelector(`.${this._config.label}`);
+      const barElement = formElement.querySelector('.form__bar');
+
+
+      const label = formElement.querySelector(`.inbox__label`);
+      const bar   = formElement.querySelector('.inbox__bar');
+
+
+      if (inputElement.value){
+        labelElement.classList.add(`${this._config.label}_error`);
+        barElement.classList.add(`form__bar-error`);
+
+        label.classList.add('inbox__label-error');
+        bar.classList.add('inbox__bar-error');
+      } else {
+        labelElement.classList.remove(`${this._config.label}_error`);
+
+        label.classList.remove('inbox__label-error');
+
+      }
+    }
+
     _hideInputError (formElement, inputElement) {
       const errorElement = formElement
       .querySelector(`.${inputElement.id}-error`);
       inputElement.classList.remove(this._config.inputErrorClass);
       errorElement.classList.remove(this._config.errorClass);
       errorElement.textContent = '';
-
       inputElement.classList.remove(this._config.errorLine);
+
+      this._toggleLabel(formElement, inputElement);
+
+      const barElement = formElement.querySelector('.form__bar');
+      barElement.classList.remove(`form__bar-error`);
     };
     
     _checkInputValidity (formElement, inputElement) {

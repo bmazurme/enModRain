@@ -1,7 +1,10 @@
 import { settings } from '../config.js';
+import { Popup } from './Popup.js';
+import { Modal } from './Modal.js';
 
-export class Card {
+export class Card extends Popup {
   constructor(item, cardTemplate, openPopup, closePopup) {
+    super('.popup_type_edit');
     this._item = item;
     this._cardTemplate = cardTemplate;
     this._openPopup = openPopup;
@@ -12,8 +15,17 @@ export class Card {
     this._elementPrint = settings.elementPrint;
   }
 
+  _printCard(evn) {
+    const block = evn.target.closest('.element');
+    html2canvas(block).then(canvas => {
+      const doc = new jsPDF();
+      doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0,0);
+      doc.save(`Appendix_${this._item.name}.pdf`);
+    });
+  }
+
   _deleteCard(evn) {
-    evn.target.closest(this._element).remove();
+    new Modal({deleteCard: () => { this._cardElement.remove(); this._cardElement = null;}}).open();
   }
 
   createCard() {

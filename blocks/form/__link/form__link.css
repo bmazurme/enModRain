@@ -1,0 +1,12 @@
+.form__link {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #3f51b5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form__link:visited {
+    color: #3f51b5;
+}

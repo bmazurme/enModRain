@@ -1,0 +1,20 @@
+.table__row {
+  display: grid;
+  grid-template-columns: 40px 1fr 130px 90px 100px 120px 50px 50px 50px 50px 50px 50px 50px 50px 50px 40px;
+  grid-template-areas:
+  "number customer unit hours standard sum  shar shour ssec cday chour csec hday hhour hsec space"          
+  "number customer unit pcs   standard hot  sday shour ssec cday chour csec hday hhour hsec space"
+  ;
+
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  text-align: center;
+
+  box-shadow:  0px 2px 1px -1px rgb(0 0 0 / 20%),
+  0px 1px 1px 0px rgb(0 0 0 / 14%),
+  0px 1px 3px 0px rgb(0 0 0 / 12%);
+
+  height: 60px;
+}

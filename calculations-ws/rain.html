@@ -29,8 +29,6 @@
           <a class="menu__link menu__link_active" href="rain.html">Расчет дождевого стока с кровли</a>
         </nav>
 
-
-
       </header>      
       
       <main class="main">
@@ -86,7 +84,8 @@
           </div>
           <div class="form__box">
             <input placeholder="Интенсивность дождя q20"
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
+              class="form__input 
               form__input_type_q20" id="q20-input" required >
             <span class="q20-input-error form__input-error"></span>
           </div>
@@ -236,7 +235,7 @@
       </div>
     </div>
 
-    <script type="module" src="../js/rain.js"></script>
+    <script type="module" src="../js/calculation-ws/rain.js"></script>
     <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>
