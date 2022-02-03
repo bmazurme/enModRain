@@ -13,6 +13,7 @@
     inputH: '.inbox__input_h',
     inputD: '.inbox__input_d',
     inputHdr: '.inbox__input_hdr',
+    inputNp: '.inbox__input_np',
 
     typeSlide: '.popup_type_slide',
     slideName: '.slide__name',
