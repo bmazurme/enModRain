@@ -6,16 +6,20 @@ import { Section } from "./cards/Section.js";
 import { FormValidator } from './components/FormValidator.js';
 import { configNew as config } from "./config.js";
 
+const addButton = document.querySelector(config.addButton);
+const editForm = document.querySelector('.form_type_edit');
 const addForm = document.querySelector('.form_type_add');
 const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
-const addButton = document.querySelector(config.addButton);
-
-const editCard = (evt, val, currentCard) => {
+const editCard = (evt, val, current) => {
   evt.preventDefault();
-  currentCard.querySelector('.project__name').textContent = val.name.value;
-  currentCard.querySelector('.project__address').textContent = val.address.value;
+  current.currentCard.querySelector('.project__name').textContent = val.name.value;
+  current.currentCard.querySelector('.project__address').textContent = val.address.value;
+  current.item.name = val.name.value;
+  current.item.address = val.address.value;
 };
 
 const saveCard = (evt, val) => {
@@ -26,10 +30,6 @@ const saveCard = (evt, val) => {
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
-
-const editForm = document.querySelector('.form_type_edit');
-const editCardFormValidator = new FormValidator(config, editForm);
-editCardFormValidator.enableValidation();
 
 const editCardPopupWithForm = new PopupWithEditForm({
   submit: editCard,

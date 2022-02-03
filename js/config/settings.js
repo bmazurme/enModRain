@@ -14,6 +14,14 @@
     inputD: '.inbox__input_d',
     inputHdr: '.inbox__input_hdr',
     inputNp: '.inbox__input_np',
+    inputQht: '.inbox__input_qht',
+    inputT1: '.inbox__input_t1',
+    inputT2: '.inbox__input_t2',
+
+    inputQhhr: '.inbox__input_qhhr',
+    inputTh: '.inbox__input_th',
+    inputTc: '.inbox__input_tc',
+    inputQht2: '.inbox__input_qht2',
 
     typeSlide: '.popup_type_slide',
     slideName: '.slide__name',

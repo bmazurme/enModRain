@@ -27,6 +27,7 @@ const editCard = (evt, val, current) => {
   const result = getAlpha({name, np: np.value});
   const obj = {name: name.value, np: result.np, alpha: result.alpha};
   current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
   current.item.np = obj.np;
   current.item.alpha = obj.alpha;
   current.refresh();
