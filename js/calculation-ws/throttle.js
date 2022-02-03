@@ -27,6 +27,7 @@ const editCard = (evt, val, current) => {
   const result = calcThrottle({name, q: q.value, hdr: hdr.value});
   const obj = {name: name.value, q: result.q, hdr: result.hdr, d: result.d};
   current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
   current.item.q = obj.q;
   current.item.hdr = obj.hdr;
   current.item.d = obj.d;

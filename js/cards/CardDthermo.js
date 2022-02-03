@@ -56,30 +56,46 @@ export class CardDthermo extends Card {
     katex.render(String.raw`Re = \dfrac {Vd_{тр}} {\nu} = ${Number(this._item.re).toFixed(2)}`, el2, {throwOnError: false});
     katex.render(String.raw`{\nu}`, el3, {throwOnError: false});
     katex.render(String.raw`Nu = 0,021 \cdot Re^{0,8} \cdot Pr^{0,43}`, el4, {throwOnError: false});
-    katex.render(String.raw`Nu = 0,021 \cdot ${this._item.re.toFixed(2)} ^{0,8} \cdot ${Number(this._item.pr).toFixed(2)} ^{0,43} = ${this._item.nu.toFixed(2)}`, el5, {throwOnError: false});
+    katex.render(String.raw`Nu = 0,021 \cdot ${this._item.re.toFixed(2)}
+      ^{0,8} \cdot ${Number(this._item.pr).toFixed(2)} ^{0,43} = ${this._item.nu.toFixed(2)}`, el5, {throwOnError: false});
     katex.render(String.raw`Pr`, el6, {throwOnError: false});
-    katex.render(String.raw`\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}} = \dfrac { ${this._item.nu.toFixed(2)} \cdot ${this._item.ham.toFixed(2)}} {${this._item.dtr}} = ${this._item.alpha.toFixed(2)}`, el7, {throwOnError: false});
+    katex.render(String.raw`\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}}
+      = \dfrac { ${this._item.nu.toFixed(2)} \cdot ${this._item.ham.toFixed(2)}} {${this._item.dtr}} 
+      = ${this._item.alpha.toFixed(2)}`, el7, {throwOnError: false});
     katex.render(String.raw`\lambda_t`, el8, {throwOnError: false});
-    katex.render(String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} = \dfrac 1 {\pi \cdot ${this._item.dtr} \cdot ${this._item.alpha.toFixed(2)}} = ${this._item.rbh.toFixed(2)}`, el9, {throwOnError: false});
-    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el10, {throwOnError: false});
-    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl}} \cdot ln(\frac {${this._item.dsl}} {${this._item.dtr}}) = ${this._item.rsl.toFixed(3)}`, el11, {throwOnError: false});
+    katex.render(String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} 
+      = \dfrac 1 {\pi \cdot ${this._item.dtr} \cdot ${this._item.alpha.toFixed(2)}} 
+      = ${this._item.rbh.toFixed(2)}`, el9, {throwOnError: false});
+    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`,
+      el10, {throwOnError: false});
+    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl}}
+      \cdot ln(\frac {${this._item.dsl}} {${this._item.dtr}}) = ${this._item.rsl.toFixed(3)}`, el11, {throwOnError: false});
     katex.render(String.raw`R_{сл}`, el12, {throwOnError: false});
     katex.render(String.raw`D_{сл}`, el13, {throwOnError: false});
     katex.render(String.raw`d_{сл}`, el14, {throwOnError: false});
     katex.render(String.raw`\lambda_{сл}`, el15, {throwOnError: false});
-    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, el16, {throwOnError: false});
-    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl2}} \cdot ln(\frac {${this._item.diamsln}} {${this._item.dsl}}) = ${this._item.rsl2.toFixed(3)}`, el17, {throwOnError: false});
+    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, 
+      el16, {throwOnError: false});
+    katex.render(String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl2}} \cdot
+      ln(\frac {${this._item.diamsln}} {${this._item.dsl}}) = ${this._item.rsl2.toFixed(3)}`, el17, {throwOnError: false});
     katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}`, el18, {throwOnError: false});
-    katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot ${this._item.diamsln} \cdot ${this._item.alphanp2}} =  ${Number(this._item.rnp).toFixed(3)}`, el19, {throwOnError: false});
+    katex.render(String.raw`R_{нар} = \dfrac {1} {\pi \cdot ${this._item.diamsln} \cdot ${this._item.alphanp2}} 
+      = ${Number(this._item.rnp).toFixed(3)}`, el19, {throwOnError: false});
     katex.render(String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}`, el20, {throwOnError: false});
-    katex.render(String.raw`k = \dfrac {1} {${this._item.rbh.toFixed(3)} + ${this._item.rsl.toFixed(3)} + ${this._item.rsl2.toFixed(3)} + ${this._item.rnp.toFixed(3)}} = ${this._item.k.toFixed(3)}`, el21, {throwOnError: false});
+    katex.render(String.raw`k = \dfrac {1} {${this._item.rbh.toFixed(3)} + ${this._item.rsl.toFixed(3)} 
+      + ${this._item.rsl2.toFixed(3)} + ${this._item.rnp.toFixed(3)}} = ${this._item.k.toFixed(3)}`,
+      el21, {throwOnError: false});
     katex.render(String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L`, el22, {throwOnError: false});
     katex.render(String.raw`t^B`, el23, {throwOnError: false});
-    katex.render(String.raw`Q_{tr}^{ht} = ${this._item.k.toFixed(3)} \cdot (${this._item.th} - ${this._item.tb}) \cdot ${this._item.l} = ${this._item.qht.toFixed(3)} Вт`, el24, {throwOnError: false});
-    katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}`, el25, {throwOnError: false});
+    katex.render(String.raw`Q_{tr}^{ht} = ${this._item.k.toFixed(3)} \cdot (${this._item.th} - ${this._item.tb})
+      \cdot ${this._item.l} = ${this._item.qht.toFixed(3)} Вт`, el24, {throwOnError: false});
+    katex.render(String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}`,
+      el25, {throwOnError: false});
     katex.render(String.raw`T_1`, el26, {throwOnError: false});
     katex.render(String.raw`T_2`, el27, {throwOnError: false});
-    katex.render(String.raw`T_2 = \dfrac {3,6 \cdot ${this._item.q} \cdot ${this._item.t1} - ${this._item.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${this._item.q}} = ${this._item.t2.toFixed(3)}`, el28, {throwOnError: false});
+    katex.render(String.raw`T_2 = \dfrac {3,6 \cdot ${this._item.q} \cdot 
+      ${this._item.t1} - ${this._item.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${this._item.q}} 
+      = ${this._item.t2.toFixed(3)}`, el28, {throwOnError: false});
   
     return cardElement;
   }

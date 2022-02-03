@@ -1,66 +1,69 @@
-import { FormValidator } from "../FormValidator.js";
-import { config } from "../config.js";
+import { configNew as config } from "../config.js";
 import { getAlpha } from "../calc/calcGetAlpha.js";
 import { CardAlpha } from "../cards/CardAlpha.js";
 import { initAlpha } from "../data/initAlpha.js";
+import { Section } from "../cards/Section.js";
+import { PopupWithForm } from "../cards/PopupWithForm.js";
+import { PopupWithEditForm } from "../cards/PopupWithEditForm.js";
+import { FormValidator } from '../components/FormValidator.js';
 
 const addButton = document.querySelector(config.addButton);
-const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
-const cardsContainer = document.querySelector('.elements');
-const np = formAddCard.querySelector('.form__input_type_np');
-const cardFormValidator = new FormValidator(config, formAddCard);
-cardFormValidator.enableValidation();
+const addForm = document.querySelector('.form_type_add');
+const editForm = document.querySelector('.form_type_edit');
 
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, np} = val;
+  const result = getAlpha({name, np: np.value});
+  const obj = {name: name.value, np: result.np, alpha: result.alpha};
+  const card = new CardAlpha({item: obj, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
+}
+const editCard = (evt, val, current) => {
+  evt.preventDefault();  
+  const {name, np} = val;
+  const result = getAlpha({name, np: np.value});
+  const obj = {name: name.value, np: result.np, alpha: result.alpha};
+  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
+  current.item.np = obj.np;
+  current.item.alpha = obj.alpha;
+  current.refresh();
 }
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeByEscape);
-}
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
+addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    closePopup(openedPopup);
-  }
-}
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
+});
 
 function openAddCardPopup() {
-  formAddCard.reset();
-  openPopup(popupTypeAdd); 
+  addCardFormValidator.resetValidation();
+  addCardPopupWithForm.open();
 }
 
-function saveCardForm(evt) {
-  evt.preventDefault();
-
-  const newCard = {
-    name: nameFormAddCard.value,
-    np: np.value
-  };
-  const element = createCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
-}
-
-formAddCard.addEventListener('submit', saveCardForm);
+const handleCardClick = editCardPopupWithForm;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: initAlpha,
+  renderer: (item) => {
+    const result = getAlpha({name: item.name, np: item.np});
+    const obj = {name: result.name, np: result.np, alpha: result.alpha};
+      const card = new CardAlpha({item: obj, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
+defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
-
-function createCard(item) {
-  let obj = getAlpha(item);
-  const template = '#card-template';
-  const card = new CardAlpha(obj, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-  return cardElement;
-}
-
-initAlpha.forEach(item => {
- const element = createCard(item);
- cardsContainer.prepend(element);
-});

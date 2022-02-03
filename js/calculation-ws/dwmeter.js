@@ -27,6 +27,7 @@ const editCard = (evt, val, current) => {
   const result = calcDwmeter({name, q: q.value, s: s.value});
   const obj = {name: name.value, q: result.q, s: result.s, h: result.h};
   current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
   current.item.q = obj.q;
   current.item.s = obj.s;
   current.item.h = obj.h;

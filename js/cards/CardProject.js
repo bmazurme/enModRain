@@ -22,7 +22,7 @@ export class CardProject extends Card {
     this._validator.resetValidation();
     this._fieldName.value = this._item.name;
     this._fieldAddress.value = this._item.address;
-    this._editCardClick.open(this._cardElement);
+    this._editCardClick.open({currentCard: this._cardElement, item: this._item});
   }
 
   setEventListeners() {
