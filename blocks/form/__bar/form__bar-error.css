@@ -1,0 +1,26 @@
+/* BOTTOM BARS ================================= */
+
+.form__bar-error {
+  position: relative;
+  display: block;
+  
+}
+
+.form__bar-error:before, .form__bar-error:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background: red;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.form__bar-error:before {
+  left: 50%;
+}
+.form__bar-error:after {
+  right: 50%;
+}

@@ -59,27 +59,42 @@
         <form class="form form_type_add" name="add-form" novalidate>
           <h2 class="form__title">Новый расчет</h2>
 
-          <div class="form__box">
-            <input placeholder="Наименование счетчика" 
-              class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="name"
+              id="name-input" required maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование счетчика</label>
+            <span class="name-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
-            <input placeholder="Гидравлическое сопротивление счетчика" 
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
-              class="form__input form__input_type_s" 
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_s" 
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="s"
               id="s-input" required >
-            <span class="s-input-error form__input-error"></span>
+            <span class="inbox__bar s-input-bar"></span>
+            <label class="inbox__label s-input-label" >Гидравлическое сопротивление счетчика</label>
+            <span class="s-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
-            <input placeholder="Расчетный расход, л/с" 
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
-              class="form__input form__input_type_q" 
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_q" 
+              pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="q"
               id="q-input" required >
-            <span class="q-input-error form__input-error"></span>
+            <span class="inbox__bar q-input-bar"></span>
+            <label class="inbox__label q-input-label" >Расчетный расход, л/с</label>
+            <span class="q-input-error inbox__input_error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -87,7 +102,6 @@
         </form>
       </div>
     </div>
-
 
     <div class="popup popup_type_edit">
       <div class="popup__container">
@@ -95,27 +109,45 @@
         <form class="form form_type_edit" name="add-form" novalidate>
           <h2 class="form__title">Редактировать расчет</h2>
 
-          <div class="form__box">
-            <input placeholder="Наименование счетчика" 
-              class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+            value="Наименование счетчика"
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="name"
+              id="name-input" required  >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование счетчика</label>
+            <span class="name-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
-            <input placeholder="Гидравлическое сопротивление счетчика" 
-              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
-              class="form__input form__input_type_s"
-              id="s-input" required >
-            <span class="s-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_s" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+            value="0"
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="s"
+              id="s-input" required  >
+            <span class="inbox__bar s-input-bar"></span>
+            <label class="inbox__label s-input-label" >Гидравлическое сопротивление счетчика</label>
+            <span class="s-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
-            <input placeholder="Расчетный расход, л/с"
-              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
-              class="form__input form__input_type_q" 
-              id="q-input" required >
-            <span class="q-input-error form__input-error"></span>
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_q" 
+            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
+            value="0"
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="q"
+              id="q-input" required  >
+            <span class="inbox__bar q-input-bar"></span>
+            <label class="inbox__label q-input-label" >Расчетный расход, л/с</label>
+            <span class="q-input-error inbox__input_error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -123,7 +155,6 @@
         </form>
       </div>
     </div>
-
 
     <template id="card-template">
       <div class="element">
@@ -172,7 +203,8 @@
       </div>
     </div>
 
-    <script type="module" src="../js/dwmeter.js"></script>
+    <script type="module" src="../js/calculation-ws/dwmeter.js"></script>
+    
     <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>

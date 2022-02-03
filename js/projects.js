@@ -1,68 +1,62 @@
 import { CardProject } from "./cards/CardProject.js";
-import { FormValidator } from './FormValidator.js';
-import { config } from "./config.js";
+import { PopupWithForm } from "./cards/PopupWithForm.js";
+import { PopupWithEditForm } from "./cards/PopupWithEditForm.js";
 import { initProjects as data } from "./data/initProjects.js";
+import { Section } from "./cards/Section.js";
+import { FormValidator } from './components/FormValidator.js';
+import { configNew as config } from "./config.js";
+
+const addForm = document.querySelector('.form_type_add');
+const addCardFormValidator = new FormValidator(config, addForm);
+addCardFormValidator.enableValidation();
 
 const addButton = document.querySelector(config.addButton);
-const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const cardsContainer = document.querySelector('.elements');
-const address = formAddCard.querySelector('.form__input_type_address');
 
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+const editCard = (evt, val, currentCard) => {
+  evt.preventDefault();
+  currentCard.querySelector('.project__name').textContent = val.name.value;
+  currentCard.querySelector('.project__address').textContent = val.address.value;
+};
+
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, address} = val;
+  const obj = {name: name.value, address: address.value};
+  const card = new CardProject({item: obj, cardTemplate: '#card-template', handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
 }
 
-const closePopup = (popup) => {
-  document.removeEventListener('keydown', closeByEscape);
-  popup.classList.remove('popup_active');
-}
+const editForm = document.querySelector('.form_type_edit');
+const editCardFormValidator = new FormValidator(config, editForm);
+editCardFormValidator.enableValidation();
 
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    closePopup(openedPopup);
-  }
-}
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
+});
+
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
 
 function openAddCardPopup() {
-  formAddCard.reset();
-  cardFormValidator.resetValidation();
-  openPopup(popupTypeAdd); 
+  addCardFormValidator.resetValidation();
+  addCardPopupWithForm.open();
 }
 
-function saveCardForm(evt) {
-  evt.preventDefault();
+const handleCardClick = editCardPopupWithForm;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: data,
+  renderer: (item) => {
+      const card = new CardProject({item: item, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
 
-  const newCard = {
-    name: nameFormAddCard.value,
-    address: address.value
-  };
-
-  const element = createCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
-}
-
-formAddCard.addEventListener('submit', saveCardForm);
+defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
-
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
-
-function createCard(item) {
-  let template = '#card-template';
-  const card = new CardProject(item, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-  return cardElement;
-}
-
-const cardFormValidator = new FormValidator(config, formAddCard);
-cardFormValidator.enableValidation();
-
-data.forEach(item => {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
-});

@@ -15,19 +15,12 @@ export class CardRain extends Card {
     this._printButton = settings.printButton;
   }
 
-  _printCard(evn) {
-    var doc = new jsPDF();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.save(`CalcRain ${this._item.name}.pdf`);
-  }
-
   createCard() {
     const cardTemplate = document.querySelector(this._cardTemplate).content;
     const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
     const deleteButton = cardElement.querySelector(this._removeButton);
     const printButton = cardElement.querySelector(this._printButton);
-    printButton.addEventListener("click", (evt) => this._printCard(evt));
+    printButton.addEventListener("click", (evt) => super._printCard(evt));
     
     const el1 = cardElement.querySelector('.formula1');
     const el4 = cardElement.querySelector('.formula4');
@@ -38,7 +31,7 @@ export class CardRain extends Card {
     const el14 = cardElement.querySelector('.formula14');
     cardElement.querySelector(this._cardName).textContent = this._item.name;
 
-    deleteButton.addEventListener("click", new Modal().confirm);
+    //deleteButton.addEventListener("click", new Modal().confirm);
     printButton.addEventListener("click", (evt) => this._printCard(evt));
     
     katex.render(String.raw`Q`, el1, {throwOnError: false});

@@ -1,49 +1,61 @@
-import { settings } from '../config.js';
+import { settings } from '../config/settings.js';
 import { Card } from './Card.js';
-import { Modal } from './Modal.js';
 
 export class CardThrottle extends Card {
-  constructor(item, cardTemplate, openPopup, closePopup) {
-    super();
-    this._item = item;
+  constructor({item, cardTemplate, handleCardClick}) {
+    super(cardTemplate);
     this._cardTemplate = cardTemplate;
-    this._openPopup = openPopup;
-    this._closePopup = closePopup;
-    this._cardName = settings.cardName;
-    this._element = settings.element;
+    this._item = item;
+    this._editForm = document.querySelector(settings.editForm);
+    this._fieldName = this._editForm.querySelector(settings.inputName);
+    this._editButton = settings.editButton;
     this._removeButton = settings.removeButton;
     this._printButton = settings.printButton;
+    this._fieldQ = this._editForm.querySelector(settings.inputQ);
+    this._fieldHdr = this._editForm.querySelector(settings.inputHdr);
+    this._elementName = settings.elementName;
+    this._editCardClick = handleCardClick;
+    this._validator = handleCardClick._validator;
   }
 
-  _printCard(evn) {
-    var doc = new jsPDF();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.save(`CalcRain ${this._item.name}.pdf`);
+  _refresh = () => {
+    katex.render(String.raw`d_0,\space мм`, this._el1, {throwOnError: false});
+    katex.render(String.raw`d_0 = 3.16 \sqrt[4]{ \dfrac{(3.6 \cdot q)^2}{h_{др}}}`, this._el2, {throwOnError: false});
+    katex.render(String.raw`h_{др}`, this._el3, {throwOnError: false});
+    katex.render(String.raw`q`, this._el4, {throwOnError: false});
+    katex.render(String.raw`d_0 = 3.16 \sqrt[4]{ \dfrac{(3.6 \cdot ${this._item.q})^2}{${this._item.hdr}}} = 
+      ${this._item.d.toFixed(1)} \space мм `, this._el5, {throwOnError: false});
   }
 
+  _editCard(evt) {
+    this._validator.resetValidation();
+    this._fieldName.value = this._item.name;
+    this._fieldQ.value = this._item.q;
+    this._fieldHdr.value = this._item.hdr;
+    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+  }
+
+  setEventListeners() {
+    const removeButton = this._cardElement.querySelector(this._removeButton);
+    const editButton = this._cardElement.querySelector(this._editButton);
+    const printButton = this._cardElement.querySelector(this._printButton);
+    removeButton.addEventListener("click", (evt) => super._deleteCard(evt));
+    editButton.addEventListener("click", (evt) => this._editCard(evt));
+    printButton.addEventListener("click", (evt) => super._printCard(evt));
+  }
 
   createCard() {
-    const cardTemplate = document.querySelector(this._cardTemplate).content;
-    const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
-    const deleteButton = cardElement.querySelector(this._removeButton);
-    deleteButton.addEventListener("click", new Modal().confirm);
-    cardElement.querySelector(this._cardName).textContent = this._item.name;
-    const printButton = cardElement.querySelector(this._printButton);
-    printButton.addEventListener("click", (evt) => this._printCard(evt));
-
-    const el1 = cardElement.querySelector('.formula1');
-    const el2 = cardElement.querySelector('.formula2');
-    const el3 = cardElement.querySelector('.formula3');
-    const el4 = cardElement.querySelector('.formula4');
-    const el5 = cardElement.querySelector('.formula5');
-
-    katex.render(String.raw`d_0,\space мм`, el1, {throwOnError: false});
-    katex.render(String.raw`d_0 = 3.16 \sqrt[4]{ \dfrac{(3.6 \cdot q)^2}{h_{др}}}`, el2, {throwOnError: false});
-    katex.render(String.raw`h_{др}`, el3, {throwOnError: false});
-    katex.render(String.raw`q`, el4, {throwOnError: false});
-    katex.render(String.raw`d_0 = 3.16 \sqrt[4]{ \dfrac{(3.6 \cdot ${this._item.q})^2}{${this._item.hdr}}} = ${this._item.d.toFixed(1)} \space мм `, el5, {throwOnError: false});
-
-    return cardElement;
+    this._template = document.querySelector(this._cardTemplate).content;
+    this._cardElement = this._template.querySelector(this._element).cloneNode(true);
+    this._cardElement.querySelector(this._elementName).textContent = this._item.name;
+    this._el1 = this._cardElement.querySelector('.formula1');
+    this._el2 = this._cardElement.querySelector('.formula2');
+    this._el3 = this._cardElement.querySelector('.formula3');
+    this._el4 = this._cardElement.querySelector('.formula4');
+    this._el5 = this._cardElement.querySelector('.formula5');
+    this._refresh();
+    
+    this.setEventListeners();
+    return this._cardElement;
   }
 }

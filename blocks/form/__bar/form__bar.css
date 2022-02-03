@@ -1,9 +1,11 @@
 /* BOTTOM BARS ================================= */
+
 .form__bar {
     position: relative;
     display: block;
     width: 100%;
   }
+
   .form__bar:before, .form__bar:after {
     content: "";
     height: 2px;
@@ -21,3 +23,4 @@
   .form__bar:after {
     right: 50%;
   }
+
