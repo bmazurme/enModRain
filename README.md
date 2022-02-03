@@ -16,3 +16,4 @@ HTML, CSS, JS, KaTeX, jsPDF
 #### Ссылки
 * [Проект](https://bmazurme.github.io/enModRain/index.html)
 * [KaTeX Supported Functions](https://katex.org/docs/supported.html)
+* [jsPDF](https://github.com/parallax/jsPDF)
