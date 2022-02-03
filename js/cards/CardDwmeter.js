@@ -1,4 +1,4 @@
-import { settings } from '../config.js';
+import { settings } from '../config/settings.js';
 import { Card } from './Card.js';
 
 export class CardDwmeter extends Card {
@@ -6,8 +6,11 @@ export class CardDwmeter extends Card {
     super(cardTemplate);
     this._cardTemplate = cardTemplate;
     this._item = item;
-    this._editForm = document.querySelector('.form_type_edit');
-    this._fieldName = this._editForm.querySelector('.inbox__input_name');
+    this._editForm = document.querySelector(settings.editForm);
+    this._fieldName = this._editForm.querySelector(settings.inputName);
+    this._editButton = settings.editButton;
+    this._removeButton = settings.removeButton;
+    this._printButton = settings.printButton;
     this._fieldQ = this._editForm.querySelector('.inbox__input_q');
     this._fieldS = this._editForm.querySelector('.inbox__input_s');
     this._editCardClick = handleCardClick;
@@ -33,10 +36,10 @@ export class CardDwmeter extends Card {
   }
 
   setEventListeners() {
-    const deleteButton = this._cardElement.querySelector('.button_remove');
-    const editButton = this._cardElement.querySelector('.button_edit');
-    const printButton = this._cardElement.querySelector('.button_print');
-    deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
+    const removeButton = this._cardElement.querySelector(this._removeButton);
+    const editButton = this._cardElement.querySelector(this._editButton);
+    const printButton = this._cardElement.querySelector(this._printButton);
+    removeButton.addEventListener("click", (evt) => super._deleteCard(evt));
     editButton.addEventListener("click", (evt) => this._editCard(evt));
     printButton.addEventListener("click", (evt) => super._printCard(evt));
   }

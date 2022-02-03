@@ -1,4 +1,4 @@
-import { settings } from '../config.js';
+import { settings } from '../config/settings.js';
 import { Card } from './Card.js';
 
 export class CardProject extends Card {
@@ -9,12 +9,13 @@ export class CardProject extends Card {
     this._element = settings.element;
     this._cardAddress = settings.cardAddress;
     this._projectName = settings.projectName;
-    this._editForm = document.querySelector('.form_type_edit');
-    this._fieldName = this._editForm.querySelector('.inbox__input_name');
-    this._fieldAddress = this._editForm.querySelector('.inbox__input_address');
+    this._editForm = document.querySelector(settings.editForm);
+    this._fieldName = this._editForm.querySelector(settings.inputName);
+    this._fieldAddress = this._editForm.querySelector(settings.inputAddress);
+    this._removeButton = settings.removeButton;
+    this._editButton = settings.editButton;
     this._editCardClick = handleCardClick;
     this._validator = handleCardClick._validator;
-    //console.log(handleCardClick._validator);
   }
 
   _editCard(evt) {
@@ -25,9 +26,9 @@ export class CardProject extends Card {
   }
 
   setEventListeners() {
-    const deleteButton = this._cardElement.querySelector('.button_remove');
-    const editButton = this._cardElement.querySelector('.button_edit');
-    deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
+    const removeButton = this._cardElement.querySelector(this._removeButton); 
+    const editButton = this._cardElement.querySelector(this._editButton);
+    removeButton.addEventListener("click", (evt) => super._deleteCard(evt));
     editButton.addEventListener("click", (evt) => this._editCard(evt));
   }
 
