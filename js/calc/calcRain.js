@@ -1,12 +1,16 @@
 export function calcRain(item) {
   const slope = Number(item.slope);
-  const roof = Number(item.roof);
-  const facade = Number(item.facade);
+  let roof = Number(item.roof);
+  let facade = Number(item.facade);
   const q20 = Number(item.q20);
   const n = Number(item.n);
   let q = 0;
   let sumArea = 0;
   let q5 = 0;
+
+  // console.log(sumArea);
+  // console.log(roof);
+  // console.log(facade);
 
   sumArea = roof + facade * 0.3;
   
@@ -16,6 +20,9 @@ export function calcRain(item) {
     q5 = 4 ** n * q20;
     q = sumArea * q5 / 10000;
   }
+
+
+  console.log(sumArea);
 
   return {q, q5, sumArea, slope, roof, facade, q20, n, name: item.name};
 }

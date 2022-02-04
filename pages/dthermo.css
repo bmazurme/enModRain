@@ -17,16 +17,25 @@
 @import url(../blocks/form/__input-error/form__input-error.css);
 
 
+
+@import url(../blocks/modal/modal.css);
+@import url(../blocks/modal/__box/modal__box.css);
+@import url(../blocks/modal/__cancel/modal__cancel.css);
+@import url(../blocks/modal/__remove/modal__remove.css);
+
+
 @import url(../blocks/box/box.css);
 
 @import url(../blocks/button/button.css);
+@import url(../blocks/button/_save/button_save.css);
 @import url(../blocks/button/_login/button_login.css);
 @import url(../blocks/button/_inactive/button_inactive.css);
 @import url(../blocks/button/_add/button_add.css);
-@import url(../blocks/button/_save/button_save.css);
 @import url(../blocks/button/_edit/button_edit.css);
 @import url(../blocks/button/_remove/button_remove.css);
 @import url(../blocks/button/_print/button_print.css);
+@import url(../blocks/button/_cancel/button_cancel.css);
+@import url(../blocks/button/_text/button_text.css);
 
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);

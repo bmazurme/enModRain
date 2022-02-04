@@ -60,95 +60,429 @@
         <form class="form form_type_add" name="add-form" novalidate>
           <h2 class="form__title">Новый расчет</h2>
 
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Наименование системы" class="form__input form__input_type_name"
               required minlength="2" maxlength="30" name="name" id="nameCard-input">
             <span class="nameCard-input-error form__input-error"></span>
+          </div> -->
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="name"
+              id="name-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование системы</label>
+            <span class="name-input-error inbox__input_error"></span>
           </div>
-
+<!-- 
           <div class="form__box">
             <input placeholder="Начальная температура расчетного участка, °C" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_t1" id="t1-input" required >
             <span class="t1-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_t1" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="t1"
+              id="t1-input" required maxlength="30" >
+            <span class="inbox__bar t1-input-bar"></span>
+            <label class="inbox__label t1-input-label" >Начальная температура расчетного участка, °C</label>
+            <span class="t1-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Длина расчетного участка, м" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_l" id="l-input" required >
             <span class="l-input-error form__input-error"></span>
+          </div> -->
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_l" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="l"
+              id="l-input" required maxlength="30" >
+            <span class="inbox__bar l-input-bar"></span>
+            <label class="inbox__label l-input-label" >Длина расчетного участка, м</label>
+            <span class="l-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Расход на участке, л/с" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_q" id="q-input" required >
             <span class="q-input-error form__input-error"></span>
+          </div> -->
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_q" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="q"
+              id="q-input" required maxlength="30" >
+            <span class="inbox__bar q-input-bar"></span>
+            <label class="inbox__label q-input-label" >Расход на участке, л/с</label>
+            <span class="q-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Скорость потока, м/с" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_v" id="v-input" required >
             <span class="v-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_v" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="v"
+              id="v-input" required maxlength="30" >
+            <span class="inbox__bar v-input-bar"></span>
+            <label class="inbox__label v-input-label" >Скорость потока, м/с</label>
+            <span class="v-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+
+          <!-- <div class="form__box">
             <input placeholder="Внутренний диаметр трубопровода, м" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_dtr" id="dtr-input" required >
             <span class="dtr-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_dtr" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="dtr"
+              id="dtr-input" required maxlength="30" >
+            <span class="inbox__bar dtr-input-bar"></span>
+            <label class="inbox__label dtr-input-label" >Внутренний диаметр трубопровода, м</label>
+            <span class="dtr-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Наружный диаметр трубопровода, м" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_dsl" id="dsl-input" required >
             <span class="dsl-input-error form__input-error"></span>
-          </div>
+          </div> -->
 
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_dsl" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="dsl"
+              id="dsl-input" required maxlength="30" >
+            <span class="inbox__bar dsl-input-bar"></span>
+            <label class="inbox__label dsl-input-label" >Наружный диаметр трубопровода, м</label>
+            <span class="dsl-input-error inbox__input_error"></span>
+          </div>
+<!-- 
           <div class="form__box">
             <input placeholder="Диаметр наружного слоя изоляции, м" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_diamsln" id="diamsln-input" required >
             <span class="diamsln-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_diamsln" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="diamsln"
+              id="diamsln-input" required maxlength="30" >
+            <span class="inbox__bar diamsln-input-bar"></span>
+            <label class="inbox__label diamsln-input-label" >Диаметр наружного слоя изоляции, м</label>
+            <span class="diamsln-input-error inbox__input_error"></span>
           </div>
+
+
+<!-- 
 
           <div class="form__box">
             <input placeholder="Температура воды в трубе, °C (0-70)" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_th" id="th-input" required >
             <span class="th-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_th" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="th"
+              id="th-input" required maxlength="30" >
+            <span class="inbox__bar th-input-bar"></span>
+            <label class="inbox__label th-input-label" >Температура воды в трубе, °C (0-70)</label>
+            <span class="th-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+          <!-- <div class="form__box">
             <input placeholder="Температура воздуха в помещении, °C" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_tb" id="tb-input" required >
             <span class="tb-input-error form__input-error"></span>
+          </div> -->
+
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_tb" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="tb"
+              id="tb-input" required maxlength="30" >
+            <span class="inbox__bar tb-input-bar"></span>
+            <label class="inbox__label tb-input-label" >Температура воздуха в помещении, °C</label>
+            <span class="tb-input-error inbox__input_error"></span>
           </div>
 
+<!-- 
           <div class="form__box">
             <input placeholder="коэффициент теплопроводности покровного слоя, Вт/(м²×°C), 
               определяется по расчету или по СП 61.13330." 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_alphanp2" id="alphanp2-input" required >
             <span class="alphanp2-input-error form__input-error"></span>
+          </div> -->
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_alphanp2" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="alphanp2"
+              id="alphanp2-input" required maxlength="30" >
+            <span class="inbox__bar alphanp2-input-bar"></span>
+            <label class="inbox__label alphanp2-input-label" >коэффициент теплопроводности покровного слоя, Вт/(м²×°C), 
+              определяется по расчету или по СП 61.13330.</label>
+            <span class="alphanp2-input-error inbox__input_error"></span>
           </div>
 
+
+
+
+
+<!-- 
           <div class="form__box">
             <input placeholder="Коэффициент теплопроводности слоя трубы, Вт/(м²×°C)" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_alphasl" id="alphasl-input" required >
             <span class="alphasl-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_alphasl" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="alphasl"
+              id="alphasl-input" required maxlength="30" >
+            <span class="inbox__bar alphasl-input-bar"></span>
+            <label class="inbox__label alphasl-input-label" >Коэффициент теплопроводности слоя трубы, Вт/(м²×°C)</label>
+            <span class="alphasl-input-error inbox__input_error"></span>
           </div>
 
-          <div class="form__box">
+
+          <!-- <div class="form__box">
             <input placeholder="Коэффициент теплопередачи, Вт/(м²×°C)" 
               pattern="^[ 0-9]+$"
               class="form__input form__input_type_alphasl2" id="alphasl2-input" required >
             <span class="alphasl2-input-error form__input-error"></span>
+          </div> -->
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_alphasl2" 
+              aria-invalid="true"
+              type="text" value=""
+              autocomplete="off"
+              name="alphasl2"
+              id="alphasl2-input" required maxlength="30" >
+            <span class="inbox__bar alphasl2-input-bar"></span>
+            <label class="inbox__label alphasl2-input-label" >Коэффициент теплопередачи, Вт/(м²×°C)</label>
+            <span class="alphasl2-input-error inbox__input_error"></span>
+          </div>
+
+          <button aria-label="Save" class="button button_save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_edit" name="add-form" novalidate>
+          <h2 class="form__title">Редактировать расчет</h2>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text" value="Наименование системы"
+              autocomplete="off"
+              name="name"
+              id="name-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование системы</label>
+            <span class="name-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_t1" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="t1"
+              id="t1-input" required maxlength="30" >
+            <span class="inbox__bar t1-input-bar"></span>
+            <label class="inbox__label t1-input-label" >Начальная температура расчетного участка, °C</label>
+            <span class="t1-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_l" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="l"
+              id="l-input" required maxlength="30" >
+            <span class="inbox__bar l-input-bar"></span>
+            <label class="inbox__label l-input-label" >Длина расчетного участка, м</label>
+            <span class="l-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_q" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="q"
+              id="q-input" required maxlength="30" >
+            <span class="inbox__bar q-input-bar"></span>
+            <label class="inbox__label q-input-label" >Расход на участке, л/с</label>
+            <span class="q-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_v" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="v"
+              id="v-input" required maxlength="30" >
+            <span class="inbox__bar v-input-bar"></span>
+            <label class="inbox__label v-input-label" >Скорость потока, м/с</label>
+            <span class="v-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_dtr" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="dtr"
+              id="dtr-input" required maxlength="30" >
+            <span class="inbox__bar dtr-input-bar"></span>
+            <label class="inbox__label dtr-input-label" >Внутренний диаметр трубопровода, м</label>
+            <span class="dtr-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_dsl" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="dsl"
+              id="dsl-input" required maxlength="30" >
+            <span class="inbox__bar dsl-input-bar"></span>
+            <label class="inbox__label dsl-input-label" >Наружный диаметр трубопровода, м</label>
+            <span class="dsl-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_diamsln" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="diamsln"
+              id="diamsln-input" required maxlength="30" >
+            <span class="inbox__bar diamsln-input-bar"></span>
+            <label class="inbox__label diamsln-input-label" >Диаметр наружного слоя изоляции, м</label>
+            <span class="diamsln-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_th" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="th"
+              id="th-input" required maxlength="30" >
+            <span class="inbox__bar th-input-bar"></span>
+            <label class="inbox__label th-input-label" >Температура воды в трубе, °C (0-70)</label>
+            <span class="th-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_tb" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="tb"
+              id="tb-input" required maxlength="30" >
+            <span class="inbox__bar tb-input-bar"></span>
+            <label class="inbox__label tb-input-label" >Температура воздуха в помещении, °C</label>
+            <span class="tb-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_alphanp2" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="alphanp2"
+              id="alphanp2-input" required maxlength="30" >
+            <span class="inbox__bar alphanp2-input-bar"></span>
+            <label class="inbox__label alphanp2-input-label" >коэффициент теплопроводности покровного слоя, Вт/(м²×°C), 
+              определяется по расчету или по СП 61.13330.</label>
+            <span class="alphanp2-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_alphasl" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="alphasl"
+              id="alphasl-input" required maxlength="30" >
+            <span class="inbox__bar alphasl-input-bar"></span>
+            <label class="inbox__label alphasl-input-label" >Коэффициент теплопроводности слоя трубы, Вт/(м²×°C)</label>
+            <span class="alphasl-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_alphasl2" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="alphasl2"
+              id="alphasl2-input" required maxlength="30" >
+            <span class="inbox__bar alphasl2-input-bar"></span>
+            <label class="inbox__label alphasl2-input-label" >Коэффициент теплопередачи, Вт/(м²×°C)</label>
+            <span class="alphasl2-input-error inbox__input_error"></span>
           </div>
 
           <button aria-label="Save" class="button button_save form__submit" 
@@ -311,6 +645,19 @@
         </div>
       </div>
     </template>
+
+    <div class="popup popup_type_modal">
+      <div class="popup__container popup__container_yesno">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <div class="modal">
+          <h2 class="form__title">Подтвердить удаление?</h2>
+          <div class="modal__box">
+            <button aria-label="Remove" class="button button_remove button_text" type="button">Удалить</button>
+            <button aria-label="Cancel" class="button button_cancel" type="button">Отменить</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="../js/calculation-ws/dthermo.js"></script>
     <script src="../vendor/jspdf.debug.js"></script>
