@@ -1,5 +1,5 @@
-import { settings } from '../config.js';
-import { Popup } from './Popup.js';
+import { settings } from '../config/settings.js';
+import { Popup } from '../components/Popup.js';
 import { Modal } from './Modal.js';
 
 export class Card extends Popup {
@@ -15,6 +15,11 @@ export class Card extends Popup {
     this._elementPrint = settings.elementPrint;
   }
 
+  _editCard(evt) {
+    this._validator.resetValidation();
+    this._fieldName.value = this._item.name;
+  }
+
   _printCard(evn) {
     const block = evn.target.closest('.element');
     html2canvas(block).then(canvas => {
@@ -24,16 +29,21 @@ export class Card extends Popup {
     });
   }
 
-  _deleteCard(evn) {
-    new Modal({deleteCard: () => { this._cardElement.remove(); this._cardElement = null;}}).open();
+  _deleteCard() {
+    new Modal({deleteCard: () => {this._cardElement.remove();this._cardElement = null;}}).open();
+  }
+
+  setEventListeners() {
+    this._cardElement.querySelector(this._removeButton).addEventListener("click", () => this._deleteCard());
+    this._cardElement.querySelector(this._editButton).addEventListener("click", (evt) => this._editCard(evt));
+    this._cardElement.querySelector(this._printButton).addEventListener("click", (evt) => this._printCard(evt));
   }
 
   createCard() {
-    const cardTemplate = document.querySelector(this._cardTemplate).content;
-    const cardElement = cardTemplate.querySelector(this._element).cloneNode(true);
-    const deleteButton = cardElement.querySelector(this._elementRemove);
-    cardElement.querySelector(this._cardName).textContent = this._item.name;
-    deleteButton.addEventListener("click", (evt) => super._deleteCard(evt));
-    return cardElement;
+    this._template = document.querySelector(this._cardTemplate).content;
+    this._cardElement = this._template.querySelector(this._element).cloneNode(true);
+    this._cardElement.querySelector(this._elementName).textContent = this._item.name;
+    this.setEventListeners();
+    return this._cardElement;
   }
 }

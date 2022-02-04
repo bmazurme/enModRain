@@ -67,5 +67,6 @@
   
     printButton: '.button_print',
     removeButton: '.button_remove',
-    editButton: '.button_edit'
+    editButton: '.button_edit',
+    mapButton: '.button_map'
   };

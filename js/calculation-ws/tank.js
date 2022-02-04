@@ -1,11 +1,11 @@
 import { calcTank } from "../calc/calcTank.js";
 import { CardTank } from "../cards/CardTank.js";
 import { initTank } from "../data/initTank.js";
-import { Section } from "../cards/Section.js";
-import { PopupWithForm } from "../cards/PopupWithForm.js";
-import { PopupWithEditForm } from "../cards/PopupWithEditForm.js";
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
 import { FormValidator } from '../components/FormValidator.js';
-import { configNew as config } from "../config.js";
+import { config } from "../config/config.js";
 
 const addButton = document.querySelector(config.addButton);
 const addForm = document.querySelector('.form_type_add');
@@ -15,33 +15,12 @@ const saveCard = (evt, val) => {
   evt.preventDefault();  
   const {name, th, tc, qmid, qmax, qsp, t, b} = val;
   const result = calcTank({
-    name,
+    name: name.value,
     th: th.value, tc: tc.value, qmid: qmid.value, qmax: qmax.value,
     qsp: qsp.value, t: t.value, b: b.value
   });
 
-  const obj = {
-    name: name.value,
-    th: result.th,
-    tc: result.tc,
-    qmid: result.qmid,
-    qmax: result.qmax,
-    qsp: result.qsp,
-    t: result.t,
-    b: result.b,
-    fi: result.fi,
-    fi2: result.fi2,
-    v1: result.v1,
-    v2: result.v2,
-    w: result.w,
-    w2: result.w2,
-    k_hr_ht: result.k_hr_ht,
-    k_hr_ht_sp: result.k_hr_ht_sp
-  };
-
-console.log(obj);
-
-  const card = new CardTank({item: obj, cardTemplate: '#card-template',
+  const card = new CardTank({item: result, cardTemplate: '#card-template',
     handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
@@ -50,7 +29,7 @@ const editCard = (evt, val, current) => {
   evt.preventDefault();  
   const {name, th, tc, qmid, qmax, qsp, t, b} = val;
   const result = calcTank({
-    name,
+    name: name.value,
     th: th.value,
     tc: tc.value,
     qmid: qmid.value,
@@ -60,29 +39,11 @@ const editCard = (evt, val, current) => {
     b: b.value
   });
 
-  const obj = {
-    name: name.value,
-    th: result.th,
-    tc: result.tc,
-    qmid: result.qmid,
-    qmax: result.qmax,
-    qsp: result.qsp,
-    t: result.t,
-    b: result.b,
-    fi: result.fi,
-    fi2: result.fi2,
-    v1: result.v1,
-    v2: result.v2,
-    w: result.w,
-    w2: result.w2,
-    k_hr_ht: result.k_hr_ht,
-    k_hr_ht_sp: result.k_hr_ht_sp
-  };
   current.currentCard.querySelector('.element__name').textContent = name.value;
   current.item.name = name.value;
-  current.item.q = obj.q;
-  current.item.hdr = obj.hdr;
-  current.item.d = obj.d;
+  current.item.q = result.q;
+  current.item.hdr = result.hdr;
+  current.item.d = result.d;
   current.refresh();
 }
 
@@ -111,25 +72,8 @@ const defaultCardList = new Section({
     const result = calcTank({name: item.name,
       th: item.th, tc: item.tc, qmid: item.qmid, qmax: item.qmax,
       qsp: item.qsp, t: item.t, b: item.b});
-    const obj = {
-      name: result.name,
-      th: result.th,
-      tc: result.tc,
-      qmid: result.qmid,
-      qmax: result.qmax,
-      qsp: result.qsp,
-      t: result.t,
-      b: result.b,
-      fi: result.fi,
-      fi2: result.fi2,
-      v1: result.v1,
-      v2: result.v2,
-      w: result.w,
-      w2: result.w2,
-      k_hr_ht: result.k_hr_ht,
-      k_hr_ht_sp: result.k_hr_ht_sp
-    };
-      const card = new CardTank({item: obj, cardTemplate: '#card-template',
+    
+      const card = new CardTank({item: result, cardTemplate: '#card-template',
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);

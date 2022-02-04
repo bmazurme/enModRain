@@ -30,12 +30,10 @@ export class CardRain extends Card {
         = ${this._item.sumArea} \space м^2`, 
         this._el14, {throwOnError: false});
       katex.render(String.raw`F_2 = ${this._item.facade} \space м^2`, this._el10, {throwOnError: false});
-
       this._el2 = this._cardElement.querySelector('.formula2');
       katex.render(String.raw`Q = \dfrac {F \cdot q_{20}}{10000}`, this._el2, {throwOnError: false});
       katex.render(String.raw`Q = \dfrac {${this._item.q20} \cdot ${this._item.sumArea}}{10000} 
         = ${Number(this._item.q).toFixed(2)} \space л/с`, this._el27, {throwOnError: false});
-
       katex.render(String.raw`Q = \dfrac {F \cdot q_{5}}{10000}`, this._el3, {throwOnError: false});
       katex.render(String.raw`q_{5}`, this._el5, {throwOnError: false});
       katex.render(String.raw`q_{5} = 4^n \cdot q_{20}`, this._el6, {throwOnError: false});
@@ -48,31 +46,17 @@ export class CardRain extends Card {
   };
 
   _editCard(evt) {
-    this._validator.resetValidation();
-    this._fieldName.value = this._item.name;
+    super._editCard(evt);
     this._fieldQ20.value = this._item.q20;
     this._fieldN.value = this._item.n;
     this._fieldSlope.value = this._item.slope;
     this._fieldRoof.value = this._item.roof;
     this._fieldFacade.value = this._item.facade;
-
     this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
   }
 
-  setEventListeners() {
-    const removeButton = this._cardElement.querySelector(this._removeButton);
-    const editButton = this._cardElement.querySelector(this._editButton);
-    const printButton = this._cardElement.querySelector(this._printButton);
-    removeButton.addEventListener("click", (evt) => super._deleteCard(evt));
-    editButton.addEventListener("click", (evt) => this._editCard(evt));
-    printButton.addEventListener("click", (evt) => super._printCard(evt));
-  }
-
   createCard() {
-    console.log(this._cardTemplate);
-    this._template = document.querySelector(this._cardTemplate).content;
-    this._cardElement = this._template.querySelector(this._element).cloneNode(true);
-    this._cardElement.querySelector(this._elementName).textContent = this._item.name;
+    super.createCard();
 
     this._el1 = this._cardElement.querySelector('.formula1');
     this._el4 = this._cardElement.querySelector('.formula4');
@@ -86,10 +70,7 @@ export class CardRain extends Card {
     this._el5 = this._cardElement.querySelector('.formula5');
     this._el6 = this._cardElement.querySelector('.formula6');
     this._el21 = this._cardElement.querySelector('.formula21');
-    
     this._refresh();
-    
-    this.setEventListeners();
     return this._cardElement;
   }
 }

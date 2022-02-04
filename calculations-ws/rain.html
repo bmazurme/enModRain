@@ -150,10 +150,10 @@
           <div class="inbox" >
             <input class="inbox__input inbox__input_name" 
               aria-invalid="true"
-              type="text"
+              type="text" value="Наименование"
               autocomplete="off"
               name="name"
-              id="name-input" required maxlength="30" >
+              id="name-input" required min="2" maxlength="30" >
             <span class="inbox__bar name-input-bar"></span>
             <label class="inbox__label name-input-label" >Наименование кровли</label>
             <span class="name-input-error inbox__input_error"></span>
@@ -162,10 +162,10 @@
           <div class="inbox" >
             <input class="inbox__input inbox__input_slope" 
               aria-invalid="true"
-              type="text"
+              type="text" value="0"
               autocomplete="off"
               name="slope"
-              id="slope-input" required maxlength="30" >
+              id="slope-input" required min="2" maxlength="30" >
             <span class="inbox__bar slope-input-bar"></span>
             <label class="inbox__label slope-input-label" >Уклон кровли, %</label>
             <span class="slope-input-error inbox__input_error"></span>
@@ -175,7 +175,7 @@
           <div class="inbox" >
             <input class="inbox__input inbox__input_roof" 
               aria-invalid="true"
-              type="text"
+              type="text" value="0"
               autocomplete="off"
               name="roof"
               id="roof-input" required maxlength="30" >
@@ -188,7 +188,7 @@
           <div class="inbox" >
             <input class="inbox__input inbox__input_facade" 
               aria-invalid="true"
-              type="text"
+              type="text" value="0"
               autocomplete="off"
               name="facade"
               id="facade-input" required maxlength="30" >
@@ -200,7 +200,7 @@
           <div class="inbox" >
             <input class="inbox__input inbox__input_q20" 
               aria-invalid="true"
-              type="text"
+              type="text" value="0"
               autocomplete="off"
               name="q20"
               id="q20-input" required maxlength="30" >
@@ -212,7 +212,7 @@
           <div class="inbox" >
             <input class="inbox__input inbox__input_n" 
               aria-invalid="true"
-              type="text"
+              type="text" value="0"
               autocomplete="off"
               name="n"
               id="n-input" required maxlength="30" >
@@ -227,11 +227,7 @@
       </div>
     </div>
 
-
-
-
-
-    <div class="popup popup_type_slide popup_image">
+    <div class="popup popup_type_img popup_image">
       <div class="popup__container popup__container_image">
         <button aria-label="Close" class="popup__close" type="button"></button>
         <div class="slide">
@@ -288,7 +284,6 @@
           <div class="block__result">
             <p class="element__paragraph"> <span class="element__formula formula27"></span></p>
           </div>
-
 
           <p class="element__result"></p>
           <p class="element__paragraph">Расход дождевого стока определяется по формуле:</p>

@@ -1,6 +1,5 @@
-import { settings } from '../config.js';
+import { settings } from '../config/settings.js';
 import { Card } from './Card.js';
-import { Modal } from './Modal.js';
 
 export class CardVolume extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {
@@ -28,11 +27,8 @@ export class CardVolume extends Card {
     cardElement.querySelector(".element__customer").textContent = this._item.customer;
     cardElement.querySelector(".element__standart").textContent = this._item.standard;
     cardElement.querySelector(".element__unit").textContent = this._item.unit;
-
     cardElement.querySelector(".element__hours").textContent = this._item.hours;
     cardElement.querySelector(".element__pcs").textContent = this._item.pcs;
-
-
     cardElement.querySelector(".element__coefficient").textContent = this._item.coefficient;
     cardElement.querySelector(".element__cold").textContent = this._item.cold;
     cardElement.querySelector(".element__hot").textContent = this._item.hot;
