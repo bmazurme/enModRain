@@ -1,98 +1,95 @@
-import { config } from '../config.js';
 import { calcRain } from '../calc/calcRain.js';
 import { CardRain } from '../cards/CardRain.js';
-import { FormValidator } from '../FormValidator.js';
 import { initRain } from '../data/initRain.js';
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
+import { FormValidator } from '../components/FormValidator.js';
+import { config } from "../config/config.js";
+import { Popup } from '../components/Popup.js';
 
 const addButton = document.querySelector(config.addButton);
 const mapButton = document.querySelector(config.mapButton);
-const popupTypeSlide = document.querySelector('.popup_type_slide');
-const popups = document.querySelectorAll('.popup');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const cardsContainer = document.querySelector('.elements');
-const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const n = formAddCard.querySelector('.form__input_type_n');
-const q20 = formAddCard.querySelector('.form__input_type_q20');
-const slope = formAddCard.querySelector('.form__input_type_slope');
-const roof = formAddCard.querySelector('.form__input_type_roof');
-const facade = formAddCard.querySelector('.form__input_type_facade');
+const addForm = document.querySelector('.form_type_add');
+const editForm = document.querySelector('.form_type_edit');
 
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, q20, n, slope, roof, facade} = val;
+  const result = calcRain({
+    name: name.value, q20: q20.value,
+    n: n.value, slope: slope.value,
+    roof: roof.value, facade: facade.value
+  });
+  
+  const card = new CardRain({item: result, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
+}
+const editCard = (evt, val, current) => {
+  evt.preventDefault();  
+  const {name, q20, n, slope, roof, facade} = val;
+  const result = calcRain({
+    name: name.value, q20: q20.value,
+    n: n.value, slope: slope.value,
+    roof: roof.value, facade: facade.value
+  });
+
+  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
+  current.item.q20 = result.q20;
+  current.item.n = result.n;
+  current.item.slope = result.slope;
+  current.item.roof = result.roof;
+  current.item.facade = result.facade;
+  current.item.q = result.q;
+  current.item.q5 = result.q5;
+  current.item.sumArea = result.sumArea;
+
+  current.refresh();
 }
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeByEscape);
-}
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const imgCardPopup = new Popup('.popup_type_img');
+const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
+addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    document.removeEventListener('keydown', closeByEscape);
-    closePopup(openedPopup);
-  }
-}
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
+});
 
 function openAddCardPopup() {
-  formAddCard.reset();
-  cardFormValidator.resetValidation();
-  openPopup(popupTypeAdd); 
+  addCardFormValidator.resetValidation();
+  addCardPopupWithForm.open();
 }
 
-function openMapCardPopup() {
-  openPopup(popupTypeSlide); 
+function openImgCardPopup() {
+  imgCardPopup.open();
 }
 
-function saveCardForm(evt) {
-  evt.preventDefault();
+const handleCardClick = editCardPopupWithForm;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: initRain,
+  renderer: (item) => {
+      const result = calcRain({
+        name: item.name, q20: item.q20, n: item.n,
+        slope: item.slope, roof: item.roof, facade: item.facade
+      });
 
-  const newCard = {
-    name: nameFormAddCard.value,
-    slope: slope.value,
-    roof: roof.value,
-    facade: facade.value,
-    q20: q20.value,
-    n: n.value
-  };
-
-  const element = generateCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
-}
-
-function generateCard(item) {
-  const obj = calcRain(item);
-  let template = '#card1-template';
-  if (item.slope < 1.5) {
-    template = '#card-template';
-  }
-  const card = new CardRain(obj, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-  return cardElement
-}
-
-formAddCard.addEventListener('submit', saveCardForm);
+      const card = new CardRain({item: result, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
+defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
-mapButton.addEventListener('click', openMapCardPopup);
-
-popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => {
-      if (evt.target.classList.contains('popup_active')) {
-        closePopup(popup);
-      }
-      if (evt.target.classList.contains('popup__close')) {
-        closePopup(popup);
-      }
-  })
-});
-
-const cardFormValidator = new FormValidator(config, formAddCard);
-cardFormValidator.enableValidation();
-
-initRain.forEach(item => {
-  const element = generateCard(item);
-  cardsContainer.prepend(element);
-});
+mapButton.addEventListener('click', openImgCardPopup);

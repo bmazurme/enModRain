@@ -1,6 +1,6 @@
-import { config } from './config.js';
+import { config } from './config/config.js';
 import { CardVolume } from './cards/CardVolume.js';
-import { FormValidator } from './FormValidator.js';
+import { FormValidator } from './components/FormValidator.js';
 import { initCustomers } from './data/initCustomers.js';
 
 const addButton = document.querySelector('.button_add');

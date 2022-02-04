@@ -1,92 +1,102 @@
-
-
-import { config } from "../config.js";
 import { calcDthermo } from "../calc/calcDthermo.js";
 import { CardDthermo } from "../cards/CardDthermo.js";
 import { initDthermo } from "../data/initDthermo.js";
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
+import { FormValidator } from '../components/FormValidator.js';
+import { config } from "../config/config.js";
 
 const addButton = document.querySelector(config.addButton);
-const formAddCard = document.querySelector('.form_type_add');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
-const cardsContainer = document.querySelector('.elements');
+const addForm = document.querySelector('.form_type_add');
+const editForm = document.querySelector('.form_type_edit');
 
-const t1 = formAddCard.querySelector('.form__input_type_t1');
-const l = formAddCard.querySelector('.form__input_type_l');
-const q = formAddCard.querySelector('.form__input_type_q');
-const th = formAddCard.querySelector('.form__input_type_th');
-const tb = formAddCard.querySelector('.form__input_type_tb');
-const v = formAddCard.querySelector('.form__input_type_v');
-const dtr = formAddCard.querySelector('.form__input_type_dtr');
-const dsl = formAddCard.querySelector('.form__input_type_dsl');
-const diamsln = formAddCard.querySelector('.form__input_type_diamsln');
-const alphanp2 = formAddCard.querySelector('.form__input_type_alphanp2');
-const alphasl = formAddCard.querySelector('.form__input_type_alphasl');
-const alphasl2 = formAddCard.querySelector('.form__input_type_alphasl2');
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, t1, l, q, th, tb, v, dtr, dsl, diamsln, alphanp2, alphasl, alphasl2} = val;
+  const result = calcDthermo({
+    name: name.value, t1: t1.value,
+    l: l.value, q: q.value,
+    th: th.value, tb: tb.value,
+    v: v.value, dtr: dtr.value,
+    dsl: dsl.value,
+    diamsln: diamsln.value,
+    alphanp2: alphanp2.value,
+    alphasl: alphasl.value,
+    alphasl2: alphasl2.value,
+    v: v.value
+  });
 
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+  const card = new CardDthermo({item: result, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
 }
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeByEscape);
-}
-
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    closePopup(openedPopup);
-  }
-}
-
-function openAddCardPopup() {
-  formAddCard.reset();
-  openPopup(popupTypeAdd); 
-}
-function deleteCard(evn) {
-  evn.target.closest('.element').remove();
-}
-function saveCardForm(evt) {
+const editCard = (evt, val, current) => {
   evt.preventDefault();
-
-  const newCard = {
-    name: nameFormAddCard.value,
-    t1: t1.value,
-    l: l.value,
-    q: q.value,
-    th: th.value,
-    tb: tb.value,
-    v: v.value,
-    dtr: dtr.value,
+  const {name, t1, l, q, th, tb, v, dtr, dsl, diamsln, alphanp2, alphasl, alphasl2} = val;
+  const result = calcDthermo({
+    name: name.value, t1: t1.value,
+    l: l.value, q: q.value,
+    th: th.value, tb: tb.value,
+    v: v.value, dtr: dtr.value,
     dsl: dsl.value,
     diamsln: diamsln.value,
     alphanp2: alphanp2.value,
     alphasl: alphasl.value,
     alphasl2: alphasl2.value
-  };
+  });
 
-  const element = createCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
+  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
+  current.item.qht = result.qht;
+  current.item.qhhr = result.qhhr;
+  current.item.th = result.th;
+  current.item.tc = result.tc;
+  current.refresh();
 }
 
-formAddCard.addEventListener('submit', saveCardForm);
-addButton.addEventListener('click', openAddCardPopup);
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
+addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
-initDthermo.forEach(item => {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
 });
 
-function createCard(item) {
-  const obj = calcDthermo(item);
-  const template = '#card-template';
-  const card = new CardDthermo(obj, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-
-  return cardElement;
+function openAddCardPopup() {
+  addCardFormValidator.resetValidation();
+  addCardPopupWithForm.open();
 }
+
+const handleCardClick = editCardPopupWithForm;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: initDthermo,
+  renderer: (item) => {
+    const result = calcDthermo({
+      name: item.name, t1: item.t1,
+      l: item.l, q: item.q,
+      th: item.th, tb: item.tb,
+      v: item.v, dtr: item.dtr,
+      dsl: item.dsl, diamsln: item.diamsln,
+      alphanp2: item.alphanp2,
+      alphasl: item.alphasl,
+      alphasl2: item.alphasl2
+    });
+
+      const card = new CardDthermo({item: result, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
+defaultCardList.render();
+addButton.addEventListener('click', openAddCardPopup);

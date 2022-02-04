@@ -43,9 +43,7 @@ export class CardThermo extends Card {
   }
 
   _editCard(evt) {
-    this._validator.resetValidation();
-    this._fieldName.value = this._item.name;
-
+    super._editCard(evt);
     this._fieldQht.value = this._item.qht;
     this._fieldQhhr.value = this._item.qhhr;
     this._fieldTh.value = this._item.th;
@@ -54,20 +52,8 @@ export class CardThermo extends Card {
     this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
   }
 
-  setEventListeners() {
-    const removeButton = this._cardElement.querySelector(this._removeButton);
-    const editButton = this._cardElement.querySelector(this._editButton);
-    const printButton = this._cardElement.querySelector(this._printButton);
-    removeButton.addEventListener("click", (evt) => super._deleteCard(evt));
-    editButton.addEventListener("click", (evt) => this._editCard(evt));
-    printButton.addEventListener("click", (evt) => super._printCard(evt));
-  }
-
   createCard() {
-    this._template = document.querySelector(this._cardTemplate).content;
-    this._cardElement = this._template.querySelector(this._element).cloneNode(true);
-    this._cardElement.querySelector(this._elementName).textContent = this._item.name;
-
+    super.createCard();
     this._el1 = this._cardElement.querySelector('.formula1');
     this._el2 = this._cardElement.querySelector('.formula2');
     this._el3 = this._cardElement.querySelector('.formula3');
@@ -87,8 +73,6 @@ export class CardThermo extends Card {
     this._el17 = this._cardElement.querySelector('.formula17');
 
     this._refresh();
-    
-    this.setEventListeners();
     return this._cardElement;
   }
 }

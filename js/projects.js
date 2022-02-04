@@ -1,10 +1,10 @@
 import { CardProject } from "./cards/CardProject.js";
-import { PopupWithForm } from "./cards/PopupWithForm.js";
-import { PopupWithEditForm } from "./cards/PopupWithEditForm.js";
+import { PopupWithForm } from "./components/PopupWithForm.js";
+import { PopupWithEditForm } from "./components/PopupWithEditForm.js";
 import { initProjects as data } from "./data/initProjects.js";
-import { Section } from "./cards/Section.js";
+import { Section } from "./components/Section.js";
 import { FormValidator } from './components/FormValidator.js';
-import { configNew as config } from "./config.js";
+import { config } from "./config/config.js";
 
 const addButton = document.querySelector(config.addButton);
 const editForm = document.querySelector('.form_type_edit');
@@ -31,19 +31,17 @@ const saveCard = (evt, val) => {
   defaultCardList.addItem(item);
 }
 
-const editCardPopupWithForm = new PopupWithEditForm({
-  submit: editCard,
-  validator: editCardFormValidator,
-  popupSelector: '.popup_type_edit'
-});
-
 const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
-
 function openAddCardPopup() {
   addCardFormValidator.resetValidation();
   addCardPopupWithForm.open();
 }
 
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
+});
 const handleCardClick = editCardPopupWithForm;
 const cardListSelector = '.elements';
 const defaultCardList = new Section({

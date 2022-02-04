@@ -1,80 +1,85 @@
 import { calcTank } from "../calc/calcTank.js";
-import { FormValidator } from "../FormValidator.js";
-import { config } from "../config.js";
-import { initTank } from "../data/initTank.js";
 import { CardTank } from "../cards/CardTank.js";
+import { initTank } from "../data/initTank.js";
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
+import { FormValidator } from '../components/FormValidator.js';
+import { config } from "../config/config.js";
 
 const addButton = document.querySelector(config.addButton);
-const formAddCard = document.querySelector('.form_type_add');
-const popupTypeAdd = document.querySelector('.popup_type_add');
-const closeButtonAdd = popupTypeAdd.querySelector('.popup__close');
-const cardsContainer = document.querySelector('.elements');
-const nameFormAddCard = formAddCard.querySelector('.form__input_type_name');
-const th = formAddCard.querySelector('.form__input_type_th');
-const tc = formAddCard.querySelector('.form__input_type_tc');
-const qmid = formAddCard.querySelector('.form__input_type_qmid');
-const qmax = formAddCard.querySelector('.form__input_type_qmax');
-const qsp = formAddCard.querySelector('.form__input_type_qsp');
-const t = formAddCard.querySelector('.form__input_type_t');
-const b = formAddCard.querySelector('.form__select_type_b');
-const cardFormValidator = new FormValidator(config, formAddCard);
-cardFormValidator.enableValidation();
+const addForm = document.querySelector('.form_type_add');
+const editForm = document.querySelector('.form_type_edit');
 
-const openPopup = (popup) => {
-  document.addEventListener('keydown', closeByEscape);
-  popup.classList.add('popup_active');
+const saveCard = (evt, val) => {
+  evt.preventDefault();  
+  const {name, th, tc, qmid, qmax, qsp, t, b} = val;
+  const result = calcTank({
+    name: name.value,
+    th: th.value, tc: tc.value, qmid: qmid.value, qmax: qmax.value,
+    qsp: qsp.value, t: t.value, b: b.value
+  });
+
+  const card = new CardTank({item: result, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
+  const item = card.createCard();
+  defaultCardList.addItem(item);
 }
-
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeByEscape);
-}
-
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active');
-    closePopup(openedPopup);
-  }
-}
-
-function openAddCardPopup() {
-  formAddCard.reset();
-  openPopup(popupTypeAdd); 
-}
-
-function saveCardForm(evt) {
-  evt.preventDefault();
-
-  const newCard = {
-    name: nameFormAddCard.value,
+const editCard = (evt, val, current) => {
+  evt.preventDefault();  
+  const {name, th, tc, qmid, qmax, qsp, t, b} = val;
+  const result = calcTank({
+    name: name.value,
     th: th.value,
     tc: tc.value,
     qmid: qmid.value,
     qmax: qmax.value,
-    t: t.value,
     qsp: qsp.value,
-    b: b.options[b.selectedIndex].value    
-  };
-  
-  const element = createCard(newCard);
-  cardsContainer.prepend(element);
-  closePopup(popupTypeAdd);
+    t: t.value,
+    b: b.value
+  });
+
+  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.item.name = name.value;
+  current.item.q = result.q;
+  current.item.hdr = result.hdr;
+  current.item.d = result.d;
+  current.refresh();
 }
 
-formAddCard.addEventListener('submit', saveCardForm);
-addButton.addEventListener('click', openAddCardPopup);
-closeButtonAdd.addEventListener('click', () => closePopup(popupTypeAdd));
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const addCardFormValidator = new FormValidator(config, addForm);
+const editCardFormValidator = new FormValidator(config, editForm);
+addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();
 
-initTank.forEach(item => {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
+const editCardPopupWithForm = new PopupWithEditForm({
+  submit: editCard,
+  validator: editCardFormValidator,
+  popupSelector: '.popup_type_edit'
 });
 
-function createCard(item) {
-  const obj = calcTank(item);
-  const template = '#card-template';
-  const card = new CardTank(obj, template, openPopup, closePopup);
-  const cardElement = card.createCard();
-
-  return cardElement;
+function openAddCardPopup() {
+  addCardFormValidator.resetValidation();
+  addCardPopupWithForm.open();
 }
+
+const handleCardClick = editCardPopupWithForm;
+const cardListSelector = '.elements';
+const defaultCardList = new Section({
+  items: initTank,
+  renderer: (item) => {
+    const result = calcTank({name: item.name,
+      th: item.th, tc: item.tc, qmid: item.qmid, qmax: item.qmax,
+      qsp: item.qsp, t: item.t, b: item.b});
+    
+      const card = new CardTank({item: result, cardTemplate: '#card-template',
+        handleCardClick: handleCardClick});
+      const cardElement = card.createCard();
+      defaultCardList.addItem(cardElement);
+    }
+  },
+  cardListSelector
+);
+defaultCardList.render();
+addButton.addEventListener('click', openAddCardPopup);
