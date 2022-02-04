@@ -17,6 +17,14 @@
     inputQht: '.inbox__input_qht',
     inputT1: '.inbox__input_t1',
     inputT2: '.inbox__input_t2',
+    inputT: '.inbox__input_t',
+    inputB: '.inbox__select_b',
+    inputQsp: '.inbox__input_qsp',
+
+    inputQmid: '.inbox__input_qmid',
+    inputQmax: '.inbox__input_qmax',
+
+
 
     inputQhhr: '.inbox__input_qhhr',
     inputTh: '.inbox__input_th',
