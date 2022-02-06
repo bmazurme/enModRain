@@ -21,30 +21,6 @@ export class CardRain extends Card {
     this._validator = handleCardClick._validator;
   }
 
-  _refresh = () => {
-      katex.render(String.raw`Q`, this._el1, {throwOnError: false});
-      katex.render(String.raw`q_{20}`, this._el4, {throwOnError: false});
-      katex.render(String.raw`F_1 = ${this._item.roof} \space м^2`, this._el7, {throwOnError: false});
-      katex.render(String.raw`F = F_1 + 0.3 \cdot F_2`, this._el13, {throwOnError: false});
-      katex.render(String.raw`F = ${this._item.roof} + 0.3 \cdot ${this._item.facade} 
-        = ${this._item.sumArea} \space м^2`, 
-        this._el14, {throwOnError: false});
-      katex.render(String.raw`F_2 = ${this._item.facade} \space м^2`, this._el10, {throwOnError: false});
-      this._el2 = this._cardElement.querySelector('.formula2');
-      katex.render(String.raw`Q = \dfrac {F \cdot q_{20}}{10000}`, this._el2, {throwOnError: false});
-      katex.render(String.raw`Q = \dfrac {${this._item.q20} \cdot ${this._item.sumArea}}{10000} 
-        = ${Number(this._item.q).toFixed(2)} \space л/с`, this._el27, {throwOnError: false});
-      katex.render(String.raw`Q = \dfrac {F \cdot q_{5}}{10000}`, this._el3, {throwOnError: false});
-      katex.render(String.raw`q_{5}`, this._el5, {throwOnError: false});
-      katex.render(String.raw`q_{5} = 4^n \cdot q_{20}`, this._el6, {throwOnError: false});
-      katex.render(String.raw`q_{5} = 4^{${this._item.n}} \cdot ${this._item.q20} 
-        = ${this._item.q5} \space л/с`, this._el21, {throwOnError: false});
-      katex.render(String.raw`Q = \dfrac { ${this._item.q5} \cdot ${this._item.sumArea}}{10000} 
-        = ${this._item.q.toFixed(2)} \space л/с`, 
-        this._el27, {throwOnError: false});
-      return this._cardElement;
-  };
-
   _editCard(evt) {
     super._editCard(evt);
     this._fieldQ20.value = this._item.q20;
@@ -57,19 +33,25 @@ export class CardRain extends Card {
 
   createCard() {
     super.createCard();
-
-    this._el1 = this._cardElement.querySelector('.formula1');
-    this._el4 = this._cardElement.querySelector('.formula4');
-    this._el7 = this._cardElement.querySelector('.formula7');
-    this._el27 = this._cardElement.querySelector('.formula27');
-    this._el10 = this._cardElement.querySelector('.formula10');
-    this._el13 = this._cardElement.querySelector('.formula13');
-    this._el14 = this._cardElement.querySelector('.formula14');
-    
-    this._el3 = this._cardElement.querySelector('.formula3');
-    this._el5 = this._cardElement.querySelector('.formula5');
-    this._el6 = this._cardElement.querySelector('.formula6');
-    this._el21 = this._cardElement.querySelector('.formula21');
+    this._arr = [
+      {value: String.raw`Q`, key: this._el1},
+      {value: String.raw`q_{20}`, key: this._el4},
+      {value: String.raw`F_1 = ${this._item.roof} \space м^2`, key: this._el7},
+      {value: String.raw`F = F_1 + 0.3 \cdot F_2`, key: this._el13},
+      {value: String.raw`F = ${this._item.roof} + 0.3 \cdot ${this._item.facade} 
+        = ${this._item.sumArea} \space м^2`, key: this._el14},
+        {value: String.raw`F_2 = ${this._item.facade} \space м^2`, key: this._el10},
+      {value: String.raw`Q = \dfrac {F \cdot q_{20}}{10000}`, key: this._el2},
+      {value: String.raw`Q = \dfrac {${this._item.q20} \cdot ${this._item.sumArea}}{10000} 
+        = ${Number(this._item.q).toFixed(2)} \space л/с`, key: this._el27},
+      {value: String.raw`Q = \dfrac {F \cdot q_{5}}{10000}`, key: this._el3},
+      {value: String.raw`q_{5}`, key: this._el5},
+      {value: String.raw`q_{5} = 4^n \cdot q_{20}`, key: this._el6},
+      {value: String.raw`q_{5} = 4^{${this._item.n}} \cdot ${this._item.q20} 
+        = ${this._item.q5} \space л/с`, key: this._el21},
+      {value: String.raw`Q = \dfrac { ${this._item.q5} \cdot ${this._item.sumArea}}{10000} 
+        = ${this._item.q.toFixed(2)} \space л/с`, key: this._el27}
+    ];
     this._refresh();
     return this._cardElement;
   }

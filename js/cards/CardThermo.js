@@ -21,27 +21,6 @@ export class CardThermo extends Card {
     this._validator = handleCardClick._validator;
   }
 
-  _refresh = () => {
-    console.log(this._item.qmid);
-    katex.render(String.raw`Q_T^h (Q_{hr}^h) \space кВт`, this._el1, {throwOnError: false});
-    katex.render(String.raw`(Q^{ht})`, this._el2, {throwOnError: false});
-    katex.render(String.raw`Q_T^h = 1.16 \cdot q_T^h \cdot (t^h - t^c) + Q^{ht}`, this._el3, {throwOnError: false});
-    katex.render(String.raw`Q_{hr}^h = 1.16 \cdot q_{hr}^h \cdot (t^h - t^c) + Q^{ht}`, this._el4, {throwOnError: false});
-    katex.render(String.raw`t^h`, this._el5, {throwOnError: false});
-    katex.render(String.raw`^\circ C`, this._el6, {throwOnError: false});
-    katex.render(String.raw`t^h = ${this._item.th} \space ^\circ C`, this._el7, {throwOnError: false});
-    katex.render(String.raw`t^c`, this._el8, {throwOnError: false});
-    katex.render(String.raw`^\circ C`, this._el9, {throwOnError: false})
-    katex.render(String.raw`t^c = ${this._item.tc} \space ^\circ C`, this._el10, {throwOnError: false});
-    katex.render(String.raw`Q^{ht}`, this._el11, {throwOnError: false});
-    katex.render(String.raw`кВт`, this._el12, {throwOnError: false});
-    katex.render(String.raw`Q^{ht} = ${this._item.qht} \space кВт`, this._el13, {throwOnError: false});
-    katex.render(String.raw`Q_T^h = 1.16 \space \cdot ${this._item.qht} \cdot ( ${this._item.th} - ${this._item.tc} ) \space + ${this._item.qht2} = ${this._item.qmid.toFixed(2)} \space кВт`, this._el14, {throwOnError: false});
-    katex.render(String.raw`${this._item.qmidg.toFixed(4)} \space Гкал`, this._el15, {throwOnError: false});
-    katex.render(String.raw`Q_{hr}^h = 1.16 \space \cdot ${this._item.qhhr} \cdot ( ${this._item.th} - ${this._item.tc}) \space + ${this._item.qht2} = ${this._item.qmax.toFixed(2)} \space кВт`, this._el16, {throwOnError: false});
-    katex.render(String.raw`${this._item.qmaxg.toFixed(4)} \space Гкал`, this._el17, {throwOnError: false});
-  }
-
   _editCard(evt) {
     super._editCard(evt);
     this._fieldQht.value = this._item.qht;
@@ -54,24 +33,30 @@ export class CardThermo extends Card {
 
   createCard() {
     super.createCard();
-    this._el1 = this._cardElement.querySelector('.formula1');
-    this._el2 = this._cardElement.querySelector('.formula2');
-    this._el3 = this._cardElement.querySelector('.formula3');
-    this._el4 = this._cardElement.querySelector('.formula4');
-    this._el5 = this._cardElement.querySelector('.formula5');
-    this._el6 = this._cardElement.querySelector('.formula6');
-    this._el7 = this._cardElement.querySelector('.formula7');
-    this._el8 = this._cardElement.querySelector('.formula8');
-    this._el9 = this._cardElement.querySelector('.formula9');
-    this._el10 = this._cardElement.querySelector('.formula10');
-    this._el11 = this._cardElement.querySelector('.formula11');
-    this._el12 = this._cardElement.querySelector('.formula12');
-    this._el13 = this._cardElement.querySelector('.formula13');
-    this._el14 = this._cardElement.querySelector('.formula14');
-    this._el15 = this._cardElement.querySelector('.formula15');
-    this._el16 = this._cardElement.querySelector('.formula16');
-    this._el17 = this._cardElement.querySelector('.formula17');
-
+    this._arr = [
+      {value: String.raw`Q_T^h (Q_{hr}^h) \space кВт`, key: this._el1},
+      {value: String.raw`(Q^{ht})`, key: this._el2},
+      {value: String.raw`Q_T^h = 1.16 \cdot q_T^h \cdot (t^h - t^c) + Q^{ht}`, key: this._el3},
+      {value: String.raw`Q_{hr}^h = 1.16 \cdot q_{hr}^h \cdot (t^h - t^c) + Q^{ht}`, key: this._el4},
+      {value: String.raw`t^h`, key: this._el5},
+      {value: String.raw`^\circ C`, key: this._el6},
+      {value: String.raw`t^h = ${this._item.th} \space ^\circ C`, key: this._el7},
+      {value: String.raw`t^c`, key: this._el8},
+      {value: String.raw`^\circ C`, key: this._el9},
+      {value: String.raw`t^c = ${this._item.tc} \space ^\circ C`, key: this._el10},
+      {value: String.raw`Q^{ht}`, key: this._el11},
+      {value: String.raw`кВт`, key: this._el12},
+      {value: String.raw`Q^{ht} = ${this._item.qht} \space кВт`, key: this._el13},
+      {value: String.raw`Q_T^h = 1.16 \space \cdot ${this._item.qht} \cdot 
+        ( ${this._item.th} - ${this._item.tc} ) \space + ${this._item.qht2} = 
+        ${this._item.qmid.toFixed(2)} \space кВт`, key: this._el14},
+      {value: String.raw`${this._item.qmidg.toFixed(4)} \space Гкал`, key: this._el15},
+      {value: String.raw`Q_{hr}^h = 1.16 \space \cdot ${this._item.qhhr} \cdot
+        ( ${this._item.th} - ${this._item.tc}) \space + ${this._item.qht2} =
+        ${this._item.qmax.toFixed(2)} \space кВт`, key: this._el16},
+      {value: String.raw`${this._item.qmaxg.toFixed(4)} \space Гкал`, key: this._el17},
+    ];
+    
     this._refresh();
     return this._cardElement;
   }

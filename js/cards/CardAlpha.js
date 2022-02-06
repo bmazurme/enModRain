@@ -17,11 +17,6 @@ export class CardAlpha extends Card {
     this._validator = handleCardClick._validator;
   }
 
-  _refresh = () => {
-    katex.render(String.raw`NP = ${this._item.np}`, this._el1, {throwOnError: false});
-    katex.render(String.raw`\alpha = ${this._item.alpha}`, this._el2, {throwOnError: false});
-  }
-
   _editCard(evt) {
     super._editCard(evt);
     this._fieldNp.value = this._item.np;
@@ -30,8 +25,11 @@ export class CardAlpha extends Card {
 
   createCard() {
     super.createCard();
-    this._el1 = this._cardElement.querySelector('.formula1');
-    this._el2 = this._cardElement.querySelector('.formula2');
+    this._arr = [
+      {value: String.raw`NP = ${this._item.np}`, key: this._el1},
+      {value: String.raw`\alpha = ${this._item.alpha}`, key: this._el2}
+    ];
+    
     this._refresh();
     return this._cardElement;
   }
