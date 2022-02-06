@@ -18,16 +18,6 @@ export class CardDwmeter extends Card {
     this._validator = handleCardClick._validator;
   }
 
-  _refresh = () => {
-    katex.render(String.raw`h_{сч} = S \cdot q^2`, this._el1, {throwOnError: false});
-    katex.render(String.raw`q`, this._el2, {throwOnError: false});
-    katex.render(String.raw`л/с`, this._el3, {throwOnError: false});
-    katex.render(String.raw`S`, this._el4, {throwOnError: false});
-    katex.render(String.raw`м/(м^3/ч)^2`, this._el5, {throwOnError: false});
-    katex.render(String.raw`h_{сч} = ${this._item.s} \cdot (3.6 \cdot ${this._item.q}
-       )^2 = ${this._item.h.toFixed(2)} \space м`, this._el6, {throwOnError: false});
-  };
-
   _editCard(evt) {
     super._editCard(evt);
     this._validator.resetValidation();
@@ -39,14 +29,17 @@ export class CardDwmeter extends Card {
 
   createCard() {
     super.createCard();
-    this._el1 = this._cardElement.querySelector('.formula1');
-    this._el2 = this._cardElement.querySelector('.formula2');
-    this._el3 = this._cardElement.querySelector('.formula3');
-    this._el4 = this._cardElement.querySelector('.formula4');
-    this._el5 = this._cardElement.querySelector('.formula5');
-    this._el6 = this._cardElement.querySelector('.formula6');
+    this._arr = [
+      {value: String.raw`h_{сч} = S \cdot q^2`, key: this._el1},
+      {value: String.raw`q`, key: this._el2},
+      {value: String.raw`л/с`, key: this._el3},
+      {value: String.raw`S`, key: this._el4},
+      {value: String.raw`м/(м^3/ч)^2`, key: this._el5},
+      {value: String.raw`h_{сч} = ${this._item.s} \cdot (3.6 \cdot ${this._item.q}
+         )^2 = ${this._item.h.toFixed(2)} \space м`, key: this._el6}
+    ];
+
     this._refresh();
-    
     return this._cardElement;
   }
 }

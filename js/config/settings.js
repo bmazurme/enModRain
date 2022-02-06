@@ -6,6 +6,8 @@
 
   export const settings = {
     editForm: '.form_type_edit',
+    addForm: '.form_type_add',
+
     inputName: '.inbox__input_name',
     inputAddress: '.inbox__input_address',
     inputQ: '.inbox__input_q',
@@ -23,25 +25,20 @@
     inputQmid: '.inbox__input_qmid',
     inputQmax: '.inbox__input_qmax',
     inputL: '.inbox__input_l',
-
     inputDiamsln: '.inbox__input_diamsln',
     inputAlpha2: '.inbox__input_alpha2',
     inputAlphasl: '.inbox__input_alphasl',
     inputAlphasl2: '.inbox__input_alphasl2',
     inputAlphanp2: '.inbox__input_alphanp2',
-
     inputQ20: '.inbox__input_q20',
     inputN: '.inbox__input_n',
     inputSlope: '.inbox__input_slope',
     inputRoof: '.inbox__input_roof',
     inputFacade: '.inbox__input_facade',
-
     inputTb: '.inbox__input_tb',
     inputV: '.inbox__input_v',
     inputDtr: '.inbox__input_dtr',
     inputDsl: '.inbox__input_dsl',
-
-
     inputQhhr: '.inbox__input_qhhr',
     inputTh: '.inbox__input_th',
     inputTc: '.inbox__input_tc',
