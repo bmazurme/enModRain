@@ -1,34 +1,49 @@
-import { config } from "../config/config.js";
-import { getAlpha } from "../calc/calcGetAlpha.js";
-import { CardAlpha } from "../cards/CardAlpha.js";
-import { initAlpha } from "../data/initAlpha.js";
-import { Section } from "../components/Section.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
-import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
-import { FormValidator } from '../components/FormValidator.js';
+import { calcTank } from "../calc/calcTank.js";
+import { CardTank } from "./CardTank.js";
+import { initTank } from "../../data/initTank.js";
+import { Section } from "../../components/Section.js";
+import { PopupWithForm } from "../../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { FormValidator } from '../../components/FormValidator.js';
+import { config } from "../../config/config.js";
 
 const addButton = document.querySelector(config.addButton);
 const addForm = document.querySelector('.form_type_add');
 const editForm = document.querySelector('.form_type_edit');
 
 const saveCard = (evt, val) => {
-  evt.preventDefault(); 
-  const {name, np} = val;
-  const result = getAlpha({name: name.value, np: np.value});
-  const card = new CardAlpha({item: result, cardTemplate: '#card-template',
-    handleCardClick: handleCardClick});
+  evt.preventDefault();  
+  const {name, th, tc, qmid, qmax, qsp, t, b} = val;
+  const result = calcTank({
+    name: name.value,
+    th: th.value, tc: tc.value, qmid: qmid.value, qmax: qmax.value,
+    qsp: qsp.value, t: t.value, b: b.value
+  });
 
+  const card = new CardTank({item: result, cardTemplate: '#card-template',
+    handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const {name, np} = val;
-  const result = getAlpha({name: name.value, np: np.value});
+  const {name, th, tc, qmid, qmax, qsp, t, b} = val;
+  const result = calcTank({
+    name: name.value,
+    th: th.value,
+    tc: tc.value,
+    qmid: qmid.value,
+    qmax: qmax.value,
+    qsp: qsp.value,
+    t: t.value,
+    b: b.value
+  });
+
   current.currentCard.querySelector('.element__name').textContent = name.value;
   current.item.name = name.value;
-  current.item.np = result.np;
-  current.item.alpha = result.alpha;
+  current.item.q = result.q;
+  current.item.hdr = result.hdr;
+  current.item.d = result.d;
   current.refresh();
 }
 
@@ -52,10 +67,13 @@ function openAddCardPopup() {
 const handleCardClick = editCardPopupWithForm;
 const cardListSelector = '.elements';
 const defaultCardList = new Section({
-  items: initAlpha,
+  items: initTank,
   renderer: (item) => {
-      const result = getAlpha({name: item.name, np: item.np});
-      const card = new CardAlpha({item: result, cardTemplate: '#card-template',
+    const result = calcTank({name: item.name,
+      th: item.th, tc: item.tc, qmid: item.qmid, qmax: item.qmax,
+      qsp: item.qsp, t: item.t, b: item.b});
+    
+      const card = new CardTank({item: result, cardTemplate: '#card-template',
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);

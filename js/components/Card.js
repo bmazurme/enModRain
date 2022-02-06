@@ -1,6 +1,6 @@
 import { settings } from '../config/settings.js';
-import { Popup } from '../components/Popup.js';
-import { Modal } from '../components/Modal.js';
+import { Popup } from './Popup.js';
+import { Modal } from './Modal.js';
 
 export class Card extends Popup {
   constructor(item, cardTemplate, openPopup, closePopup) {

@@ -1,11 +1,11 @@
-import { CardProject } from "./cards/CardProject.js";
-import { PopupWithForm } from "./components/PopupWithForm.js";
-import { PopupWithEditForm } from "./components/PopupWithEditForm.js";
-import { initProjects as data } from "./data/initProjects.js";
-import { Section } from "./components/Section.js";
-import { FormValidator } from './components/FormValidator.js';
-import { config } from "./config/config.js";
-import { settings } from "./config/settings.js";
+import { CardProject } from "./CardProject.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
+import { initProjects as data } from "../data/initProjects.js";
+import { Section } from "../components/Section.js";
+import { FormValidator } from '../components/FormValidator.js';
+import { config } from "../config/config.js";
+import { settings } from "../config/settings.js";
 
 const addButton = document.querySelector(config.addButton);
 const editForm = document.querySelector(settings.editForm);

@@ -1,35 +1,34 @@
-import { CardCircflow } from "../cards/CardCircflow.js";
-import { calcCirc } from "../calc/calcCirc.js";
-import { initCircflow } from "../data/initCircflow.js";
-import { Section } from "../components/Section.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
-import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
-import { FormValidator } from '../components/FormValidator.js';
-import { config } from "../config/config.js";
+import { config } from "../../config/config.js";
+import { getAlpha } from "../calc/calcGetAlpha.js";
+import { CardAlpha } from "./CardAlpha.js";
+import { initAlpha } from "../../data/initAlpha.js";
+import { Section } from "../../components/Section.js";
+import { PopupWithForm } from "../../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { FormValidator } from '../../components/FormValidator.js';
 
 const addButton = document.querySelector(config.addButton);
 const addForm = document.querySelector('.form_type_add');
 const editForm = document.querySelector('.form_type_edit');
 
 const saveCard = (evt, val) => {
-  evt.preventDefault();  
-  const {name, qht, t1, t2} = val;
-  const result = calcCirc({name: name.value, qht: qht.value, t1: t1.value, t2: t2.value});
-  const card = new CardCircflow({item: result, cardTemplate: '#card-template',
+  evt.preventDefault(); 
+  const {name, np} = val;
+  const result = getAlpha({name: name.value, np: np.value});
+  const card = new CardAlpha({item: result, cardTemplate: '#card-template',
     handleCardClick: handleCardClick});
+
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const {name, qht, t1, t2} = val;
-  const result = calcCirc({name, qht: qht.value, t1: t1.value, t2: t2.value});
+  const {name, np} = val;
+  const result = getAlpha({name: name.value, np: np.value});
   current.currentCard.querySelector('.element__name').textContent = name.value;
   current.item.name = name.value;
-  current.item.qht = result.qht;
-  current.item.t1 = result.t1;
-  current.item.t2 = result.t2;
-  current.item.qc = result.qc;
+  current.item.np = result.np;
+  current.item.alpha = result.alpha;
   current.refresh();
 }
 
@@ -53,10 +52,10 @@ function openAddCardPopup() {
 const handleCardClick = editCardPopupWithForm;
 const cardListSelector = '.elements';
 const defaultCardList = new Section({
-  items: initCircflow,
+  items: initAlpha,
   renderer: (item) => {
-      const result = calcCirc({name: item.name, qht: item.qht, t1: item.t1, t2: item.t2});
-      const card = new CardCircflow({item: result, cardTemplate: '#card-template',
+      const result = getAlpha({name: item.name, np: item.np});
+      const card = new CardAlpha({item: result, cardTemplate: '#card-template',
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);

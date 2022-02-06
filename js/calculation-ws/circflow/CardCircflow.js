@@ -1,5 +1,5 @@
-import { settings } from '../config/settings.js';
-import { Card } from './Card.js';
+import { settings } from '../../config/settings.js';
+import { Card } from '../../components/Card.js';
 
 export class CardCircflow extends Card {
   constructor({item, cardTemplate, handleCardClick}) {
@@ -48,8 +48,8 @@ export class CardCircflow extends Card {
       {value: String.raw`t^2 - `, key: this._el12},
       {value: String.raw`t^2 = ${this._item.t2} \degree C`, key: this._el13},
       {value: String.raw`Q_ц = \dfrac{${this._item.qht}}{${this._item.p}
-     \cdot ${this._item.c} \cdot (${this._item.t1} - ${this._item.t2})} = ${this._item.qc.toFixed(2)}
-      \space л/с`, key: this._el14}
+        \cdot ${this._item.c} \cdot (${this._item.t1} - ${this._item.t2})} = ${this._item.qc.toFixed(2)}
+        \space л/с`, key: this._el14}
     ];
     this._refresh();
     

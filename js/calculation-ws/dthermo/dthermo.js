@@ -1,11 +1,11 @@
 import { calcDthermo } from "../calc/calcDthermo.js";
-import { CardDthermo } from "../cards/CardDthermo.js";
-import { initDthermo } from "../data/initDthermo.js";
-import { Section } from "../components/Section.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
-import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
-import { FormValidator } from '../components/FormValidator.js';
-import { config } from "../config/config.js";
+import { CardDthermo } from "./CardDthermo.js";
+import { initDthermo } from "../../data/initDthermo.js";
+import { Section } from "../../components/Section.js";
+import { PopupWithForm } from "../../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { FormValidator } from '../../components/FormValidator.js';
+import { config } from "../../config/config.js";
 
 const addButton = document.querySelector(config.addButton);
 const addForm = document.querySelector('.form_type_add');

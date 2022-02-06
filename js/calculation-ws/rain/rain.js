@@ -1,12 +1,12 @@
 import { calcRain } from '../calc/calcRain.js';
-import { CardRain } from '../cards/CardRain.js';
-import { initRain } from '../data/initRain.js';
-import { Section } from "../components/Section.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
-import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
-import { FormValidator } from '../components/FormValidator.js';
-import { config } from "../config/config.js";
-import { Popup } from '../components/Popup.js';
+import { CardRain } from './CardRain.js';
+import { initRain } from '../../data/initRain.js';
+import { Section } from "../../components/Section.js";
+import { PopupWithForm } from "../../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { FormValidator } from '../../components/FormValidator.js';
+import { config } from "../../config/config.js";
+import { Popup } from '../../components/Popup.js';
 
 const addButton = document.querySelector(config.addButton);
 const mapButton = document.querySelector(config.mapButton);
