@@ -12,13 +12,6 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/form/form.css);
-/* @import url(../blocks/form/__box/form__box.css);
-@import url(../blocks/form/__title/form__title.css);
-@import url(../blocks/form/__input/form__input.css);
-@import url(../blocks/form/__input-error/form__input-error.css); */
-
-
-
 
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_login/button_login.css);
@@ -38,8 +31,6 @@
 @import url(../blocks/element/__paragraph/element__paragraph.css);
 @import url(../blocks/element/__paragraph-icon/element__paragraph-icon.css);
 @import url(../blocks/element/__paragraph-icon/_name/element__paragraph-icon_name_location.css);
-
-
 
 @import url(../blocks/menu/menu.css);
 @import url(../blocks/menu/__link/menu__link.css);
@@ -77,13 +68,10 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__title/header__title.css);
 
-
-
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/__box/modal__box.css);
 @import url(../blocks/modal/__cancel/modal__cancel.css);
 @import url(../blocks/modal/__remove/modal__remove.css);
-
 
 @import url(../blocks/inbox/inbox.css);
 @import url(../blocks/inbox/__bar/inbox__bar.css);

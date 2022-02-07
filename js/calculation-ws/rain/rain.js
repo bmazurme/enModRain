@@ -1,17 +1,18 @@
 import { calcRain } from '../calc/calcRain.js';
-import { CardRain } from '../cards/CardRain.js';
-import { initRain } from '../data/initRain.js';
-import { Section } from "../components/Section.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
-import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
-import { FormValidator } from '../components/FormValidator.js';
-import { config } from "../config/config.js";
-import { Popup } from '../components/Popup.js';
+import { CardRain } from './CardRain.js';
+import { initRain } from '../../data/initRain.js';
+import { Section } from "../../components/Section.js";
+import { PopupWithForm } from "../../components/PopupWithForm.js";
+import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { FormValidator } from '../../components/FormValidator.js';
+import { config } from "../../config/config.js";
+import { Popup } from '../../components/Popup.js';
+import { settings } from "../../config/settings.js";
 
 const addButton = document.querySelector(config.addButton);
 const mapButton = document.querySelector(config.mapButton);
-const addForm = document.querySelector('.form_type_add');
-const editForm = document.querySelector('.form_type_edit');
+const addForm = document.querySelector(settings.addForm);
+const editForm = document.querySelector(settings.editForm);
 
 const saveCard = (evt, val) => {
   evt.preventDefault();  
@@ -22,7 +23,7 @@ const saveCard = (evt, val) => {
     roof: roof.value, facade: facade.value
   });
   
-  const card = new CardRain({item: result, cardTemplate: '#card-template',
+  const card = new CardRain({item: result, cardTemplate: settings.cardTemplate,
     handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
@@ -36,7 +37,7 @@ const editCard = (evt, val, current) => {
     roof: roof.value, facade: facade.value
   });
 
-  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.currentCard.querySelector(settings.elementName).textContent = name.value;
   current.item.name = name.value;
   current.item.q20 = result.q20;
   current.item.n = result.n;
@@ -50,8 +51,8 @@ const editCard = (evt, val, current) => {
   current.refresh();
 }
 
-const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
-const imgCardPopup = new Popup('.popup_type_img');
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: settings.popupAdd});
+const imgCardPopup = new Popup(settings.popupImg);
 const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
@@ -60,7 +61,7 @@ editCardFormValidator.enableValidation();
 const editCardPopupWithForm = new PopupWithEditForm({
   submit: editCard,
   validator: editCardFormValidator,
-  popupSelector: '.popup_type_edit'
+  popupSelector: settings.popupEdit
 });
 
 function openAddCardPopup() {
@@ -73,7 +74,7 @@ function openImgCardPopup() {
 }
 
 const handleCardClick = editCardPopupWithForm;
-const cardListSelector = '.elements';
+const cardListSelector = settings.elements;
 const defaultCardList = new Section({
   items: initRain,
   renderer: (item) => {
@@ -82,7 +83,7 @@ const defaultCardList = new Section({
         slope: item.slope, roof: item.roof, facade: item.facade
       });
 
-      const card = new CardRain({item: result, cardTemplate: '#card-template',
+      const card = new CardRain({item: result, cardTemplate: settings.cardTemplate,
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);

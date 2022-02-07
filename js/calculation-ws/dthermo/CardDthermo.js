@@ -1,5 +1,5 @@
-import { settings } from '../config/settings.js';
-import { Card } from './Card.js';
+import { settings } from '../../config/settings.js';
+import { Card } from '../../components/Card.js';
 
 export class CardDthermo extends Card {
   constructor({item, cardTemplate, handleCardClick}) {
@@ -54,36 +54,36 @@ export class CardDthermo extends Card {
       {value: String.raw`Nu = 0,021 \cdot Re^{0,8} \cdot Pr^{0,43}`, key: this._el4 },
       {value: String.raw`Nu = 0,021 \cdot ${this._item.re.toFixed(2)}
         ^{0,8} \cdot ${Number(this._item.pr).toFixed(2)} ^{0,43} = ${this._item.nu.toFixed(2)}`, key: this._el5 },
-        {value: String.raw`Pr`, key: this._el6 },
-        {value: String.raw`\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}}
+      {value: String.raw`Pr`, key: this._el6 },
+      {value: String.raw`\alpha_{вн} = \dfrac {Nu \cdot \lambda_t} {d_{тр}}
         = \dfrac { ${this._item.nu.toFixed(2)} \cdot ${this._item.ham.toFixed(2)}} {${this._item.dtr}} 
         = ${this._item.alpha.toFixed(2)}`, key: this._el7 },
-        {value: String.raw`\lambda_t`, key: this._el8 },
-        {value: String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} 
+      {value: String.raw`\lambda_t`, key: this._el8 },
+      {value: String.raw`R_{ВН} = \dfrac 1 {\pi \cdot d_{тр} \cdot \alpha_{ВН}} 
         = \dfrac 1 {\pi \cdot ${this._item.dtr} \cdot ${this._item.alpha.toFixed(2)}} 
         = ${this._item.rbh.toFixed(2)}`, key: this._el9 },
-        {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`,
+      {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`,
         key: this._el10 },
-        {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl}}
+      {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl}}
         \cdot ln(\frac {${this._item.dsl}} {${this._item.dtr}}) = ${this._item.rsl.toFixed(3)}`, key: this._el11 },
-        {value: String.raw`R_{сл}`, key: this._el12 },
-        {value: String.raw`D_{сл}`, key: this._el13 },
-        {value: String.raw`d_{сл}`, key: this._el14 },
-        {value: String.raw`\lambda_{сл}`, key: this._el15 },
-        {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, 
+      {value: String.raw`R_{сл}`, key: this._el12 },
+      {value: String.raw`D_{сл}`, key: this._el13 },
+      {value: String.raw`d_{сл}`, key: this._el14 },
+      {value: String.raw`\lambda_{сл}`, key: this._el15 },
+      {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot \lambda_{сл}} \cdot ln(\frac {D_{сл}} {d_{сл}})`, 
         key: this._el16 },
       {value: String.raw`R_{сл} = \dfrac 1 {\pi \cdot ${this._item.alphasl2}} \cdot
         ln(\frac {${this._item.diamsln}} {${this._item.dsl}}) = ${this._item.rsl2.toFixed(3)}`, key: this._el17 },
-        {value: String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}`, key: this._el18 },
-        {value: String.raw`R_{нар} = \dfrac {1} {\pi \cdot ${this._item.diamsln} \cdot ${this._item.alphanp2}} 
+      {value: String.raw`R_{нар} = \dfrac {1} {\pi \cdot D_{сл} \cdot \alpha_{нар}}`, key: this._el18 },
+      {value: String.raw`R_{нар} = \dfrac {1} {\pi \cdot ${this._item.diamsln} \cdot ${this._item.alphanp2}} 
         = ${Number(this._item.rnp).toFixed(3)}`, key: this._el19 },
-        {value:  String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}`, key: this._el20 },
-        {value: String.raw`k = \dfrac {1} {${this._item.rbh.toFixed(3)} + ${this._item.rsl.toFixed(3)} 
+      {value:  String.raw`k = \dfrac {1} {R_{вн} + \sum R_{сл} + R_{ нар}}`, key: this._el20 },
+      {value: String.raw`k = \dfrac {1} {${this._item.rbh.toFixed(3)} + ${this._item.rsl.toFixed(3)} 
         + ${this._item.rsl2.toFixed(3)} + ${this._item.rnp.toFixed(3)}} = ${this._item.k.toFixed(3)}`,
         key: this._el21 },
-        {value: String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L`, key: this._el22 },
-        {value: String.raw`t^B`, key: this._el23 },
-        {value: String.raw`Q_{tr}^{ht} = ${this._item.k.toFixed(3)} \cdot (${this._item.th} - ${this._item.tb})
+      {value: String.raw`Q_{tr}^{ht} = k \cdot (t^h - t^B) \cdot L`, key: this._el22 },
+      {value: String.raw`t^B`, key: this._el23 },
+      {value: String.raw`Q_{tr}^{ht} = ${this._item.k.toFixed(3)} \cdot (${this._item.th} - ${this._item.tb})
         \cdot ${this._item.l} = ${this._item.qht.toFixed(3)} Вт`, key: this._el24 },
         {value: String.raw`T_2 = \dfrac {3,6 \cdot q \cdot T_1 - Q_{тр}^{ht} \cdot 0,86} {3,6 \cdot q}`,
         key: this._el25 },

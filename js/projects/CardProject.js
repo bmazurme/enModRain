@@ -1,5 +1,5 @@
 import { settings } from '../config/settings.js';
-import { Card } from './Card.js';
+import { Card } from '../components/Card.js';
 
 export class CardProject extends Card {
   constructor({item, cardTemplate, handleCardClick}) {

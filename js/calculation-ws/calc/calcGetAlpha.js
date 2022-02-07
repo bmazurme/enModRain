@@ -1,4 +1,4 @@
-import { initNpAlpha } from "../data/initNpAlpha.js";
+import { initNpAlpha } from "../../data/initNpAlpha.js";
 
 export const getAlpha = (item) => {
   let value = item.np;

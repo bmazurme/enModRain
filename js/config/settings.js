@@ -7,6 +7,7 @@
   export const settings = {
     editForm: '.form_type_edit',
     addForm: '.form_type_add',
+    cardTemplate: '#card-template',
 
     inputName: '.inbox__input_name',
     inputAddress: '.inbox__input_address',
@@ -49,10 +50,15 @@
     closeButton: '.popup__close',
     slideImage: '.slide__image',
 
+    popupAdd: '.popup_type_add',
+    popupEdit: '.popup_type_edit',
+    popupImg: '.popup_type_img',
+
     cardLike: 'element__like_checked',
     formSave: '.form__save',
     popupActive: 'popup_active',
     element: '.element',
+    elements: '.elements',
     elementName: '.element__name',
     elementLike: '.element__like',
     elementRemove: '.box__remove',
