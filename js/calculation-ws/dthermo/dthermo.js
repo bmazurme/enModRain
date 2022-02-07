@@ -6,10 +6,11 @@ import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
 import { FormValidator } from '../../components/FormValidator.js';
 import { config } from "../../config/config.js";
+import { settings } from "../../config/settings.js";
 
 const addButton = document.querySelector(config.addButton);
-const addForm = document.querySelector('.form_type_add');
-const editForm = document.querySelector('.form_type_edit');
+const addForm = document.querySelector(settings.addForm);
+const editForm = document.querySelector(settings.editForm);
 
 const saveCard = (evt, val) => {
   evt.preventDefault();  
@@ -27,7 +28,7 @@ const saveCard = (evt, val) => {
     v: v.value
   });
 
-  const card = new CardDthermo({item: result, cardTemplate: '#card-template',
+  const card = new CardDthermo({item: result, cardTemplate: settings.cardTemplate,
     handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
@@ -48,7 +49,7 @@ const editCard = (evt, val, current) => {
     alphasl2: alphasl2.value
   });
 
-  current.currentCard.querySelector('.element__name').textContent = name.value;
+  current.currentCard.querySelector(settings.elementName).textContent = name.value;
   current.item.name = name.value;
   current.item.qht = result.qht;
   current.item.qhhr = result.qhhr;
@@ -75,7 +76,7 @@ function openAddCardPopup() {
 }
 
 const handleCardClick = editCardPopupWithForm;
-const cardListSelector = '.elements';
+const cardListSelector = settings.elements;
 const defaultCardList = new Section({
   items: initDthermo,
   renderer: (item) => {
@@ -90,7 +91,7 @@ const defaultCardList = new Section({
       alphasl2: item.alphasl2
     });
 
-      const card = new CardDthermo({item: result, cardTemplate: '#card-template',
+      const card = new CardDthermo({item: result, cardTemplate: settings.cardTemplate,
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);

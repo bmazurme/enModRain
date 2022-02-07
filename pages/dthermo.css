@@ -16,8 +16,6 @@
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
 
-
-
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/__box/modal__box.css);
 @import url(../blocks/modal/__cancel/modal__cancel.css);

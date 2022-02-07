@@ -51,8 +51,8 @@ export class CardCircflow extends Card {
         \cdot ${this._item.c} \cdot (${this._item.t1} - ${this._item.t2})} = ${this._item.qc.toFixed(2)}
         \space л/с`, key: this._el14}
     ];
-    this._refresh();
     
+    this._refresh();
     return this._cardElement;
   }
 }
