@@ -50,6 +50,10 @@
     closeButton: '.popup__close',
     slideImage: '.slide__image',
 
+    popupAdd: '.popup_type_add',
+    popupEdit: '.popup_type_edit',
+    popupImg: '.popup_type_img',
+
     cardLike: 'element__like_checked',
     formSave: '.form__save',
     popupActive: 'popup_active',

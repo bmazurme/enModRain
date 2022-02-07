@@ -27,12 +27,12 @@ const saveCard = (evt, val) => {
   evt.preventDefault();  
   const {name, address} = val;
   const obj = {name: name.value, address: address.value};
-  const card = new CardProject({item: obj, cardTemplate: '#card-template', handleCardClick: handleCardClick});
+  const card = new CardProject({item: obj, cardTemplate: settings.cardTemplate, handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
 
-const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: settings.popupAdd});
 function openAddCardPopup() {
   addCardFormValidator.resetValidation();
   addCardPopupWithForm.open();
@@ -41,14 +41,14 @@ function openAddCardPopup() {
 const editCardPopupWithForm = new PopupWithEditForm({
   submit: editCard,
   validator: editCardFormValidator,
-  popupSelector: '.popup_type_edit'
+  popupSelector: settings.popupEdit
 });
 const handleCardClick = editCardPopupWithForm;
-const cardListSelector = '.elements';
+const cardListSelector = settings.elements;
 const defaultCardList = new Section({
   items: data,
   renderer: (item) => {
-      const card = new CardProject({item: item, cardTemplate: '#card-template',
+      const card = new CardProject({item: item, cardTemplate: settings.cardTemplate,
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);

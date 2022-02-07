@@ -58,7 +58,7 @@ const editCard = (evt, val, current) => {
   current.refresh();
 }
 
-const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: '.popup_type_add'});
+const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: settings.popupAdd});
 const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
@@ -67,7 +67,7 @@ editCardFormValidator.enableValidation();
 const editCardPopupWithForm = new PopupWithEditForm({
   submit: editCard,
   validator: editCardFormValidator,
-  popupSelector: '.popup_type_edit'
+  popupSelector: settings.popupEdit
 });
 
 function openAddCardPopup() {
@@ -81,15 +81,15 @@ const defaultCardList = new Section({
   items: initDthermo,
   renderer: (item) => {
     const result = calcDthermo({
-      name: item.name, t1: item.t1,
-      l: item.l, q: item.q,
-      th: item.th, tb: item.tb,
-      v: item.v, dtr: item.dtr,
-      dsl: item.dsl, diamsln: item.diamsln,
-      alphanp2: item.alphanp2,
-      alphasl: item.alphasl,
-      alphasl2: item.alphasl2
-    });
+        name: item.name, t1: item.t1,
+        l: item.l, q: item.q,
+        th: item.th, tb: item.tb,
+        v: item.v, dtr: item.dtr,
+        dsl: item.dsl, diamsln: item.diamsln,
+        alphanp2: item.alphanp2,
+        alphasl: item.alphasl,
+        alphasl2: item.alphasl2
+      });
 
       const card = new CardDthermo({item: result, cardTemplate: settings.cardTemplate,
         handleCardClick: handleCardClick});
