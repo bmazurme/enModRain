@@ -11,6 +11,10 @@
 
     inputName: '.inbox__input_name',
     inputAddress: '.inbox__input_address',
+
+    inputDescription: '.inbox__input_description',
+    inputLink: '.inbox__input_link',
+
     inputQ: '.inbox__input_q',
     inputS: '.inbox__input_s',
     inputH: '.inbox__input_h',
@@ -60,6 +64,8 @@
     element: '.element',
     elements: '.elements',
     elementName: '.element__name',
+    elementDescription: '.element__description',
+    elementLink: '.element__link',
     elementLike: '.element__like',
     elementRemove: '.box__remove',
     elementEdit: '.box__edit',
@@ -71,5 +77,7 @@
     printButton: '.button_print',
     removeButton: '.button_remove',
     editButton: '.button_edit',
-    mapButton: '.button_map'
+    mapButton: '.button_map',
+    footerCopyright: '.footer__copyright',
+    creater: 'bmazur'
   };
