@@ -1,7 +1,7 @@
-import { CardProject } from "./CardProject.js";
+import { CardSoft } from "./CardSoft.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../components/PopupWithEditForm.js";
-import { initProjects as data } from "../data/initProjects.js";
+import { initSoft as data } from "../data/initSoft.js";
 import { Section } from "../components/Section.js";
 import { FormValidator } from '../components/FormValidator.js';
 import { config } from "../config/config.js";
@@ -17,17 +17,18 @@ editCardFormValidator.enableValidation();
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();
-  current.currentCard.querySelector('.project__name').textContent = val.name.value;
-  current.currentCard.querySelector('.project__address').textContent = val.address.value;
+  current.currentCard.querySelector('.element__name').textContent = val.name.value;
+  current.currentCard.querySelector('.element__description').textContent = val.description.value;
+  current.currentCard.querySelector('.element__link').textContent = val.link.value;
   current.item.name = val.name.value;
-  current.item.address = val.address.value;
+  current.item.description = val.description.value;
 };
 
 const saveCard = (evt, val) => {
   evt.preventDefault();  
-  const {name, address} = val;
-  const obj = {name: name.value, address: address.value};
-  const card = new CardProject({item: obj, cardTemplate: settings.cardTemplate, handleCardClick: handleCardClick});
+  const {name, description, link} = val;
+  const obj = {name: name.value, description: description.value, link: link.value};
+  const card = new CardSoft({item: obj, cardTemplate: settings.cardTemplate, handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
 }
@@ -48,7 +49,7 @@ const cardListSelector = settings.elements;
 const defaultCardList = new Section({
   items: data,
   renderer: (item) => {
-      const card = new CardProject({item: item, cardTemplate: settings.cardTemplate,
+      const card = new CardSoft({item: item, cardTemplate: settings.cardTemplate,
         handleCardClick: handleCardClick});
       const cardElement = card.createCard();
       defaultCardList.addItem(cardElement);
