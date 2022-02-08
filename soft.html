@@ -85,6 +85,18 @@
           </div>
 
           <div class="inbox" >
+            <input class="inbox__input inbox__input_image" 
+            required 
+              value="Лого"
+              type="url"
+              name="image"
+              id="image-input" >
+            <span class="inbox__bar image-input-bar"></span>
+            <label class="inbox__label image-input-label" >Лого</label>
+            <span class="image-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
             <input class="inbox__input inbox__input_link" 
               aria-invalid="true"
               type="text"
@@ -110,7 +122,7 @@
 
           <div class="inbox" >
             <input class="inbox__input inbox__input_name" 
-            required minlength="2" maxlength="30"
+              required minlength="2" maxlength="30"
               type="text"
               value="Наименование"
               name="name"
@@ -130,6 +142,18 @@
             <span class="inbox__bar description-input-bar"></span>
             <label class="inbox__label description-input-label" >Описание</label>
             <span class="description-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_image" 
+            required 
+              value="Лого"
+              type="url"
+              name="image"
+              id="image-input" >
+            <span class="inbox__bar image-input-bar"></span>
+            <label class="inbox__label image-input-label" >Лого</label>
+            <span class="image-input-error inbox__input_error"></span>
           </div>
 
           <div class="inbox" >
@@ -156,14 +180,13 @@
           <button aria-label="Edit" class="button button_edit" type="button"></button>
           <button aria-label="Remove" class="button button_remove" type="button"></button>
         </div>
-        <div class="element__group">
-          
-          <div class="project">
 
             <div class="element__column">
               <div class="element__icon element__icon_type_name"></div>
               <h2 class="element__name"></h2> 
             </div>
+
+            <img class="element__image" src="#" alt=""> 
             
             <div class="element__column">
               <div class="element__icon element__icon_type_description"></div>
@@ -173,11 +196,8 @@
             <div class="element__column">
               <div class="element__icon element__icon_type_link"></div>
               <a href="#" class="element__link link">Link</a>
-       
             </div>
-                          
-          </div>
-        </div>
+                        
       </div> 
     </template>
 
