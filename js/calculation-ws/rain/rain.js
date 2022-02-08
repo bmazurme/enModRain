@@ -8,6 +8,7 @@ import { FormValidator } from '../../components/FormValidator.js';
 import { config } from "../../config/config.js";
 import { Popup } from '../../components/Popup.js';
 import { settings } from "../../config/settings.js";
+import { footerStamp } from '../../index.js';
 
 const addButton = document.querySelector(config.addButton);
 const mapButton = document.querySelector(config.mapButton);
@@ -94,3 +95,5 @@ const defaultCardList = new Section({
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 mapButton.addEventListener('click', openImgCardPopup);
+
+footerStamp();

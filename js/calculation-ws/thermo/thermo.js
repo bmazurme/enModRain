@@ -7,6 +7,7 @@ import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
 import { FormValidator } from '../../components/FormValidator.js';
 import { config } from "../../config/config.js";
 import { settings } from "../../config/settings.js";
+import { footerStamp } from "../../index.js";
 
 const addButton = document.querySelector(config.addButton);
 const addForm = document.querySelector(settings.addForm);
@@ -76,3 +77,5 @@ const defaultCardList = new Section({
 );
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
+
+footerStamp();

@@ -1,5 +1,5 @@
-import { settings } from '../config/settings.js';
-import { Card } from '../components/Card.js';
+import { settings } from '../../config/settings.js';
+import { Card } from '../../components/Card.js';
 
 export class CardVolume extends Card {
   constructor(item, cardTemplate, openPopup, closePopup) {

@@ -6,6 +6,7 @@ import { Section } from "../components/Section.js";
 import { FormValidator } from '../components/FormValidator.js';
 import { config } from "../config/config.js";
 import { settings } from "../config/settings.js";
+import { footerStamp } from "../index.js";
 
 const addButton = document.querySelector(config.addButton);
 const editForm = document.querySelector(settings.editForm);
@@ -60,6 +61,4 @@ const defaultCardList = new Section({
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
-const currentYear = (new Date()).getFullYear();
-const field = document.querySelector(settings.footerCopyright);
-field.textContent = `© ${currentYear} ${settings.creater}`;
+footerStamp();
