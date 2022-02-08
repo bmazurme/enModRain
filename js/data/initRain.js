@@ -6,7 +6,7 @@ export const initRain =  [
     q: 8,
     q5: 0,
     q20: 80,
-    roof: 1000,
+    roof: 1100,
     slope: 1,
     sumArea: 1000
   },
@@ -17,7 +17,7 @@ export const initRain =  [
     q: 8,
     q5: 0,
     q20: 80,
-    roof: 1000,
+    roof: 1200,
     slope: 2,
     sumArea: 1000
   }

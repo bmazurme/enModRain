@@ -58,50 +58,176 @@
         <button aria-label="Close" class="popup__close" type="button"></button>
         <form class="form form_type_add" name="add-form" novalidate>
           <h2 class="form__title">Новый расчет</h2>
-          <div class="form__box">
-            <input placeholder="Наименование кровли" class="form__input form__input_type_name"
-              required minlength="2" maxlength="30" name="name" id="nameCard-input">
-            <span class="nameCard-input-error form__input-error"></span>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="name"
+              id="name-input" required maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование кровли</label>
+            <span class="name-input-error inbox__input_error"></span>
           </div>
-          <div class="form__box">
-            <input placeholder="Уклон кровли, %" 
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
-            class="form__input 
-              form__input_type_slope" id="slope-input" required >
-            <span class="slope-input-error form__input-error"></span>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_slope" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="slope"
+              id="slope-input" required maxlength="30" >
+            <span class="inbox__bar slope-input-bar"></span>
+            <label class="inbox__label slope-input-label" >Уклон кровли, %</label>
+            <span class="slope-input-error inbox__input_error"></span>
           </div>
-          <div class="form__box">
-            <input placeholder="Площадь участка кровли, м&sup2;"
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
-              form__input_type_roof" id="roof-input" required >
-            <span class="roof-input-error form__input-error"></span>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_roof" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="roof"
+              id="roof-input" required maxlength="30" >
+            <span class="inbox__bar roof-input-bar"></span>
+            <label class="inbox__label roof-input-label" >Площадь участка кровли, м&sup2;</label>
+            <span class="roof-input-error inbox__input_error"></span>
           </div>
-          <div class="form__box">
-            <input placeholder="Площадь участка прилигающего фасада, м&sup2;"
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
-              form__input_type_facade" id="facade-input" required >
-            <span class="facade-input-error form__input-error"></span>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_facade" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="facade"
+              id="facade-input" required maxlength="30" >
+            <span class="inbox__bar facade-input-bar"></span>
+            <label class="inbox__label facade-input-label" >Площадь участка прилигающего фасада, м&sup2;</label>
+            <span class="facade-input-error inbox__input_error"></span>
           </div>
-          <div class="form__box">
-            <input placeholder="Интенсивность дождя q20"
-              pattern="(?<=^| )\d+(\.\d+)?(?=$| )" 
-              class="form__input 
-              form__input_type_q20" id="q20-input" required >
-            <span class="q20-input-error form__input-error"></span>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_q20" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="q20"
+              id="q20-input" required maxlength="30" >
+            <span class="inbox__bar q20-input-bar"></span>
+            <label class="inbox__label q20-input-label" >Интенсивность дождя q20</label>
+            <span class="q20-input-error inbox__input_error"></span>
           </div>
-          <div class="form__box">
-            <input placeholder="Параметр n, принимаемый согласно СП32.13330"
-            pattern="(?<=^| )\d+(\.\d+)?(?=$| )" class="form__input 
-              form__input_type_n" id="n-input" required >
-            <span class="n-input-error form__input-error"></span>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_n" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="n"
+              id="n-input" required maxlength="30" >
+            <span class="inbox__bar n-input-bar"></span>
+            <label class="inbox__label n-input-label" >Параметр n, принимаемый согласно СП32.13330</label>
+            <span class="n-input-error inbox__input_error"></span>
           </div>
+
           <button aria-label="Save" class="button button_save form__submit" 
             type="submit">Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="popup popup_type_slide popup_image">
+
+
+
+
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_edit" name="add-form" novalidate>
+          <h2 class="form__title">Новый расчет</h2>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text" value="Наименование"
+              autocomplete="off"
+              name="name"
+              id="name-input" required min="2" maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование кровли</label>
+            <span class="name-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_slope" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="slope"
+              id="slope-input" required min="2" maxlength="30" >
+            <span class="inbox__bar slope-input-bar"></span>
+            <label class="inbox__label slope-input-label" >Уклон кровли, %</label>
+            <span class="slope-input-error inbox__input_error"></span>
+          </div>
+
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_roof" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="roof"
+              id="roof-input" required maxlength="30" >
+            <span class="inbox__bar roof-input-bar"></span>
+            <label class="inbox__label roof-input-label" >Площадь участка кровли, м&sup2;</label>
+            <span class="roof-input-error inbox__input_error"></span>
+          </div>
+
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_facade" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="facade"
+              id="facade-input" required maxlength="30" >
+            <span class="inbox__bar facade-input-bar"></span>
+            <label class="inbox__label facade-input-label" >Площадь участка прилигающего фасада, м&sup2;</label>
+            <span class="facade-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_q20" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="q20"
+              id="q20-input" required maxlength="30" >
+            <span class="inbox__bar q20-input-bar"></span>
+            <label class="inbox__label q20-input-label" >Интенсивность дождя q20</label>
+            <span class="q20-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_n" 
+              aria-invalid="true"
+              type="text" value="0"
+              autocomplete="off"
+              name="n"
+              id="n-input" required maxlength="30" >
+            <span class="inbox__bar n-input-bar"></span>
+            <label class="inbox__label n-input-label" >Параметр n, принимаемый согласно СП32.13330</label>
+            <span class="n-input-error inbox__input_error"></span>
+          </div>
+
+          <button aria-label="Save" class="button button_save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_img popup_image">
       <div class="popup__container popup__container_image">
         <button aria-label="Close" class="popup__close" type="button"></button>
         <div class="slide">
@@ -158,11 +284,51 @@
           <div class="block__result">
             <p class="element__paragraph"> <span class="element__formula formula27"></span></p>
           </div>
+
+          <p class="element__result"></p>
+          <p class="element__paragraph">Расход дождевого стока определяется по формуле:</p>
+          <p class="element__paragraph">
+              Расчетный расход дождевых вод <span class="formula1"></span> ,
+               с водосборной площади следует вычислять по формулам:
+          </p>
+          <p class="element__paragraph">
+              - для кровель с уклоном свыше 1,5%
+          </p>
+
+          <p class="element__paragraph"><span class="element__formula formula3"></span></p>
+          <p class="element__paragraph">
+              где <span class="formula4"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 20 мин при периоде однократного превышения
+               расчетной интенсивности, равной одному году
+          </p>
+          <p class="element__paragraph"><span class="formula5"></span> 
+              - интенсивность дождя, л/с с га (для данной местности),
+              продолжительностью 5 мин при периоде однократного превышения 
+              расчетной интенсивности, равной одному году,
+              вычисляется по формуле
+          </p>
+          <p class="element__paragraph"> <span class="element__formula formula6"></span></p>
+          <div class="block__area">
+            <p class="element__paragraph">Площадь горизонтальной поверхности</p>
+            <p  class="element__paragraph"><span class="element__formula formula7"></span></p>
+            <p class="element__paragraph">Площадь вертикальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula10"></span></p>
+            <p class="element__paragraph">Суммарная площадь горизонтальной поверхности 
+              и 30% вертикальной поверхности</p>
+            <p class="element__paragraph"><span class="element__formula formula13"></span></p>
+            <p ><span class="element__formula formula14"></span></p>
+
+          </div>
+          <div class="block__result">
+            <p> <span class="element__formula formula21"></span></p>
+            <p> <span class="element__formula formula27"></span></p>
+          </div>
         </div>
       </div>
     </template>
 
-    <template id="card1-template">
+    <!-- <template id="card1-template">
       <div class="element">
         <h2 class="element__name"></h2>
         <div class="box">
@@ -170,6 +336,10 @@
           <button aria-label="Print" class="button button_print" type="button"></button>
           <button aria-label="Remove" class="button button_remove" type="button"></button>
         </div>
+
+
+
+
         <div class="element__group">
      
           <p class="element__result"></p>
@@ -212,8 +382,11 @@
             <p> <span class="element__formula formula27"></span></p>
           </div>
         </div>
+
+      
+
       </div>
-    </template>
+    </template> -->
 
     <div class="popup popup_type_modal">
       <div class="popup__container popup__container_yesno">
@@ -235,7 +408,7 @@
       </div>
     </div>
 
-    <script type="module" src="../js/calculation-ws/rain.js"></script>
+    <script type="module" src="../js/calculation-ws/rain/rain.js"></script>
     <script src="../vendor/jspdf.debug.js"></script>
     <script src="//yastatic.net/katex/0.8.3/katex.min.js"></script>
   </body>

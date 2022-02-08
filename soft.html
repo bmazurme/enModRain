@@ -6,7 +6,7 @@
     <meta name="description" content="Soft">
     <meta name="keywords" content="Revit">
     <meta name="author" content="Bogdan Mazur">
-    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./pages/soft.css">
     <title>Soft</title>
   </head>
 
@@ -27,13 +27,15 @@
           <a class="menu__link menu__link_active" href="soft.html">Soft</a>
         </nav>
 
-
       </header>   
 
       <main class="main">
-        <section class="slides">
-
+        <section class="calculate">
+          <button aria-label="Add" class="button button_add" type="button"></button>
         </section>
+        <section class="elements">   
+
+        </section>    
       </main>
 
       <footer class="footer">
@@ -49,6 +51,177 @@
       </footer>
     </div>
 
-    <script type="module" src="./js/index.js"></script>
+
+
+
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_add" name="add-form" novalidate>
+          <h2 class="form__title">Новый плагин</h2>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              aria-invalid="true"
+              type="text"
+              autocomplete="off"
+              name="name"
+              id="name-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование</label>
+            <span class="name-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_description" 
+              aria-invalid="true"
+              type="text"
+              name="description"
+              autocomplete="off"
+              id="description-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar description-input-bar"></span>
+            <label class="inbox__label description-input-label" >Описание</label>
+            <span class="description-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_image" 
+            required 
+              value="Лого"
+              type="url"
+              name="image"
+              id="image-input" >
+            <span class="inbox__bar image-input-bar"></span>
+            <label class="inbox__label image-input-label" >Лого</label>
+            <span class="image-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_link" 
+              aria-invalid="true"
+              type="text"
+              name="link"
+              autocomplete="off"
+              id="link-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar link-input-bar"></span>
+            <label class="inbox__label link-input-label" >Ссылка</label>
+            <span class="link-input-error inbox__input_error"></span>
+          </div>
+
+          <button aria-label="Save" class="button button_save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <form class="form form_type_edit" name="add-form" novalidate>
+          <h2 class="form__title">Редактировать плагин</h2>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_name" 
+              required minlength="2" maxlength="30"
+              type="text"
+              value="Наименование"
+              name="name"
+              id="name-input" >
+            <span class="inbox__bar name-input-bar"></span>
+            <label class="inbox__label name-input-label" >Наименование</label>
+            <span class="name-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_description" 
+            required minlength="2" maxlength="30"
+              value="Описание"
+              type="text"
+              name="description"
+              id="description-input" >
+            <span class="inbox__bar description-input-bar"></span>
+            <label class="inbox__label description-input-label" >Описание</label>
+            <span class="description-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_image" 
+              required 
+              value="http://127.0.0.1:5500/images/plus.svg"
+              type="url"
+              name="image"
+              id="image-input" >
+            <span class="inbox__bar image-input-bar"></span>
+            <label class="inbox__label image-input-label" >Лого</label>
+            <span class="image-input-error inbox__input_error"></span>
+          </div>
+
+          <div class="inbox" >
+            <input class="inbox__input inbox__input_link" 
+              aria-invalid="true"
+              type="url"
+              value="http://127.0.0.1:5500/images/plus.svg"
+              name="link"
+              autocomplete="off"
+              id="link-input" required minlength="2" maxlength="30" >
+            <span class="inbox__bar link-input-bar"></span>
+            <label class="inbox__label link-input-label" >Ссылка</label>
+            <span class="link-input-error inbox__input_error"></span>
+          </div>
+
+          <button aria-label="Save" class="button button_save form__submit" 
+            type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <div class="element">
+        <div class="box">
+          <button aria-label="Edit" class="button button_edit" type="button"></button>
+          <button aria-label="Remove" class="button button_remove" type="button"></button>
+        </div>
+
+            <div class="element__column">
+              <div class="element__icon element__icon_type_name"></div>
+              <h2 class="element__name"></h2> 
+            </div>
+
+            <img class="element__image" src="#" alt=""> 
+            
+            <div class="element__column">
+              <div class="element__icon element__icon_type_description"></div>
+              <p class="element__description description">Description</p>
+            </div>
+
+            <div class="element__column">
+              <div class="element__icon element__icon_type_link"></div>
+              <a href="#" class="element__link link">Link</a>
+            </div>
+                        
+      </div> 
+    </template>
+
+    <div class="popup popup_type_modal">
+      <div class="popup__container popup__container_yesno">
+        <button aria-label="Close" class="popup__close" type="button"></button>
+        <div class="modal">
+          <h2 class="form__title">Подтвердить удаление?</h2>
+
+          <div class="modal__box">
+            <button aria-label="Remove" 
+              class="button button_remove button_text" 
+              type="button">Удалить</button>
+
+            <button aria-label="Cancel" 
+                class="button button_cancel" 
+                type="button">Отменить</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/soft/soft.js"></script>
   </body>
 </html>
