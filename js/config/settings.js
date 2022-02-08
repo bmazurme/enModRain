@@ -14,6 +14,7 @@
 
     inputDescription: '.inbox__input_description',
     inputLink: '.inbox__input_link',
+    inputImage: '.inbox__input_image',
 
     inputQ: '.inbox__input_q',
     inputS: '.inbox__input_s',
@@ -65,6 +66,7 @@
     elements: '.elements',
     elementName: '.element__name',
     elementDescription: '.element__description',
+    elementImage: '.element__image',
     elementLink: '.element__link',
     elementLike: '.element__like',
     elementRemove: '.box__remove',

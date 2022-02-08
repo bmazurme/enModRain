@@ -19,15 +19,18 @@ const editCard = (evt, val, current) => {
   evt.preventDefault();
   current.currentCard.querySelector('.element__name').textContent = val.name.value;
   current.currentCard.querySelector('.element__description').textContent = val.description.value;
-  current.currentCard.querySelector('.element__link').textContent = val.link.value;
+  current.currentCard.querySelector('.element__link').href = val.link.value;
+  current.currentCard.querySelector('.element__image').src = val.image.value;
   current.item.name = val.name.value;
   current.item.description = val.description.value;
+  current.item.link = val.link.value;
+  current.item.image = val.link.image;
 };
 
 const saveCard = (evt, val) => {
   evt.preventDefault();  
-  const {name, description, link} = val;
-  const obj = {name: name.value, description: description.value, link: link.value};
+  const {name, description, link, image} = val;
+  const obj = {name: name.value, description: description.value, link: link.value, image: image.value};
   const card = new CardSoft({item: obj, cardTemplate: settings.cardTemplate, handleCardClick: handleCardClick});
   const item = card.createCard();
   defaultCardList.addItem(item);
@@ -44,6 +47,7 @@ const editCardPopupWithForm = new PopupWithEditForm({
   validator: editCardFormValidator,
   popupSelector: settings.popupEdit
 });
+
 const handleCardClick = editCardPopupWithForm;
 const cardListSelector = settings.elements;
 const defaultCardList = new Section({
