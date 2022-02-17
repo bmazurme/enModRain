@@ -24,12 +24,22 @@ export class CardCircflow extends Card {
     this._fieldQht.value = this._item.qht;
     this._fieldT1.value = this._item.t1;
     this._fieldT2.value = this._item.t2;
-    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+    this._editCardClick.open({
+      currentCard: this._cardElement,
+      item: this._item,
+      refresh: this._refresh
+    });
   }
 
   createCard() {
     super.createCard()
-    this._arr = [
+    this._arr = this._getTemplate();
+    this._refresh();
+    return this._cardElement;
+  }
+
+  _getTemplate() {
+    return [
       {value: String.raw`Q_ц, л/с`, key: this._el1},
       {value: String.raw`Q_ц = \dfrac{Q^{ht}}{\rho \cdot c \cdot (t^1 - t^2)}`, key: this._el2},
       {value: String.raw`Q^{ht} - `, key: this._el3},
@@ -51,8 +61,5 @@ export class CardCircflow extends Card {
         \cdot ${this._item.c} \cdot (${this._item.t1} - ${this._item.t2})} = ${this._item.qc.toFixed(2)}
         \space л/с`, key: this._el14}
     ];
-    
-    this._refresh();
-    return this._cardElement;
   }
 }

@@ -22,12 +22,22 @@ export class CardThrottle extends Card {
     super._editCard(evt);
     this._fieldQ.value = this._item.q;
     this._fieldHdr.value = this._item.hdr;
-    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+    this._editCardClick.open({
+      currentCard: this._cardElement,
+      item: this._item,
+      refresh: this._refresh
+    });
   }
 
   createCard() {
     super.createCard();
-    this._arr = [
+    this._arr = this._getTemplate();
+    this._refresh();
+    return this._cardElement;
+  }
+
+  _getTemplate() {
+    return [
       {value: String.raw`d_0,\space мм`, key: this._el1},
       {value: String.raw`d_0 = 3.16 \sqrt[4]{ \dfrac{(3.6 \cdot q)^2}{h_{др}}}`, key: this._el2},
       {value: String.raw`h_{др}`, key: this._el3},
@@ -35,8 +45,5 @@ export class CardThrottle extends Card {
       {value: String.raw`d_0 = 3.16 \sqrt[4]{ \dfrac{(3.6 \cdot ${this._item.q})^2}{${this._item.hdr}}} = 
       ${this._item.d.toFixed(1)} \space мм `, key: this._el5}
     ];
-    
-    this._refresh();
-    return this._cardElement;
   }
 }

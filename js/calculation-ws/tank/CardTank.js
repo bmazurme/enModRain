@@ -32,12 +32,22 @@ export class CardTank extends Card {
     this._fieldQsp.value = this._item.qsp;
     this._fieldT.value = this._item.t;
     this._fieldB.value = this._item.b;
-    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+    this._editCardClick.open({
+      currentCard: this._cardElement,
+      item: this._item,
+      refresh: this._refresh
+    });
   }
 
   createCard() {
     super.createCard();
-    this._arr = [
+    this._arr = this._getTemplate();
+    this._refresh();
+    return this._cardElement;
+  }
+
+  _getTemplate() {
+    return [
       {value: String.raw`W = \dfrac{\varphi \cdot T \cdot Q_T^h}{1.16 \cdot (t^h - t^c)}`, key: this._el1},
       {value: String.raw`W_1 = \dfrac{${Number(this._item.fi).toFixed(2)} \cdot ${this._item.t}
         \cdot ${this._item.qmid}}{1.16 \cdot (${this._item.th} - ${this._item.tc})} =
@@ -100,7 +110,5 @@ export class CardTank extends Card {
       {value: String.raw`t^c`, key: this._el39},
       {value: String.raw`t^h`, key: this._el40}
     ];
-    this._refresh();
-    return this._cardElement;
   }
 }

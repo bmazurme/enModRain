@@ -16,7 +16,8 @@ export class Card extends Popup {
   }
 
   _refresh = () => {
-    this._arr.forEach((item) => { 
+    this._arr = this._getTemplate();
+    this._arr.forEach((item) => {
       katex.render(item.value, item.key, {throwOnError: false});
     });
   }

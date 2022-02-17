@@ -47,7 +47,13 @@ export class CardDthermo extends Card {
 
   createCard() {
     super.createCard();
-    this._arr = [
+    this._arr = this._getTemplate();
+    this._refresh();
+    return this._cardElement;
+  }
+  
+  _getTemplate() {
+    return [
       {value: String.raw`Re = \dfrac {Vd_{тр}} {\nu}`, key: this._el1 },
       {value: String.raw`Re = \dfrac {Vd_{тр}} {\nu} = ${Number(this._item.re).toFixed(2)}`, key: this._el2 },
       {value: String.raw`{\nu}`, key: this._el3 },
@@ -93,8 +99,5 @@ export class CardDthermo extends Card {
         ${this._item.t1} - ${this._item.qht.toFixed(3)} \cdot 0,86} {3,6 \cdot ${this._item.q}} 
         = ${this._item.t2.toFixed(3)}`, key: this._el28 },
     ];
-    
-    this._refresh();
-    return this._cardElement;
   }
 }

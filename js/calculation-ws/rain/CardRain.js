@@ -28,12 +28,22 @@ export class CardRain extends Card {
     this._fieldSlope.value = this._item.slope;
     this._fieldRoof.value = this._item.roof;
     this._fieldFacade.value = this._item.facade;
-    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+    this._editCardClick.open({
+      currentCard: this._cardElement,
+      item: this._item,
+      refresh: this._refresh
+    });
   }
 
   createCard() {
     super.createCard();
-    this._arr = [
+    this._arr = this._getTemplate();
+    this._refresh();
+    return this._cardElement;
+  }
+
+  _getTemplate() {
+    return [
       {value: String.raw`Q`, key: this._el1},
       {value: String.raw`q_{20}`, key: this._el4},
       {value: String.raw`F_1 = ${this._item.roof} \space м^2`, key: this._el7},
@@ -52,7 +62,5 @@ export class CardRain extends Card {
       {value: String.raw`Q = \dfrac { ${this._item.q5} \cdot ${this._item.sumArea}}{10000} 
         = ${this._item.q.toFixed(2)} \space л/с`, key: this._el27}
     ];
-    this._refresh();
-    return this._cardElement;
   }
 }
