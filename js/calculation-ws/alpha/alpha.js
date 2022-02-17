@@ -1,7 +1,7 @@
 import { config } from "../../config/config.js";
 import { getAlpha } from "../calc/calcGetAlpha.js";
 import { CardAlpha } from "./CardAlpha.js";
-import { initAlpha } from "../../data/initAlpha.js";
+import { initAlpha as items} from "../../data/initAlpha.js";
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
@@ -15,19 +15,15 @@ const editForm = document.querySelector(settings.editForm);
 
 const saveCard = (evt, val) => {
   evt.preventDefault(); 
-  const {name, np} = val;
-  const result = getAlpha({name: name.value, np: np.value});
-  const card = new CardAlpha({item: result, cardTemplate: settings.cardTemplate,
-    handleCardClick: handleCardClick});
-  const item = card.createCard();
-  defaultCardList.addItem(item);
+  const result = getAlpha(val);
+  defaultCardList.addItem(result);
 }
+
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const {name, np} = val;
-  const result = getAlpha({name: name.value, np: np.value});
-  current.currentCard.querySelector(settings.elementName).textContent = name.value;
-  current.item.name = name.value;
+  const result = getAlpha(val);
+  current.currentCard.querySelector(settings.elementName).textContent = val.name;
+  current.item.name = val.name;
   current.item.np = result.np;
   current.item.alpha = result.alpha;
   current.refresh();
@@ -39,7 +35,7 @@ const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
 
-const editCardPopupWithForm = new PopupWithEditForm({
+const handleCardClick = new PopupWithEditForm({
   submit: editCard,
   validator: editCardFormValidator,
   popupSelector: settings.popupEdit
@@ -50,21 +46,25 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const handleCardClick = editCardPopupWithForm;
 const cardListSelector = settings.elements;
 const defaultCardList = new Section({
-  items: initAlpha,
-  renderer: (item) => {
-      const result = getAlpha({name: item.name, np: item.np});
-      const card = new CardAlpha({item: result, cardTemplate: settings.cardTemplate,
-        handleCardClick: handleCardClick});
-      const cardElement = card.createCard();
-      defaultCardList.addItem(cardElement);
-    }
+    items,
+    renderer
   },
   cardListSelector
 );
+
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();
+
+function renderer(data) {
+  const item = getAlpha(data);
+  const card = new CardAlpha({
+    item,
+    cardTemplate: settings.cardTemplate,
+    handleCardClick
+  });
+  return card.createCard();
+}

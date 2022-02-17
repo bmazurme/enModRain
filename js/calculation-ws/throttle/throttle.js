@@ -1,6 +1,6 @@
 import { calcThrottle } from "../calc/calcThrottle.js";
 import { CardThrottle } from "./CardThrottle.js";
-import { initThtrottle } from "../../data/initThtrotle.js";
+import { initThtrottle as items } from "../../data/initThtrotle.js";
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
@@ -15,20 +15,15 @@ const editForm = document.querySelector(settings.editForm);
 
 const saveCard = (evt, val) => {
   evt.preventDefault();  
-  const {name, q, hdr} = val;
-  const result = calcThrottle({name: name.value, q: q.value, hdr: hdr.value});
-  const card = new CardThrottle({item: result, cardTemplate: settings.cardTemplate,
-    handleCardClick: handleCardClick});
-  const item = card.createCard();
-  defaultCardList.addItem(item);
+  const item = calcThrottle(val);
+  cardList.addItem(item);
 }
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const {name, q, hdr} = val;
-  const result = calcThrottle({name: name.value, q: q.value, hdr: hdr.value});
-  current.currentCard.querySelector(settings.elementName).textContent = name.value;
-  current.item.name = name.value;
+  const result = calcThrottle(val);
+  current.currentCard.querySelector(settings.elementName).textContent = val.name;
+  current.item.name = val.name;
   current.item.q = result.q;
   current.item.hdr = result.hdr;
   current.item.d = result.d;
@@ -41,7 +36,7 @@ const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
 
-const editCardPopupWithForm = new PopupWithEditForm({
+const handleCardClick = new PopupWithEditForm({
   submit: editCard,
   validator: editCardFormValidator,
   popupSelector: settings.popupEdit
@@ -52,21 +47,24 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const handleCardClick = editCardPopupWithForm;
 const cardListSelector = settings.elements;
-const defaultCardList = new Section({
-  items: initThtrottle,
-  renderer: (item) => {
-      const result = calcThrottle({name: item.name, q: item.q, hdr: item.hdr});
-      const card = new CardThrottle({item: result, cardTemplate: settings.cardTemplate,
-        handleCardClick: handleCardClick});
-      const cardElement = card.createCard();
-      defaultCardList.addItem(cardElement);
-    }
+const cardList = new Section({
+    items,
+    renderer
   },
   cardListSelector
 );
-defaultCardList.render();
+cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();
+
+function renderer(data) {
+  const item = calcThrottle(data);
+  const card = new CardThrottle({
+    item,
+    cardTemplate: settings.cardTemplate,
+    handleCardClick
+  });
+  return card.createCard();
+}

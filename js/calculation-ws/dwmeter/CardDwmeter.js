@@ -24,12 +24,22 @@ export class CardDwmeter extends Card {
     this._fieldName.value = this._item.name;
     this._fieldQ.value = this._item.q;
     this._fieldS.value = this._item.s;
-    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+    this._editCardClick.open({
+      currentCard: this._cardElement,
+      item: this._item,
+      refresh: this._refresh
+    });
   }
 
   createCard() {
     super.createCard();
-    this._arr = [
+    this._arr = this._getTemplate();
+    this._refresh();
+    return this._cardElement;
+  }
+
+  _getTemplate() {
+    return [
       {value: String.raw`h_{сч} = S \cdot q^2`, key: this._el1},
       {value: String.raw`q`, key: this._el2},
       {value: String.raw`л/с`, key: this._el3},
@@ -38,8 +48,5 @@ export class CardDwmeter extends Card {
       {value: String.raw`h_{сч} = ${this._item.s} \cdot (3.6 \cdot ${this._item.q}
          )^2 = ${this._item.h.toFixed(2)} \space м`, key: this._el6}
     ];
-
-    this._refresh();
-    return this._cardElement;
   }
 }

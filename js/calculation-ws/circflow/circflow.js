@@ -1,6 +1,6 @@
 import { CardCircflow } from "./CardCircflow.js";
 import { calcCirc } from "../calc/calcCirc.js";
-import { initCircflow } from "../../data/initCircflow.js";
+import { initCircflow as items } from "../../data/initCircflow.js";
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
@@ -15,19 +15,15 @@ const editForm = document.querySelector(settings.editForm);
 
 const saveCard = (evt, val) => {
   evt.preventDefault();  
-  const {name, qht, t1, t2} = val;
-  const result = calcCirc({name: name.value, qht: qht.value, t1: t1.value, t2: t2.value});
-  const card = new CardCircflow({item: result, cardTemplate: settings.cardTemplate,
-    handleCardClick: handleCardClick});
-  const item = card.createCard();
+  const item = calcCirc(val);
   defaultCardList.addItem(item);
 }
+
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const {name, qht, t1, t2} = val;
-  const result = calcCirc({name, qht: qht.value, t1: t1.value, t2: t2.value});
-  current.currentCard.querySelector(settings.elementName).textContent = name.value;
-  current.item.name = name.value;
+  const result = calcCirc(val);
+  current.currentCard.querySelector(settings.elementName).textContent = val.name;
+  current.item.name = val.name;
   current.item.qht = result.qht;
   current.item.t1 = result.t1;
   current.item.t2 = result.t2;
@@ -55,14 +51,8 @@ function openAddCardPopup() {
 const handleCardClick = editCardPopupWithForm;
 const cardListSelector = settings.elements;
 const defaultCardList = new Section({
-  items: initCircflow,
-  renderer: (item) => {
-      const result = calcCirc({name: item.name, qht: item.qht, t1: item.t1, t2: item.t2});
-      const card = new CardCircflow({item: result, cardTemplate: settings.cardTemplate,
-        handleCardClick: handleCardClick});
-      const cardElement = card.createCard();
-      defaultCardList.addItem(cardElement);
-    }
+    items,
+    renderer
   },
   cardListSelector
 );
@@ -70,3 +60,13 @@ defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();
+
+function renderer(data) {
+  const item = calcCirc(data);
+  const card = new CardCircflow({
+    item,
+    cardTemplate: settings.cardTemplate,
+    handleCardClick
+  });
+  return card.createCard();
+}
