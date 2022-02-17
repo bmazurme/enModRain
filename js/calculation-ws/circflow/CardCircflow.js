@@ -27,7 +27,8 @@ export class CardCircflow extends Card {
     this._editCardClick.open({
       currentCard: this._cardElement,
       item: this._item,
-      refresh: this._refresh});
+      refresh: this._refresh
+    });
   }
 
   createCard() {

@@ -16,7 +16,7 @@ const editForm = document.querySelector(settings.editForm);
 const saveCard = (evt, val) => {
   evt.preventDefault();  
   const item = calcCirc(val);
-  defaultCardList.addItem(item);
+  cardList.addItem(item);
 }
 
 const editCard = (evt, val, current) => {
@@ -50,13 +50,13 @@ function openAddCardPopup() {
 
 const handleCardClick = editCardPopupWithForm;
 const cardListSelector = settings.elements;
-const defaultCardList = new Section({
+const cardList = new Section({
     items,
     renderer
   },
   cardListSelector
 );
-defaultCardList.render();
+cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();
