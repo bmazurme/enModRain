@@ -25,16 +25,16 @@ const enableValidation = (config) => {
 };
 enableValidation(config);
 
-const editCard = (evt, val, current) => {
+const editCard = (evt, {name, description, link, image}, current) => {
   evt.preventDefault();
-  current.currentCard.querySelector(settings.elementName).textContent = val.name;
-  current.currentCard.querySelector(settings.elementDescription).textContent = val.description;
-  current.currentCard.querySelector(settings.elementLink).href = val.link;
-  current.currentCard.querySelector(settings.elementImage).src = val.image;
-  current.item.name = val.name;
-  current.item.description = val.description;
-  current.item.link = val.link;
-  current.item.image = val.link.image;
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.currentCard.querySelector(settings.elementDescription).textContent = description;
+  current.currentCard.querySelector(settings.elementLink).href = link;
+  current.currentCard.querySelector(settings.elementImage).src = image;
+  current.item.name = name;
+  current.item.description = description;
+  current.item.link = link;
+  current.item.image = image;
 };
 
 const saveCard = (evt, item) => {

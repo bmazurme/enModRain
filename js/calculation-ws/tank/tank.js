@@ -16,17 +16,17 @@ const editForm = document.querySelector(settings.editForm);
 const saveCard = (evt, val) => {
   evt.preventDefault();  
   const item = calcTank(val);
-  defaultCardList.addItem(item);
+  cardList.addItem(item);
 }
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const result = calcTank(val);
-  current.currentCard.querySelector(settings.elementName).textContent = val.name;
-  current.item.name = val.name;
-  current.item.q = result.q;
-  current.item.hdr = result.hdr;
-  current.item.d = result.d;
+  const {name, q, hdr, d} = calcTank(val);
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.item.name = name;
+  current.item.q = q;
+  current.item.hdr = hdr;
+  current.item.d = d;
   current.refresh();
 }
 
@@ -47,14 +47,14 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const defaultCardList = new Section({
+const cardList = new Section({
     items,
     renderer
   },
   settings.cardListSelector
 );
 
-defaultCardList.render();
+cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();

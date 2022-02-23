@@ -21,12 +21,12 @@ const saveCard = (evt, val) => {
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const result = calcThrottle(val);
-  current.currentCard.querySelector(settings.elementName).textContent = val.name;
-  current.item.name = val.name;
-  current.item.q = result.q;
-  current.item.hdr = result.hdr;
-  current.item.d = result.d;
+  const { name, q, hdr, d} = calcThrottle(val);
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.item.name = name;
+  current.item.q = q;
+  current.item.hdr = hdr;
+  current.item.d = d;
   current.refresh();
 }
 

@@ -16,7 +16,7 @@ const editForm = document.querySelector(settings.editForm);
 const saveCard = (evt, val) => {
   evt.preventDefault();  
   const item = calcThermo(val);
-  defaultCardList.addItem(item);
+  cardList.addItem(item);
 }
 
 const editCard = (evt, val, current) => {
@@ -53,8 +53,8 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const defaultCardList = new Section({ items, renderer }, settings.cardListSelector );
-defaultCardList.render();
+const cardList = new Section({ items, renderer }, settings.cardListSelector );
+cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();

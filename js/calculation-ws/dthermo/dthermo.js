@@ -21,13 +21,13 @@ const saveCard = (evt, val) => {
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();
-  const result = calcDthermo(val);
-  current.currentCard.querySelector(settings.elementName).textContent = val.name;
-  current.item.name = val.name;
-  current.item.qht = result.qht;
-  current.item.qhhr = result.qhhr;
-  current.item.th = result.th;
-  current.item.tc = result.tc;
+  const { name, qht, qhhr, th, tc } = calcDthermo(val);
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.item.name = name;
+  current.item.qht = qht;
+  current.item.qhhr = qhhr;
+  current.item.th = th;
+  current.item.tc = tc;
   current.refresh();
 }
 

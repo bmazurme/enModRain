@@ -18,22 +18,22 @@ const editForm = document.querySelector(settings.editForm);
 const saveCard = (evt, val) => {
   evt.preventDefault();  
   const item = calcRain(val);
-  defaultCardList.addItem(item);
+  cardList.addItem(item);
 }
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const result = calcRain(val);
-  current.currentCard.querySelector(settings.elementName).textContent = val.name;
-  current.item.name = val.name;
-  current.item.q20 = result.q20;
-  current.item.n = result.n;
-  current.item.slope = result.slope;
-  current.item.roof = result.roof;
-  current.item.facade = result.facade;
-  current.item.q = result.q;
-  current.item.q5 = result.q5;
-  current.item.sumArea = result.sumArea;
+  const {name, q20, n, slope, roof, facade, q, q5, sumArea} = calcRain(val);
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.item.name = name;
+  current.item.q20 = q20;
+  current.item.n = n;
+  current.item.slope = slope;
+  current.item.roof = roof;
+  current.item.facade = facade;
+  current.item.q = q;
+  current.item.q5 = q5;
+  current.item.sumArea = sumArea;
   current.refresh();
 }
 
@@ -59,13 +59,13 @@ function openImgCardPopup() {
   imgCardPopup.open();
 }
 
-const defaultCardList = new Section({
+const cardList = new Section({
     items,
     renderer
   },
   settings.cardListSelector
 );
-defaultCardList.render();
+cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 mapButton.addEventListener('click', openImgCardPopup);
 

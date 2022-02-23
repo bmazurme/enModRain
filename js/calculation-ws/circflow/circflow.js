@@ -21,13 +21,13 @@ const saveCard = (evt, val) => {
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const result = calcCirc(val);
-  current.currentCard.querySelector(settings.elementName).textContent = val.name;
-  current.item.name = val.name;
-  current.item.qht = result.qht;
-  current.item.t1 = result.t1;
-  current.item.t2 = result.t2;
-  current.item.qc = result.qc;
+  const {name, qht, t1, t2, qc} = calcCirc(val);
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.item.name = name;
+  current.item.qht = qht;
+  current.item.t1 = t1;
+  current.item.t2 = t2;
+  current.item.qc = qc;
   current.refresh();
 }
 

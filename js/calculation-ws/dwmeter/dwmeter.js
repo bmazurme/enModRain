@@ -21,12 +21,12 @@ const saveCard = (evt, val) => {
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();  
-  const result = calcDwmeter( val );
-  current.currentCard.querySelector(settings.elementName).textContent = result.name;
-  current.item.name = result.name;
-  current.item.q = result.q;
-  current.item.s = result.s;
-  current.item.h = result.h;
+  const { name, q, s, h } = calcDwmeter( val );
+  current.currentCard.querySelector(settings.elementName).textContent = name;
+  current.item.name = name;
+  current.item.q = q;
+  current.item.s = s;
+  current.item.h = h;
   current.refresh();
 }
 
