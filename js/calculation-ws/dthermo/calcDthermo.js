@@ -35,15 +35,8 @@ export function calcDthermo(item) {
     let pr = 13.45;
     let ve = 0.0000018;
     let ham = 0.5545000;
-    // if (item.th === 0) {
-    //     pr = 13.45;
-    //     ve = 0.0000018;
-    //     ham = 0.5545000;
-    // } else 
+
     const th = Number(item.th);
-
-
-    console.log(item);
 
     if (th === 1) {
         pr = 12.935;
