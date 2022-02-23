@@ -1,9 +1,9 @@
 import { settings } from '../config/settings.js';
 import { Popup } from './Popup.js';
-import { Modal } from './Modal.js';
+//import { Modal } from './Modal.js';
 
 export class Card extends Popup {
-  constructor(item, cardTemplate, openPopup, closePopup) {
+  constructor(item, cardTemplate, openPopup, closePopup, handleCardDelete) {
     super('.popup_type_edit');
     this._item = item;
     this._cardTemplate = cardTemplate;
@@ -13,6 +13,7 @@ export class Card extends Popup {
     this._element = settings.element;
     this._elementRemove = settings.elementRemove;
     this._elementPrint = settings.elementPrint;
+    this._handleCardDelete = handleCardDelete;
   }
 
   _refresh = () => {
@@ -36,12 +37,16 @@ export class Card extends Popup {
     });
   }
 
-  _deleteCard() {
-    new Modal({deleteCard: () => {this._cardElement.remove();this._cardElement = null;}}).open();
-  }
+  // _deleteCard() {
+  //   new Modal(
+  //     {
+  //       deleteCard: () => {this._cardElement.remove();
+  //       this._cardElement = null;
+  //     }}).open();
+  // }
 
   setEventListeners() {
-    this._cardElement.querySelector(this._removeButton).addEventListener("click", () => this._deleteCard());
+    this._cardElement.querySelector(this._removeButton).addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));//() => this._deleteCard());
     this._cardElement.querySelector(this._editButton).addEventListener("click", (evt) => this._editCard(evt));
     this._cardElement.querySelector(this._printButton).addEventListener("click", (evt) => this._printCard(evt));
   }

@@ -63,7 +63,7 @@
     formSave: '.form__save',
     popupActive: 'popup_active',
     element: '.element',
-    elements: '.elements',
+    cardListSelector: '.elements',
     elementName: '.element__name',
     elementDescription: '.element__description',
     elementImage: '.element__image',

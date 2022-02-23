@@ -1,5 +1,5 @@
 import { CardCircflow } from "./CardCircflow.js";
-import { calcCirc } from "../calc/calcCirc.js";
+import { calcCirc } from "./calcCirc.js";
 import { initCircflow as items } from "../../data/initCircflow.js";
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
@@ -49,13 +49,7 @@ function openAddCardPopup() {
 }
 
 const handleCardClick = editCardPopupWithForm;
-const cardListSelector = settings.elements;
-const cardList = new Section({
-    items,
-    renderer
-  },
-  cardListSelector
-);
+const cardList = new Section({ items, renderer }, settings.cardListSelector );
 cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 

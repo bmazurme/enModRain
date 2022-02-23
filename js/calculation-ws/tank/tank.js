@@ -1,4 +1,4 @@
-import { calcTank } from "../calc/calcTank.js";
+import { calcTank } from "./calcTank.js";
 import { CardTank } from "./CardTank.js";
 import { initTank as items } from "../../data/initTank.js";
 import { Section } from "../../components/Section.js";
@@ -47,12 +47,11 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const cardListSelector = settings.elements;
 const defaultCardList = new Section({
     items,
     renderer
   },
-  cardListSelector
+  settings.cardListSelector
 );
 
 defaultCardList.render();

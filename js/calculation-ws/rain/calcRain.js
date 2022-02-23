@@ -8,10 +8,6 @@ export function calcRain(item) {
   let sumArea = 0;
   let q5 = 0;
 
-  // console.log(sumArea);
-  // console.log(roof);
-  // console.log(facade);
-
   sumArea = roof + facade * 0.3;
   
   if (slope < 1.5) {

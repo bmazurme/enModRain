@@ -7,6 +7,7 @@ import { FormValidator } from '../components/FormValidator.js';
 import { config } from "../config/config.js";
 import { settings } from "../config/settings.js";
 import { footerStamp } from "../index.js";
+import { PopupWithConfirm } from "../components/PopupWithConfirm.js";
 
 const addButton = document.querySelector(config.addButton);
 const editForm = document.querySelector(settings.editForm);
@@ -30,7 +31,7 @@ const editCard = (evt, val, current) => {
 
 const saveCard = (evt, item) => {
   evt.preventDefault();  
-  defaultCardList.addItem(item);
+  cardList.addItem(item);
 }
 
 const addCardPopupWithForm = new PopupWithForm({
@@ -49,10 +50,19 @@ const handleCardClick = new PopupWithEditForm({
   popupSelector: settings.popupEdit
 });
 
-const cardListSelector = settings.elements;
-const defaultCardList = new Section({ items, renderer }, cardListSelector );
+const deleteCardCallback = (evt, card) => {
+  evt.preventDefault();
+  card.removeItem();
+  popupWithConfirm.close();
+};
+const popupWithConfirm = new PopupWithConfirm({
+  submit: deleteCardCallback,
+  popupSelector: '.popup_type_modal'
+});
 
-defaultCardList.render();
+const cardList = new Section({ items, renderer }, settings.cardListSelector );
+
+cardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 
 footerStamp();
@@ -61,7 +71,8 @@ function renderer(item) {
   const card = new CardSoft({
     item,
     cardTemplate: settings.cardTemplate,
-    handleCardClick
+    handleCardClick,
+    handleCardDelete: popupWithConfirm
   });
   return card.createCard();
 }

@@ -1,4 +1,4 @@
-import { calcRain } from '../calc/calcRain.js';
+import { calcRain } from './calcRain.js';
 import { CardRain } from './CardRain.js';
 import { initRain as items} from '../../data/initRain.js';
 import { Section } from "../../components/Section.js";
@@ -59,12 +59,11 @@ function openImgCardPopup() {
   imgCardPopup.open();
 }
 
-const cardListSelector = settings.elements;
 const defaultCardList = new Section({
     items,
     renderer
   },
-  cardListSelector
+  settings.cardListSelector
 );
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);

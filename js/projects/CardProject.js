@@ -2,7 +2,7 @@ import { settings } from '../config/settings.js';
 import { Card } from '../components/Card.js';
 
 export class CardProject extends Card {
-  constructor({item, cardTemplate, handleCardClick}) {
+  constructor({item, cardTemplate, handleCardClick, handleCardDelete}) {
     super(cardTemplate);
     this._cardTemplate = cardTemplate;
     this._item = item;
@@ -16,6 +16,18 @@ export class CardProject extends Card {
     this._editButton = settings.editButton;
     this._editCardClick = handleCardClick;
     this._validator = handleCardClick._validator;
+    this._handleCardDelete = handleCardDelete;
+  }
+
+
+  _openPopupWithConfirm(evt) {
+    this._currentCard = evt.target.closest(this._element);
+    this._handleCardDelete.setCurrentCard(this, evt.target.closest(this._element));
+    this._handleCardDelete.open();
+  }
+
+  removeItem() {
+    this._currentCard.remove();
   }
 
   _editCard(evt) {
@@ -25,7 +37,8 @@ export class CardProject extends Card {
   }
 
   setEventListeners() {
-    this._cardElement.querySelector(this._removeButton).addEventListener("click", () => this._deleteCard());
+    //this._cardElement.querySelector(this._removeButton).addEventListener("click", () => this._deleteCard());
+    this._cardElement.querySelector(this._removeButton).addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));
     this._cardElement.querySelector(this._editButton).addEventListener("click", (evt) => this._editCard(evt));
   }
 

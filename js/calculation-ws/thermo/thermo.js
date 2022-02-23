@@ -1,4 +1,4 @@
-import { calcThermo } from "../calc/calcThermo.js";
+import { calcThermo } from "./calcThermo.js";
 import { CardThermo } from "./CardThermo.js"; 
 import { initThermo as items} from "../../data/initThermo.js";
 import { Section } from "../../components/Section.js";
@@ -53,13 +53,7 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const cardListSelector = settings.elements;
-const defaultCardList = new Section({
-    items,
-    renderer
-  },
-  cardListSelector
-);
+const defaultCardList = new Section({ items, renderer }, settings.cardListSelector );
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 

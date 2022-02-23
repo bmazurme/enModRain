@@ -1,4 +1,4 @@
-import { calcThrottle } from "../calc/calcThrottle.js";
+import { calcThrottle } from "./calcThrottle.js";
 import { CardThrottle } from "./CardThrottle.js";
 import { initThtrottle as items } from "../../data/initThtrotle.js";
 import { Section } from "../../components/Section.js";
@@ -47,12 +47,11 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const cardListSelector = settings.elements;
 const cardList = new Section({
     items,
     renderer
   },
-  cardListSelector
+  settings.cardListSelector
 );
 cardList.render();
 addButton.addEventListener('click', openAddCardPopup);

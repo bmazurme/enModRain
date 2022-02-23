@@ -1,5 +1,5 @@
 import { config } from "../../config/config.js";
-import { getAlpha } from "../calc/calcGetAlpha.js";
+import { getAlpha } from "./calcGetAlpha.js";
 import { CardAlpha } from "./CardAlpha.js";
 import { initAlpha as items} from "../../data/initAlpha.js";
 import { Section } from "../../components/Section.js";
@@ -29,7 +29,7 @@ const editCard = (evt, val, current) => {
   current.refresh();
 }
 
-const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: settings.popupAdd});
+const addCardPopupWithForm = new PopupWithForm({ submit: saveCard, popupSelector: settings.popupAdd });
 const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
@@ -46,14 +46,7 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const cardListSelector = settings.elements;
-const defaultCardList = new Section({
-    items,
-    renderer
-  },
-  cardListSelector
-);
-
+const defaultCardList = new Section({ items, renderer }, settings.cardListSelector );
 defaultCardList.render();
 addButton.addEventListener('click', openAddCardPopup);
 

@@ -1,4 +1,4 @@
-import { calcDwmeter } from "../calc/calcDwmeter.js";
+import { calcDwmeter } from "./calcDwmeter.js";
 import { CardDwmeter } from "./CardDwmeter.js";
 import { initDwmeter as items } from "../../data/initDwmeter.js";
 import { Section } from "../../components/Section.js";
@@ -48,12 +48,11 @@ function openAddCardPopup() {
   addCardPopupWithForm.open();
 }
 
-const cardListSelector = settings.elements;
 const cardList = new Section({
     items,
     renderer
   },
-  cardListSelector
+  settings.cardListSelector
 );
 
 cardList.render();

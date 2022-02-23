@@ -42,7 +42,10 @@ export class CardDthermo extends Card {
     this._fieldAlphanp2.value = this._item.alphanp2;
     this._fieldAlphasl.value = this._item.alphasl;
     this._fieldAlphasl2.value = this._item.alphasl2;
-    this._editCardClick.open({currentCard: this._cardElement, item: this._item, refresh: this._refresh});
+    this._editCardClick.open({
+      currentCard: this._cardElement,
+      item: this._item,
+      refresh: this._refresh});
   }
 
   createCard() {
