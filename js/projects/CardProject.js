@@ -12,13 +12,10 @@ export class CardProject extends Card {
     this._editForm = document.querySelector(settings.editForm);
     this._fieldName = this._editForm.querySelector(settings.inputName);
     this._fieldAddress = this._editForm.querySelector(settings.inputAddress);
-    this._removeButton = settings.removeButton;
-    this._editButton = settings.editButton;
     this._editCardClick = handleCardClick;
     this._validator = handleCardClick._validator;
     this._handleCardDelete = handleCardDelete;
   }
-
 
   _openPopupWithConfirm(evt) {
     this._currentCard = evt.target.closest(this._element);
@@ -37,9 +34,10 @@ export class CardProject extends Card {
   }
 
   setEventListeners() {
-    //this._cardElement.querySelector(this._removeButton).addEventListener("click", () => this._deleteCard());
-    this._cardElement.querySelector(this._removeButton).addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));
-    this._cardElement.querySelector(this._editButton).addEventListener("click", (evt) => this._editCard(evt));
+    this._removeButton = this._cardElement.querySelector(settings.removeButton);
+    this._editButton = this._cardElement.querySelector(settings.editButton);
+    this._removeButton.addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));
+    this._editButton.addEventListener("click", (evt) => this._editCard(evt));
   }
 
   createCard() {

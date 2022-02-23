@@ -16,8 +16,6 @@ export class CardSoft extends Card {
     this._fieldDescription = this._editForm.querySelector(settings.inputDescription);
     this._fieldLink = this._editForm.querySelector(settings.inputLink);
     this._fieldImage = this._editForm.querySelector(settings.inputImage);
-    this._removeButton = settings.removeButton;
-    this._editButton = settings.editButton;
     this._editCardClick = handleCardClick;
     this._validator = handleCardClick._validator;
     this._handleCardDelete = handleCardDelete;
@@ -42,8 +40,10 @@ export class CardSoft extends Card {
   }
 
   setEventListeners() {
-    this._cardElement.querySelector(this._removeButton).addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));
-    this._cardElement.querySelector(this._editButton).addEventListener("click", (evt) => this._editCard(evt));
+    this._removeButton = this._cardElement.querySelector(settings.removeButton);
+    this._editButton = this._cardElement.querySelector(settings.editButton);
+    this._removeButton.addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));
+    this._editButton.addEventListener("click", (evt) => this._editCard(evt));
   }
 
   createCard() {

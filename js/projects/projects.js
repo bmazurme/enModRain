@@ -13,7 +13,7 @@ const addButton = document.querySelector(config.addButton);
 const editForm = document.querySelector(settings.editForm);
 const addForm = document.querySelector(settings.addForm);
 
-const formValidators = {}
+const formValidators = {};
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector))
   formList.forEach((formElement) => {

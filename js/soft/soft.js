@@ -12,10 +12,18 @@ import { PopupWithConfirm } from "../components/PopupWithConfirm.js";
 const addButton = document.querySelector(config.addButton);
 const editForm = document.querySelector(settings.editForm);
 const addForm = document.querySelector(settings.addForm);
-const addCardFormValidator = new FormValidator(config, addForm);
-const editCardFormValidator = new FormValidator(config, editForm);
-addCardFormValidator.enableValidation();
-editCardFormValidator.enableValidation();
+
+const formValidators = {};
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement)
+    const formName = formElement.getAttribute('name')
+      formValidators[formName] = validator;
+   validator.enableValidation();
+  });
+};
+enableValidation(config);
 
 const editCard = (evt, val, current) => {
   evt.preventDefault();
@@ -40,13 +48,13 @@ const addCardPopupWithForm = new PopupWithForm({
 });
 
 function openAddCardPopup() {
-  addCardFormValidator.resetValidation();
+  formValidators[ addForm.getAttribute('name') ].resetValidation();
   addCardPopupWithForm.open();
 }
 
 const handleCardClick = new PopupWithEditForm({
   submit: editCard,
-  validator: editCardFormValidator,
+  validator: formValidators[ editForm.getAttribute('name') ],
   popupSelector: settings.popupEdit
 });
 

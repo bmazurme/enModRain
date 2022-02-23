@@ -1,6 +1,5 @@
 import { settings } from '../config/settings.js';
 import { Popup } from './Popup.js';
-//import { Modal } from './Modal.js';
 
 export class Card extends Popup {
   constructor(item, cardTemplate, openPopup, closePopup, handleCardDelete) {
@@ -36,14 +35,6 @@ export class Card extends Popup {
       doc.save(`Appendix_${this._item.name}.pdf`);
     });
   }
-
-  // _deleteCard() {
-  //   new Modal(
-  //     {
-  //       deleteCard: () => {this._cardElement.remove();
-  //       this._cardElement = null;
-  //     }}).open();
-  // }
 
   setEventListeners() {
     this._cardElement.querySelector(this._removeButton).addEventListener("click", (evt) => this._openPopupWithConfirm(evt, this));//() => this._deleteCard());
