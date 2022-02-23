@@ -5,6 +5,7 @@ import { initAlpha as items} from "../../data/initAlpha.js";
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { PopupWithConfirm } from "../../components/PopupWithConfirm.js";
 import { FormValidator } from '../../components/FormValidator.js';
 import { settings } from "../../config/settings.js";
 import { footerStamp } from "../../index.js";
@@ -17,6 +18,7 @@ const saveCard = (evt, val) => {
   evt.preventDefault(); 
   const result = getAlpha(val);
   cardList.addItem(result);
+  addCardPopupWithForm.close();
 }
 
 const editCard = (evt, val, current) => {
@@ -27,6 +29,7 @@ const editCard = (evt, val, current) => {
   current.item.np = np;
   current.item.alpha = alpha;
   current.refresh();
+  handleCardClick.close();
 }
 
 const addCardPopupWithForm = new PopupWithForm({ submit: saveCard, popupSelector: settings.popupAdd });
@@ -34,6 +37,16 @@ const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+
+const deleteCardCallback = (evt, card) => {
+  evt.preventDefault();
+  card.removeItem();
+  popupWithConfirm.close();
+};
+const popupWithConfirm = new PopupWithConfirm({
+  submit: deleteCardCallback,
+  popupSelector: '.popup_type_modal'
+});
 
 const handleCardClick = new PopupWithEditForm({
   submit: editCard,
@@ -57,7 +70,8 @@ function renderer(data) {
   const card = new CardAlpha({
     item,
     cardTemplate: settings.cardTemplate,
-    handleCardClick
+    handleCardClick,
+    handleCardDelete: popupWithConfirm
   });
   return card.createCard();
 }

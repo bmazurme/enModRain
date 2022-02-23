@@ -4,6 +4,7 @@ import { initDwmeter as items } from "../../data/initDwmeter.js";
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { PopupWithConfirm } from "../../components/PopupWithConfirm.js";
 import { FormValidator } from '../../components/FormValidator.js';
 import { config } from "../../config/config.js";
 import { settings } from "../../config/settings.js";
@@ -17,6 +18,7 @@ const saveCard = (evt, val) => {
   evt.preventDefault();  
   const result = calcDwmeter(val);
   cardList.addItem(result);
+  addCardPopupWithForm.close();
 }
 
 const editCard = (evt, val, current) => {
@@ -28,6 +30,7 @@ const editCard = (evt, val, current) => {
   current.item.s = s;
   current.item.h = h;
   current.refresh();
+  handleCardClick.close();
 }
 
 const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: settings.popupAdd});
@@ -36,6 +39,16 @@ const editCardFormValidator = new FormValidator(config, editForm);
 
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+
+const deleteCardCallback = (evt, card) => {
+  evt.preventDefault();
+  card.removeItem();
+  popupWithConfirm.close();
+};
+const popupWithConfirm = new PopupWithConfirm({
+  submit: deleteCardCallback,
+  popupSelector: '.popup_type_modal'
+});
 
 const handleCardClick = new PopupWithEditForm({
   submit: editCard,
@@ -65,7 +78,8 @@ function renderer(data) {
   const card = new CardDwmeter({
     item,
     cardTemplate: settings.cardTemplate,
-    handleCardClick
+    handleCardClick,
+    handleCardDelete: popupWithConfirm
   });
   return card.createCard();
 }

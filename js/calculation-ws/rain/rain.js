@@ -4,6 +4,7 @@ import { initRain as items} from '../../data/initRain.js';
 import { Section } from "../../components/Section.js";
 import { PopupWithForm } from "../../components/PopupWithForm.js";
 import { PopupWithEditForm } from "../../components/PopupWithEditForm.js";
+import { PopupWithConfirm } from "../../components/PopupWithConfirm.js";
 import { FormValidator } from '../../components/FormValidator.js';
 import { config } from "../../config/config.js";
 import { Popup } from '../../components/Popup.js';
@@ -19,6 +20,7 @@ const saveCard = (evt, val) => {
   evt.preventDefault();  
   const item = calcRain(val);
   cardList.addItem(item);
+  addCardPopupWithForm.close();
 }
 
 const editCard = (evt, val, current) => {
@@ -35,6 +37,7 @@ const editCard = (evt, val, current) => {
   current.item.q5 = q5;
   current.item.sumArea = sumArea;
   current.refresh();
+  handleCardClick.close();
 }
 
 const addCardPopupWithForm = new PopupWithForm({submit: saveCard, popupSelector: settings.popupAdd});
@@ -43,6 +46,16 @@ const addCardFormValidator = new FormValidator(config, addForm);
 const editCardFormValidator = new FormValidator(config, editForm);
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+
+const deleteCardCallback = (evt, card) => {
+  evt.preventDefault();
+  card.removeItem();
+  popupWithConfirm.close();
+};
+const popupWithConfirm = new PopupWithConfirm({
+  submit: deleteCardCallback,
+  popupSelector: '.popup_type_modal'
+});
 
 const handleCardClick = new PopupWithEditForm({
   submit: editCard,
@@ -76,7 +89,8 @@ function renderer(data) {
   const card = new CardRain({
     item,
     cardTemplate: settings.cardTemplate,
-    handleCardClick
+    handleCardClick,
+    handleCardDelete: popupWithConfirm
   });
   return card.createCard();
 }

@@ -21,16 +21,6 @@ export class CardSoft extends Card {
     this._handleCardDelete = handleCardDelete;
   }
 
-  _openPopupWithConfirm(evt) {
-    this._currentCard = evt.target.closest(this._element);
-    this._handleCardDelete.setCurrentCard(this, evt.target.closest(this._element));
-    this._handleCardDelete.open();
-  }
-
-  removeItem() {
-    this._currentCard.remove();
-  }
-
   _editCard(evt) {
     super._editCard(evt);
     this._fieldDescription.value = this._item.description;

@@ -2,7 +2,7 @@ import { settings } from '../../config/settings.js';
 import { Card } from '../../components/Card.js';
 
 export class CardDwmeter extends Card {
-  constructor({item, cardTemplate, handleCardClick}) {
+  constructor({item, cardTemplate, handleCardClick, handleCardDelete}) {
     super(cardTemplate);
     this._cardTemplate = cardTemplate;
     this._item = item;
@@ -16,6 +16,7 @@ export class CardDwmeter extends Card {
     this._elementName = settings.elementName;
     this._editCardClick = handleCardClick;
     this._validator = handleCardClick._validator;
+    this._handleCardDelete = handleCardDelete;
   }
 
   _editCard(evt) {

@@ -31,11 +31,13 @@ const editCard = (evt, {name, address}, current) => {
   current.currentCard.querySelector('.project__address').textContent = address;
   current.item.name = name;
   current.item.address = address;
+  handleCardClick.close();
 };
 
 const saveCard = (evt, item) => {
   evt.preventDefault();  
   cardList.addItem(item);
+  addCardPopupWithForm.close();
 }
 
 const addCardPopupWithForm = new PopupWithForm({

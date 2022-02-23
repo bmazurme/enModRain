@@ -15,6 +15,16 @@ export class Card extends Popup {
     this._handleCardDelete = handleCardDelete;
   }
 
+  removeItem() {
+    this._currentCard.remove();
+  }
+
+  _openPopupWithConfirm(evt) {
+    this._currentCard = evt.target.closest(this._element);
+    this._handleCardDelete.setCurrentCard(this, evt.target.closest(this._element));
+    this._handleCardDelete.open();
+  }
+
   _refresh = () => {
     this._arr = this._getTemplate();
     this._arr.forEach((item) => {
