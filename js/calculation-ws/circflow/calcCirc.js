@@ -2,10 +2,6 @@ export function calcCirc(item) {
   let c = 4.18;
   let p = 988.50;
 
-  // if (item.t1 === 50) {
-  //   c = 4.18;
-  //   p =988.50;
-  // } else 
   if (item.t1 === 51) {
     c = 4.18;
     p = 988.07;
